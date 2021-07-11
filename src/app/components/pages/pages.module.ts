@@ -24,7 +24,7 @@ import { SystemsettingpageComponent } from './systemsettingpage/systemsettingpag
 import { ChangepasspageComponent } from './changepasspage/changepasspage.component';
 import { EmailpageComponent } from './emailpage/emailpage.component';
 import { DROPZONE_CONFIG } from 'ngx-dropzone-wrapper';
-import { ToastrService } from 'ngx-toastr';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { BackendpageComponent } from './backendpage/backendpage.component';
 import { CreditpageComponent } from './creditpage/creditpage.component';
 import { DocspageComponent } from './docspage/docspage.component';
@@ -32,6 +32,10 @@ import { WithdrawpageComponent } from './withdrawpage/withdrawpage.component';
 import { QualificationpageComponent } from './qualificationpage/qualificationpage.component';
 import { DocumentpageComponent } from './documentpage/documentpage.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import { ClipboardModule } from 'ngx-clipboard';
+import { HttpClientModule } from '@angular/common/http';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -46,8 +50,20 @@ import {MatTabsModule} from '@angular/material/tabs';
     FormsModule,
     ReactiveFormsModule,
     MatTabsModule,
+    ClipboardModule,
+    HttpClientModule,
+    CarouselModule,
+    MatDialogModule,
+    ToastrModule.forRoot(
+      {
+        timeOut: 1000
+      }
+    ),
   ],
-
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  providers: [
+    ToastrService
+  ]
 })
+
+  // schemas: [CUSTOM_ELEMENTS_SCHEMA]
 export class PagesModule { }
