@@ -2,17 +2,25 @@ import { Component, OnInit } from '@angular/core';
 import { cryptoDashboard } from 'src/app/shared/data/crypto-dash';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import * as chartData from "../../../shared/data/crypto-dash";
+import { DataTable2, SimpleDataTable } from 'src/app/shared/data/tables/data-table';
+import { DataTable } from 'simple-datatables';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-distpagewallet',
   templateUrl: './distpagewallet.component.html',
   styleUrls: ['./distpagewallet.component.scss']
 })
 export class DistpagewalletComponent implements OnInit {
-
+  public simpleData = SimpleDataTable;
+  public tableData = DataTable2;
   cryptoDashdata = cryptoDashboard;
   customOptions: OwlOptions
 
-  constructor() { }
+  constructor(
+    private router: Router
+
+  ) { }
 
   ngOnInit(): void {
     this.customOptions = {
@@ -52,7 +60,12 @@ export class DistpagewalletComponent implements OnInit {
   }
 }
 
-
+ngAfterViewInit() {
+  let dataTable1 = new DataTable("#myTable1", {
+    searchable: false,
+    fixedHeight: false,
+  });
+}
 
   //DonutChart using Apex
   public donutApexData = chartData.donutApexData;
@@ -96,5 +109,7 @@ export class DistpagewalletComponent implements OnInit {
     { id: 8, src: '../../assets/img/svgs/crypto-currencies/steem.svg', name: 'Steem STEEM', value: 2.345467 },
 
   ]
-
+  gotohome() {
+    this.router.navigateByUrl('/dashboard/dashboard')
+  }
 }

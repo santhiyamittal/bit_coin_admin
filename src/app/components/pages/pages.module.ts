@@ -23,7 +23,6 @@ import { SettingpageComponent } from './settingpage/settingpage.component';
 import { SystemsettingpageComponent } from './systemsettingpage/systemsettingpage.component';
 import { ChangepasspageComponent } from './changepasspage/changepasspage.component';
 import { EmailpageComponent } from './emailpage/emailpage.component';
-import { DROPZONE_CONFIG } from 'ngx-dropzone-wrapper';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { BackendpageComponent } from './backendpage/backendpage.component';
 import { CreditpageComponent } from './creditpage/creditpage.component';
@@ -36,6 +35,8 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { HttpClientModule } from '@angular/common/http';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { MatDialogModule } from '@angular/material/dialog';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+
 
 
 @NgModule({
@@ -54,6 +55,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     HttpClientModule,
     CarouselModule,
     MatDialogModule,
+    AngularEditorModule,
+
     ToastrModule.forRoot(
       {
         timeOut: 1000
@@ -61,8 +64,10 @@ import { MatDialogModule } from '@angular/material/dialog';
     ),
   ],
   providers: [
+ 
     ToastrService
-  ]
+  ],
+
 })
 
   // schemas: [CUSTOM_ELEMENTS_SCHEMA]

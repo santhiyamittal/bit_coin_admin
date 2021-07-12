@@ -20,8 +20,8 @@ export class UseractiveComponent implements OnInit {
   }
   ngAfterViewInit() {
     let dataTable1 = new DataTable("#myTable1", {
-      searchable: true,
-      fixedHeight: true,
+      searchable: false,
+      fixedHeight: false,
     });
   }
   gotohome() {

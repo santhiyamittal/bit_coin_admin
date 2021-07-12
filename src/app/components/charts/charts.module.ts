@@ -10,11 +10,12 @@ import { NgApexchartsModule } from 'ng-apexcharts';
 import { ChartsModule } from 'ng2-charts';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { ChartistModule } from 'ng-chartist';
+import { ChartsComponent } from './charts/charts.component';
 
 
 
 @NgModule({
-  declarations: [ApexComponent, ChartlistComponent, ChartjsComponent, EchartComponent],
+  declarations: [ApexComponent, ChartlistComponent, ChartjsComponent, EchartComponent, ChartsComponent],
   imports: [
     CommonModule,
     ChartsRoutingModule,

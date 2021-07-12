@@ -14,11 +14,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { AdddrawComponent } from './adddraw/adddraw.component';
 
 
 
 @NgModule({
-  declarations: [DrawwalletComponent],
+  declarations: [DrawwalletComponent, AdddrawComponent],
   imports: [
     CommonModule,
   DrawWalletRoutingModule,

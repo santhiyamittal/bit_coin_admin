@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import {AngularEditorConfig } from '@kolkov/angular-editor';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-backendpage',
   templateUrl: './backendpage.component.html',
@@ -8,26 +10,37 @@ import { Component, OnInit } from '@angular/core';
 export class BackendpageComponent implements OnInit {
 
   
-  public days;
-  public hours;
-  public minutes;
-  public seconds;
-  constructor() { }
+  constructor(
+    private router: Router
+
+  ) { }
 
   ngOnInit(): void {
-    let countDown = new Date('Dec 1, 2022 00:00:00').getTime();
-    let time = setInterval(()=>{
-      let now = new Date().getTime();
-      let distance = countDown - now;
-      this.days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      this.hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / ( 1000 * 60 * 60));
-      this.minutes = Math.floor((distance % (1000 * 60 * 60)) / ( 1000 * 60 ));
-      this.seconds = Math.floor((distance % (1000 * 60 )) / 1000);
-
-      if(distance < 0){
-        clearInterval(time);
-      }
-    }, 1000)
   }
-
+  public config: AngularEditorConfig = {
+    editable: true,
+    spellcheck: true,
+    height: '15rem',
+    minHeight: '5rem',
+    placeholder: 'Enter text here...',
+    translate: 'no',
+    customClasses: [
+      {
+        name: "quote",
+        class: "quote",
+      },
+      {
+        name: 'redText',
+        class: 'redText'
+      },
+      {
+        name: "titleText",
+        class: "titleText",
+        tag: "h1",
+      },
+    ]
+  }
+  gotohome() {
+    this.router.navigateByUrl('/dashboard/dashboard')
+  }
 }

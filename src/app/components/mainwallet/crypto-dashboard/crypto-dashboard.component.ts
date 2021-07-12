@@ -2,14 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { cryptoDashboard } from 'src/app/shared/data/crypto-dash';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import * as chartData from "../../../shared/data/crypto-dash";
-
+import { DataTable2, SimpleDataTable } from 'src/app/shared/data/tables/data-table';
+import { DataTable } from 'simple-datatables';
 @Component({
   selector: 'app-crypto-dashboard',
   templateUrl: './crypto-dashboard.component.html',
   styleUrls: ['./crypto-dashboard.component.scss']
 })
 export class CryptoDashboardComponent implements OnInit {
-
+  public simpleData = SimpleDataTable;
+  public tableData = DataTable2;
   cryptoDashdata = cryptoDashboard;
   customOptions: OwlOptions
 
@@ -51,9 +53,15 @@ export class CryptoDashboardComponent implements OnInit {
       },
     }
   }
+ 
 }
 
-
+ngAfterViewInit() {
+  let dataTable1 = new DataTable("#myTable1", {
+    searchable: false,
+    // fixedHeight: false,
+  });
+}
 
   //DonutChart using Apex
   public donutApexData = chartData.donutApexData;

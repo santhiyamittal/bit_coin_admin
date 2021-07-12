@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { cryptoDashboard } from 'src/app/shared/data/crypto-dash';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import * as chartData from "../../../shared/data/crypto-dash";
+import { Router } from '@angular/router';
+import { DataTable2, SimpleDataTable } from 'src/app/shared/data/tables/data-table';
+import { DataTable } from 'simple-datatables';
 @Component({
   selector: 'app-coldpagewallet',
   templateUrl: './coldpagewallet.component.html',
@@ -11,8 +14,12 @@ export class ColdpagewalletComponent implements OnInit {
 
   cryptoDashdata = cryptoDashboard;
   customOptions: OwlOptions
-
-  constructor() { }
+  public simpleData = SimpleDataTable;
+  public tableData = DataTable2;
+  dataTable1:any=[];
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.customOptions = {
@@ -52,7 +59,12 @@ export class ColdpagewalletComponent implements OnInit {
   }
 }
 
-
+ngAfterViewInit() {
+ let dataTable1 = new DataTable("#myTable1", {
+    searchable: false,
+    fixedHeight: true,
+  });
+}
 
   //DonutChart using Apex
   public donutApexData = chartData.donutApexData;
@@ -96,4 +108,7 @@ export class ColdpagewalletComponent implements OnInit {
     { id: 8, src: '../../assets/img/svgs/crypto-currencies/steem.svg', name: 'Steem STEEM', value: 2.345467 },
 
   ]
+  gotohome() {
+    this.router.navigateByUrl('/dashboard/dashboard')
+  }
 }

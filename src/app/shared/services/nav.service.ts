@@ -88,18 +88,18 @@ export class NavService implements OnDestroy {
     
    
     {
-      title: 'Charts', icon: 'ti-bar-chart-alt', type: 'sub', active: false,
-      children: [
-        { path: '/charts/apex', title: 'Apex', type: 'link' },
-        { path: '/charts/chartjs', title: 'Chart.js', type: 'link' },
-        // { path: '/charts/echart', title: 'Echart', type: 'link' },
-        // { path: '/charts/chartlist', title: 'Chartist', type: 'link' },
-      ]
+      path: 'charts/Charts', title: 'Chart',type: 'link', icon: 'ti-bar-chart-alt',active:false,
+      // children: [
+      //   { path: '/charts/apex', title: 'Apex', type: 'link' },
+      //   { path: '/charts/chartjs', title: 'Chart.js', type: 'link' },
+      //   // { path: '/charts/echart', title: 'Echart', type: 'link' },
+      //   // { path: '/charts/chartlist', title: 'Chartist', type: 'link' },
+      // ]
     },
     {
       title: 'Wallet', icon: 'ti-wallet', type: 'sub', active: false,
       children: [
-        { path: '/wallet/crypto-dashboard', title: 'Main Wallet ', type: 'link' },
+        { path: '/wallet/crypto-dashboard', title: 'Main Wallet ', type: 'link', },
         { path: '/wallet/coldwallet', title: 'Cold Wallet', type: 'link' },
         { path: '/wallet/distwallet', title: 'Distribution Wallet', type: 'link' },
        
@@ -133,18 +133,18 @@ export class NavService implements OnDestroy {
       ]
     },
     {
-      path: 'pages/Settingpage', title: 'Setting page', type: 'sub', icon: 'fas fa-cogs', 
-      children: [
-        {
-          path: 'pages/Systemsetpage', title: 'System Setting page', type: 'link', icon: 'fas fa-toolbox', 
-        },
-        {
-          path: 'pages/Changepasswpage', title: 'Change Password Page', type: 'link', icon: 'fas fa-lock-open', 
-        },
-        {
-          path: 'pages/Emailpage', title: ' Email Page', type: 'link', icon: 'fas fa-envelope', 
-        }
-      ]
+      path: 'pages/Settingpage', title: 'Setting page', type: 'link', icon: 'fas fa-cogs', 
+      // children: [
+      //   {
+      //     path: 'pages/Systemsetpage', title: 'System Setting page', type: 'link', icon: 'fas fa-toolbox', 
+      //   },
+      //   {
+      //     path: 'pages/Changepasswpage', title: 'Change Password Page', type: 'link', icon: 'fas fa-lock-open', 
+      //   },
+      //   {
+      //     path: 'pages/Emailpage', title: ' Email Page', type: 'link', icon: 'fas fa-envelope', 
+      //   }
+      // ]
     },
   
     // {

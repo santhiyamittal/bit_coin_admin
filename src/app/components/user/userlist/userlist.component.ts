@@ -26,6 +26,7 @@ export class UserlistComponent implements OnInit {
     const dialogRef = this.dialog.open(ViewlistComponent, {
       width: '600px',
       height: '400px',
+
       // data: { formtype: 'addStrike', data:this.datadetails,},
     });
     dialogRef.afterClosed().subscribe((result) => {
@@ -72,5 +73,8 @@ export class UserlistComponent implements OnInit {
   inactive(){
     this.router.navigateByUrl('/user/inactive')
 
+  }
+  gotohome() {
+    this.router.navigateByUrl('/dashboard/dashboard')
   }
 }

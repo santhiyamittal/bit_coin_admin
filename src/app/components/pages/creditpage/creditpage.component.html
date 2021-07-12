@@ -1,37 +1,39 @@
-<!-- Page -->
-<div class="page main-signin-wrapper bg-primary construction">
-
-    <div class="container ">
-        <div class="construction1 text-center details text-white">
-            <div class="">
-                <!-- <img src="../../assets/img/brand/logo-light.png" class="mb-5" alt="logo"> -->
-                <h4 class="text-center text-white tx-30 font-weight-bold ">We are Coming soon</h4>
-                <p class="text-white-50 tx-15">We're making the system more awesome.we'll be back shortly.</p>
-                <div id="launch_date">
-                    <ul class="countdown">
-                        <li>
-                          <span class="time">{{days}}</span><br>
-                          <span class="title">Days</span>
-                        </li>
-                        <li>
-                          <span class="time">{{hours}}</span><br>
-                          <span class="title">Hours</span>
-                        </li>
-                        <li>
-                          <span class="time">{{minutes}}</span><br>
-                          <span class="title">Minutes</span>
-                        </li>
-                        <li>
-                          <span class="time">{{seconds}}</span><br>
-                          <span class="title">Seconds</span>
-                        </li>
-                      </ul>
-                </div>
-            </div>
-            <!-- <div class="text-center">© 2021 <a href="https://www.spruko.com/" class="text-white-50">Spruko</a> All
-                rights reserved.</div>
-        </div> -->
-    </div>
-
+<div class="page-header">
+  <div>
+     <h2 class="main-content-title tx-24 mg-b-5">Credit</h2>
+     <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="javascript:;"(click)="gotohome()">Home</a></li>
+         <li class="breadcrumb-item active" aria-current="page">Credit</li>
+     </ol>
+ </div>
+ <!--
+ <div class="d-flex">
+     <div class="justify-content-center">
+         <button type="button" class="btn btn-white btn-icon-text my-2 mr-2">
+           <i class="fe fe-download mr-2"></i> Import
+         </button>
+         <button type="button" class="btn btn-white btn-icon-text my-2 mr-2">
+           <i class="fe fe-filter mr-2"></i> Filter
+         </button>
+         <button type="button" class="btn btn-primary my-2 btn-icon-text">
+           <i class="fe fe-download-cloud mr-2"></i> Download Report
+         </button>
+     </div>
+ </div> -->
 </div>
-<!-- End Page -->
+
+
+<div class="row row-sm">
+  <div class="col-lg-12 col-md-12">
+      <div class="card custom-card">
+          <div class="card-body">
+              <div>
+                  <h6 class="main-content-label mb-1">KolKov Editor</h6>
+              </div>
+              <div class="">
+                  <angular-editor [placeholder]="'Enter text here...'" [config]="config"></angular-editor>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

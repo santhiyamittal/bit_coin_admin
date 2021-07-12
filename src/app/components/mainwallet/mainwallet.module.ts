@@ -19,6 +19,7 @@ import { MainwalletRouting } from './mainwallet-routing.module';
 import { DistpagewalletComponent } from './distpagewallet/distpagewallet.component';
 import { ColdpagewalletComponent } from './coldpagewallet/coldpagewallet.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 @NgModule({
   declarations: [MarketcapComponent, CurrencyExchangeComponent, BuySellComponent, WalletComponent, TransactionsComponent, CryptoDashboardComponent, DistpagewalletComponent, ColdpagewalletComponent],
@@ -33,6 +34,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgxDatatableModule,
+
     CarouselModule,
     MatDialogModule,
     ToastrModule.forRoot(

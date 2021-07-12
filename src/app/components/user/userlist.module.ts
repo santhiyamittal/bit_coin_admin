@@ -11,6 +11,7 @@ import { InactiveComponent } from './inactive/inactive.component';
 import { ViewlistComponent } from './viewlist/viewlist.component';
 import { EditlistComponent } from './editlist/editlist.component';
 import { UseractiveComponent } from './useractive/useractive.component';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 
 @NgModule({
@@ -19,7 +20,7 @@ import { UseractiveComponent } from './useractive/useractive.component';
     CommonModule,
     UserListRoutingModule,
     NgbModule,
-    
+    NgxDatatableModule,
     ChartsModule,
     MatDialogModule,
     NgCircleProgressModule.forRoot(),

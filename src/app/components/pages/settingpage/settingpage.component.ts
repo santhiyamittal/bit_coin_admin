@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-settingpage',
@@ -10,27 +12,31 @@ import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 })
 export class SettingpageComponent implements OnInit {
 
+  submitted = false;
+  submitted1 = false;
+  submitted2 = false;
+  public Otp: FormGroup;
   constructor(
-    private modalService: NgbModal
+    private fb: FormBuilder,
+    private router:Router
   ) { }
 
   ngOnInit(): void {
+    this.Otp = this.fb.group({
+    otp : [null, Validators.compose([
+      Validators.required,
+      Validators.pattern('^([0-9]+)$')
+    ])]
+  })
   }
+  get otpFormControl() {
+    return this.Otp.controls;
+  }
+getdashboard(){
+  this.router.navigateByUrl('/dashboard/dashboard')
+}
 
 
-  //ck Editor
-  public Editor = ClassicEditor;
-  public onReady(editor) {
-    editor.ui.view.editable.element.parentElement.insertBefore(
-      editor.ui.view.toolbar.element,
-      editor.ui.view.editable.element,
-  
-    );
-  }
-
-  OpenEditor(editormodal) {
-    this.modalService.open(editormodal, { centered: true, size: 'lg'});
-  }
 
   //Angular Editor
   public config: AngularEditorConfig = {
@@ -57,32 +63,6 @@ export class SettingpageComponent implements OnInit {
     ]
   }
 
-  //Quil Editors
 
-  quillConfig = {
-    //toolbar: '.toolbar',
-    toolbar: [
-      ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
-      ['blockquote', 'code-block'],
-
-      [{ 'header': 1 }, { 'header': 2 }],               // custom button values
-      [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-      [{ 'script': 'sub' }, { 'script': 'super' }],      // superscript/subscript
-      [{ 'indent': '-1' }, { 'indent': '+1' }],          // outdent/indent
-      [{ 'direction': 'rtl' }],                         // text direction
-
-      [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
-      [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-
-      [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
-      [{ 'font': [] }],
-      [{ 'align': [] }],
-
-      ['clean'],                                         // remove formatting button
-
-      ['link', 'image', 'video']                         // link and image, video
-    ]
-
-  }
 
 }
