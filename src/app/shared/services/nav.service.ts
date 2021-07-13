@@ -88,7 +88,7 @@ export class NavService implements OnDestroy {
     
    
     {
-      path: 'charts/Charts', title: 'Chart',type: 'link', icon: 'ti-bar-chart-alt',active:false,
+      path: 'charts/Charts', title: 'Analytics', icon: 'ti-bar-chart-alt',active:false,
       // children: [
       //   { path: '/charts/apex', title: 'Apex', type: 'link' },
       //   { path: '/charts/chartjs', title: 'Chart.js', type: 'link' },
@@ -100,20 +100,27 @@ export class NavService implements OnDestroy {
       title: 'Wallet', icon: 'ti-wallet', type: 'sub', active: false,
       children: [
         { path: '/wallet/crypto-dashboard', title: 'Main Wallet ', type: 'link', },
+        { path: '/wallet/accumfund', title: 'Accumulate Fund', type: 'link' },
+        { path: '/wallet/subwallet', title: 'Sub Wallet', type: 'link' },
         { path: '/wallet/coldwallet', title: 'Cold Wallet', type: 'link' },
         { path: '/wallet/distwallet', title: 'Distribution Wallet', type: 'link' },
        
       ]
     },
     {
-      path: 'drawwallet/Drawwallet', title: 'Draw Wallet', type: 'link', icon: 'ti-money', 
+      title: 'Draw',  type: 'sub',icon: 'ti-money', active: false,
+      children: [
+      {path: 'drawwallet/Drawwallet', title: 'Upcoming Draw', type: 'link',  },
+      {
+        path: 'draworder/draworderpage', title: 'Pervious Draw', type: 'link', 
+      },
+      ]
     },
+  
     {
       path: 'payment/userpayment', title: 'User Payment', type: 'link', icon: 'fa fa-money', 
     },
-    {
-      path: 'draworder/draworderpage', title: 'Draw Order', type: 'link', icon:' fas fa-donate', 
-    },
+   
     {
       path: 'wallet/paytranscation', title: 'Pay Transcation', type: 'link', icon: 'fas fa-receipt', 
     },
@@ -126,10 +133,10 @@ export class NavService implements OnDestroy {
     {
       path: 'pages/Extrapage', title: 'Extra page',type: 'sub', icon: 'fa fa-plus', 
       children: [
-        { path: '/pages/backendpage', title: 'Backend page ', type: 'link' },
-        { path: '/pages/creditpage', title: 'Credit page', type: 'link' },
-        { path: '/pages/faqs', title: 'faqs', type: 'link' },
-        { path: '/pages/withdrawpage', title: 'Withdraw page', type: 'link' },
+        { path: '/pages/backendpage', title: 'How to play backend', type: 'link' },
+        { path: '/pages/creditpage', title: 'How to Add Credit', type: 'link' },
+        { path: '/pages/faqs', title: 'FAQS', type: 'link' },
+        { path: '/pages/withdrawpage', title: 'How to Withdraw', type: 'link' },
       ]
     },
     {

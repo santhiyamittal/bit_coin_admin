@@ -69,4 +69,8 @@ export class DraworderComponent implements OnInit {
   gotohome() {
     this.router.navigateByUrl('/dashboard/dashboard')
   }
+  gotoview(){
+    this.router.navigateByUrl('/drawwallet/viewdraw')
+
+  }
 }

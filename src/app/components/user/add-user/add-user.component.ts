@@ -20,4 +20,7 @@ export class AddUserComponent implements OnInit {
     this.router.navigateByUrl('/user/userlist')
 
   }
+  inactive(){
+    this.router.navigateByUrl('/user/inactive')
+  }
 }

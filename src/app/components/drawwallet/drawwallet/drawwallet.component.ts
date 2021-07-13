@@ -73,7 +73,10 @@ export class DrawwalletComponent implements OnInit {
       }
     })
   }
+  gotoview(){
+    this.router.navigateByUrl('/drawwallet/viewdraw')
 
+  }
   editsymbol() {
     const dialogRef = this.dialog.open(EditlistComponent, {
       width: '600px',

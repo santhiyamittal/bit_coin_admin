@@ -15,11 +15,12 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { AdddrawComponent } from './adddraw/adddraw.component';
+import { ViewdrawComponent } from './viewdraw/viewdraw.component';
 
 
 
 @NgModule({
-  declarations: [DrawwalletComponent, AdddrawComponent],
+  declarations: [DrawwalletComponent, AdddrawComponent, ViewdrawComponent],
   imports: [
     CommonModule,
   DrawWalletRoutingModule,

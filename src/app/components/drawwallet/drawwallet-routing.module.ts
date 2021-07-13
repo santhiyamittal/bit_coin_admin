@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdddrawComponent } from './adddraw/adddraw.component';
 import { DrawwalletComponent } from './drawwallet/drawwallet.component';
+import { ViewdrawComponent } from './viewdraw/viewdraw.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,10 @@ const routes: Routes = [
       {
         path: 'adddraw',
         component: AdddrawComponent
+      },
+      {
+        path: 'viewdraw',
+        component: ViewdrawComponent
       },
     ]
   }

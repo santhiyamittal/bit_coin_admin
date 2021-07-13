@@ -1,10 +1,10 @@
 <!-- Page Header -->
 <div class="page-header">
      <div>
-        <h2 class="main-content-title tx-24 mg-b-5">Draw Order</h2>
+        <h2 class="main-content-title tx-24 mg-b-5">Pervious Draw</h2>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="javascript:;"(click)="gotohome()">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Draw Order</li>
+            <li class="breadcrumb-item active" aria-current="page">Pervious Draw </li>
         </ol>
     </div>
    <!-- <div class="d-flex">
@@ -83,8 +83,8 @@
         <div class="card-body">
     <div class="d-flex">
         <div class="body">
-            <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="row1">
+                <div class="col-lg-6 col-md-6 col-sm-6">
                     <!-- <label>Date</label> -->
                     <!-- <div class="input-group">
                         <input type="text" data-provide="datepicker" id="filter_start_date" name="filter_start_date"
@@ -92,12 +92,12 @@
                             required="required">
                     </div> -->
                     <div class="form-group text-left">
-                        <label>Created</label>
+                        <label>Name</label>
                         <input class="form-control" 
-                            type="date">
+                            type="text">
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
+                <!-- <div class="col-lg-4 col-md-4 col-sm-6">
                     <label>Company</label>
                     <div class="form-group">
                         <select class="custom-select" name="filter_company" id="filter_company">
@@ -105,9 +105,9 @@
                             <option value="10">Dev Test</option>
                         </select>
                     </div>
-                </div>
+                </div> -->
     
-                <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="form-group">
                         <label>Email</label>
                         <select class="custom-select" name="main_dept" id="main_dept">
@@ -115,7 +115,7 @@
                     </div>
                 </div>
     
-                <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="form-group">
                         <label>Status</label>
                         <select class="custom-select" name="filter_status" id="filter_status">
@@ -126,7 +126,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="col-lg-4 col-md-4 col-sm-6">
                     <label>&nbsp;</label>
                     <button type="button" id="attendance_search" class="btn btn-sm btn-primary btn-block"
                         title="">Get</button>
@@ -189,10 +189,10 @@
                                         <a href="javascript:;">mila@kunis.com</a>
                                     </td>
                                     <td>
-                                        <button (click)="addsymbol()" class="btn btn-sm btn-primary mr-1">
+                                        <button (click)="gotoview()" class="btn btn-sm btn-primary mr-1">
                                             <i class="si si-eye"></i>
                                         </button>
-                                        <button (click)="editsymbol()" class="btn btn-sm btn-info mr-1">
+                                        <button (click)="gotoview()" class="btn btn-sm btn-info mr-1">
                                             <i class="fe fe-edit-2"></i>
                                         </button>
                                         <button (click)="warningAlert()" class="btn btn-sm btn-danger">

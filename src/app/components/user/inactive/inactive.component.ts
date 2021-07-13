@@ -25,6 +25,10 @@ export class InactiveComponent implements OnInit {
     this.router.navigateByUrl('/user/userlist')
 
   }
+  add(){
+    this.router.navigateByUrl('/user/adduser')
+
+  }
   addsymbol() {
     const dialogRef = this.dialog.open(ViewlistComponent, {
       width: '600px',

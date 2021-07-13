@@ -13,24 +13,24 @@
         <div class="justify-content-center">
             <!-- <button type="button" class="btn btn-white btn-icon-text my-2 mr-2">
                 <i class="fe fe-download mr-2"></i> Import
-            </button>
-            <button type="button" class="btn btn-white btn-icon-text my-2 mr-2">
-                <i class="fe fe-filter mr-2"></i> Filter
-            </button>
-            <button type="button" class="btn btn-primary my-2 btn-icon-text">
-                <i class="fe fe-download-cloud mr-2"></i> Download Report
-            </button> -->
+            </button>-->
+            <button type="button" style ="background-color: #6259CA;"   class="btn btn-white btn-icon-text my-2 ml-2" (click)="user()">
+                User List
+               </button> 
+           <button type="button" class="btn btn-primary my-2 btn-icon-text"(click)="inactive()">
+             Inactive User
+           </button> 
         </div>
     </div>
 </div>
 
 <div class="card card-aside custom-card">
     <div class="container-fluid">
-        <div class="row row-sm">
+        <div class="row">
             <div class="card-body">
 
                 <form action="" method="post" id="formSystem" enctype="multipart/form-data">
-                    <div class="row1">
+                    <div class="row">
                         <div class="col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label>ADD Draw <span
@@ -123,7 +123,7 @@
                         </div>
                     </div>
                     
-                    <div class="row1">
+                    <div class="row">
                         <div class="col-sm-12 text-right m-t-20">
                             <button type="submit" id="system_submit"
                                 class="btn btn-primary">Save</button>

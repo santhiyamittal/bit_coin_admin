@@ -20,9 +20,11 @@ import { DistpagewalletComponent } from './distpagewallet/distpagewallet.compone
 import { ColdpagewalletComponent } from './coldpagewallet/coldpagewallet.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { SubwalletComponent } from './subwallet/subwallet.component';
+import { AccumulatefundsComponent } from './accumulatefunds/accumulatefunds.component';
 
 @NgModule({
-  declarations: [MarketcapComponent, CurrencyExchangeComponent, BuySellComponent, WalletComponent, TransactionsComponent, CryptoDashboardComponent, DistpagewalletComponent, ColdpagewalletComponent],
+  declarations: [MarketcapComponent, CurrencyExchangeComponent, BuySellComponent, WalletComponent, TransactionsComponent, CryptoDashboardComponent, DistpagewalletComponent, ColdpagewalletComponent, SubwalletComponent, AccumulatefundsComponent],
   imports: [
     CommonModule,
     MainwalletRouting,
