@@ -88,7 +88,7 @@
     }
 }
 .mat-dialog-container {
-  /* display: block; */
+  display: block;
   padding: 24px;
   border-radius: 4px;
   box-sizing: border-box;
@@ -98,10 +98,11 @@
   height: 100%;
   min-height: inherit;
   max-height: inherit;
-  background-color: #18182A !important;
+  background-color: black;
 }
-.mat-dialog-container {
-  box-shadow: 0px 11px 15px -7px rgb(0 0 0 / 20%), 0px 24px 38px 3px rgb(0 0 0 / 14%), 0px 9px 46px 8px rgb(0 0 0 / 12%);
-  background:#18182A !important;
-  color: rgba(0, 0, 0, 0.87);
-}
+// .mat-dialog-container {
+//   box-shadow: 0px 11px 15px -7px rgb(0 0 0 / 20%), 0px 24px 38px 3px rgb(0 0 0 / 14%), 0px 9px 46px 8px rgb(0 0 0 / 12%);
+//   background:#18182A !important;
+//   color: rgba(0, 0, 0, 0.87);
+// }
+

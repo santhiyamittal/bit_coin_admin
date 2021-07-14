@@ -29,23 +29,18 @@
         <div class="row">
             <div class="card-body">
 
-                <form action="" method="post" id="formSystem" enctype="multipart/form-data">
+                <form [formGroup]="selectForm" (ngSubmit)="selectSubmit()" novalidate>
                     <div class="row">
                         <div class="col-md-6 col-sm-12">
-                            <div class="form-group">
-                                <label>ADD Draw <span
-                                        class="text-danger">*</span></label>
-                                <input class="form-control" id="app_name" type="text"
-                                    value="OBO AM" placeholder="Application Name ">
-                            </div>
+                            <label class="form-label">Add User <span class="tx-danger">*</span>
+                                <input class="form-control"  value="Niyaz Ahamed" formControlName="text" placeholder="Enter text">
+                            </label>
                         </div>
                         <div class="col-md-6 col-sm-12">
-                            <div class="form-group">
-                                <label>Company Name <span
-                                        class="text-danger">*</span></label>
-                                <input class="form-control" id="comp_name" type="text"
-                                    value="Future Trends" placeholder="Company Name ">
-                            </div>
+                           
+                            <label class="form-label">Company <span class="tx-danger">*</span>
+                                <input class="form-control" formControlName="text" placeholder="Enter text">
+                            </label>
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <div class="form-group">
@@ -125,8 +120,10 @@
                     
                     <div class="row">
                         <div class="col-sm-12 text-right m-t-20">
-                            <button type="submit" id="system_submit"
-                                class="btn btn-primary">Save</button>
+                            <!-- <button type="submit" id="system_submit"
+                                class="btn btn-primary" (click)="user()">Save</button> -->
+                                <button type="submit" class="btn btn-primary" (click)="user()"
+                                >Save</button>
                         </div>
                     </div>
                 </form>
