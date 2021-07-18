@@ -27,7 +27,7 @@ import { HorizontalMenuComponent } from './components-horizontal/horizontal-menu
     CommonModule,
     RouterModule,
     NgbModule,
-    NgSelectModule
+    NgSelectModule,
   ],
   exports: [
     LoaderComponent, 

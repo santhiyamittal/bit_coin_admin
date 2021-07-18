@@ -27,8 +27,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
-<div [ngclass]="'darkMode' ? 'dark-theme' : 'mat-typography' ">
-  <body class="dark-theme">
+<div [ngClass]="{
+  darkTheme: setMode
+}">
+</div> 
+ <body class="dark-theme">
     <app-root></app-root>
   </body>
 </div>

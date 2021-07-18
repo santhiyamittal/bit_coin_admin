@@ -20,7 +20,7 @@ export class AuthenticationComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      username: ['muthu@demo.com', [Validators.required, Validators.email]],
+      username: ['demo@demo.com', [Validators.required, Validators.email]],
       password: ['test123', Validators.required]
     })
   }
@@ -30,7 +30,7 @@ export class AuthenticationComponent implements OnInit {
   }
 
   Submit(){
-    if (this.loginForm.controls['username'].value === "muthu@demo.com" && this.loginForm.controls['password'].value === "test123")
+    if (this.loginForm.controls['username'].value === "demo@demo.com" && this.loginForm.controls['password'].value === "test123")
     {
       this.router.navigate(['/custom/twofactor']);
     }

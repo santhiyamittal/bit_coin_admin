@@ -26,7 +26,19 @@
                                     <p class="mb-4 text-muted tx-13 ml-0 text-left"></p>
                                     <form [formGroup]="Otp">
                                         <div class="form-group text-left">
-                                            <label>OTP</label>
+                                            <label> SMS OTP</label>
+                                            <input class="form-control"maxlength='6' formControlName="otp" placeholder="Enter your OTP" 
+                                            value="">
+                                            <div *ngIf="(otpFormControl.otp.touched || submitted1) && (otpFormControl.otp.errors?.required)"
+                                            class="tx-danger">
+                                            <small>OTP is required</small>
+                                        </div>
+                                        <div *ngIf="otpFormControl.otp.errors?.pattern" class="tx-danger">
+                                            <small>Enter a valid OTP</small>
+                                        </div>
+                                        </div>
+                                        <div class="form-group text-left">
+                                            <label> Email OTP</label>
                                             <input class="form-control"maxlength='6' formControlName="otp" placeholder="Enter your OTP" 
                                             value="">
                                             <div *ngIf="(otpFormControl.otp.touched || submitted1) && (otpFormControl.otp.errors?.required)"

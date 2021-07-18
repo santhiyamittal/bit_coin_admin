@@ -1,9 +1,10 @@
-import { Component, OnInit, AfterViewInit , Inject, OnChanges } from '@angular/core';
+import { Component, OnInit, AfterViewInit , Inject, OnChanges, Renderer2 } from '@angular/core';
 import PerfectScrollbar from 'perfect-scrollbar';
 import { Subscription } from 'rxjs';
 import { LayoutService } from '../../services/layout.service';
 import { NavService } from '../../services/nav.service';
 import { DOCUMENT } from '@angular/common';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-header',
@@ -17,10 +18,12 @@ export class HeaderComponent implements OnInit , AfterViewInit {
   public config: any = {};
   layoutSubscription: Subscription;
   toggleClass = "fe fe-maximize";
-  
+  toggleTheme = new FormControl(false);
+
   constructor(
     private layoutService: LayoutService,
     public navServices: NavService,
+    private _renderer: Renderer2
   ) {
     this.layoutSubscription = layoutService.changeEmitted.subscribe(
       direction => {
@@ -29,9 +32,12 @@ export class HeaderComponent implements OnInit , AfterViewInit {
     )
    
   }
+ 
 
   ngOnInit(): void {
+    
   }
+  
   categories = [
     { id: 1, name: 'English' },
     { id: 2, name: 'عربى ' },

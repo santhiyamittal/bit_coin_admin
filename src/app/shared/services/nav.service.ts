@@ -140,18 +140,18 @@ export class NavService implements OnDestroy {
       ]
     },
     {
-      path: 'pages/Settingpage', title: 'Setting page', type: 'link', icon: 'fas fa-cogs', 
-      // children: [
-      //   {
-      //     path: 'pages/Systemsetpage', title: 'System Setting page', type: 'link', icon: 'fas fa-toolbox', 
-      //   },
-      //   {
-      //     path: 'pages/Changepasswpage', title: 'Change Password Page', type: 'link', icon: 'fas fa-lock-open', 
-      //   },
+      path: 'pages', title: 'Setting page', type: 'sub', icon: 'fas fa-cogs', 
+      children: [
+        {
+          path: 'pages/Settingpage', title: 'System ', type: 'link', icon: 'fas fa-toolbox', 
+        },
+        {
+          path: 'pages/Changepasswpage', title: 'Change Password ', type: 'link', icon: 'fas fa-lock-open', 
+        },
       //   {
       //     path: 'pages/Emailpage', title: ' Email Page', type: 'link', icon: 'fas fa-envelope', 
       //   }
-      // ]
+      ]
     },
   
     // {
