@@ -11,6 +11,7 @@ import {  Full_Content_Routes } from './shared/routes/full-content.routes';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
+  
   { path: 'login', component: AuthenticationComponent },
   { path: '', component: FullLayoutComponent, children: Full_Content_Routes },
   // { path: '', component: HoriFullLayoutComponent, children: Full_Content_Routes },

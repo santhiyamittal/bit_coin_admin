@@ -24,13 +24,21 @@
                                     <h5 class="text-left mb-2">Forgot Password</h5>
                                     <p class="mb-4 text-muted tx-13 ml-0 text-left">It's free to signup and only takes a
                                         minute.</p>
-                                    <form>
+                                    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
                                         <div class="form-group text-left">
                                             <label>Email</label>
-                                            <input class="form-control" placeholder="Enter your email" type="text"
-                                                value="">
+                                            <!-- <input  class="form-control" formControlName="email" type="text">
+                                            <div *ngIf="(loginFormControl.email.touched || submitted) && (loginFormControl.email.errors?.required)"
+                                                class="tx-danger">
+                                                <small>Enter Mail to login</small>
+                                            </div> -->
+                                            <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && loginFormControl.email.errors }" />
+                                            <div *ngIf="submitted && loginFormControl.email.errors" class="invalid-feedback">
+                                                <div *ngIf="loginFormControl.email.errors.required">Email is required</div>
+                                                <div *ngIf="loginFormControl.email.errors.email">Email must be a valid email address</div>
+                                            </div>
                                         </div>
-                                        <button class="btn ripple btn-main-primary btn-block">Request reset
+                                        <button class="btn ripple btn-main-primary btn-block"[disabled]="!loginForm.valid">Request reset
                                             link</button>
                                     </form>
                                     <div class="card-footer border-top-0 pl-0 mt-3 text-left ">

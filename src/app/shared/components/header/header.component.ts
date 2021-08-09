@@ -5,6 +5,9 @@ import { LayoutService } from '../../services/layout.service';
 import { NavService } from '../../services/nav.service';
 import { DOCUMENT } from '@angular/common';
 import { FormControl } from '@angular/forms';
+import { HttpService } from '../../services/http.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-header',
@@ -19,11 +22,20 @@ export class HeaderComponent implements OnInit , AfterViewInit {
   layoutSubscription: Subscription;
   toggleClass = "fe fe-maximize";
   toggleTheme = new FormControl(false);
+  data: any;
+  role: any;
+  username: any;
 
   constructor(
     private layoutService: LayoutService,
     public navServices: NavService,
-    private _renderer: Renderer2
+    private _renderer: Renderer2,
+    private route: ActivatedRoute,
+    private router: Router,
+    private routeTo: Router,
+    public toastr: ToastrService,
+
+    public httpService: HttpService,
   ) {
     this.layoutSubscription = layoutService.changeEmitted.subscribe(
       direction => {
@@ -35,7 +47,7 @@ export class HeaderComponent implements OnInit , AfterViewInit {
  
 
   ngOnInit(): void {
-    
+    this.getprofile();
   }
   
   categories = [
@@ -72,6 +84,44 @@ export class HeaderComponent implements OnInit , AfterViewInit {
     const sidebar = document.querySelector('.side-menu');
     let ps = new PerfectScrollbar(sidebar);
   }
+  logoutUser() {
+    debugger
+    if (
+      localStorage.getItem("userid") != null ||
+      localStorage.getItem("userid") != undefined
+    ) {
+      var userEmail = JSON.parse(localStorage.getItem("userid"));
+      sessionStorage.setItem("previousLogin", JSON.stringify(userEmail));
+console.log(userEmail );
+      // this.loader.stop();
+      let jsonObj = {
+        userid: userEmail,
+      };
+      this.httpService.logoutSession(jsonObj).subscribe((resp) => {
+        localStorage.clear();
+        this.toastr.error("User has been logged off", "", {
+          positionClass: "toast-bottom-right",
+          closeButton: true,
+          timeOut: 5000,
+        });
+        this.router.navigateByUrl("login");
+      });
+    }
+  }
+  getprofile() {
+   
+      this.httpService.getProfile().subscribe((res) => {
 
-}
+this.data=res['data']
+this.role=res['data']['role']
+this.username=res['data']['username']
+console.log(this.role);
+
+
+this.router.navigateByUrl("pages/profile");
+
+      });
+    }
+  }
+
 

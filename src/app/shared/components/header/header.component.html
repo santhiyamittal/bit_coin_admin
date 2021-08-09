@@ -176,12 +176,13 @@
                 </a>
                 <div ngbDropdownMenu>
                     <div class="header-navheading">
-                        <h6 class="main-notification-title">Sonia Taylor</h6>
-                        <p class="main-notification-text">Web Designer</p>
+                        <h6 class="main-notification-title">{{role}}</h6>
+                        <p class="main-notification-text">{{username}}</p>
                     </div>
-                    <a ngbDropdownItem class="border-top" routerLink="/pages/profile">
+                    <button ngbDropdownItem class=""(click)="getprofile()" >
                         <i class="fe fe-user"></i> My Profile
-                    </a>
+                    </button>
+                    
                     <!-- <a ngbDropdownItem class="dropdown-item" routerLink="/pages/profile">
                         <i class="fe fe-edit"></i> Edit Profile
                     </a>
@@ -197,9 +198,9 @@
                     <!-- <a ngbDropdownItem class="" routerLink="/pages/profile">
                         <i class="fas fa-envelope-square"></i> Email
                     </a> -->
-                    <a ngbDropdownItem class="" href="signin.html">
+                    <button ngbDropdownItem class=""(click)="logoutUser()" >
                         <i class="fe fe-power"></i> Sign Out
-                    </a>
+                    </button>
                 </div>
             </div>
             <!-- <div class="dropdown d-md-flex header-settings">
@@ -383,7 +384,7 @@
                     <a ngbDropdownItem class="" routerLink="/pages/profile">
                         <i class="fe fe-compass"></i> Activity
                     </a>
-                    <a ngbDropdownItem class="" routerLink="/">
+                    <a ngbDropdownItem class="" (click)="logoutUser()">
                         <i class="fe fe-power"></i> Sign Out
                     </a>
                 </div>

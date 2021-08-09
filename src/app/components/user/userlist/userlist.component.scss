@@ -17,4 +17,12 @@
       .cus{
         cursor: pointer !important;
     }
-       
+    // .my-pagination /deep/ .ngx-pagination .current {
+    //     background:#6259CA;
+    //   }
+    .ngx-pagination .current {
+        padding: 0.1875rem 0.625rem;
+        background: #6259CA !important;
+        color: #fefefe;
+        cursor: default;
+    }

@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import {
   ButtonsConfig, ButtonsStrategy, AdvancedLayout, GalleryService, Image, KS_DEFAULT_BTN_CLOSE, KS_DEFAULT_BTN_DELETE, KS_DEFAULT_BTN_DOWNLOAD, KS_DEFAULT_BTN_EXTURL, KS_DEFAULT_BTN_FULL_SCREEN, ButtonEvent, ButtonType, PlainGalleryConfig, PlainGalleryStrategy,
 } from '@ks89/angular-modal-gallery';
+import { ToastrService } from 'ngx-toastr';
 import { TimeZone } from 'src/app/shared/data/pages/profile';
+import { HttpService } from 'src/app/shared/services/http.service';
 
 @Component({
   selector: 'app-profile',
@@ -13,12 +16,22 @@ import { TimeZone } from 'src/app/shared/data/pages/profile';
 export class ProfileComponent implements OnInit {
 
   timeZone = TimeZone
+  data: any;
+  role: any;
+  username: any;
 
   constructor(
     private galleryService: GalleryService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private routeTo: Router,
+    public toastr: ToastrService,
+
+    public httpService: HttpService,
   ) { }
 
   ngOnInit(): void {
+    this.getprofile();  
   }
   public GalleryImage: Image[] = [
     new Image(
@@ -176,5 +189,18 @@ export class ProfileComponent implements OnInit {
   }
 
 
+  getprofile() {
+   
+    this.httpService.getProfile().subscribe((res) => {
 
+this.data=res['data']
+this.role=res['data']['role']
+this.username=res['data']['username']
+console.log(this.role);
+
+
+// this.router.navigateByUrl("pages/profile");
+
+    });
+  }
 }

@@ -1,4 +1,3 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UserListRoutingModule } from './userlist-routing.module';
@@ -14,6 +13,8 @@ import { UseractiveComponent } from './useractive/useractive.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { ToastrModule } from 'ngx-toastr';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 
 
 @NgModule({
@@ -27,12 +28,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     ChartsModule,
     MatDialogModule,
+    NgxPaginationModule,
     NgCircleProgressModule.forRoot(),
     ToastrModule.forRoot(
       {
         timeOut: 3000
       }
     ),
-  ]
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+
 })
 export class UserListModule { }

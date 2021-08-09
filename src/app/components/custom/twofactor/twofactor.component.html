@@ -24,7 +24,7 @@
                                     <!-- <h5 class="text-left mb-2">Authentication</h5> -->
                                     <label>Authentication</label>
                                     <p class="mb-4 text-muted tx-13 ml-0 text-left"></p>
-                                    <form [formGroup]="Otp">
+                                    <form [formGroup]="otpForm">
                                         <div class="form-group text-left">
                                             <label> SMS OTP</label>
                                             <input class="form-control"maxlength='6' formControlName="otp" placeholder="Enter your OTP" 
@@ -49,8 +49,10 @@
                                             <small>Enter a valid OTP</small>
                                         </div>
                                         </div>
-                                        <button class="btn ripple btn-main-primary btn-block" (click)="getdashboard()">Submit
-                                            </button>
+                                        <!-- <button class="btn ripple btn-main-primary btn-block "  [disabled]="!otpForm.valid" (click)="getdashboard()">Submit -->
+                                            <button class="btn ripple btn-main-primary btn-block "(click)="getdashboard()">Submit
+
+                                        </button>
                                             
                                     </form>
                                     <!-- <div class="card-footer border-top-0 pl-0 mt-3 text-left ">
