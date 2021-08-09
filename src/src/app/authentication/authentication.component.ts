@@ -104,7 +104,7 @@ export class AuthenticationComponent implements OnInit {
   //   });
   // }
   onSubmit() {
-    debugger
+    // debugger
     localStorage.clear();
     
     let jsonData = {
@@ -147,7 +147,7 @@ export class AuthenticationComponent implements OnInit {
     });
   }
   generateUserOTP() {
-    debugger
+    // debugger
     var apiSlowdown: boolean = false;
 
     this.loader.start();

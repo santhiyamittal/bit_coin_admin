@@ -53,7 +53,7 @@ export class ForgetComponent implements OnInit {
         this.httpService.toastr.success(res['message'], '', {
           positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
         });
-        this.router.navigate(['custom/reset-password']);
+        // this.router.navigate(['custom/reset-password']);
       } else if (res['success'] == false) {
         // this.notOKstat = res['UserConfiguration']['ErrorMessage'];
         // this.httpService.toastr.error(res['UserConfiguration']['ErrorMessage']);
@@ -61,14 +61,14 @@ export class ForgetComponent implements OnInit {
           positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
         });
       }
-    }, 
-    (err) => {
-      // this.loader.stop();
-      // this.toastr.error("Please try after some time");
-      this.toastr.error("The email field is mandatory.", "", {
-        positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
-      });
-      this.httpService.errorCallBack(false);
+    // }, 
+    // (err) => {
+    //   // this.loader.stop();
+    //   // this.toastr.error("Please try after some time");
+    //   this.toastr.error("The email field is mandatory.", "", {
+    //     positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
+    //   });
+    //   this.httpService.errorCallBack(false);
     });
   }
  

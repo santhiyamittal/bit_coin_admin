@@ -13,7 +13,7 @@ export class ChangepasspageComponent implements OnInit {
   userDetails: any =[];
   userID: any;
   public loginForm: FormGroup;
-  public submitted: boolean = false;
+   submitted= false;
 
   constructor(
     private route: ActivatedRoute,
@@ -40,37 +40,19 @@ export class ChangepasspageComponent implements OnInit {
   }
   createForm() {
     this.changepass = this.formBuilder.group({
-      'oldPass': ["", Validators.required],
-      'newPass': ["", Validators.required],
-      'confirmPass': ["", Validators.required],
+      'oldPass': ['', [Validators.required, Validators.minLength(6)]],
+      'newPass': ['', [Validators.required, Validators.minLength(6)]],
+      'confirmPass': ['', [Validators.required, Validators.minLength(6)]],
     });
   }
   get loginFormControl(){
     return this.changepass.controls;
   }
-  getError(el) {
-    switch (el) {
-      case 'old':
-        if (this.changepass.get('oldPass').hasError('required')) {
-          return 'old password required';
-        }
-        break;
-      case 'new':
-        if (this.changepass.get('newPass').hasError('required')) {
-          return ' new Password required';
-        }
-        break;
-      case 'confirm':
-        if (this.changepass.get('confirmPass').hasError('required')) {
-          return 'confirm Password required';
-        }
-        break;
-      default:
-        return '';
-    }
-  }
+ 
   changepassword() {
-    debugger
+    this.submitted = true;
+
+    // debugger
     if (this.changepass.value.newPass== this.changepass.value.confirmPass) {
       let JsonData = {
         "old_password": this.changepass.value.oldPass,
@@ -79,7 +61,7 @@ export class ChangepasspageComponent implements OnInit {
         // "userId": this.userID,
       }
       this.httpService.changePassword(JsonData).subscribe(res => {
-        debugger
+        // debugger
         if (res['success'] == true) {
           // this.toastr.success("Password changed Successfully");
           this.httpService.toastr.success(res['message'], '', {
@@ -87,12 +69,12 @@ export class ChangepasspageComponent implements OnInit {
           });
           this.routeTo.navigateByUrl('login');
         }
-      }, (err) => {
-        // this.httpService.toastr.error(err);
-        this.httpService.toastr.error(err.error,
-          '', {
-          positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
-        });
+      // }, (err) => {
+      //   // this.httpService.toastr.error(err);
+      //   this.httpService.toastr.error("All field is mandatory",
+      //     '', {
+      //     positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
+      //   });
       })
     } else {
       // this.httpService.toastr.error("Password didn't match");

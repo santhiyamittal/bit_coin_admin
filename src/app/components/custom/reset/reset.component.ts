@@ -45,7 +45,7 @@ export class ResetComponent implements OnInit {
     });
   }
   onSubmit() {
-    debugger
+    // debugger
     this.submitted = true;
 
     let jsonData = {
@@ -69,7 +69,7 @@ export class ResetComponent implements OnInit {
     }, 
     (err) => {
       // this.loader.stop();
-      // this.toastr.error("Please try after some time");
+      this.toastr.error("Please enter a diffrent password");
       this.httpService.errorCallBack(false);
     });
   }

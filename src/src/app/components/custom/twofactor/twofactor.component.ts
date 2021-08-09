@@ -63,7 +63,7 @@ export class TwofactorComponent implements OnInit {
    * Method to generate otp
    */
   generateUserOTP() {
-    debugger
+    // debugger
     var apiSlowdown: boolean = false;
 
     this.loader.start();
@@ -94,7 +94,7 @@ export class TwofactorComponent implements OnInit {
    * @on 25/02/2020
    */
   sendOTP() {
-    debugger
+    // debugger
     let jsonData = {
       otp: this.otpForm.value.otp,
     };

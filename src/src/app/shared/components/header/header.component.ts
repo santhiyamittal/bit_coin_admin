@@ -82,7 +82,7 @@ export class HeaderComponent implements OnInit , AfterViewInit {
     let ps = new PerfectScrollbar(sidebar);
   }
   logoutUser() {
-    debugger
+    
     if (
       localStorage.getItem("userid") != null ||
       localStorage.getItem("userid") != undefined

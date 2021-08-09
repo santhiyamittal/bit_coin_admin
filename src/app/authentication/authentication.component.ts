@@ -104,7 +104,7 @@ export class AuthenticationComponent implements OnInit {
   //   });
   // }
   onSubmit() {
-    debugger
+    // debugger
     localStorage.clear();
     
     let jsonData = {
@@ -127,7 +127,7 @@ export class AuthenticationComponent implements OnInit {
         // localStorage.setItem("userid", JSON.stringify(this.loginForm.value.userid));
         localStorage.setItem("userdetails", JSON.stringify(res));
         this.httpService.toastr.success(res['message'], '', {
-          positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
+          positionClass: 'toast-bottom-right', closeButton: true, timeOut: 3000
         });
         this.router.navigate(['/custom/twofactor']);
 
@@ -147,7 +147,7 @@ export class AuthenticationComponent implements OnInit {
     });
   }
   generateUserOTP() {
-    debugger
+    // debugger
     var apiSlowdown: boolean = false;
 
     this.loader.start();

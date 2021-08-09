@@ -47,7 +47,7 @@ export class HeaderComponent implements OnInit , AfterViewInit {
  
 
   ngOnInit(): void {
-    this.getprofile();
+    // this.getprofile();
   }
   
   categories = [
@@ -85,7 +85,7 @@ export class HeaderComponent implements OnInit , AfterViewInit {
     let ps = new PerfectScrollbar(sidebar);
   }
   logoutUser() {
-    debugger
+    // debugger
     if (
       localStorage.getItem("userid") != null ||
       localStorage.getItem("userid") != undefined
@@ -110,17 +110,17 @@ console.log(userEmail );
   }
   getprofile() {
    
-      this.httpService.getProfile().subscribe((res) => {
+//       this.httpService.getProfile().subscribe((res) => {
 
-this.data=res['data']
-this.role=res['data']['role']
-this.username=res['data']['username']
-console.log(this.role);
+// this.data=res['data']
+// this.role=res['data']['role']
+// this.username=res['data']['username']
+// console.log(this.role);
 
 
 this.router.navigateByUrl("pages/profile");
 
-      });
+      // });
     }
   }
 

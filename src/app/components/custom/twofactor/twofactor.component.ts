@@ -56,7 +56,9 @@ export class TwofactorComponent implements OnInit {
     return this.otpForm.controls;
   }
   getdashboard() {
-    this.router.navigateByUrl('/dashboard/dashboard')
+    this.router.navigateByUrl('dashboard/dashboard');
+    // this.routeTo.navigateByUrl('custom/reset-password');
+
   }
 
   /**
@@ -66,7 +68,7 @@ export class TwofactorComponent implements OnInit {
     debugger
     var apiSlowdown: boolean = false;
 
-    this.loader.start();
+    // this.loader.start();
     setTimeout(() => {
       /** spinner ends after 10 seconds */
       this.httpService.errorCallBack(apiSlowdown);
