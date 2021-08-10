@@ -7,9 +7,11 @@ import { HttpService } from 'src/app/shared/services/http.service';
 import Swal from 'sweetalert2';
 import { EditlistComponent } from '../editlist/editlist.component';
 import { ViewlistComponent } from '../viewlist/viewlist.component';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { DeleteuserComponent } from '../deleteuser/deleteuser.component';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-@Component({    
+@Component({
   selector: 'app-userlist',
   templateUrl: './userlist.component.html',
   styleUrls: ['./userlist.component.scss']
@@ -17,17 +19,22 @@ import {NgxPaginationModule} from 'ngx-pagination';
 
 
 export class UserlistComponent implements OnInit {
- data :any[];
-  Data: any[];
-totalLength:any;
-page: number = 1
-  status: any[];
+  Status: any = ['Active', 'Inactive', 'Pending'];
+  public loginForm: FormGroup;
 
- constructor(
+  data: any[];
+  Data: any[];
+  totalLength: any;
+  page: number = 1
+  status: any[];
+  id: any;
+  submitted = false;
+
+  constructor(
     public dialog: MatDialog,
     public toastr: ToastrService,
+    private formBuilder: FormBuilder,
 
-    // private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
     private routeTo: Router,
@@ -35,112 +42,129 @@ page: number = 1
     public httpService: HttpService,
     private loader: NgxUiLoaderService,
 
-  ) { 
-    
+  ) {
+
   }
 
   ngOnInit(): void {
-    // this.getUseractive()
     this.getUserlist();
+   this.createForm();
   }
+  get loginFormControl() {
+    return this.loginForm.controls;
+  }
+  createForm() {
+    this.loginForm = this.formBuilder.group({
+
+      'username': ['', Validators.required],
+      'email': ['', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+      'status': ['', Validators.required],
+    });
+  }
+  
   addsymbol(userdetails) {
     const dialogRef = this.dialog.open(ViewlistComponent, {
       width: '600px',
-      height: '400px',
-      data:{ data:userdetails,} 
+      height: '600px',
+      data: { data: userdetails, }
     });
     dialogRef.afterClosed().subscribe((result) => {
-      // this.getOptionStrike();
     });
   }
-  warningAlert() {
-    Swal.fire({
-      icon: 'warning',
-      title: 'Are you sure ?',
-      text: 'Your will not be able to recover this imaginary file!',
-      showCancelButton: true,
-      confirmButtonColor: '#6259ca',
-      cancelButtonColor: '#6259ca',
-      confirmButtonText: 'Yes, delete it!',
-      reverseButtons: true
 
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire({
-          title: 'Deleted!',
-          text: 'Your imaginary file has been deleted.',
-          icon: 'success',
-          confirmButtonColor: '#6259ca'
-        })
-      }
-    })
-  }
 
   editsymbol(userEdit) {
     const dialogRef = this.dialog.open(EditlistComponent, {
       width: '800px',
-      height: '750px',
-      data:{ data:userEdit,} 
+      height: '600px',
+      data: { data: userEdit, }
     });
     dialogRef.afterClosed().subscribe((result) => {
-      // this.getOptionStrike();
     });
   }
-  add(){
+  deleteuser(userdelete) {
+    const dialogRef = this.dialog.open(DeleteuserComponent, {
+      width: '600px',
+      height: '600px',
+
+      data: { data: userdelete, }
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+    });
+  }
+  add() {
     this.router.navigateByUrl('/user/adduser')
 
   }
-  inactive(){
+  inactive() {
     this.router.navigateByUrl('/user/inactive')
 
   }
   gotohome() {
     this.router.navigateByUrl('/dashboard/dashboard')
   }
-//   getUseractive(){
-  
-//     this.httpService.getUser().subscribe((res: any) => {
-//       this.loader.stop();
-     
-//       console.log(res['data'])
-//       this.data= res['data']
-// this.totalLength=this.data.length;
-// console.log(this.totalLength)
-//       if (res['success'] == true) {
-//         // this.toastr.success(res['StatusOfRequest']['Message'], '', { closeButton: true, timeOut: 5000 });
-//         this.httpService.toastr.success(res['message'], '', {
-//           positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
-//         });
-//         // this.routeTo.navigateByUrl('custom/twofactor');
-//       }
-//     }, (err) => {
-//       this.toastr.error("Please try after some time");
-//     });
-//   }
-  getUserlist(){
-  
+  //   getUseractive(){
+
+  //     this.httpService.getUser().subscribe((res: any) => {
+  //       this.loader.stop();
+
+  //       console.log(res['data'])
+  //       this.data= res['data']
+  // this.totalLength=this.data.length;
+  // console.log(this.totalLength)
+  //       if (res['success'] == true) {
+  //         // this.toastr.success(res['StatusOfRequest']['Message'], '', { closeButton: true, timeOut: 5000 });
+  //         this.httpService.toastr.success(res['message'], '', {
+  //           positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
+  //         });
+  //         // this.routeTo.navigateByUrl('custom/twofactor');
+  //       }
+  //     }, (err) => {
+  //       this.toastr.error("Please try after some time");
+  //     });
+  //   }
+  getUserlist() {
+
     this.httpService.getUserlist().subscribe((res: any) => {
       this.loader.stop();
-     
+
       console.log(res['data'])
-      this.data= res['data']
-      this.status=res['data']['status']
-this.totalLength=this.data.length;
-console.log(this.totalLength)
-for (let idx of this.data) {
-  this.status=idx['status']
-  console.log(idx['status']);
-}
-  if (res['success'] == true) {
-        // this.toastr.success(res['StatusOfRequest']['Message'], '', { closeButton: true, timeOut: 5000 });
+      this.data = res['data']
+      this.status = res['data']['status']
+      this.id = res['data']['_id']
+      console.log(this.id)
+      this.totalLength = this.data.length;
+
+      console.log(this.totalLength)
+
+      if (res['success'] == true) {
         this.httpService.toastr.success(res['message'], '', {
           positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
         });
-        // this.routeTo.navigateByUrl('custom/twofactor');
       }
     }, (err) => {
       this.toastr.error("Please try after some time");
     });
   }
+  searchuser() {
+    this.submitted = true;
+
+    let jsonData = {
+      id: this.id,
+    }
+    this.httpService.getsearch(jsonData).subscribe((res: any) => {
+      this.loader.stop();
+
+      console.log(res['data'])
+      this.data = res['data']
+      if (res['success'] == true) {
+        this.httpService.toastr.success(res['message'], '', {
+          positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
+        });
+      }
+    }, (err) => {
+      this.toastr.error("Please try after some time");
+    });
   }
+}
 

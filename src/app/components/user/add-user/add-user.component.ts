@@ -98,8 +98,9 @@ onSubmit() {
         positionClass: 'toast-bottom-right', closeButton: true, timeOut: 3000
       });
       setInterval(() => {
-        this.router.navigateByUrl('/user/userlist')
       }, 1500);
+              this.router.navigateByUrl('/user/userlist')
+
       // this.generateUserOTP();
     } else if (res['success'] == false) {
       // this.notOKstat = res['UserConfiguration']['ErrorMessage'];

@@ -20,6 +20,20 @@ export class EditlistComponent implements OnInit {
     emailid :any;
     errorCount: number;
     userId: any;
+    User: any;
+  Email: any;
+  mobile: any;
+  status: any;
+  address: any;
+  created: any;
+  createdat: any;
+  zipcode: any;
+  firstname: any;
+  lastname: any;
+  dob: any;
+  id: any;
+  password: any;
+  Dob: any;
   constructor(public dialogRef: MatDialogRef<EditlistComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     
@@ -34,6 +48,22 @@ export class EditlistComponent implements OnInit {
     private loader: NgxUiLoaderService,
   ) { 
     console.log(this.data);
+    
+    this.Email=this.data['data']['email']
+    this.firstname=this.data['data']['first_name']
+    this.lastname=this.data['data']['last_name']
+      this.User=this.data['data']['username']
+      this.mobile=this.data['data']['mobile']
+      this.status=this.data['data']['status']
+      this.address=this.data['data']['address']
+      this.createdat=this.data['data']['createdAt']
+      this.zipcode=this.data['data']['zip_code']
+      this.dob=this.data['data']['dob']
+      this.id=this.data['data']['_id']
+      this.password=this.data['data']['password']
+this.Dob=this.dob.split("T")['0'];
+      console.log(this.Dob);
+this.created=this.createdat.split("T")[0];
   }
 
   ngOnInit(): void {
@@ -41,17 +71,18 @@ export class EditlistComponent implements OnInit {
   }
   createForm() {
     this.loginForm = this.formBuilder.group({
-      'first_name':['', Validators.required],
-      'last_name':['', Validators.required],
-      'username':['', Validators.required],
+      'firstname':['', Validators.required],
+      'lastname':['', Validators.required],
+      'User':['', Validators.required],
        'mobile':['', [Validators.required, Validators.minLength(10)]],
-      'email': ['', [Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+      'Email': ['', [Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
       'password': ['', [Validators.required, Validators.minLength(6)]],
-      'dob': ['', [Validators.required, Validators.pattern(/^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/)]],
-      'zip_code':['', [Validators.required, Validators.minLength(6)]],
-      'country_code':['', Validators.required],
-      'country':['', Validators.required],
+      'Dob': ['', [Validators.required, Validators.pattern(/^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/)]],
+      'zipcode':['', [Validators.required, Validators.minLength(6)]],
+      // 'country_code':['', Validators.required],
+      // 'country':['', Validators.required],
       'gender':['', Validators.required],
+      // 'password':['', Validators.required],
       'address':['', Validators.required],
     });
   }
@@ -62,30 +93,34 @@ export class EditlistComponent implements OnInit {
     return this.loginForm.controls;
   }
   successAlert() {
+    this.onSubmit();
     Swal.fire({
       icon: 'success',
       title: 'Well Done!',
-      text: 'You clicked the button!',
+      text: 'User Get Updated',
       confirmButtonColor: '#6259ca'
     })
+    this.router.navigateByUrl('/user/userlist')
+
   }
   onSubmit() {
     this.submitted = true;
   
     debugger
     let jsonData = {
-      first_name:this.loginForm.value.first_name,
-      last_name:this.loginForm.value.last_name,
-      username:this.loginForm.value.username,
+      id:this.id,
+      first_name:this.loginForm.value.firstname,
+      last_name:this.loginForm.value.lastname,
+      username:this.loginForm.value.User,
       mobile:this.loginForm.value.mobile,
-      dob:this.loginForm.value.dob,
-      country_code:'91',
-      country:'india',
-      zip_code:this.loginForm.value.zip_code,
+      dob:this.loginForm.value.Dob,
+      // country_code:'91',
+      // country:'india',
+      zip_code:this.loginForm.value.zipcode,
       gender:this.loginForm.value.gender,
       address:this.loginForm.value.address,
-      email: this.loginForm.value.email,
-      password: this.loginForm.value.password
+      email: this.loginForm.value.Email,
+      password: this.loginForm.value.password,
     }
     this.loader.start();
     this.httpService.getupdate(jsonData).subscribe(res => {
@@ -96,8 +131,10 @@ export class EditlistComponent implements OnInit {
           positionClass: 'toast-bottom-right', closeButton: true, timeOut: 3000
         });
         setInterval(() => {
-          this.router.navigateByUrl('/user/userlist')
+// this.successAlert();
         }, 1500);
+        this.dialogRef.close();
+
         // this.generateUserOTP();
       } else if (res['success'] == false) {
         // this.notOKstat = res['UserConfiguration']['ErrorMessage'];
@@ -112,5 +149,7 @@ export class EditlistComponent implements OnInit {
     //   this.toastr.error("email_already_found");
     //   // this.httpService.errorCallBack(false);
     // });
+
   }
+  
 }

@@ -27,6 +27,8 @@ userloginurl: string = "admin/auth/login";
   forgetpassword: string="admin/auth/forgotpassword";
   createuser: string="admin/user/create";
   updateuser: string="admin/user/update";
+deleteuser: string="admin/user/delete";
+searchuser:string="admin/user/listbyid";
 //variables
 errorCount: number;
 
@@ -133,6 +135,16 @@ errorCount: number;
   }
   getupdate(jsonObj: any): Observable<any> {
     return this.http.post(this.baseURL + this.updateuser, jsonObj, {
+      headers: this.getAuthHeaders(),
+    });
+  }
+  getdelete(jsonObj: any): Observable<any> {
+    return this.http.post(this.baseURL + this.deleteuser, jsonObj, {
+      headers: this.getAuthHeaders(),
+    });
+  }
+  getsearch(jsonObj: any): Observable<any> {
+    return this.http.post(this.baseURL + this.searchuser, jsonObj, {
       headers: this.getAuthHeaders(),
     });
   }
