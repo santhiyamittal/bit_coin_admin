@@ -65,13 +65,13 @@ export class TwofactorComponent implements OnInit {
    * Method to generate otp
    */
   generateUserOTP() {
-    debugger
+    // debugger
     var apiSlowdown: boolean = false;
 
     // this.loader.start();
     setTimeout(() => {
       /** spinner ends after 10 seconds */
-      this.httpService.errorCallBack(apiSlowdown);
+      // this.httpService.errorCallBack(apiSlowdown);
     }, 10000);
     this.httpService.generateMobileOTP().subscribe((res: any) => {
       this.loader.stop();
@@ -92,7 +92,7 @@ export class TwofactorComponent implements OnInit {
 
  
   sendOTP() {
-    debugger
+    // debugger
     let jsonData = {
       otp: this.otpForm.value.otp,
     };
@@ -121,13 +121,13 @@ export class TwofactorComponent implements OnInit {
             timeOut: 5000,
           });
         } else {
-          this.httpService.errorCallBack(false);
+          // this.httpService.errorCallBack(false);
           this.routeTo.navigateByUrl("entrylevel/login");
         }
 
       },
       (err) => {
-        this.httpService.errorCallBack(false);
+        // this.httpService.errorCallBack(false);
       }
     );
   }

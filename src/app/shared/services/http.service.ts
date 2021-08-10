@@ -15,15 +15,18 @@ export class HttpService {
   baseURL: string = "https://www.bitconia.com/api/v1/";
   headers: any = new HttpHeaders({ "Content-Type": "application/json" });
 //Api
-userloginurl: string = "admin/login";
-  logout: string ="admin/logout";
-  userOTPUrl: string="admin/g2f/get";
-  setOTPUrl: string="admin/g2f/enable";
-  changepassword : string="admin/changepassword";
-  activityuser : string="admin/activity";
-  getprofile: string="admin/getprofile";
-  resetpassword : string="admin/resetpassword";
-  forgetpassword: string="admin/forgotpassword";
+userloginurl: string = "admin/auth/login";
+  logout: string ="admin/auth/logout";
+  userOTPUrl: string="admin/g2f/auth/get";
+  setOTPUrl: string="admin/g2f/auth/enable";
+  changepassword : string="admin/auth/changepassword";
+  activityuser : string="admin/auth/activity";
+  getuser: string="admin/user/list";
+  getprofile: string="admin/auth/getprofile";
+  resetpassword : string="admin/auth/resetpassword";
+  forgetpassword: string="admin/auth/forgotpassword";
+  createuser: string="admin/user/create";
+  updateuser: string="admin/user/update";
 //variables
 errorCount: number;
 
@@ -34,21 +37,21 @@ errorCount: number;
 
   ) { }
  
-  errorCallBack(apiResp) {
-    if (!apiResp) {
-      this.errorCount++;
-      /** spinner ends after 10 seconds */
-      if (this.errorCount < 1) {
-        // this.loader.stop();
-        // this.toastr.error("Something went wrong..Please try after somtime!")
-        // this.toastr.error("Please try after somtime!", "", {
-        //   positionClass: "toast-bottom-right",
-        //   closeButton: true,
-        //   timeOut: 5000,
-        // });
-      }
-    }
-  }
+  // errorCallBack(apiResp) {
+  //   if (!apiResp) {
+  //     this.errorCount++;
+  //     /** spinner ends after 10 seconds */
+  //     if (this.errorCount < 1) {
+  //       // this.loader.stop();
+  //       // this.toastr.error("Something went wrong..Please try after somtime!")
+  //       // this.toastr.error("Please try after somtime!", "", {
+  //       //   positionClass: "toast-bottom-right",
+  //       //   closeButton: true,
+  //       //   timeOut: 5000,
+  //       // });
+  //     }
+  //   }
+  // }
   getUserId() {
     if (localStorage.getItem("userid")) {
       var userId = JSON.parse(localStorage.getItem("userid"));
@@ -70,7 +73,7 @@ errorCount: number;
     );
   }
   userLogin(jsonObj: any): Observable<any> {
-    debugger
+    // debugger
     return this.http.post(this.baseURL + this.userloginurl, jsonObj, {
       headers: this.headers,
     });
@@ -87,7 +90,7 @@ errorCount: number;
     });
   }
   logoutSession(jsonObj: any): Observable<any> {
-    debugger
+    // debugger
     return this.http.post(this.baseURL + this.logout, jsonObj, {
       headers: this.getAuthHeaders(),
     });
@@ -99,7 +102,7 @@ errorCount: number;
   }
   forgetPassword(jsonObj: any): Observable<any> {
     return this.http.post(this.baseURL + this.forgetpassword, jsonObj, {
-      headers: this.getAuthHeaders(),
+      // headers: this.getAuthHeaders(),
     });
   }
   changePassword(jsonObj: any): Observable<any> {
@@ -115,6 +118,21 @@ errorCount: number;
   }
   getProfile(): Observable<any> {
     return this.http.get(this.baseURL + this.getprofile, {
+      headers: this.getAuthHeaders(),
+    });
+  }
+  getUserlist(): Observable<any> {
+    return this.http.get(this.baseURL + this.getuser, {
+      headers: this.getAuthHeaders(),
+    });
+  }
+  getcreate(jsonObj: any): Observable<any> {
+    return this.http.post(this.baseURL + this.createuser, jsonObj, {
+      headers: this.getAuthHeaders(),
+    });
+  }
+  getupdate(jsonObj: any): Observable<any> {
+    return this.http.post(this.baseURL + this.updateuser, jsonObj, {
       headers: this.getAuthHeaders(),
     });
   }

@@ -136,14 +136,14 @@ export class AuthenticationComponent implements OnInit {
         // this.notOKstat = res['UserConfiguration']['ErrorMessage'];
         // this.httpService.toastr.error(res['UserConfiguration']['ErrorMessage']);
         this.httpService.toastr.error(res['message'], '', {
-          positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
+          positionClass: 'toast-bottom-right', closeButton: true, timeOut: 2000
         });
       }
     }, 
     (err) => {
       // this.loader.stop();
       this.toastr.error("invalid_credentials");
-      this.httpService.errorCallBack(false);
+      // this.httpService.errorCallBack(false);
     });
   }
   generateUserOTP() {
@@ -153,7 +153,7 @@ export class AuthenticationComponent implements OnInit {
     this.loader.start();
     setTimeout(() => {
       /** spinner ends after 10 seconds */
-      this.httpService.errorCallBack(apiSlowdown);
+      // this.httpService.errorCallBack(apiSlowdown);
     }, 10000);
     this.httpService.generateMobileOTP().subscribe((res: any) => {
       this.loader.stop();

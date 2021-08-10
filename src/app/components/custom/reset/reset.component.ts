@@ -70,7 +70,7 @@ export class ResetComponent implements OnInit {
     (err) => {
       // this.loader.stop();
       this.toastr.error("Please enter a diffrent password");
-      this.httpService.errorCallBack(false);
+      // this.httpService.errorCallBack(false);
     });
   }
 }

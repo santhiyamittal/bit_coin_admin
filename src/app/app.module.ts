@@ -13,6 +13,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
+import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
     SharedModule,
     CarouselModule,
     NgxPaginationModule,
+    NgxIntlTelInputModule,
     HttpClientModule,
     ToastrModule.forRoot(
       {

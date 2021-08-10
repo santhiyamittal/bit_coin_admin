@@ -21,6 +21,7 @@ export class UserlistComponent implements OnInit {
   Data: any[];
 totalLength:any;
 page: number = 1
+  status: any[];
 
  constructor(
     public dialog: MatDialog,
@@ -39,14 +40,14 @@ page: number = 1
   }
 
   ngOnInit(): void {
-    this.getUseractive()
+    // this.getUseractive()
+    this.getUserlist();
   }
-  addsymbol() {
+  addsymbol(userdetails) {
     const dialogRef = this.dialog.open(ViewlistComponent, {
       width: '600px',
       height: '400px',
-
-      // data: { formtype: 'addStrike', data:this.datadetails,},
+      data:{ data:userdetails,} 
     });
     dialogRef.afterClosed().subscribe((result) => {
       // this.getOptionStrike();
@@ -75,11 +76,11 @@ page: number = 1
     })
   }
 
-  editsymbol() {
+  editsymbol(userEdit) {
     const dialogRef = this.dialog.open(EditlistComponent, {
-      width: '600px',
-      height: '600px',
-      // data: { formtype: 'addStrike', data:this.datadetails,},
+      width: '800px',
+      height: '750px',
+      data:{ data:userEdit,} 
     });
     dialogRef.afterClosed().subscribe((result) => {
       // this.getOptionStrike();
@@ -96,16 +97,41 @@ page: number = 1
   gotohome() {
     this.router.navigateByUrl('/dashboard/dashboard')
   }
-  getUseractive(){
+//   getUseractive(){
   
-    this.httpService.getUser().subscribe((res: any) => {
+//     this.httpService.getUser().subscribe((res: any) => {
+//       this.loader.stop();
+     
+//       console.log(res['data'])
+//       this.data= res['data']
+// this.totalLength=this.data.length;
+// console.log(this.totalLength)
+//       if (res['success'] == true) {
+//         // this.toastr.success(res['StatusOfRequest']['Message'], '', { closeButton: true, timeOut: 5000 });
+//         this.httpService.toastr.success(res['message'], '', {
+//           positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
+//         });
+//         // this.routeTo.navigateByUrl('custom/twofactor');
+//       }
+//     }, (err) => {
+//       this.toastr.error("Please try after some time");
+//     });
+//   }
+  getUserlist(){
+  
+    this.httpService.getUserlist().subscribe((res: any) => {
       this.loader.stop();
      
       console.log(res['data'])
       this.data= res['data']
+      this.status=res['data']['status']
 this.totalLength=this.data.length;
 console.log(this.totalLength)
-      if (res['success'] == true) {
+for (let idx of this.data) {
+  this.status=idx['status']
+  console.log(idx['status']);
+}
+  if (res['success'] == true) {
         // this.toastr.success(res['StatusOfRequest']['Message'], '', { closeButton: true, timeOut: 5000 });
         this.httpService.toastr.success(res['message'], '', {
           positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
@@ -116,6 +142,5 @@ console.log(this.totalLength)
       this.toastr.error("Please try after some time");
     });
   }
-
   }
 

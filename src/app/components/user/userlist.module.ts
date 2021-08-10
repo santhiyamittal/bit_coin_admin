@@ -15,6 +15,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
+import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
     ChartsModule,
     MatDialogModule,
     NgxPaginationModule,
+    NgxIntlTelInputModule,
     NgCircleProgressModule.forRoot(),
     ToastrModule.forRoot(
       {

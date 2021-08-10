@@ -21,35 +21,19 @@
                                 <th>Salary</th>
                             </tr>
                         </thead> -->
-                        <tbody>
+                        <tbody >
                             <!-- <tr *ngFor="let data of defaultData">
                                 <th scope="row">{{data.id}}</th>
                                 <td>{{data.name}}</td>
                                 <td>{{data.position}}</td>
                                 <td>{{data.salary | currency:'USD':'symbol':'3.0-0'}}</td>
                             </tr> -->
-                            <tr>
+                            <tr >
                                 <td>
                                   User
                                 </td>
                                 <td>
-                                   muthu
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                  Created
-                                </td>
-                                <td>
-                                   muthu
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                  Status
-                                </td>
-                                <td>
-                                   Active
+                                    {{User == "" ? 'NA': User}}
                                 </td>
                             </tr>
                             <tr>
@@ -57,9 +41,42 @@
                                   Email
                                 </td>
                                 <td>
-                                   muthu@gmail.com
+                                    {{Email}}
                                 </td>
                             </tr>
+                            <tr>
+                                <td>
+                                  Status
+                                </td>
+                                <td>
+                                    {{status > 0 ? 'Active':status}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                Mobile
+                                </td>
+                                <td>
+                                    {{mobile == null ? 'NA': mobile}}
+                                </td>
+                                </tr>
+                                <tr>
+                                <td>
+                                    Address
+                                    </td>
+                                    <td>
+                                       {{address== "" ? 'NA':address}}
+                                    </td>
+                                    </tr>
+                                    <tr>
+                                    <td>
+                                        created
+                                        </td>
+                                        <td>
+                                           {{created}}
+                                        </td>
+                            </tr>
+                        
                         </tbody>
                     </table>
                     
