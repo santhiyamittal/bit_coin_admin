@@ -21,14 +21,15 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class UserlistComponent implements OnInit {
   Status: any = ['Active', 'Inactive', 'Pending'];
   public loginForm: FormGroup;
-
+submitted:boolean=false;
   data: any[];
   Data: any[];
   totalLength: any;
   page: number = 1
   status: any[];
   id: any;
-  submitted = false;
+  userDetails: any;
+  showDatafound: boolean;
 
   constructor(
     public dialog: MatDialog,
@@ -43,12 +44,15 @@ export class UserlistComponent implements OnInit {
     private loader: NgxUiLoaderService,
 
   ) {
-
+    
   }
 
   ngOnInit(): void {
     this.getUserlist();
    this.createForm();
+   var userDetails = JSON.parse(localStorage.getItem("id"));
+   this.userDetails = userDetails;
+   console.log( this.userDetails);
   }
   get loginFormControl() {
     return this.loginForm.controls;
@@ -69,6 +73,7 @@ export class UserlistComponent implements OnInit {
       data: { data: userdetails, }
     });
     dialogRef.afterClosed().subscribe((result) => {
+      this.getUserlist();
     });
   }
 
@@ -80,6 +85,7 @@ export class UserlistComponent implements OnInit {
       data: { data: userEdit, }
     });
     dialogRef.afterClosed().subscribe((result) => {
+      this.getUserlist();
     });
   }
   deleteuser(userdelete) {
@@ -90,6 +96,9 @@ export class UserlistComponent implements OnInit {
       data: { data: userdelete, }
     });
     dialogRef.afterClosed().subscribe((result) => {
+      setInterval(() => {
+        this.getUserlist();
+      }, 3000);
     });
   }
   add() {
@@ -136,34 +145,50 @@ export class UserlistComponent implements OnInit {
       this.totalLength = this.data.length;
 
       console.log(this.totalLength)
-
+      if (this.data) {
+        if (this.data.length > 0) {
       if (res['success'] == true) {
-        this.httpService.toastr.success(res['message'], '', {
-          positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
-        });
+        this.showDatafound = true;
+
+        // this.httpService.toastr.success(res['message'], '', {
+        //   positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
+        // });
       }
-    }, (err) => {
-      this.toastr.error("Please try after some time");
+    }
+  }
+  else {
+    this.showDatafound = false;
+    console.log("No Data found");
+
+  }
+    // }, (err) => {
+    //   this.toastr.error("Please try after some time");
     });
   }
   searchuser() {
+    debugger
     this.submitted = true;
-
     let jsonData = {
-      id: this.id,
+      // id: this.id,
+      id:'61110efc0d6be1175fc3ef65',
     }
     this.httpService.getsearch(jsonData).subscribe((res: any) => {
       this.loader.stop();
 
       console.log(res['data'])
       this.data = res['data']
+      
+        
       if (res['success'] == true) {
+        this.showDatafound = true;
         this.httpService.toastr.success(res['message'], '', {
           positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
         });
       }
-    }, (err) => {
-      this.toastr.error("Please try after some time");
+  
+    // }, (err) => {
+    //   this.toastr.error("Please try after some time");
+    
     });
   }
 }

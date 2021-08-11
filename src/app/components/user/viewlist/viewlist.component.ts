@@ -46,5 +46,7 @@ this.created=this.createdat.split(".")[0],
       text: 'You clicked the button!',
       confirmButtonColor: '#6259ca'
     })
+    this.dialogRef.close();
+
   }
 }

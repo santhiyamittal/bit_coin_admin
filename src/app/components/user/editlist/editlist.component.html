@@ -122,7 +122,7 @@
                                 <span class="tx-danger">*</span>
     
                             </label>
-                            <input type="password" formControlName="password" class="form-control"value={{password}} [(ngModel)]="password"  [ngClass]="{ 'is-invalid': submitted && loginFormControl.password.errors }" />
+                            <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && loginFormControl.password.errors }" />
                             <div *ngIf="submitted && loginFormControl.password.errors" class="invalid-feedback">
                                 <div *ngIf="loginFormControl.password.errors.required">Password is required</div>
                                 <div *ngIf="loginFormControl.password.errors.minlength">Password must be at least 6 characters</div>
@@ -156,7 +156,7 @@
                                         <span class="tx-danger">*</span>
                                     </label>
                                     <div class="form-group">
-                                    <input type="date" formControlName="Dob" class="form-control"value={{Dob}} [(ngModel)]="Dob"  [ngClass]="{ 'is-invalid': submitted && loginFormControl.Dob.errors }" />
+                                    <input type="date" formControlName="Dob" class="form-control"value="{{Dob}}" [(ngModel)]="Dob"  [ngClass]="{ 'is-invalid': submitted && loginFormControl.Dob.errors }" />
                                     <div *ngIf="submitted && loginFormControl.Dob.errors" class="invalid-feedback">
                                         <div *ngIf="loginFormControl.Dob.errors.required">Date of Birth is required</div>
                                         <div *ngIf="loginFormControl.Dob.errors.pattern">Date of Birth must be a valid date in the format YYYY-MM-DD</div>
@@ -181,7 +181,7 @@
                                 <div *ngIf="loginFormControl.gender.errors.required">Zip code is required</div>
                                 <div *ngIf="loginFormControl.gender.errors.minlength">Zip code must be at least 6 characters</div>
                             </div> -->
-                            <select  class="select sel "formControlName="gender"value={{gender}} [(ngModel)]="gender"  [ngClass]="{ 'is-invalid': submitted && loginFormControl.gender.errors }">
+                            <select  class="select sel "formControlName="gender"  [ngClass]="{ 'is-invalid': submitted && loginFormControl.gender.errors }">
                                 <option>Gender </option>
                                 <option *ngFor="let gen of gender">{{gen}}</option>
                               </select>

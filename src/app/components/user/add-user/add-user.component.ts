@@ -97,9 +97,10 @@ onSubmit() {
       this.httpService.toastr.success(res['message'], '', {
         positionClass: 'toast-bottom-right', closeButton: true, timeOut: 3000
       });
-      setInterval(() => {
-      }, 1500);
-              this.router.navigateByUrl('/user/userlist')
+      // setInterval(() => {
+
+      // }, 1500);
+      this.router.navigateByUrl('/user/userlist')
 
       // this.generateUserOTP();
     } else if (res['success'] == false) {
@@ -109,12 +110,12 @@ onSubmit() {
         positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
       });
     }
+  },
+  (err) => {
+    // this.loader.stop();
+    this.toastr.error("email_already_found");
+    // this.httpService.errorCallBack(false);
   });
-  // (err) => {
-  //   // this.loader.stop();
-  //   this.toastr.error("email_already_found");
-  //   // this.httpService.errorCallBack(false);
-  // });
 }
 
 }

@@ -61,13 +61,17 @@ export class EditlistComponent implements OnInit {
       this.dob=this.data['data']['dob']
       this.id=this.data['data']['_id']
       this.password=this.data['data']['password']
-this.Dob=this.dob.split("T")['0'];
+// this.Dob=this.dob.split("T")['0'];
+this.Dob=this.dob
+
       console.log(this.Dob);
 this.created=this.createdat.split("T")[0];
   }
 
   ngOnInit(): void {
     this.createForm();
+    localStorage.setItem("id", JSON.stringify(this.data['data']['_id']));
+
   }
   createForm() {
     this.loginForm = this.formBuilder.group({

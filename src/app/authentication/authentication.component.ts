@@ -14,7 +14,7 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
 export class AuthenticationComponent implements OnInit {
 
   public loginForm: FormGroup;
-  public submitted: boolean = false;
+  submitted: boolean = false;
     emailid :any;
     errorCount: number;
     userId: any;
@@ -104,9 +104,9 @@ export class AuthenticationComponent implements OnInit {
   //   });
   // }
   onSubmit() {
-    // debugger
+    debugger
     localStorage.clear();
-    
+    this.submitted=true;
     let jsonData = {
       email: this.loginForm.value.email,
       password: this.loginForm.value.password
@@ -115,6 +115,7 @@ export class AuthenticationComponent implements OnInit {
     this.httpService.userLogin(jsonData).subscribe((res: any) => {
       this.loader.stop();
       // this.appComponent.startWatching();
+      
       if (res['success'] == true) {
         this.userId = this.loginForm.value.userid;
         var ls = new SecureLS();
@@ -132,18 +133,27 @@ export class AuthenticationComponent implements OnInit {
         this.router.navigate(['/custom/twofactor']);
 
         // this.generateUserOTP();
-      } else if (res['success'] == false) {
+      }
+       else if (res['success'] == false) {
         // this.notOKstat = res['UserConfiguration']['ErrorMessage'];
         // this.httpService.toastr.error(res['UserConfiguration']['ErrorMessage']);
         this.httpService.toastr.error(res['message'], '', {
           positionClass: 'toast-bottom-right', closeButton: true, timeOut: 2000
         });
       }
-    }, 
-    (err) => {
-      // this.loader.stop();
-      this.toastr.error("invalid_credentials");
-      // this.httpService.errorCallBack(false);
+    
+    // else if (res['success'] == false) {
+    //   // this.notOKstat = res['UserConfiguration']['ErrorMessage'];
+    //   // this.httpService.toastr.error(res['UserConfiguration']['ErrorMessage']);
+    //   this.httpService.toastr.error(res['message'], '', {
+    //     positionClass: 'toast-bottom-right', closeButton: true, timeOut: 2000
+    //   });
+    // }
+    // }, 
+    // (err) => {
+    //   // this.loader.stop();
+    //   this.toastr.error("invalid_credentials");
+    //   // this.httpService.errorCallBack(false);
     });
   }
   generateUserOTP() {
