@@ -71,3 +71,6 @@
     border-radius: 8px;
     }
 }
+.button[disabled] {
+    cursor: not-allowed;
+  }

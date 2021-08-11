@@ -30,6 +30,10 @@ submitted:boolean=false;
   id: any;
   userDetails: any;
   showDatafound: boolean;
+  username: any;
+  email: any;
+  // username: any;
+  // email: any;
 
   constructor(
     public dialog: MatDialog,
@@ -60,9 +64,9 @@ submitted:boolean=false;
   createForm() {
     this.loginForm = this.formBuilder.group({
 
-      'username': ['', Validators.required],
-      'email': ['', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
-      'status': ['', Validators.required],
+      username: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+      status: ['', Validators.required],
     });
   }
   
@@ -74,10 +78,13 @@ submitted:boolean=false;
     });
     dialogRef.afterClosed().subscribe((result) => {
       this.getUserlist();
+      // this.searchuser();
+
     });
   }
 
 
+ 
   editsymbol(userEdit) {
     const dialogRef = this.dialog.open(EditlistComponent, {
       width: '800px',
@@ -100,6 +107,11 @@ submitted:boolean=false;
         this.getUserlist();
       }, 3000);
     });
+  }
+  
+  textClear(){
+    this.username =''; 
+    this.email ='';
   }
   add() {
     this.router.navigateByUrl('/user/adduser')
@@ -161,35 +173,48 @@ submitted:boolean=false;
     console.log("No Data found");
 
   }
+
+  this.searchuser();
+
+    // delete this.loginForm.value.email;
+    // delete this.loginForm.value.username;
     // }, (err) => {
     //   this.toastr.error("Please try after some time");
     });
   }
   searchuser() {
-    debugger
+    // debugger
     this.submitted = true;
+    
     let jsonData = {
       // id: this.id,
-      id:'61110efc0d6be1175fc3ef65',
+      key: this.loginForm.value.email,
+
     }
+    
     this.httpService.getsearch(jsonData).subscribe((res: any) => {
       this.loader.stop();
-
+     
       console.log(res['data'])
       this.data = res['data']
       
         
       if (res['success'] == true) {
         this.showDatafound = true;
-        this.httpService.toastr.success(res['message'], '', {
-          positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
-        });
+        // this.httpService.toastr.success(res['message'], '', {
+        //   positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
+        // });
       }
   
     // }, (err) => {
     //   this.toastr.error("Please try after some time");
-    
+    this.textClear();
     });
+    if( this.email =''){
+  this.getUserlist();
+
+    }
+
   }
 }
 

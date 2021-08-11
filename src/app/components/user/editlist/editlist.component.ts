@@ -110,7 +110,7 @@ this.created=this.createdat.split("T")[0];
   onSubmit() {
     this.submitted = true;
   
-    debugger
+    // debugger
     let jsonData = {
       id:this.id,
       first_name:this.loginForm.value.firstname,
@@ -131,9 +131,9 @@ this.created=this.createdat.split("T")[0];
       this.loader.stop();
       // this.appComponent.startWatching();
       if (res['success'] == true) {
-        this.httpService.toastr.success(res['message'], '', {
-          positionClass: 'toast-bottom-right', closeButton: true, timeOut: 3000
-        });
+        // this.httpService.toastr.success(res['message'], '', {
+        //   positionClass: 'toast-bottom-right', closeButton: true, timeOut: 3000
+        // });
         setInterval(() => {
 // this.successAlert();
         }, 1500);

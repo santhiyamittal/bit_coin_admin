@@ -145,7 +145,7 @@
                                                 [phoneValidation]="true" -->
                                             <!-- <ngx-intl-tel-input  -->
                                         
-                                            <input type="number"   class="form-control" formControlName="mobile"value={{mobile}} [(ngModel)]="mobile"  [ngClass]="{ 'is-invalid': submitted && loginFormControl.mobile.errors }"/>
+                                            <input type="text"   class="form-control" formControlName="mobile"value={{mobile}} [(ngModel)]="mobile"  [ngClass]="{ 'is-invalid': submitted && loginFormControl.mobile.errors }"/>
                                         <!-- </ngx-intl-tel-input> -->
                                         <div *ngIf="submitted && loginFormControl.mobile.errors" class="invalid-feedback">
                                             <div *ngIf="loginFormControl.mobile.errors.required">mobile is required</div>

@@ -139,21 +139,21 @@
                 <div class="d-flex justify-content-between">
                     <!-- <label class="main-content-label mb-0 pt-1">User Table</label> -->
                     <div class="ml-auto float-right">
-                        <div ngbDropdown class="">
+                        <!-- <div ngbDropdown class="">
                             <a href="javascript:;" class="option-dots" ngbDropdownToggle><i class="fe fe-more-horizontal"></i></a>
                             <div ngbDropdownMenu class="dropdown-menu-right">
                                 <a ngbDropdownItem href="javascript:;">Today</a>
                                 <a ngbDropdownItem href="javascript:;">Last Week</a>
                                 <a ngbDropdownItem href="javascript:;">Last Month</a>
                                 <a ngbDropdownItem href="javascript:;">Last Year</a>
-                            </div>
-                        </div>
+                            </div> 
+                        </div>-->
                     </div>
                 </div>
                 <!-- <p class="tx-12 tx-gray-500 mt-0 mb-2">Example of Spruha Simple Table. <a href="javascript:;">Learn more</a></p> -->
             </div>
             <div class="card-body">
-                <div class="table-responsive border userlist-table">
+                <div class="table-responsive border userlist-table" *ngIf="showDatafound">
                     <table class="table card-table table-striped table-vcenter text-nowrap mb-0">
                         <thead>
                             <tr>
@@ -455,7 +455,10 @@
                         </tbody>
                     </table>
                 </div>
-                <ul class="pagination mt-4 mb-0 float-right">
+                <div class="center" *ngIf="!showDatafound">
+                    <span>NO DATA FOUND </span>
+                  </div>
+                <!-- <ul class="pagination mt-4 mb-0 float-right">
                     <li class="page-item page-prev disabled">
                         <a class="page-link" href="javascript:;" tabindex="-1">Prev</a>
                     </li>
@@ -467,7 +470,7 @@
                     <li class="page-item page-next">
                         <a class="page-link" href="javascript:;">Next</a>
                     </li>
-                </ul>
+                </ul> -->
             </div>
         </div>
     </div><!-- COL END -->

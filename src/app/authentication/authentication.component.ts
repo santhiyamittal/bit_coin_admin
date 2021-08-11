@@ -104,7 +104,7 @@ export class AuthenticationComponent implements OnInit {
   //   });
   // }
   onSubmit() {
-    debugger
+    // debugger
     localStorage.clear();
     this.submitted=true;
     let jsonData = {

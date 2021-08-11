@@ -11,6 +11,7 @@ import { ViewlistComponent } from '../viewlist/viewlist.component';
   styleUrls: ['./inactive.component.scss']
 })
 export class InactiveComponent implements OnInit {
+  showDatafound =false;
 
   constructor(
     public dialog: MatDialog,

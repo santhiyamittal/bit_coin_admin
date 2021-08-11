@@ -74,7 +74,7 @@ createForm() {
 onSubmit() {
   this.submitted = true;
 
-  debugger
+  // debugger
   let jsonData = {
     first_name:this.loginForm.value.first_name,
     last_name:this.loginForm.value.last_name,
@@ -94,9 +94,9 @@ onSubmit() {
     this.loader.stop();
     // this.appComponent.startWatching();
     if (res['success'] == true) {
-      this.httpService.toastr.success(res['message'], '', {
-        positionClass: 'toast-bottom-right', closeButton: true, timeOut: 3000
-      });
+      // this.httpService.toastr.success(res['message'], '', {
+      //   positionClass: 'toast-bottom-right', closeButton: true, timeOut: 3000
+      // });
       // setInterval(() => {
 
       // }, 1500);
