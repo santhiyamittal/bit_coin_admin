@@ -26,104 +26,69 @@
  <div class="card-body">
     <div class="container-fluid">
 
-    <form action="" method="post" id="formSystem" enctype="multipart/form-data">
-        <div class="row">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>  
+                  <div class="row">
             <div class="col-md-6 col-sm-12">
-                <div class="form-group">
                     <label>Name <span
                             class="text-danger">*</span></label>
-                    <input class="form-control" id="app_name" type="text"
-                        value="OBO AM" placeholder="Application Name ">
-                </div>
+                            <div class="form-group">
+                                <input type="text" formControlName="username" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && loginFormControl.username.errors }" />
+                                <div *ngIf="submitted && loginFormControl.username.errors" class="invalid-feedback">
+                                    <div *ngIf="loginFormControl.username.errors.required">First Name is required</div>
+                                </div>
+                            </div>
             </div>
             <div class="col-md-6 col-sm-12">
-                <div class="form-group">
-                    <label>Company Name <span
-                            class="text-danger">*</span></label>
-                    <input class="form-control" id="comp_name" type="text"
-                        value="Future Trends" placeholder="Company Name ">
-                </div>
+                
+        <label>Winning Price
+            <span class="tx-danger">*</span>
+        </label>
+        <div class="form-group">
+        <input type="text" formControlName="winningprice" class="form-control" value={{winningprice}}
+            [(ngModel)]="winningprice"
+            [ngClass]="{ 'is-invalid': submitted && loginFormControl.winningprice.errors }" />
+        <div *ngIf="submitted && loginFormControl.winningprice.errors" class="invalid-feedback">
+            <div *ngIf="loginFormControl.winningprice.errors.required">winningprice is required</div>
+            <div *ngIf="loginFormControl.winningprice.errors.minlength">winningprice must be Entered</div>
+        </div>
+            </div>
             </div>
             <div class="col-md-6 col-sm-12">
-                <div class="form-group">
-                    <label>Contact Person </label>
-                    <input class="form-control" id="contact_person"
-                        value="Niyaz Ahamed" placeholder="Contact Person "
-                        type="text">
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-12">
-                <div class="form-group">
-                    <label>Mobile Number <span
-                            class="text-danger">*</span></label>
-                    <input class="form-control" id="mobile_number"
-                        value="8870231734" placeholder="Mobile Number"
-                        type="text">
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-12">
-                <div class="form-group">
-                    <label>Date </label>
-                    <input class="form-control" id="mobile_number"
-                        value="" placeholder="date"
-                        type="date">
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-12">
-                <div class="form-group">
-                    <label>Email <span class="text-danger">*</span></label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i
-                                    class="icon-envelope"></i></span>
-                        </div>
-                        <input type="email" class="form-control" id="email"
-                            value="" placeholder="Email">
+               
+                    <label>Start Time
+                        <span class="tx-danger">*</span>
+                    </label>
+                    <div class="form-group">
+                    <input type="text" formControlName="StartTime" class="form-control" value={{StartTime}} [(ngModel)]="StartTime"
+                        [ngClass]="{ 'is-invalid': submitted && loginFormControl.StartTime.errors }" />
+                    <div *ngIf="submitted && loginFormControl.StartTime.errors" class="invalid-feedback">
+                        <div *ngIf="loginFormControl.StartTime.errors.required">StartTime is required</div>
+                        <div *ngIf="loginFormControl.StartTime.errors.minlength">StartTime must be Entered</div>
                     </div>
-                </div>
+            </div>
             </div>
             <div class="col-md-6 col-sm-12">
+                <label>End time
+                    <span class="tx-danger">*</span>
+                </label>
                 <div class="form-group">
-                    <label>Bank Name <span class="text-danger">*</span></label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="email"
-                            value="" placeholder="Bank Name">
-                    </div>
+
+                <input type="text" formControlName="EndTime" class="form-control" value={{EndTime}} [(ngModel)]="EndTime"
+                    [ngClass]="{ 'is-invalid': submitted && loginFormControl.EndTime.errors }" />
+                <div *ngIf="submitted && loginFormControl.EndTime.errors" class="invalid-feedback">
+                    <div *ngIf="loginFormControl.EndTime.errors.required">EndTime is required</div>
+                    <div *ngIf="loginFormControl.EndTime.errors.minlength">EndTime must be Entered</div>
                 </div>
             </div>
-            <div class="col-md-6 col-sm-12">
-                <div class="form-group">
-                    <label>Card Type <span class="text-danger">*</span></label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="email"
-                            value="" placeholder="Card Type">
-                    </div>
-                </div>
             </div>
-            <div class="col-md-6 col-sm-12">
-                <div class="form-group">
-                    <label>Expiry Date <span class="text-danger">*</span></label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="email"
-                            value="" placeholder="Expiry Date">
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-12">
-                <div class="form-group">
-                    <label>Card Details <span class="text-danger">*</span></label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="email"
-                            value="" placeholder="Card Details">
-                    </div>
-                </div>
-            </div>
+            
         </div>
         
         <div class="row1">
             <div class="col-sm-12 text-right m-t-20">
                 <button type="submit" id="system_submit"
-                    class="btn btn-primary" (click)=" gotodraw()">Save</button>
+                    class="btn btn-primary">Save</button>
             </div>
         </div>
     </form>

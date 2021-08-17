@@ -170,4 +170,9 @@ errorCount: number;
       headers: this.getAuthHeaders(),
     });
   }
+  getcreatedraw(jsonObj: any): Observable<any> {
+    return this.http.post(this.baseURL + this.createdraw,jsonObj,{
+      headers: this.getAuthHeaders(),
+    });
+  }
 }

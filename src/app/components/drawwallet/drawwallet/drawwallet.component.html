@@ -24,97 +24,41 @@
 </div>
 <!-- End Page Header -->
 
-<!-- <div class="row row-sm">
-    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
-        <div class="card custom-card">
-            <div class="card-body">
-                <div class="card-order ">
-                    <label class="main-content-label mb-3 pt-1">New Users</label>
-                    <h2 class="text-left card-item-icon card-icon">
-                        <i class="mdi mdi-account-multiple icon-size float-right text-primary"></i><span
-                            class="font-weight-bold">3,672</span>
-                    </h2>
-                    <p class="mb-0 text-muted">Monthly users<span class="float-left">50%</span></p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
-        <div class="card custom-card">
-            <div class="card-body">
-                <div class="card-widget">
-                    <label class="main-content-label mb-3 pt-1">Total tax</label>
-                    <h2 class="text-left"><i class="mdi mdi-cube icon-size float-right text-primary"></i><span
-                            class="font-weight-bold">$89,265</span></h2>
-                    <p class="mb-0 text-muted">Monthly Income<span class="float-left">$7,893</span></p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
-        <div class="card custom-card">
-            <div class="card-body">
-                <div class="card-widget">
-                    <label class="main-content-label mb-3 pt-1">Total Profit</label>
-                    <h2 class="text-left"><i class="icon-size mdi mdi-poll-box   float-right text-primary"></i><span
-                            class="font-weight-bold">$23,987</span></h2>
-                    <p class="mb-0 text-muted">Monthly Profit<span class="float-left">$4,678</span></p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
-        <div class="card custom-card">
-            <div class="card-body">
-                <div class="card-widget">
-                    <label class="main-content-label mb-3 pt-1">Total Sales</label>
-                    <h2 class="text-left"><i class="mdi mdi-cart icon-size float-right text-primary"></i><span
-                            class="font-weight-bold">46,486</span></h2>
-                    <p class="mb-0 text-muted">Monthly Sales<span class="float-left">3,756</span></p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
 <div class="row row-sm  mt-lg-4">
-    <div class="col-sm-10 col-lg-10 col-xl-10">
+    <div class="col-sm-12 col-lg-12 col-xl-12">
         <div class="card bg-primary custom-card card-box">
             <div class="card-body p-4">
                 <div class="row align-items-center">
                     <form [formGroup]="loginForm" (ngSubmit)="searchdraw()" novalidate>
 
                         <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12">
-
+                            <div class="col-lg-7 col-md-7 col-sm-7">
+                              
                                 <div class="form-group text-left">
                                     <label>User Name</label>
-                                    <input type="text" formControlName="username" [(ngModel)]="username"
-                                        class="form-control"
-                                        [ngClass]="{ '': submitted && loginFormControl.username.errors }" />
-
+                                    <input type="text" formControlName="username" [(ngModel)]="username"class="form-control" [ngClass]="{ 'valid': submitted  }" />
+                                 
+                            </div>
+                          </div>
+                
+                            <div class="col-lg-7 col-md-7 col-sm-7">
+                                <div class="form-group">
+                                    <label>Winning Price</label>
+                                    <div class="form-group">
+                                        <input type="text" formControlName="email" [(ngModel)]="email" class="form-control" [ngClass]="{ 'valid': submitted }" />
+                                       
+                                        </div>
+                                    
                                 </div>
                             </div>
-
-                            <!-- <div class="col-lg-7 col-md-7 col-sm-7">
-                                <div class="form-group">
-                                    <label>Email</label>
-                                    <div class="form-group">
-                                        <input type="text" formControlName="email" [(ngModel)]="email"
-                                            class="form-control"
-                                            [ngClass]="{ '': submitted && loginFormControl.email.errors }" />
-
-                                    </div>
-
-                                </div>
-                            </div> -->
-
-
+                
+                          
                             <div class="col-lg-3 col-md-3 col-sm-3">
                                 <label>&nbsp;</label>
-                                <button type="submit" class="btn btn-sm btn-primary btn-block">Get</button>
+                                <button type="submit"class="btn btn-sm btn-primary btn-block">Get</button>
                             </div>
-                        </div>
-                    </form>
+                            </div>
+                        </form>
                 </div>
             </div>
         </div>
@@ -156,7 +100,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let item of drawdata |  paginate:{
+                            <tr *ngFor="let item of data |  paginate:{
                                 itemsPerPage: 10,
                                  currentPage:page,
                                 totalitem:totalLength }">

@@ -64,7 +64,7 @@
                                 <input type="text" formControlName="username" class="form-control"
                                     [ngClass]="{ 'is-invalid': submitted && loginFormControl.username.errors }" />
                                 <div *ngIf="submitted && loginFormControl.username.errors" class="invalid-feedback">
-                                    <div *ngIf="loginFormControl.username.errors.required">First Name is required</div>
+                                    <div *ngIf="loginFormControl.username.errors.required"> Name is required</div>
                                 </div>
                             </div>
                         </div>

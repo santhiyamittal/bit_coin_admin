@@ -23,6 +23,10 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./drawwallet.component.scss']
 })
 export class DrawwalletComponent implements OnInit {
+
+
+
+
   Status: any = ['Active', 'Inactive'];
   public loginForm: FormGroup;
 submitted:boolean=false;
@@ -36,10 +40,6 @@ submitted:boolean=false;
   showDatafound: boolean;
   username: any;
   email: any;
-  drawdata: any [];
-  startTime: any [];
-  StartTime: any;
-  EndTime: string [];
   // username: any;
   // email: any;
 
@@ -62,9 +62,9 @@ submitted:boolean=false;
   ngOnInit(): void {
     this.getdrawlist();
    this.createForm();
-  
-  }
-  ngAfterViewInit() {
+   var userDetails = JSON.parse(localStorage.getItem("id"));
+   this.userDetails = userDetails;
+   console.log( this.userDetails);
   }
   get loginFormControl() {
     return this.loginForm.controls;
@@ -73,17 +73,13 @@ submitted:boolean=false;
     this.loginForm = this.formBuilder.group({
 
       username: ['', Validators.required],
-      status: ['', Validators.required],
+      email: ['', Validators.required],
     });
-   
   }
   
   
 
-  gotoview(){
-    this.router.navigateByUrl('/drawwallet/viewdraw')
 
-  }
  
   editsymbol(drawEdit) {
     const dialogRef = this.dialog.open(EditdrawComponent, {
@@ -95,12 +91,12 @@ submitted:boolean=false;
       this.getdrawlist();
     });
   }
-  deleteuser(userdelete) {
+  deleteuser(drawdelete) {
     const dialogRef = this.dialog.open(DeletedrawComponent, {
       width: '600px',
       height: '600px',
 
-      data: { data: userdelete, }
+      data: { data: drawdelete, }
     });
     dialogRef.afterClosed().subscribe((result) => {
       setInterval(() => {
@@ -109,36 +105,61 @@ submitted:boolean=false;
     });
   }
   
-  textClear(){
-    this.username =''; 
+  // textClear(){
+  //   this.username =''; 
+  //   this.email ='';
+  // }
+  add() {
+    this.router.navigateByUrl('/user/adduser')
+
   }
- 
+  gotoview() {
+    this.router.navigateByUrl('/drawwallet/viewdraw')
+  }
   gotohome() {
     this.router.navigateByUrl('/dashboard/dashboard')
   }
+  //   getUseractive(){
+
+  //     this.httpService.getUser().subscribe((res: any) => {
+  //       this.loader.stop();
+
+  //       console.log(res['data'])
+  //       this.data= res['data']
+  // this.totalLength=this.data.length;
+  // console.log(this.totalLength)
+  //       if (res['success'] == true) {
+  //         // this.toastr.success(res['StatusOfRequest']['Message'], '', { closeButton: true, timeOut: 5000 });
+  //         this.httpService.toastr.success(res['message'], '', {
+  //           positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
+  //         });
+  //         // this.routeTo.navigateByUrl('custom/twofactor');
+  //       }
+  //     }, (err) => {
+  //       this.toastr.error("Please try after some time");
+  //     });
+  //   }
   getdrawlist() {
-// debugger
+
     this.httpService.getdrawlist().subscribe((res: any) => {
 
       console.log(res['data'])
-      this.drawdata = res['data']
+      this.data = res['data']
       this.status = res['data']['status']
-      this.startTime = res['data']['start_time']
-      this.id=res['data']['start_time']
-      console.log(this.status);
-      this.totalLength = this.drawdata.length;
-      var datePipe = new DatePipe("en-US");
+      this.id = res['data']['_id']
+      console.log(this.id)
+      this.totalLength = this.data.length;
 
-      this.StartTime = datePipe.transform(res['data']['start_time'],'yyyy-mm-dd:HH:mm:ss');
-      // this.EndTime = datePipe.transform(res['data']['end_time'],'yyyy-mm-dd:HH:mm:ss');
-      
-      console.log(this.StartTime)
-      if (this.drawdata) {
-        if (this.drawdata.length > 0) {
+      console.log(this.totalLength)
+      if (this.data) {
+        if (this.data.length > 0) {
       if (res['success'] == true) {
         this.showDatafound = true;
+        // this.searchdraw();
 
-       
+        // this.httpService.toastr.success(res['message'], '', {
+        //   positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
+        // });
       }
     }
   }
@@ -148,8 +169,11 @@ submitted:boolean=false;
 
   }
 
-  this.searchdraw();
 
+    // delete this.loginForm.value.email;
+    // delete this.loginForm.value.username;
+    // }, (err) => {
+    //   this.toastr.error("Please try after some time");
     });
   }
   searchdraw() {
@@ -157,6 +181,7 @@ submitted:boolean=false;
     this.submitted = true;
     
     let jsonData = {
+      // id: this.id,
       key: this.loginForm.value.username,
 
     }
@@ -170,17 +195,22 @@ submitted:boolean=false;
         
       if (res['success'] == true) {
         this.showDatafound = true;
-      
+        // this.httpService.toastr.success(res['message'], '', {
+        //   positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
+        // });
       }
   
- 
-    this.textClear();
+    // }, (err) => {
+    //   this.toastr.error("Please try after some time");
+    // this.textClear();
     });
-    if( this.username =''){
-  this.getdrawlist();
+  //   if( this.email =''){
+  // this.getdrawlist();
 
-    }
+  //   }
 
   }
-
+ 
+  
+  
 }

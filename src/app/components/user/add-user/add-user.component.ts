@@ -5,8 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { HttpService } from 'src/app/shared/services/http.service';
 import { SearchCountryField, CountryISO } from 'ngx-intl-tel-input';
-import { Country, MatSelectCountryModule } from "@angular-material-extensions/select-country";
-import { FormControl } from '@angular/forms';
+
 
 @Component({
   selector: 'app-add-user',
@@ -299,9 +298,7 @@ ngOnInit(): void {
  
 }
 
-onCountrySelected($event: Country) {
-  console.log($event);
-}
+
 user(){
   this.router.navigateByUrl('/user/userlist')
 
