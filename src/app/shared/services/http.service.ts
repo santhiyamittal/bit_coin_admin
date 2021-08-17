@@ -21,14 +21,21 @@ userloginurl: string = "admin/auth/login";
   setOTPUrl: string="admin/g2f/auth/enable";
   changepassword : string="admin/auth/changepassword";
   activityuser : string="admin/auth/activity";
-  getuser: string="admin/user/list";
   getprofile: string="admin/auth/getprofile";
   resetpassword : string="admin/auth/resetpassword";
   forgetpassword: string="admin/auth/forgotpassword";
+  //user
+  getuser: string="admin/user/list";
   createuser: string="admin/user/create";
   updateuser: string="admin/user/update";
 deleteuser: string="admin/user/delete";
 searchuser:string="admin/user/listbyid";
+//Draw
+getdraw:string="admin/draw/list";
+createdraw:string="admin/draw/create";
+updatedraw:string="admin/draw/update";
+deletedraw:string="admin/draw/delete";
+searchdraw:string="admin/draw/listbyid";
 //variables
 errorCount: number;
 
@@ -145,6 +152,21 @@ errorCount: number;
   }
   getsearch(jsonObj: any): Observable<any> {
     return this.http.post(this.baseURL + this.searchuser, jsonObj, {
+      headers: this.getAuthHeaders(),
+    });
+  }
+  getdrawlist(){
+    return this.http.get(this.baseURL + this.getdraw, {
+      headers: this.getAuthHeaders(),
+    });
+  }
+  getdrawdelete(jsonObj: any): Observable<any> {
+    return this.http.post(this.baseURL + this.deletedraw,jsonObj,{
+      headers: this.getAuthHeaders(),
+    });
+  }
+  getsearchdraw(jsonObj: any): Observable<any> {
+    return this.http.post(this.baseURL + this.searchdraw,jsonObj,{
       headers: this.getAuthHeaders(),
     });
   }

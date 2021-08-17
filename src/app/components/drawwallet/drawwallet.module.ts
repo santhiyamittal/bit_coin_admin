@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { HttpClientModule } from '@angular/common/http';
@@ -16,11 +16,14 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { AdddrawComponent } from './adddraw/adddraw.component';
 import { ViewdrawComponent } from './viewdraw/viewdraw.component';
+import { EditdrawComponent } from './editdraw/editdraw.component';
+import { DeletedrawComponent } from './deletedraw/deletedraw.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
 @NgModule({
-  declarations: [DrawwalletComponent, AdddrawComponent, ViewdrawComponent],
+  declarations: [DrawwalletComponent, AdddrawComponent, ViewdrawComponent, EditdrawComponent, DeletedrawComponent],
   imports: [
     CommonModule,
   DrawWalletRoutingModule,
@@ -34,6 +37,7 @@ import { ViewdrawComponent } from './viewdraw/viewdraw.component';
     HttpClientModule,
     CarouselModule,
     MatDialogModule,
+    NgxPaginationModule,
     ToastrModule.forRoot(
       {
         timeOut: 1000
@@ -42,6 +46,8 @@ import { ViewdrawComponent } from './viewdraw/viewdraw.component';
   ],
   providers: [
     ToastrService
-  ]
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+
 })
 export class DrawWalletModule { }

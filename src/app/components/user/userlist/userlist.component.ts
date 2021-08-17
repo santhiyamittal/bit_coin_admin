@@ -19,7 +19,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 export class UserlistComponent implements OnInit {
-  Status: any = ['Active', 'Inactive', 'Pending'];
+  Status: any = ['Active', 'Inactive'];
   public loginForm: FormGroup;
 submitted:boolean=false;
   data: any[];
@@ -109,10 +109,10 @@ submitted:boolean=false;
     });
   }
   
-  textClear(){
-    this.username =''; 
-    this.email ='';
-  }
+  // textClear(){
+  //   this.username =''; 
+  //   this.email ='';
+  // }
   add() {
     this.router.navigateByUrl('/user/adduser')
 
@@ -147,7 +147,6 @@ submitted:boolean=false;
   getUserlist() {
 
     this.httpService.getUserlist().subscribe((res: any) => {
-      this.loader.stop();
 
       console.log(res['data'])
       this.data = res['data']
@@ -161,6 +160,7 @@ submitted:boolean=false;
         if (this.data.length > 0) {
       if (res['success'] == true) {
         this.showDatafound = true;
+        // this.searchuser();
 
         // this.httpService.toastr.success(res['message'], '', {
         //   positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
@@ -174,7 +174,6 @@ submitted:boolean=false;
 
   }
 
-  this.searchuser();
 
     // delete this.loginForm.value.email;
     // delete this.loginForm.value.username;
@@ -183,7 +182,7 @@ submitted:boolean=false;
     });
   }
   searchuser() {
-    // debugger
+    debugger
     this.submitted = true;
     
     let jsonData = {
@@ -208,13 +207,12 @@ submitted:boolean=false;
   
     // }, (err) => {
     //   this.toastr.error("Please try after some time");
-    this.textClear();
+    // this.textClear();
     });
-    if( this.email =''){
-  this.getUserlist();
+  //   if( this.email =''){
+  // this.getUserlist();
 
-    }
+  //   }
 
   }
 }
-

@@ -43,14 +43,12 @@ export class SidemenuComponent implements OnInit {
     });
   }
 
-  
-
   //Active NavBar State
   setNavActive(item) {
     this.menuItems.filter(menuItem => {
       if (menuItem !== item) {
         menuItem.active = false;
-        document.querySelector('.main-body').classList.remove('main-sidebar-show')       
+        document.querySelector('.main-body').classList.remove('main-sidebar-show')
       }
       if (menuItem.children && menuItem.children.includes(item)) {
         menuItem.active = true;
@@ -66,7 +64,7 @@ export class SidemenuComponent implements OnInit {
     });
   }
 
- 
+
   // Click Toggle menu
   toggleNavActive(item) {
     if (!item.active) {

@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdddrawComponent } from './adddraw/adddraw.component';
+import { DeletedrawComponent } from './deletedraw/deletedraw.component';
 import { DrawwalletComponent } from './drawwallet/drawwallet.component';
+import { EditdrawComponent } from './editdraw/editdraw.component';
 import { ViewdrawComponent } from './viewdraw/viewdraw.component';
 
 
@@ -20,6 +22,14 @@ const routes: Routes = [
       {
         path: 'viewdraw',
         component: ViewdrawComponent
+      },
+      {
+        path: 'deletedraw',
+        component: DeletedrawComponent
+      },
+      {
+        path: 'editdraw',
+        component:EditdrawComponent
       },
     ]
   }
