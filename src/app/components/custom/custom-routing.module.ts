@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthencationGuard } from 'src/app/shared/services/authencation.guard';
 import { ForgetComponent } from './forget/forget.component';
 import { LockscreenComponent } from './lockscreen/lockscreen.component';
 import { ResetComponent } from './reset/reset.component';
@@ -11,6 +12,8 @@ import { TwofactorComponent } from './twofactor/twofactor.component';
 const routes: Routes = [
   {
     path: '',
+    canActivate:[AuthencationGuard],
+
     children: [
       
       {

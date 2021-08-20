@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthencationGuard } from 'src/app/shared/services/authencation.guard';
 import { AdddrawComponent } from './adddraw/adddraw.component';
 import { DeletedrawComponent } from './deletedraw/deletedraw.component';
 import { DrawwalletComponent } from './drawwallet/drawwallet.component';
@@ -9,7 +10,10 @@ import { ViewdrawComponent } from './viewdraw/viewdraw.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: '',              
+      canActivate:[AuthencationGuard],
+
+
     children: [
       {
         path: 'Drawwallet',

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthencationGuard } from 'src/app/shared/services/authencation.guard';
 import { ApexComponent } from './apex/apex.component';
 import { ChartjsComponent } from './chartjs/chartjs.component';
 import { ChartlistComponent } from './chartlist/chartlist.component';
@@ -9,6 +10,8 @@ import { EchartComponent } from './echart/echart.component';
 const routes: Routes = [
   {
     path: '',
+    canActivate:[AuthencationGuard],
+
     children: [
       // {
       //   path: 'apex',

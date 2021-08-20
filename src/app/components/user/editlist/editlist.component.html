@@ -152,7 +152,7 @@
                                                             <select class="select" formControlName="code"
                                                             [ngClass]="{ 'is-invalid': submitted && loginFormControl.code.errors }">
                                                             <option>Code</option>
-                                                            <option *ngFor="let con of Country">{{con['number']}}({{con['code']}})</option>
+                                                            <option *ngFor="let con of Country">{{con['dial_code']}}({{con['code']}})</option>
                                                         </select></span>
                                                         </div>
                                     <input type="text" class="form-control" formControlName="mobile"

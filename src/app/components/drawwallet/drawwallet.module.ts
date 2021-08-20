@@ -19,6 +19,8 @@ import { ViewdrawComponent } from './viewdraw/viewdraw.component';
 import { EditdrawComponent } from './editdraw/editdraw.component';
 import { DeletedrawComponent } from './deletedraw/deletedraw.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+// import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 
@@ -38,6 +40,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     CarouselModule,
     MatDialogModule,
     NgxPaginationModule,
+    Ng2SearchPipeModule,
     ToastrModule.forRoot(
       {
         timeOut: 1000

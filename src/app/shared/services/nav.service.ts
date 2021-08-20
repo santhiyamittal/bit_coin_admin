@@ -70,7 +70,7 @@ export class NavService implements OnDestroy{
     //title
     { headTitle: 'dashboard' },
     {
-      path: 'dashboard/dashboard', title: 'Dashboard', type: 'link', icon: 'ti-home',active: true,
+      path: 'dashboard/dashboard', title: 'Dashboard', type: 'link', icon: 'ti-home',
     },
     {
       path: 'user/userlist', title: 'User', type: 'link', icon: 'ti-user',active: false

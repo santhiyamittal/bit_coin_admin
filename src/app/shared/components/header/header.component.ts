@@ -25,6 +25,7 @@ export class HeaderComponent implements OnInit , AfterViewInit {
   data: any;
   role: any;
   username: any;
+  userUnathorized: boolean;
 
   constructor(
     private layoutService: LayoutService,
@@ -84,8 +85,25 @@ export class HeaderComponent implements OnInit , AfterViewInit {
     const sidebar = document.querySelector('.side-menu');
     let ps = new PerfectScrollbar(sidebar);
   }
+  unauthorized() {
+    // localStorage.clear();
+    // if (!this.userUnathorized) {
+    //   // this.toastr.error("User has been unathorized");
+    //   this.toastr.error("User unathorized", "", {
+    //     positionClass: "toast-bottom-right",
+    //     closeButton: true,
+    //     timeOut: 5000,
+    //   });
+    // }
+    this.userUnathorized = true;
+    this.router.navigateByUrl("login");
+    localStorage.clear();
+  
+
+    // this.logoutUser();
+  }
   logoutUser() {
-    // debugger
+    debugger
     if (
       localStorage.getItem("userid") != null ||
       localStorage.getItem("userid") != undefined

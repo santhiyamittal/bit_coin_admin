@@ -24,7 +24,7 @@ export class UserlistComponent implements OnInit {
 submitted:boolean=false;
   data: any[];
   Data: any[];
-  totalLength: any;
+  totalLength:number;
   page: number = 1
   status: any[];
   id: any;
@@ -32,6 +32,10 @@ submitted:boolean=false;
   showDatafound: boolean;
   username: any;
   email: any;
+  datastatus: any;
+  statustrue: any;
+  statusfalse: any;
+  p: number[] = [];
   // username: any;
   // email: any;
 
@@ -53,10 +57,9 @@ submitted:boolean=false;
 
   ngOnInit(): void {
     this.getUserlist();
+
    this.createForm();
-   var userDetails = JSON.parse(localStorage.getItem("id"));
-   this.userDetails = userDetails;
-   console.log( this.userDetails);
+  
   }
   get loginFormControl() {
     return this.loginForm.controls;
@@ -145,7 +148,6 @@ submitted:boolean=false;
   //     });
   //   }
   getUserlist() {
-
     this.httpService.getUserlist().subscribe((res: any) => {
 
       console.log(res['data'])
@@ -179,6 +181,7 @@ submitted:boolean=false;
     // delete this.loginForm.value.username;
     // }, (err) => {
     //   this.toastr.error("Please try after some time");
+
     });
   }
   searchuser() {
@@ -186,33 +189,32 @@ submitted:boolean=false;
     this.submitted = true;
     
     let jsonData = {
-      // id: this.id,
       key: this.loginForm.value.email,
-
+     status:false,
     }
-    
+  
     this.httpService.getsearch(jsonData).subscribe((res: any) => {
       this.loader.stop();
-     
-      console.log(res['data'])
-      this.data = res['data']
-      
-        
+    
+        this.data = res['data']
+        for (let idx in this.data) {
+          this.datastatus=this.data[idx]['deleted']
+          console.log(this.datastatus)
+          if (this.data[idx]['deleted'] == 'true') {
+            this.statustrue.push(this.data[idx]);
+            console.log(this.statusfalse);
+
+          }
+          if (this.data[idx]['deleted'] == 'false') {
+            this.statusfalse.push(this.data[idx]);
+            console.log(this.statusfalse);
+          }
+        }
+      if(this.data){
       if (res['success'] == true) {
         this.showDatafound = true;
-        // this.httpService.toastr.success(res['message'], '', {
-        //   positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
-        // });
       }
-  
-    // }, (err) => {
-    //   this.toastr.error("Please try after some time");
-    // this.textClear();
+    }
     });
-  //   if( this.email =''){
-  // this.getUserlist();
-
-  //   }
-
-  }
+  } 
 }

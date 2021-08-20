@@ -106,7 +106,7 @@
         <label>Start Time
             <span class="tx-danger">*</span>
         </label>
-        <input type="text" formControlName="StartTime" class="form-control" value={{StartTime}} [(ngModel)]="StartTime"
+        <input type="text" formControlName="StartTime" class="form-control"  value={{StartTime}} [(ngModel)]="StartTime"
             [ngClass]="{ 'is-invalid': submitted && loginFormControl.StartTime.errors }" />
         <div *ngIf="submitted && loginFormControl.StartTime.errors" class="invalid-feedback">
             <div *ngIf="loginFormControl.StartTime.errors.required">StartTime is required</div>
@@ -126,7 +126,7 @@
 
 
         <div class="modal-footer">
-            <button class="btn ripple btn-primary" type="button" (click)="successAlert()">Save changes</button>
+            <button class="btn ripple btn-primary" type="submit">Save changes</button>
             <button type="button" class="btn ripple btn-secondary" (click)="closeModelBox()">Close</button>
         </div>
     </form>

@@ -15,6 +15,9 @@ import Swal from 'sweetalert2';
   styleUrls: ['./editdraw.component.scss']
 })
 export class EditdrawComponent implements OnInit {
+  // EndTime=Date.now();
+  // StartTime=Date.now();
+
   Email: any;
   firstname: any;
   lastname: any;
@@ -28,9 +31,11 @@ export class EditdrawComponent implements OnInit {
   starttime: any;
   winningprice: any;
   startTime: any;
-  pipe = new DatePipe("en-");
-  StartTime: string;
-  EndTime: string;
+  pipe = new DatePipe("en-us");
+  StartTime: number;
+  EndTime: number;
+  // StartTime: string;
+  // EndTime: string;
 
   constructor(public dialogRef: MatDialogRef<EditdrawComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -48,23 +53,30 @@ export class EditdrawComponent implements OnInit {
     console.log(this.data);
 
     this.Email=this.data['data']['email']
-    this.endTime=this.data['data']['end_time']
-    this.startTime=this.data['data']['start_time']
+    this.EndTime=this.data['data']['end_time']
+    this.StartTime=this.data['data']['start_time']
       this.User=this.data['data']['name']
       this.status=this.data['data']['status']
       this.winningprice=this.data['data']['winning_price']
       this.id=this.data['data']['_id']
-      console.log(this.startTime);
+      this.StartTime=Date.now();
+      this.EndTime=Date.now();
+      console.log(this.data['data']['start_time'])
+      console.log(this.data['data']['end_time'])
+
+      console.log(this.StartTime);
+      console.log(this.EndTime);
+
   }
 
   ngOnInit(): void {
     this.createForm();
     var datePipe = new DatePipe("en-US");
 
-    this.StartTime = datePipe.transform(this.startTime,'yyyy-mm-dd:HH:mm:ss');
-    this.EndTime = datePipe.transform(this.endTime,'yyyy-mm-dd:HH:mm:ss');
+    // this.StartTime = datePipe.transform(this.startTime,'yyyy-mm-dd:HH:mm:ss');
+    // this.EndTime = datePipe.transform(this.endTime,'yyyy-mm-dd:HH:mm:ss');
 
-    console.log(this.StartTime)
+    // console.log(this.StartTime)
   }
   createForm() {
     this.loginForm = this.formBuilder.group({
@@ -86,14 +98,14 @@ export class EditdrawComponent implements OnInit {
     Swal.fire({
       icon: 'success',
       title: 'Well Done!',
-      text: 'User Get Updated',
+      text: 'Draw Get Updated',
       confirmButtonColor: '#6259ca'
     })
     this.router.navigateByUrl('/drawwallet/Drawwallet')
 
   }
   onSubmit() {
-
+debugger
     this.submitted = true;
 
     // debugger
@@ -104,10 +116,8 @@ export class EditdrawComponent implements OnInit {
       start_time:this.loginForm.value.StartTime,
       winning_price: this.loginForm.value.winningprice,
     }
-    this.loader.start();
     this.httpService.getupdate(jsonData).subscribe(res => {
-      this.loader.stop();
-      if (res['success'] == true) {
+      if (res['success'] == false) {
      
         setInterval(() => {
         }, 1500);
@@ -123,7 +133,9 @@ export class EditdrawComponent implements OnInit {
       }
     });
  
-
+    this.httpService.toastr.error('user_not_found', '', {
+      positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
+    })  
   }
   
 

@@ -122,10 +122,10 @@
                                     {{item['status'] > 0 ? 'Active':item['status']}}
                                 </td>
                                 <td>
-                                    {{item['start_time'].split(".")[0]}}
+                                    {{item['start_time'] | date :'medium'}}
                                 </td>
                                 <td>
-                                    {{item['end_time'].split(".")[0]}}
+                                    {{item['end_time']| date :'medium'}}
                                 </td>
                                 <td>
                                     <button (click)="gotoview()" class="btn btn-sm btn-primary mr-1">

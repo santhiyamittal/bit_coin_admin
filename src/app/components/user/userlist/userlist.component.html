@@ -13,7 +13,7 @@
             </button>-->
                  <button type="button" class="btn btn-white btn-icon-text my-2 ml-2" (click)="add()">
             Add New User
-           </button> 
+           </button>&nbsp;
            <button type="button" class="btn btn-primary my-2 btn-icon-text"(click)="inactive()">
              Inactive User
            </button> 
@@ -134,9 +134,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                             <tr *ngFor="let item of data |  paginate:{
+                             <tr *ngFor="let item of data |filter: username | paginate:{
                                 itemsPerPage: 10,
-                                 currentPage:page,
+                                 currentPage:p,
+                                 item:item,
                                 totalitem:totalLength }">	
                           <!-- <tr *ngFor="let item of data "> -->
                                 <!-- <td>
@@ -179,7 +180,8 @@
                 <div class="center" *ngIf="!showDatafound">
                     <span>NO DATA FOUND </span>
                   </div>
-                <pagination-controls class="pagination mt-4 mb-0 float-right page-item" (pageChange)="page = $event"></pagination-controls>
+                <pagination-controls class="pagination mt-4 mb-0 float-right page-item" (pageChange)="p = $event"   item:item></pagination-controls>
+                
             </div>
         </div>
     </div><!-- COL END -->

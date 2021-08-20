@@ -40,6 +40,7 @@ submitted:boolean=false;
   showDatafound: boolean;
   username: any;
   email: any;
+  datastatus: any;
   // username: any;
   // email: any;
 
@@ -144,6 +145,7 @@ submitted:boolean=false;
     this.httpService.getdrawlist().subscribe((res: any) => {
 
       console.log(res['data'])
+
       this.data = res['data']
       this.status = res['data']['status']
       this.id = res['data']['_id']
@@ -183,32 +185,25 @@ submitted:boolean=false;
     let jsonData = {
       // id: this.id,
       key: this.loginForm.value.username,
-
+      status:false,
     }
     
     this.httpService.getsearchdraw(jsonData).subscribe((res: any) => {
       this.loader.stop();
-     
       console.log(res['data'])
       this.data = res['data']
-      
-        
+     
       if (res['success'] == true) {
         this.showDatafound = true;
         // this.httpService.toastr.success(res['message'], '', {
         //   positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
         // });
-      }
+      
+    }
   
-    // }, (err) => {
-    //   this.toastr.error("Please try after some time");
-    // this.textClear();
     });
-  //   if( this.email =''){
-  // this.getdrawlist();
-
-  //   }
-
+    
+  
   }
  
   

@@ -122,7 +122,7 @@
                                                         <select class="select" formControlName="code"
                                                         [ngClass]="{ 'is-invalid': submitted && loginFormControl.code.errors }">
                                                         <option>Code</option>
-                                                        <option *ngFor="let con of Country">{{con['number']}}({{con['code']}})</option>
+                                                        <option *ngFor="let con of Country">{{con['dial_code']}}({{con['code']}})</option>
                                                     </select></span>
                                                     </div>
                                 <input type="text" class="form-control" formControlName="mobile"
@@ -137,7 +137,7 @@
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-12">
-                            <label>country
+                            <label>Country
                                 <span class="tx-danger">*</span>
                             </label>
                             <div class="form-group ">
@@ -182,7 +182,7 @@
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-12">
-                            <label>gender
+                            <label>Gender
                                 <!-- <span class="tx-danger">*</span> -->
                             </label>
                             <div class="form-group ">
@@ -203,8 +203,8 @@
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-12">
-                            <label>address
-                                <!-- <span class="tx-danger">*</span> -->
+                            <label>Address
+                                <span class="tx-danger">*</span>
                             </label>
                             <div class="form-group">
                                 <input type="text" formControlName="address" class="form-control"
@@ -216,16 +216,16 @@
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-12">
-                            <label>address1
+                            <label>Address1
                             </label>
                             <div class="form-group">
                                 <input type="text" formControlName="address1" class="form-control"
                                     [ngClass]="{ 'is-invalid': submitted && loginFormControl.address1.errors }" />
-                                <div *ngIf="submitted && loginFormControl.address1.errors" class="invalid-feedback">
+                                <!-- <div *ngIf="submitted && loginFormControl.address1.errors" class="invalid-feedback">
                                     <div *ngIf="loginFormControl.address1.errors.required">address1 is required</div>
                                     <div *ngIf="loginFormControl.address1.errors.minlength">address1 must be Entered
-                                    </div>
-                                </div>
+                                    </div> -->
+                                <!-- </div> -->
                             </div>
                         </div>
 

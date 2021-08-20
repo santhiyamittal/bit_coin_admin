@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthencationGuard } from 'src/app/shared/services/authencation.guard';
 import { AccumulatefundsComponent } from './accumulatefunds/accumulatefunds.component';
 import { BuySellComponent } from './buy-sell/buy-sell.component';
 import { ColdpagewalletComponent } from './coldpagewallet/coldpagewallet.component';
@@ -16,6 +17,8 @@ import { WalletComponent } from './wallet/wallet.component';
 const routes: Routes = [
   {
     path: '',
+    canActivate:[AuthencationGuard],
+
     children: [
       // {
       //   path: 'buy-sell',

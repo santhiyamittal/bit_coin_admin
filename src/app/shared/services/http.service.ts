@@ -30,6 +30,7 @@ userloginurl: string = "admin/auth/login";
   updateuser: string="admin/user/update";
 deleteuser: string="admin/user/delete";
 searchuser:string="admin/user/listbyid";
+statususer:string="admin/user/status";
 //Draw
 getdraw:string="admin/draw/list";
 createdraw:string="admin/draw/create";
@@ -132,6 +133,11 @@ errorCount: number;
   }
   getUserlist(): Observable<any> {
     return this.http.get(this.baseURL + this.getuser, {
+      headers: this.getAuthHeaders(),
+    });
+  }
+  getStatusUser(jsonObj: any): Observable<any> {
+    return this.http.post(this.baseURL + this.statususer,jsonObj,{
       headers: this.getAuthHeaders(),
     });
   }
