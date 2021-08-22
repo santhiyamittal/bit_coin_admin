@@ -34,6 +34,7 @@ this.created=this.createdat.split(".")[0],
    
       }
   ngOnInit(): void {
+    
   }
   closeModelBox(): void {
     this.dialogRef.close();

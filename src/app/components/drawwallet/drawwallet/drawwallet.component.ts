@@ -62,21 +62,29 @@ submitted:boolean=false;
 
   ngOnInit(): void {
     this.getdrawlist();
-   this.createForm();
-   var userDetails = JSON.parse(localStorage.getItem("id"));
-   this.userDetails = userDetails;
-   console.log( this.userDetails);
+  //search api
+  
+  let jsonData = {
+    // id: this.id,
+    key: this.username,
+    status:false,
+  }
+  
+  this.httpService.getsearchdraw(jsonData).subscribe((res: any) => {
+    console.log(res['data'])
+    this.data = res['data']
+  });
   }
   get loginFormControl() {
     return this.loginForm.controls;
   }
-  createForm() {
-    this.loginForm = this.formBuilder.group({
+  // createForm() {
+  //   this.loginForm = this.formBuilder.group({
 
-      username: ['', Validators.required],
-      email: ['', Validators.required],
-    });
-  }
+  //     username: ['', Validators.required],
+  //     email: ['', Validators.required],
+  //   });
+  // }
   
   
 
@@ -179,31 +187,16 @@ submitted:boolean=false;
     });
   }
   searchdraw() {
-    debugger
-    this.submitted = true;
-    
-    let jsonData = {
-      // id: this.id,
-      key: this.loginForm.value.username,
-      status:false,
-    }
-    
-    this.httpService.getsearchdraw(jsonData).subscribe((res: any) => {
-      this.loader.stop();
-      console.log(res['data'])
-      this.data = res['data']
-     
-      if (res['success'] == true) {
-        this.showDatafound = true;
-        // this.httpService.toastr.success(res['message'], '', {
-        //   positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
-        // });
-      
-    }
-  
-    });
-    
-  
+    if(this.username == ""){
+      this.showDatafound = false;
+
+      this.ngOnInit();
+     }else{
+       this.data = this.data.filter(res =>{
+         return res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase());
+       })
+     }
+     console.log(this.data)
   }
  
   

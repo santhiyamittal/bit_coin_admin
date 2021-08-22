@@ -23,7 +23,7 @@ submitted:boolean=false;
   data: any[];
   Data: any[];
   totalLength: any;
-  page: number = 1
+  page: number = 1;
   status:true;
   id: any;
   userDetails: any;
@@ -53,6 +53,7 @@ submitted:boolean=false;
   ngOnInit(): void {
     this.getinactivelist();
   //  this.createForm();
+  
   //search api
   let jsonData={
     key: this.username,

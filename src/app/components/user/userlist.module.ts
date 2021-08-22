@@ -18,6 +18,7 @@ import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 import { DeleteuserComponent } from './deleteuser/deleteuser.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { OrderModule } from 'ngx-order-pipe';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     NgxPaginationModule,
     NgxIntlTelInputModule,
     Ng2SearchPipeModule,
+    OrderModule,
     NgCircleProgressModule.forRoot(),
     ToastrModule.forRoot(
       {

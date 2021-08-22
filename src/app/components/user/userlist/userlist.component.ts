@@ -58,20 +58,31 @@ submitted:boolean=false;
   ngOnInit(): void {
     this.getUserlist();
 
-   this.createForm();
+  //  this.createForm();
   
+  //search api
+  let jsonData={
+    key: this.username,
+    status:false,
+    }
+       this.httpService.getsearch(jsonData).subscribe((res: any) => {
+        console.log(res['data'])
+            this.data = res['data']
+       });
   }
+  
+  
   get loginFormControl() {
     return this.loginForm.controls;
   }
-  createForm() {
-    this.loginForm = this.formBuilder.group({
+  // createForm() {
+  //   this.loginForm = this.formBuilder.group({
 
-      username: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
-      status: ['', Validators.required],
-    });
-  }
+  //     username: ['', Validators.required],
+  //     email: ['', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+  //     status: ['', Validators.required],
+  //   });
+  // }
   
   addsymbol(userdetails) {
     const dialogRef = this.dialog.open(ViewlistComponent, {
@@ -184,37 +195,47 @@ submitted:boolean=false;
 
     });
   }
-  searchuser() {
-    debugger
-    this.submitted = true;
-    
-    let jsonData = {
-      key: this.loginForm.value.email,
-     status:false,
-    }
-  
-    this.httpService.getsearch(jsonData).subscribe((res: any) => {
-      this.loader.stop();
-    
-        this.data = res['data']
-        for (let idx in this.data) {
-          this.datastatus=this.data[idx]['deleted']
-          console.log(this.datastatus)
-          if (this.data[idx]['deleted'] == 'true') {
-            this.statustrue.push(this.data[idx]);
-            console.log(this.statusfalse);
+  searchuser(){
 
-          }
-          if (this.data[idx]['deleted'] == 'false') {
-            this.statusfalse.push(this.data[idx]);
-            console.log(this.statusfalse);
-          }
-        }
-      if(this.data){
-      if (res['success'] == true) {
-        this.showDatafound = true;
-      }
+    if(this.username == ""){
+     this.ngOnInit();
+    }else{
+      this.data = this.data.filter(res =>{
+        return res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase());
+      })
     }
-    });
-  } 
+  }
+  // searchuser() {
+  //   debugger
+  //   this.submitted = true;
+    
+  //   let jsonData = {
+  //     key: this.loginForm.value.email,
+  //    status:false,
+  //   }
+  
+  //   this.httpService.getsearch(jsonData).subscribe((res: any) => {
+  //     this.loader.stop();
+    
+  //       this.data = res['data']
+  //       for (let idx in this.data) {
+  //         this.datastatus=this.data[idx]['deleted']
+  //         console.log(this.datastatus)
+  //         if (this.data[idx]['deleted'] == 'true') {
+  //           this.statustrue.push(this.data[idx]);
+  //           console.log(this.statusfalse);
+
+  //         }
+  //         if (this.data[idx]['deleted'] == 'false') {
+  //           this.statusfalse.push(this.data[idx]);
+  //           console.log(this.statusfalse);
+  //         }
+  //       }
+  //     if(this.data){
+  //     if (res['success'] == true) {
+  //       this.showDatafound = true;
+  //     }
+  //   }
+  //   });
+  // } 
 }

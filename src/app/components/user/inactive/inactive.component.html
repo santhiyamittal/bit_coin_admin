@@ -129,8 +129,9 @@
                     <table class="table card-table table-striped table-vcenter text-nowrap mb-0">
                         <thead>
                             <tr>
-                                <th (click)= "sort('username')"class="wd-lg-8p"><span>User &nbsp; <i class="fa fa-sort"></i></span></th>
-                                <!-- <th class="wd-lg-20p"><span></span></th> -->
+                                <!-- <th (click)= "sort('username')"class="wd-lg-8p"><span>User &nbsp; <i class="fa fa-sort"></i></span></th>
+                                <th  (click)= "sort('email')" class="wd-lg-20p"><span>Email&nbsp; <i class="fa fa-sort"></i></span></th> -->
+                                <th class="wd-lg-20p"><span>User</span></th>
                                 <th class="wd-lg-20p"><span>Email</span></th>
                                 <th class="wd-lg-20p"><span>Status</span></th>
                                 <th class="wd-lg-20p"><span>Device</span></th>
@@ -138,7 +139,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                             <tr *ngFor="let item of data |orderby: key:reverse|filter: username|  paginate:{
+                             <tr *ngFor=" let item of data |filter: username|  paginate:{
                                 itemsPerPage: 10,
                                  currentPage:page,
                                 totalitem:totalLength }">	
@@ -147,9 +148,10 @@
                                     <img alt="avatar" class="rounded-circle avatar-md mr-2"
                                         src="../../assets/img/users/1.jpg">
                                 </td> -->
-                                <td>{{item['username'] == "" ? 'NA': item['username']}} </td>
+                                
+                                <td>{{item.username == "" ? 'NA': item.username}} </td>
                                 <td>
-                                   {{item['email']}}
+                                   {{item.email}}
                                 </td>
                                 <!-- <td class="label text-success d-flex">
                                              

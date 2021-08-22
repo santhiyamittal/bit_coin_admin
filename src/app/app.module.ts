@@ -15,6 +15,7 @@ import { ToastrModule } from 'ngx-toastr';
 import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 // import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 @NgModule({
   declarations: [
@@ -37,7 +38,6 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     NgxIntlTelInputModule,
     HttpClientModule,
     Ng2SearchPipeModule,
-
     ToastrModule.forRoot(
       {
         timeOut: 1000
