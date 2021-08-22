@@ -175,7 +175,7 @@ getviewlist() {
     }
   
 searchview() {
-  debugger
+  // debugger
   this.submitted = true;
   
   let jsonData = {

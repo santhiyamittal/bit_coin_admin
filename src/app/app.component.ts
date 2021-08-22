@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserIdleService } from 'angular-user-idle';
 
 @Component({
   selector: 'app-root',
@@ -16,10 +17,29 @@ export class AppComponent {
   //     this.isSpinner = false;
   //   },1000)
   // }
-  constructor(){}
-ngOnInit(){}
-setTheme(){
+  constructor(
+    private userIdle: UserIdleService,
 
+  ){
+    
+  }
+ngOnInit(){}
+//Timer
+stop() {
+  this.userIdle.stopTimer();
+}
+
+stopWatching() {
+  this.userIdle.stopWatching();
+}
+
+startWatching() {
+  console.log("Timer stop");
+  this.userIdle.startWatching();
+}
+
+restart() {
+  this.userIdle.resetTimer();
 }
 
 }

@@ -151,7 +151,7 @@ submitted:boolean=false;
   //     });
   //   }
   getinactivelist() {
-debugger
+// debugger
 let jsonData={
   status:'true'
 }

@@ -181,4 +181,9 @@ errorCount: number;
       headers: this.getAuthHeaders(),
     });
   }
+  getUpdatedraw(jsonObj: any): Observable<any> {
+    return this.http.post(this.baseURL + this.updatedraw,jsonObj,{
+      headers: this.getAuthHeaders(),
+    });
+  }
 }

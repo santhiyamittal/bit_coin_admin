@@ -105,7 +105,7 @@ export class EditdrawComponent implements OnInit {
 
   }
   onSubmit() {
-debugger
+// debugger
     this.submitted = true;
 
     // debugger
@@ -116,15 +116,15 @@ debugger
       start_time:this.loginForm.value.StartTime,
       winning_price: this.loginForm.value.winningprice,
     }
-    this.httpService.getupdate(jsonData).subscribe(res => {
-      if (res['success'] == false) {
+    this.httpService.getUpdatedraw(jsonData).subscribe(res => {
+      if (res['success'] == true) {
      
         setInterval(() => {
         }, 1500);
         this.dialogRef.close();
 
         // this.generateUserOTP();
-      } else if (res['success'] == false) {
+      } else if (res['success'] == true) {
         // this.notOKstat = res['UserConfiguration']['ErrorMessage'];
         // this.httpService.toastr.error(res['UserConfiguration']['ErrorMessage']);
         this.httpService.toastr.error(res['message'], '', {
@@ -133,9 +133,9 @@ debugger
       }
     });
  
-    this.httpService.toastr.error('user_not_found', '', {
-      positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
-    })  
+    // this.httpService.toastr.error('user_not_found', '', {
+    //   positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
+    // })  
   }
   
 
