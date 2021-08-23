@@ -153,7 +153,7 @@ submitted:boolean=false;
   getinactivelist() {
 debugger
 let jsonData={
-  deleted:'true'
+   status:true
 }
     this.httpService.getStatusUser(jsonData).subscribe((res: any) => {
 
