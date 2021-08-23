@@ -151,9 +151,9 @@ submitted:boolean=false;
   //     });
   //   }
   getinactivelist() {
-// debugger
+debugger
 let jsonData={
-  status:'true'
+  deleted:'true'
 }
     this.httpService.getStatusUser(jsonData).subscribe((res: any) => {
 

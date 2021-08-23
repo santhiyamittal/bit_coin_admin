@@ -83,8 +83,10 @@
     <div class="col-sm-12 col-lg-12 col-xl-12">
         <div class="card bg-primary custom-card card-box">
             <div class="card-body p-4">
-                <div class="row align-items-center">
-                    <form [formGroup]="loginForm" (ngSubmit)="searchview()" novalidate>
+                <label>User Name</label>
+                <input type="text"  [(ngModel)]="username" (ngModelChange)="searchdraw()"class="form-control" placeholder="Enter the User Name" />
+                <!-- <div class="row align-items-center">
+                    <form [formGroup]="loginForm" (ngSubmit)="searchdraw()" novalidate>
 
                         <div class="row">
                             <div class="col-lg-7 col-md-7 col-sm-7">
@@ -114,7 +116,7 @@
                             </div>
                             </div>
                         </form>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -155,7 +157,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let item of drawdata |  paginate:{
+                            <tr *ngFor="let item of drawdata |filter: username|  paginate:{
                                 itemsPerPage: 10,
                                  currentPage:page,
                                 totalitem:totalLength }">
@@ -182,17 +184,17 @@
                                 <td>
                                     {{item['end_time'].split(".")[0]}}
                                 </td>
-                                <td>
-                                    <!-- <button (click)="gotoview()" class="btn btn-sm btn-primary mr-1">
+                                <!-- <td>
+                                     <button (click)="gotoview()" class="btn btn-sm btn-primary mr-1">
                                         <i class="si si-eye"></i>
-                                    </button> -->
+                                    </button>
                                     <button (click)="editsymbol(item)" class="btn btn-sm btn-info mr-1">
                                         <i class="fe fe-edit-2"></i>
                                     </button>
                                     <button (click)="deleteuser(item)" class="btn btn-sm btn-danger">
                                         <i class="fe fe-trash"></i>
                                     </button>
-                                </td>
+                                </td> -->
                             </tr>
 
                         </tbody>

@@ -1,0 +1,158 @@
+<div class="page-header">
+    <div>
+        <h2 class="main-content-title tx-24 mg-b-5">Add Payment</h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item cus" (click)=" gotopayment()">User Payment</li>
+            <li class="breadcrumb-item active" aria-current="page">Add Payment</li>
+
+
+        </ol>
+    </div>
+    <div class="d-flex">
+        <div class="justify-content-center">
+            <button type="button" class="btn btn-primary my-2 btn-icon-text" (click)="gotopayment()">
+                 User Payment
+               </button>&nbsp;
+               <button type="button" class="btn btn-primary my-2 btn-icon-text"(click)="gotoinactive()">
+                 Inactive Payment
+               </button> 
+            <!--<button type="button" class="btn btn-primary my-2 btn-icon-text">
+                <i class="fe fe-download-cloud mr-2"></i> Download Report
+            </button> -->
+        </div>
+    </div>
+</div>
+<div class="card card-aside custom-card">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card-body">
+
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12">
+                            <label>Email
+                                <span class="tx-danger">*</span>
+                            </label>
+                            <div class="form-group">
+                                <input type="text" formControlName="userid" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && loginFormControl.userid.errors }" />
+                                <div *ngIf="submitted && loginFormControl.userid.errors" class="invalid-feedback">
+                                    <div *ngIf="loginFormControl.userid.errors.required">Email is required
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <label>ToCoinAddress
+                                <span class="tx-danger">*</span>
+                            </label>
+                            <div class="form-group">
+                                <input type="text" formControlName="tocoinaddress" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && loginFormControl.tocoinaddress.errors }" />
+                                <div *ngIf="submitted && loginFormControl.tocoinaddress.errors" class="invalid-feedback">
+                                    <div *ngIf="loginFormControl.tocoinaddress.errors.required">ToCoinAddress is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <label>From Coin Address
+                                <span class="tx-danger">*</span>
+                            </label>
+                            <div class="form-group">
+                                <input type="text" formControlName="fromcoinaddress" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && loginFormControl.fromcoinaddress.errors }" />
+                                <div *ngIf="submitted && loginFormControl.fromcoinaddress.errors" class="invalid-feedback">
+                                    <div *ngIf="loginFormControl.fromcoinaddress.errors.required"> Name is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <label>Coin Name
+                                <span class="tx-danger">*</span>
+                            </label>
+                            
+                            <div class="form-group">
+                                <input type="text" formControlName="coinname" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && loginFormControl.coinname.errors }" />
+                                <div *ngIf="submitted && loginFormControl.coinname.errors" class="invalid-feedback">
+                                    <div *ngIf="loginFormControl.coinname.errors.required">Email is required</div>
+                                    <div *ngIf="loginFormControl.coinname.errors.coinname">Email must be a valid email address
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <label>Amount
+                                <span class="tx-danger">*</span>
+
+                            </label>
+                            <input type="text" formControlName="amount" placeholder="Enter the amount"
+                                class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && loginFormControl.amount.errors }" />
+                            <div *ngIf="submitted && loginFormControl.amount.errors" class="invalid-feedback">
+                                <div *ngIf="loginFormControl.amount.errors.required">amount is required</div>
+                                <div *ngIf="loginFormControl.amount.errors.minlength">Password must be at least 6
+                                    characters</div>
+                            </div>
+                        </div>
+                     
+                      
+                        <div class="col-md-6 col-sm-12">
+                            <label>Price Received
+                                <span class="tx-danger">*</span>
+                            </label>
+                            <div class="form-group">
+                                <input type="text" formControlName="pricereceived" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && loginFormControl.pricereceived.errors }" />
+                                <div *ngIf="submitted && loginFormControl.pricereceived.errors" class="invalid-feedback">
+                                    <div *ngIf="loginFormControl.pricereceived.errors.required">Date of Birth is required</div>
+                                    <div *ngIf="loginFormControl.pricereceived.errors.pattern">Date of Birth must be a valid date
+                                        in the format YYYY-MM-DD</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <label>Symbol
+                                <span class="tx-danger">*</span>
+                            </label>
+                            <div class="form-group">
+                                <input type="text" formControlName="symbol" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && loginFormControl.symbol.errors }" />
+                                <div *ngIf="submitted && loginFormControl.symbol.errors" class="invalid-feedback">
+                                    <div *ngIf="loginFormControl.symbol.errors.required">Symbol is required</div>
+                                    <div *ngIf="loginFormControl.symbol.errors.minlength">Symbol must be at least 6
+                                        characters</div>
+                                </div>
+                            </div>
+                        </div>
+                      
+                        <div class="col-md-6 col-sm-12">
+                            <label>Transaction Fee
+                                <span class="tx-danger">*</span>
+                            </label>
+                            <div class="form-group">
+                                <input type="text" formControlName="transactionfee" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && loginFormControl.transactionfee.errors }" />
+                                <div *ngIf="submitted && loginFormControl.transactionfee.errors" class="invalid-feedback">
+                                    <div *ngIf="loginFormControl.transactionfee.errors.required">transactionfee is required</div>
+                                    <div *ngIf="loginFormControl.transactionfee.errors.minlength">transactionfee must be at fill</div>
+                                </div>
+                            </div>
+                        </div>
+                       
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12 text-right m-t-20">
+                            <button type="submit" id="system_submit" class="btn btn-primary">Save</button>
+                            <!-- <button type="submit" class="btn btn-primary" (click)="user()"
+                                >Save</button> -->
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -175,13 +175,13 @@ getviewlist() {
     }
   
 searchview() {
-  // debugger
+  debugger
   this.submitted = true;
   
   let jsonData = {
     // id: this.id,
     key: this.loginForm.value.username,
-   status:true,
+   status:false,
   }
   
   this.httpService.getsearchdraw(jsonData).subscribe((res: any) => {
@@ -208,4 +208,17 @@ searchview() {
 //   }
 
 }
+searchdraw() {
+  if(this.username == ""){
+    this.showDatafound = false;
+
+    this.searchview();
+   }else{
+     this.data = this.data.filter(res =>{
+       return res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase());
+     })
+   }
+   console.log(this.data)
+}
+
 }

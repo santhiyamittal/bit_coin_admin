@@ -37,6 +37,12 @@ createdraw:string="admin/draw/create";
 updatedraw:string="admin/draw/update";
 deletedraw:string="admin/draw/delete";
 searchdraw:string="admin/draw/listbyid";
+//payment
+statuspayment:string="admin/payment/status";
+getpayment:string="admin/payment/list";
+searchpayment:string="admin/payment/listbyid";
+createpayment:string="admin/payment/create";
+deletepayment:string="admin/payment/delete";
 //variables
 errorCount: number;
 
@@ -183,6 +189,31 @@ errorCount: number;
   }
   getUpdatedraw(jsonObj: any): Observable<any> {
     return this.http.post(this.baseURL + this.updatedraw,jsonObj,{
+      headers: this.getAuthHeaders(),
+    });
+  }
+  getpaymentlist(){
+    return this.http.get(this.baseURL + this.getpayment, {
+      headers: this.getAuthHeaders(),
+    });
+  }
+  getcreatepayment(jsonObj: any): Observable<any> {
+    return this.http.post(this.baseURL + this.createpayment,jsonObj,{
+      headers: this.getAuthHeaders(),
+    });
+  }
+  getpaymentdelete(jsonObj: any): Observable<any> {
+    return this.http.post(this.baseURL + this.deletepayment,jsonObj,{
+      headers: this.getAuthHeaders(),
+    });
+  }
+  getsearchpayment(jsonObj: any): Observable<any> {
+    return this.http.post(this.baseURL + this.searchpayment,jsonObj,{
+      headers: this.getAuthHeaders(),
+    });
+  }
+  getpaymentstatus(jsonObj: any): Observable<any> {
+    return this.http.post(this.baseURL + this.statuspayment,jsonObj,{
       headers: this.getAuthHeaders(),
     });
   }

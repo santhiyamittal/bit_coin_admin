@@ -4,18 +4,13 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { HttpService } from 'src/app/shared/services/http.service';
-import Swal from 'sweetalert2';
-import { EditlistComponent } from '../../user/editlist/editlist.component';
-import { ViewlistComponent } from '../../user/viewlist/viewlist.component';
-import { DeletepaymentComponent } from '../deletepayment/deletepayment.component';
-import { ViewpaymentComponent } from '../viewpayment/viewpayment.component';
 
 @Component({
-  selector: 'app-userpayment',
-  templateUrl: './userpayment.component.html',
-  styleUrls: ['./userpayment.component.scss']
+  selector: 'app-inactivepayment',
+  templateUrl: './inactivepayment.component.html',
+  styleUrls: ['./inactivepayment.component.scss']
 })
-export class UserpaymentComponent implements OnInit {
+export class InactivepaymentComponent implements OnInit {
 
 
   Status: any = ['Active', 'Inactive'];
@@ -51,7 +46,7 @@ submitted:boolean=false;
   }
 
   ngOnInit(): void {
-    this.getpaymentlist();
+    this.getpaymentstatus();
  
   }
   get loginFormControl() {
@@ -66,18 +61,18 @@ submitted:boolean=false;
   // }
   
   
-  view(paymentdetails) {
-    const dialogRef = this.dialog.open(ViewpaymentComponent, {
-      width: '600px',
-      height: '600px',
-      data: { data: paymentdetails, }
-    });
-    dialogRef.afterClosed().subscribe((result) => {
-      this.getpaymentlist();
-      // this.searchuser();
+  // view(paymentdetails) {
+  //   const dialogRef = this.dialog.open(ViewpaymentComponent, {
+  //     width: '600px',
+  //     height: '600px',
+  //     data: { data: paymentdetails, }
+  //   });
+  //   dialogRef.afterClosed().subscribe((result) => {
+  //     this.getpaymentlist();
+  //     // this.searchuser();
 
-    });
-  }
+  //   });
+  // }
 
 
  
@@ -91,19 +86,19 @@ submitted:boolean=false;
   //     this.getpaymentlist();
   //   });
   // }
-  deleteuser(drawdelete) {
-    const dialogRef = this.dialog.open(DeletepaymentComponent, {
-      width: '600px',
-      height: '600px',
+  // deleteuser(drawdelete) {
+  //   const dialogRef = this.dialog.open(DeletepaymentComponent, {
+  //     width: '600px',
+  //     height: '600px',
 
-      data: { data: drawdelete, }
-    });
-    dialogRef.afterClosed().subscribe((result) => {
-      setInterval(() => {
-        this.getpaymentlist();
-      }, 3000);
-    });
-  }
+  //     data: { data: drawdelete, }
+  //   });
+  //   dialogRef.afterClosed().subscribe((result) => {
+  //     setInterval(() => {
+  //       this.getpaymentlist();
+  //     }, 3000);
+  //   });
+  // }
   
   // textClear(){
   //   this.username =''; 
@@ -121,12 +116,15 @@ gotoinactive(){
 
 }
   gotohome() {
-    this.router.navigateByUrl('/dashboard/dashboard')
+    this.router.navigateByUrl('/payment/userpayment')
   }
   
-  getpaymentlist() {
+  getpaymentstatus() {
 // debugger
-    this.httpService.getpaymentlist().subscribe((res: any) => {
+let jsonData={
+  status:true,
+}
+    this.httpService.getpaymentstatus(jsonData).subscribe((res: any) => {
 
       console.log(res['data'])
 
@@ -178,62 +176,5 @@ gotoinactive(){
  }
 }
 
-//   constructor(
-//     public dialog: MatDialog,
-//     private router: Router
 
-//   ) { 
-    
-//   }
 
-//   ngOnInit(): void {
-//   }
-//   addsymbol() {
-//     const dialogRef = this.dialog.open(ViewlistComponent, {
-//       width: '600px',
-//       height: '400px',
-//       // data: { formtype: 'addStrike', data:this.datadetails,},
-//     });
-//     dialogRef.afterClosed().subscribe((result) => {
-//       // this.getOptionStrike();
-//     });
-//   }
-//   warningAlert() {
-//     Swal.fire({
-//       icon: 'warning',
-//       title: 'Are you sure ?',
-//       text: 'Your will not be able to recover this imaginary file!',
-//       showCancelButton: true,
-//       confirmButtonColor: '#6259ca',
-//       cancelButtonColor: '#6259ca',
-//       confirmButtonText: 'Yes, delete it!',
-//       reverseButtons: true
-
-//     }).then((result) => {
-//       if (result.isConfirmed) {
-//         Swal.fire({
-//           title: 'Deleted!',
-//           text: 'Your imaginary file has been deleted.',
-//           icon: 'success',
-//           confirmButtonColor: '#6259ca'
-//         })
-//       }
-//     })
-//   }
-
-//   editsymbol() {
-//     const dialogRef = this.dialog.open(EditlistComponent, {
-//       width: '600px',
-//       height: '600px',
-//       // data: { formtype: 'addStrike', data:this.datadetails,},
-//     });
-//     dialogRef.afterClosed().subscribe((result) => {
-//       // this.getOptionStrike();
-//     });
-//   }
- 
-
-//   gotohome() {
-//     this.router.navigateByUrl('/dashboard/dashboard')
-//   }
-// }

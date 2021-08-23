@@ -138,26 +138,7 @@ submitted:boolean=false;
   gotohome() {
     this.router.navigateByUrl('/dashboard/dashboard')
   }
-  //   getUseractive(){
 
-  //     this.httpService.getUser().subscribe((res: any) => {
-  //       this.loader.stop();
-
-  //       console.log(res['data'])
-  //       this.data= res['data']
-  // this.totalLength=this.data.length;
-  // console.log(this.totalLength)
-  //       if (res['success'] == true) {
-  //         // this.toastr.success(res['StatusOfRequest']['Message'], '', { closeButton: true, timeOut: 5000 });
-  //         this.httpService.toastr.success(res['message'], '', {
-  //           positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
-  //         });
-  //         // this.routeTo.navigateByUrl('custom/twofactor');
-  //       }
-  //     }, (err) => {
-  //       this.toastr.error("Please try after some time");
-  //     });
-  //   }
   getUserlist() {
     this.httpService.getUserlist().subscribe((res: any) => {
 
