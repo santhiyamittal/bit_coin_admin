@@ -109,14 +109,14 @@ submitted:boolean=false;
 
 //   }
 gotoadd(){
-  this.router.navigateByUrl('/payment/addpayment')
+  this.router.navigateByUrl('/wallet/addpayment')
 }
 gotoinactive(){
   this.router.navigateByUrl('/wallet/inactivepayment')
 
 }
   gotohome() {
-    this.router.navigateByUrl('/wallet/userpayment')
+    this.router.navigateByUrl('/wallet/paytranscation')
   }
   
   getpaymentstatus() {

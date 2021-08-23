@@ -4,9 +4,8 @@ import { AuthencationGuard } from 'src/app/shared/services/authencation.guard';
 import { AdddrawComponent } from '../drawwallet/adddraw/adddraw.component';
 import { AddpaymentComponent } from './addpayment/addpayment.component';
 import { DeletepaymentComponent } from './deletepayment/deletepayment.component';
-import { InactivepaymentComponent } from './inactivepayment/inactivepayment.component';
 import { UserpaymentComponent } from './userpayment/userpayment.component';
-import { ViewpaymentComponent } from './viewpayment/viewpayment.component';
+
 
 
 
@@ -24,18 +23,12 @@ const routes: Routes = [
         path: 'deletepayment',
         component:DeletepaymentComponent
       },
-      {
-        path: 'viewpayment',
-        component:ViewpaymentComponent
-      },
+      
       {
         path: 'addpayment',
         component:AddpaymentComponent
       },
-      {
-        path: 'inactivepayment',
-        component:InactivepaymentComponent
-      },
+      
     ]
   }
 

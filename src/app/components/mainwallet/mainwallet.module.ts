@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { MarketcapComponent } from './marketcap/marketcap.component';
@@ -22,9 +22,15 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { SubwalletComponent } from './subwallet/subwallet.component';
 import { AccumulatefundsComponent } from './accumulatefunds/accumulatefunds.component';
+import { PaymentTranscationComponent } from './paytranscation/payment-transcation/payment-transcation.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { OrderModule } from 'ngx-order-pipe';
+import { InactivepaymentComponent } from './inactivepayment/inactivepayment.component';
 
 @NgModule({
-  declarations: [MarketcapComponent, CurrencyExchangeComponent, BuySellComponent, WalletComponent, TransactionsComponent, CryptoDashboardComponent, DistpagewalletComponent, ColdpagewalletComponent, SubwalletComponent, AccumulatefundsComponent],
+  declarations: [MarketcapComponent,PaymentTranscationComponent, CurrencyExchangeComponent, BuySellComponent, WalletComponent, TransactionsComponent, CryptoDashboardComponent, DistpagewalletComponent, ColdpagewalletComponent, SubwalletComponent, AccumulatefundsComponent,InactivepaymentComponent],
   imports: [
     CommonModule,
     MainwalletRouting,
@@ -37,7 +43,14 @@ import { AccumulatefundsComponent } from './accumulatefunds/accumulatefunds.comp
     ReactiveFormsModule,
     HttpClientModule,
     NgxDatatableModule,
-
+    FormsModule,
+    ReactiveFormsModule,
+    ChartsModule,
+    MatDialogModule,
+    NgxPaginationModule,
+    NgxIntlTelInputModule,
+    Ng2SearchPipeModule,
+    OrderModule,
     CarouselModule,
     MatDialogModule,
     ToastrModule.forRoot(
@@ -46,6 +59,8 @@ import { AccumulatefundsComponent } from './accumulatefunds/accumulatefunds.comp
       }
     ),
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+
   providers: [
     ToastrService
   ]

@@ -59,8 +59,8 @@ export class EditdrawComponent implements OnInit {
       this.status=this.data['data']['status']
       this.winningprice=this.data['data']['winning_price']
       this.id=this.data['data']['_id']
-      this.StartTime=Date.now();
-      this.EndTime=Date.now();
+      // this.StartTime=Date.now();
+      // this.EndTime=Date.now();
       console.log(this.data['data']['start_time'])
       console.log(this.data['data']['end_time'])
 
@@ -71,10 +71,10 @@ export class EditdrawComponent implements OnInit {
 
   ngOnInit(): void {
     this.createForm();
-    var datePipe = new DatePipe("en-US");
+    // var datePipe = new DatePipe("en-US");
 
-    // this.StartTime = datePipe.transform(this.startTime,'yyyy-mm-dd:HH:mm:ss');
-    // this.EndTime = datePipe.transform(this.endTime,'yyyy-mm-dd:HH:mm:ss');
+    // this.startTime = datePipe.transform(this.StartTime,'yyyy-mm-dd:HH:mm:ss');
+    // this.endTime = datePipe.transform(this.EndTime,'yyyy-mm-dd:HH:mm:ss');
 
     // console.log(this.StartTime)
   }

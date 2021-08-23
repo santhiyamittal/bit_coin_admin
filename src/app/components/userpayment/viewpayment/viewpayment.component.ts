@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ViewlistComponent } from 'src/app/components/user/viewlist/viewlist.component';
 import Swal from 'sweetalert2';
-import { ViewlistComponent } from '../../user/viewlist/viewlist.component';
 
 @Component({
   selector: 'app-viewpayment',

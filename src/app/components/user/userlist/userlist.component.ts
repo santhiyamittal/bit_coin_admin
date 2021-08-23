@@ -63,6 +63,7 @@ submitted:boolean=false;
   //search api
   let jsonData={
     key: this.username,
+    email: this.email,
     status:false,
     }
        this.httpService.getsearch(jsonData).subscribe((res: any) => {

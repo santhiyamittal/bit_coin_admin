@@ -7,6 +7,7 @@ import { ColdpagewalletComponent } from './coldpagewallet/coldpagewallet.compone
 import { CryptoDashboardComponent } from './crypto-dashboard/crypto-dashboard.component';
 import { CurrencyExchangeComponent } from './currency-exchange/currency-exchange.component';
 import { DistpagewalletComponent } from './distpagewallet/distpagewallet.component';
+import { InactivepaymentComponent } from './inactivepayment/inactivepayment.component';
 import { MarketcapComponent } from './marketcap/marketcap.component';
 import { PaymentTranscationComponent } from './paytranscation/payment-transcation/payment-transcation.component';
 import { SubwalletComponent } from './subwallet/subwallet.component';
@@ -59,6 +60,10 @@ const routes: Routes = [
       {
         path: 'subwallet',
         component: SubwalletComponent
+      },
+      {
+        path: 'inactivepayment',
+        component: InactivepaymentComponent
       },
     ]
   }
