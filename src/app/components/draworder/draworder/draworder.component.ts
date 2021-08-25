@@ -44,6 +44,7 @@ submitted:boolean=false;
     private route: ActivatedRoute,
     private router: Router,
     private routeTo: Router,
+    public Service: HttpService,
 
     public httpService: HttpService,
     private loader: NgxUiLoaderService,
@@ -108,8 +109,10 @@ submitted:boolean=false;
     this.router.navigateByUrl('/user/adduser')
 
   }
-  gotoview() {
-    this.router.navigateByUrl('/drawwallet/viewdraw')
+  gotoview(drawview) {
+    this.router.navigateByUrl('/draworder/viewlist')
+        localStorage.setItem("dataview", JSON.stringify(drawview));
+
   }
   gotohome() {
     this.router.navigateByUrl('/drawwallet/Drawwallet')
@@ -169,6 +172,9 @@ submitted:boolean=false;
     // delete this.loginForm.value.username;
     // }, (err) => {
     //   this.toastr.error("Please try after some time");
+    },
+    (err) => {
+      this.Service.errorCallBack(false);
     });
   }
   // searchdraw() {

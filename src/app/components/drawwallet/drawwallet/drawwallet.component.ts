@@ -113,6 +113,9 @@ submitted:boolean=false;
   }
   gotoview() {
     this.router.navigateByUrl('/drawwallet/viewdraw')
+    
+    // localStorage.setItem("dataview", JSON.stringify(drawview));
+
   }
   gotohome() {
     this.router.navigateByUrl('/dashboard/dashboard')
@@ -222,6 +225,9 @@ submitted:boolean=false;
     this.data = res['data']
   });
   this.textClear();
+  if(this.value == undefined){
+    this.getdrawlist();
+  }
   }
   }
 

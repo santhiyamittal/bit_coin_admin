@@ -117,7 +117,7 @@ console.log(userEmail );
       };
       this.httpService.logoutSession(jsonObj).subscribe((resp) => {
         localStorage.clear();
-        this.toastr.error("User has been logged off", "", {
+        this.toastr.success("User has been logged off", "", {
           positionClass: "toast-bottom-right",
           closeButton: true,
           timeOut: 5000,

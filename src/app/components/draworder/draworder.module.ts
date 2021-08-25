@@ -10,9 +10,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ViewpervComponent } from './viewperv/viewperv.component';
 
 @NgModule({
-  declarations: [DraworderComponent, EditpervComponent, DeletepervComponent],
+  declarations: [DraworderComponent, EditpervComponent, DeletepervComponent, ViewpervComponent],
   imports: [
     CommonModule,
     DraworderRoutingModule,

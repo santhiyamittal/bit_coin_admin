@@ -96,7 +96,7 @@ export class NavService implements OnDestroy{
       children: [
       {path: 'drawwallet/Drawwallet', title: 'Upcoming Draw', type: 'link',  },
       {
-        path: 'draworder/draworderpage', title: 'Pervious Draw', type: 'link', 
+        path: 'draworder/draworderpage', title: 'Previous Draw', type: 'link', 
       },
       ]
     },

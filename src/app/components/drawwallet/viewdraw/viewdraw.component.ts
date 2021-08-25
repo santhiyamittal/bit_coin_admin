@@ -34,6 +34,7 @@ StartTime: any;
 count: any;
 totalprice: number = 0;
 totprice: number = 0;
+  drawview: any[];
 // username: any;
 // email: any;
 
@@ -41,24 +42,26 @@ constructor(
   public dialog: MatDialog,
   public toastr: ToastrService,
   private formBuilder: FormBuilder,
-
+  // public data: any,
   private route: ActivatedRoute,
   private router: Router,
   private routeTo: Router,
 
   public httpService: HttpService,
   private loader: NgxUiLoaderService,
-
 ) {
-  
+  this.drawview = JSON.parse(localStorage.getItem("dataview"))
+  this.id=this.drawview['_id']
+
 }
 
 ngOnInit(): void {
-  this.getviewlist();
+    this.getviewdata();
+  
+
  this.createForm();
- var userDetails = JSON.parse(localStorage.getItem("id"));
- this.userDetails = userDetails;
- console.log( this.userDetails);
+
+ console.log( this.id);
 }
 get loginFormControl() {
   return this.loginForm.controls;
@@ -85,7 +88,7 @@ editsymbol(drawEdit) {
     data: { data: drawEdit, }
   });
   dialogRef.afterClosed().subscribe((result) => {
-    this.getviewlist();
+    this.getviewdata();
   });
 }
 deleteuser(drawdelete) {
@@ -97,7 +100,7 @@ deleteuser(drawdelete) {
   });
   dialogRef.afterClosed().subscribe((result) => {
     setInterval(() => {
-      this.getviewlist();
+      this.getviewdata();
     }, 3000);
   });
 }
@@ -136,9 +139,45 @@ gotohome() {
 //       this.toastr.error("Please try after some time");
 //     });
 //   }
+getviewdata(){
+  
+  this.httpService.getview().subscribe((res: any) => {
+  
+    console.log(res['data'])
+    this.data = res['data']
+    this.count=res['count']
+    this.status = res['data']['status']
+
+    console.log(this.count)
+
+
+    console.log(this.totprice)
+    if (this.data) {
+      if (this.data.length > 0) {
+    if (res['success'] == true) {
+      this.showDatafound = true;
+
+     
+    }
+  }
+}
+else {
+  this.showDatafound = false;
+  console.log("No Data found");
+
+}
+  });
+}
 getviewlist() {
   // debugger
-      this.httpService.getdrawupcomlist().subscribe((res: any) => {
+  let jsonData={
+    // id:this.id
+    // id:'612480f7288d443094dca546',
+    // user_id:'611a1282c3c0543978f01705',
+    id:'612480f7288d443094dca546',
+    // Sequence_number:'010256785632',
+  }
+      this.httpService.getviewdraw(jsonData).subscribe((res: any) => {
   
         console.log(res['data'])
         this.data = res['data']
@@ -146,12 +185,7 @@ getviewlist() {
         this.status = res['data']['status']
     
         console.log(this.count)
-        this.totalLength = this.data.length;
-  for(let idx of this.data){
-        this.totalprice += +idx['winning_price']
-        console.log(this.totalprice)
 
-  }
 
         console.log(this.totprice)
         if (this.data) {
@@ -168,12 +202,6 @@ getviewlist() {
       console.log("No Data found");
   
     }
-  
-  
-      // delete this.loginForm.value.email;
-      // delete this.loginForm.value.username;
-      // }, (err) => {
-      //   this.toastr.error("Please try after some time");
       });
     }
   

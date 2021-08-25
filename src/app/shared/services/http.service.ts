@@ -39,6 +39,8 @@ updatedraw:string="admin/draw/update";
 deletedraw:string="admin/draw/delete";
 searchdraw:string="admin/draw/listbyid";
 drawstatus:string="admin/draw/status";
+viewdrawlist: string="admin/draw/userdrawlist";
+viewlist: string="admin/draw/list";
 //payment
 statuspayment:string="admin/payment/status";
 getpayment:string="admin/payment/list";
@@ -55,21 +57,22 @@ errorCount: number;
 
   ) { }
  
-  // errorCallBack(apiResp) {
-  //   if (!apiResp) {
-  //     this.errorCount++;
-  //     /** spinner ends after 10 seconds */
-  //     if (this.errorCount < 1) {
-  //       // this.loader.stop();
-  //       // this.toastr.error("Something went wrong..Please try after somtime!")
-  //       // this.toastr.error("Please try after somtime!", "", {
-  //       //   positionClass: "toast-bottom-right",
-  //       //   closeButton: true,
-  //       //   timeOut: 5000,
-  //       // });
-  //     }
-  //   }
-  // }
+ 
+  errorCallBack(apiResp) {
+    if (!apiResp) {
+      this.errorCount++;
+      /** spinner ends after 10 seconds */
+      if (this.errorCount < 1) {
+        // this.loader.stop();
+        // this.toastr.error("Something went wrong..Please try after somtime!")
+        this.toastr.error("Please try after somtime!", "", {
+          positionClass: "toast-bottom-right",
+          closeButton: true,
+          timeOut: 5000,
+        });
+      }
+    }
+  }
   getUserId() {
     if (localStorage.getItem("userid")) {
       var userId = JSON.parse(localStorage.getItem("userid"));
@@ -174,7 +177,16 @@ errorCount: number;
       headers: this.getAuthHeaders(),
     });
   }
-
+  getview(): Observable<any> {
+    return this.http.get(this.baseURL + this.viewlist, {
+      headers: this.getAuthHeaders(),
+    });
+  }
+  getviewdraw(jsonObj: any): Observable<any> {
+    return this.http.post(this.baseURL + this.viewdrawlist,jsonObj,{
+      headers: this.getAuthHeaders(),
+    });
+  }
   getdrawupcomlist(){
     return this.http.get(this.baseURL + this.getdrawupcom, {
       headers: this.getAuthHeaders(),

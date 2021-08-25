@@ -5,6 +5,7 @@ import { DraworderComponent } from './draworder/draworder.component';
 import { AuthencationGuard } from 'src/app/shared/services/authencation.guard';
 import { EditpervComponent } from './editperv/editperv.component';
 import { DeletepervComponent } from './deleteperv/deleteperv.component';
+import { ViewpervComponent } from './viewperv/viewperv.component';
 
 
 
@@ -26,6 +27,10 @@ const routes: Routes = [
       {
         path: 'deletelist',
         component:DeletepervComponent
+      },
+      {
+        path: 'viewlist',
+        component:ViewpervComponent
       },
     ]
   }
