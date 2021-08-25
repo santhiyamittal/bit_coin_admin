@@ -112,7 +112,7 @@ submitted:boolean=false;
     this.router.navigateByUrl('/drawwallet/viewdraw')
   }
   gotohome() {
-    this.router.navigateByUrl('/dashboard/dashboard')
+    this.router.navigateByUrl('/drawwallet/Drawwallet')
   }
   //   getUseractive(){
 
