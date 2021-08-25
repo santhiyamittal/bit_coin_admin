@@ -179,14 +179,18 @@ submitted:boolean=false;
   }
   searchuser(){
 
-    if(this.username == ""){
+    if(this.username == "" && this.email== ""){
      this.ngOnInit();
     }else{
       this.data = this.data.filter(res =>{
-        return res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase());
+        const name=res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase());
+        const email=res.email.toLowerCase().includes(this.email.toLowerCase())
+        return (name+email);
       })
     }
   }
+  
+  
   // searchuser() {
   //   debugger
   //   this.submitted = true;
@@ -220,4 +224,5 @@ submitted:boolean=false;
   //   }
   //   });
   // } 
+
 }

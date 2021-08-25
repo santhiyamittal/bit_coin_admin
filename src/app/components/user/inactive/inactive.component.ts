@@ -151,7 +151,7 @@ submitted:boolean=false;
   //     });
   //   }
   getinactivelist() {
-debugger
+// debugger
 let jsonData={
    status:true
 }
@@ -192,21 +192,17 @@ let jsonData={
   }
 
   search(){
-
-    if(this.username == ""){
-     this.ngOnInit();
-    }else{
-      this.data = this.data.filter(res =>{
-        return res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase());
-      })
-    }
+    if(this.username == "" && this.email== ""){
+      this.ngOnInit();
+     }else{
+       this.data = this.data.filter(res =>{
+         const name=res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase());
+         const email=res.email.toLowerCase().includes(this.email.toLowerCase())
+         return (name+email);
+       })
+     }
   }
-  key ='username'
-  reverse:boolean =false;
-  sort(key){
-  this.key=key;
-  this.reverse =!this.reverse;
-  }
+  
   // searchview() {
   //   debugger
   //   this.submitted = true;

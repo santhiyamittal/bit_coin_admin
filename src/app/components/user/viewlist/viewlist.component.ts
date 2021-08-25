@@ -17,6 +17,10 @@ export class ViewlistComponent implements OnInit {
   createdat: any;
   updatedat: any;
   updated: any;
+  firstname: any;
+  lastname: any;
+  zipcode: any;
+  country: any;
 
   constructor(public dialogRef: MatDialogRef<ViewlistComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,) { 
@@ -26,10 +30,11 @@ export class ViewlistComponent implements OnInit {
       this.mobile=this.data['data']['mobile']
       this.status=this.data['data']['status']
       this.address=this.data['data']['address']
-      this.createdat=this.data['data']['createdAt']
-      this.updatedat=this.data['data']['updatedAt']
-      this.updated=this.updatedat.split(".")[0]
-this.created=this.createdat.split(".")[0],
+      this.firstname=this.data['data']['first_name']
+      this.lastname=this.data['data']['last_name']
+      this.zipcode=this.data['data']['zip_code']
+      this.country=this.data['data']['country']
+
       console.log(this.Email)
    
       }

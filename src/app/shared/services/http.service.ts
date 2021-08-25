@@ -32,11 +32,13 @@ deleteuser: string="admin/user/delete";
 searchuser:string="admin/user/listbyid";
 statususer:string="admin/user/status";
 //Draw
-getdraw:string="admin/draw/list";
+getdrawupcom:string="admin/draw/upcominglist";
+getdrawperv:string="admin/draw/perviouslist";
 createdraw:string="admin/draw/create";
 updatedraw:string="admin/draw/update";
 deletedraw:string="admin/draw/delete";
 searchdraw:string="admin/draw/listbyid";
+drawstatus:string="admin/draw/status";
 //payment
 statuspayment:string="admin/payment/status";
 getpayment:string="admin/payment/list";
@@ -167,8 +169,19 @@ errorCount: number;
       headers: this.getAuthHeaders(),
     });
   }
-  getdrawlist(){
-    return this.http.get(this.baseURL + this.getdraw, {
+  getdrawstatus(jsonObj: any): Observable<any> {
+    return this.http.post(this.baseURL + this.drawstatus,jsonObj,{
+      headers: this.getAuthHeaders(),
+    });
+  }
+
+  getdrawupcomlist(){
+    return this.http.get(this.baseURL + this.getdrawupcom, {
+      headers: this.getAuthHeaders(),
+    });
+  }
+  getdrawpervlist(){
+    return this.http.get(this.baseURL + this.getdrawperv, {
       headers: this.getAuthHeaders(),
     });
   }

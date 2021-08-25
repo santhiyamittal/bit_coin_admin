@@ -29,7 +29,7 @@ showDatafound: boolean;
 username: any;
 email: any;
 drawdata: any;
-
+value:number;
 StartTime: any;
 count: any;
 totalprice: number = 0;
@@ -67,12 +67,15 @@ createForm() {
   this.loginForm = this.formBuilder.group({
 
     username: ['', Validators.required],
-    email: ['', Validators.required],
+    value: ['', Validators.required],
   });
 }
 
 
-
+textClear(){
+  // this.username =''; 
+  this.value = null;
+}
 
 
 editsymbol(drawEdit) {
@@ -135,24 +138,24 @@ gotohome() {
 //   }
 getviewlist() {
   // debugger
-      this.httpService.getdrawlist().subscribe((res: any) => {
+      this.httpService.getdrawupcomlist().subscribe((res: any) => {
   
         console.log(res['data'])
-        this.drawdata = res['data']
+        this.data = res['data']
         this.count=res['count']
         this.status = res['data']['status']
     
         console.log(this.count)
-        this.totalLength = this.drawdata.length;
-  for(let idx of this.drawdata){
+        this.totalLength = this.data.length;
+  for(let idx of this.data){
         this.totalprice += +idx['winning_price']
         console.log(this.totalprice)
 
   }
 
         console.log(this.totprice)
-        if (this.drawdata) {
-          if (this.drawdata.length > 0) {
+        if (this.data) {
+          if (this.data.length > 0) {
         if (res['success'] == true) {
           this.showDatafound = true;
   
@@ -174,51 +177,40 @@ getviewlist() {
       });
     }
   
-searchview() {
-  debugger
-  this.submitted = true;
   
-  let jsonData = {
-    // id: this.id,
-    key: this.loginForm.value.username,
-   status:false,
-  }
-  
-  this.httpService.getsearchdraw(jsonData).subscribe((res: any) => {
-    this.loader.stop();
-   
-    console.log(res['data'])
-    this.data = res['data']
-    
-      
-    if (res['success'] == true) {
-      this.showDatafound = true;
-      // this.httpService.toastr.success(res['message'], '', {
-      //   positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
-      // });
+    search(){
+      // debugger
+       //search api
+    this.submitted=true;
+    let jsonData = {
+      // id: this.id,
+      key: this.username,
     }
-
-  // }, (err) => {
-  //   this.toastr.error("Please try after some time");
-  // this.textClear();
-  });
-//   if( this.email =''){
-// this.getdrawlist();
-
-//   }
-
-}
-searchdraw() {
-  if(this.username == ""){
-    this.showDatafound = false;
-
-    this.searchview();
-   }else{
-     this.data = this.data.filter(res =>{
-       return res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase());
-     })
-   }
-   console.log(this.data)
-}
-
+    
+    this.httpService.getsearchdraw(jsonData).subscribe((res: any) => {
+      console.log(res['data'])
+      this.data = res['data']
+      // this.drawstatus();
+    });
+    
+    // this.ngOnInit();
+    if(this.username == undefined){
+      this.drawstatus();
+    }
+  
+    }
+    drawstatus(){
+      // debugger
+      this.submitted=true;
+    let jsonData = {
+      // id: this.id,
+    status:this.value,
+    }
+    
+    this.httpService.getdrawstatus(jsonData).subscribe((res: any) => {
+      console.log(res['data'])
+      this.data = res['data']
+    });
+    this.textClear();
+    }
 }

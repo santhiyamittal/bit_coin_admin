@@ -24,26 +24,24 @@ import { DatePipe } from '@angular/common';
 })
 export class DrawwalletComponent implements OnInit {
 
-
-
-
-  Status: any = ['Active', 'Inactive'];
+ 
   public loginForm: FormGroup;
 submitted:boolean=false;
   data: any[];
   Data: any[];
   totalLength: any;
   page: number = 1
-  status: any[];
+  status:any[];
   id: any;
   userDetails: any;
   showDatafound: boolean;
   username: any;
   email: any;
   datastatus: any;
+  value:number;
   // username: any;
   // email: any;
-
+  
   constructor(
     public dialog: MatDialog,
     public toastr: ToastrService,
@@ -62,29 +60,19 @@ submitted:boolean=false;
 
   ngOnInit(): void {
     this.getdrawlist();
-  //search api
-  
-  let jsonData = {
-    // id: this.id,
-    key: this.username,
-    status:false,
-  }
-  
-  this.httpService.getsearchdraw(jsonData).subscribe((res: any) => {
-    console.log(res['data'])
-    this.data = res['data']
-  });
+ this.createForm();
   }
   get loginFormControl() {
     return this.loginForm.controls;
   }
-  // createForm() {
-  //   this.loginForm = this.formBuilder.group({
+ 
+  createForm() {
+    this.loginForm = this.formBuilder.group({
 
-  //     username: ['', Validators.required],
-  //     email: ['', Validators.required],
-  //   });
-  // }
+      username: ['', Validators.required],
+      value: ['', Validators.required],
+    });
+  }
   
   
 
@@ -114,10 +102,11 @@ submitted:boolean=false;
     });
   }
   
-  // textClear(){
-  //   this.username =''; 
-  //   this.email ='';
-  // }
+  textClear(){
+    // this.username =''; 
+    this.value = null;
+  }
+  
   add() {
     this.router.navigateByUrl('/user/adduser')
 
@@ -150,17 +139,16 @@ submitted:boolean=false;
   //   }
   getdrawlist() {
 
-    this.httpService.getdrawlist().subscribe((res: any) => {
+    this.httpService.getdrawupcomlist().subscribe((res: any) => {
 
       console.log(res['data'])
 
       this.data = res['data']
-      this.status = res['data']['status']
+      // this.status = res['data']['status']
       this.id = res['data']['_id']
       console.log(this.id)
       this.totalLength = this.data.length;
 
-      console.log(this.totalLength)
       if (this.data) {
         if (this.data.length > 0) {
       if (res['success'] == true) {
@@ -186,19 +174,54 @@ submitted:boolean=false;
     //   this.toastr.error("Please try after some time");
     });
   }
-  searchdraw() {
-    if(this.username == ""){
-      this.showDatafound = false;
+  // searchdraw() {
+  //   if(this.username == ""){
+  //     this.showDatafound = false;
 
-      this.ngOnInit();
-     }else{
-       this.data = this.data.filter(res =>{
-         return res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase());
-       })
-     }
-     console.log(this.data)
-  }
+  //     this.search();
+  //    }else{
+  //      this.data = this.data.filter(res =>{
+  //        return res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase());
+  //      })
+  //    }
+  //    console.log(this.data)
+  // }
  
   
+  search(){
+    // debugger
+     //search api
+  this.submitted=true;
+  let jsonData = {
+    // id: this.id,
+    key: this.username,
+  }
   
-}
+  this.httpService.getsearchdraw(jsonData).subscribe((res: any) => {
+    console.log(res['data'])
+    this.data = res['data']
+    // this.drawstatus();
+  });
+  
+  // this.ngOnInit();
+  if(this.username == undefined){
+    this.drawstatus();
+  }
+
+  }
+  drawstatus(){
+    // debugger
+    this.submitted=true;
+  let jsonData = {
+    // id: this.id,
+  status:this.value,
+  }
+  
+  this.httpService.getdrawstatus(jsonData).subscribe((res: any) => {
+    console.log(res['data'])
+    this.data = res['data']
+  });
+  this.textClear();
+  }
+  }
+

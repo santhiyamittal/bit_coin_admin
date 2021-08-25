@@ -83,40 +83,49 @@
     <div class="col-sm-12 col-lg-12 col-xl-12">
         <div class="card bg-primary custom-card card-box">
             <div class="card-body p-4">
-                <label>User Name</label>
-                <input type="text"  [(ngModel)]="username" (ngModelChange)="searchdraw()"class="form-control" placeholder="Enter the User Name" />
-                <!-- <div class="row align-items-center">
-                    <form [formGroup]="loginForm" (ngSubmit)="searchdraw()" novalidate>
+                <!-- <label>User Name</label>
+                <input type="text"  [(ngModel)]="username" (ngModelChange)="searchdraw()"class="form-control" placeholder="Enter the User Name" /> -->
+                <div class="row align-items-center">
+                    <form [formGroup]="loginForm" (ngSubmit)="search()" novalidate>
 
                         <div class="row">
-                            <div class="col-lg-7 col-md-7 col-sm-7">
-                              
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+
                                 <div class="form-group text-left">
                                     <label>User Name</label>
-                                    <input type="text" formControlName="username" [(ngModel)]="username"class="form-control" [ngClass]="{ 'valid': submitted  }" />
-                                 
-                            </div>
-                          </div>
-                
-                            <div class="col-lg-7 col-md-7 col-sm-7">
-                                <div class="form-group">
-                                    <label>Winning Price</label>
-                                    <div class="form-group">
-                                        <input type="text" formControlName="email" [(ngModel)]="email" class="form-control" [ngClass]="{ 'valid': submitted }" />
-                                       
-                                        </div>
-                                    
+                                    <input type="text" class="form-control" formControlName="username"
+                                        [(ngModel)]="username" class="form-control"
+                                        [ngClass]="{ 'valid': submitted  }" />
+
                                 </div>
                             </div>
-                
-                          
-                            <div class="col-lg-3 col-md-3 col-sm-3">
+
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                <label>Status
+                                    <!-- <span class="tx-danger">*</span> -->
+                                </label>
+                                <div class="form-group text-left">
+                                    <!-- <input type="password" formControlName="gender" class="form-control" [ngClass]="{ 'is-invalid': submitted && loginFormControl.gender.errors }" />
+                                    <div *ngIf="submitted && loginFormControl.gender.errors" class="invalid-feedback">
+                                        <div *ngIf="loginFormControl.gender.errors.required">Zip code is required</div>
+                                        <div *ngIf="loginFormControl.gender.errors.minlength">Zip code must be at least 6 characters</div>
+                                    </div> -->
+                                    <select class="select" formControlName="value" class="form-control" [(ngModel)]="value" >
+                                        <label>Status</label>
+                                        <option value="1">Active</option>
+                                        <option value="0">Pending</option>
+                                        <!-- <option value="2">Cancel</option> -->
+                                    </select>
+                                   
+                                </div>
+                            </div>
+                            <div class="col-lg-5 col-md-5 col-sm-5">
                                 <label>&nbsp;</label>
-                                <button type="submit"class="btn btn-sm btn-primary btn-block">Get</button>
+                                <button type="submit" class="btn btn-sm btn-primary btn-block">Get</button>
                             </div>
-                            </div>
-                        </form>
-                </div> -->
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -157,7 +166,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let item of drawdata |filter: username|  paginate:{
+                            <tr *ngFor="let item of data |  paginate:{
                                 itemsPerPage: 10,
                                  currentPage:page,
                                 totalitem:totalLength }">
@@ -170,22 +179,24 @@
                                 <td>
                                     {{item['winning_price']}}
                                 </td>
-                                <!-- <td class="label text-success d-flex">
-                                             
-                                                {{item['status']> 0 ? 'Active':item['status']}}
-
-                                             </td> -->
-                                <td [ngClass]="item['status'] ? 'text-success' : ''">
-                                    {{item['status'] > 0 ? 'Active':item['status']}}
+                        
+                                <td >
+                                <span *ngIf="item['deleted'] === false"
+                                [class]="item['deleted'] === false ? 'text-warning' : item['deleted']=== true ? 'text-success':''">
+                                {{item['deleted'] === false ? 'Pending':item['deleted']}}</span>
+                                <span *ngIf="item['deleted'] === true"
+                                [class]="item['deleted'] === false ? 'text-warning' : item['deleted']=== true ? 'text-success':''">
+                                {{item['deleted'] === true ? 'Active':item['deleted']}}</span>
+                            </td>
+                        
+                                <td>
+                                    {{item['start_time'] | date :'medium'}}
                                 </td>
                                 <td>
-                                    {{item['start_time'].split(".")[0]}}
+                                    {{item['end_time']| date :'medium'}}
                                 </td>
                                 <td>
-                                    {{item['end_time'].split(".")[0]}}
-                                </td>
-                                <!-- <td>
-                                     <button (click)="gotoview()" class="btn btn-sm btn-primary mr-1">
+                                    <button (click)="gotoview()" class="btn btn-sm btn-primary mr-1">
                                         <i class="si si-eye"></i>
                                     </button>
                                     <button (click)="editsymbol(item)" class="btn btn-sm btn-info mr-1">
@@ -194,7 +205,7 @@
                                     <button (click)="deleteuser(item)" class="btn btn-sm btn-danger">
                                         <i class="fe fe-trash"></i>
                                     </button>
-                                </td> -->
+                                </td>
                             </tr>
 
                         </tbody>
