@@ -50,12 +50,12 @@ export class EditpervComponent implements OnInit {
     console.log(this.data);
 
     this.Email=this.data['data']['email']
-    this.EndTime=this.data['data']['end_time']
-    this.StartTime=this.data['data']['start_time']
-      this.User=this.data['data']['name']
+    this.EndTime=this.data['data']['draw_id']['end_time']
+    this.StartTime=this.data['data']['draw_id']['start_time']
+      this.User=this.data['data']['draw_id']['name']
       this.status=this.data['data']['status']
-      this.winningprice=this.data['data']['winning_price']
-      this.id=this.data['data']['_id']
+      this.winningprice=this.data['data']['draw_id']['winning_price']
+      this.id=this.data['data']['draw_id']['_id']
       // this.StartTime=Date.now();
       // this.EndTime=Date.now();
       console.log(this.data['data']['start_time'])
@@ -102,7 +102,7 @@ export class EditpervComponent implements OnInit {
 
   }
   onSubmit() {
-// debugger
+debugger
     this.submitted = true;
 
     // debugger
