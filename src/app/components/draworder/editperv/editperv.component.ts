@@ -52,9 +52,9 @@ export class EditpervComponent implements OnInit {
     this.Email=this.data['data']['email']
     this.EndTime=this.data['data']['draw_id']['end_time']
     this.StartTime=this.data['data']['draw_id']['start_time']
-      this.User=this.data['data']['draw_id']['name']
+      this.User=this.data['data']['user_id']['username']
       this.status=this.data['data']['status']
-      this.winningprice=this.data['data']['draw_id']['winning_price']
+      this.winningprice=this.data['data']['winning_price']
       this.id=this.data['data']['draw_id']['_id']
       // this.StartTime=Date.now();
       // this.EndTime=Date.now();
@@ -98,14 +98,14 @@ export class EditpervComponent implements OnInit {
       text: 'Draw Get Updated',
       confirmButtonColor: '#6259ca'
     })
-    this.router.navigateByUrl('/drawwallet/Drawwallet')
+    this.router.navigateByUrl('/draworder/draworderpage')
 
   }
   onSubmit() {
-debugger
+//debugger
     this.submitted = true;
 
-    // debugger
+    // //debugger
     let jsonData = {
       id:this.id,
       name:this.loginForm.value.User,

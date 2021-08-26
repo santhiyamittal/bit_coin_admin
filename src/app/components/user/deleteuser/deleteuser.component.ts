@@ -82,7 +82,7 @@ this.created=this.createdat.split(".")[0],
 
   }
   deleteuser(){
-      // debugger
+      // //debugger
       let jsonData = {
         id:this.id,
       }

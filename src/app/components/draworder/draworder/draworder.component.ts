@@ -71,6 +71,35 @@ submitted:boolean=false;
   
   
 
+  warningAlert(item) {
+    this.id=item['_id']
+    this.getdrawdelete();
+    Swal.fire({
+      icon: 'warning',
+      title: 'Are you sure ?',
+      text: 'Your will not be able to recover this imaginary file!',
+      showCancelButton: true,
+      confirmButtonColor: '#6259ca',
+      cancelButtonColor: '#6259ca',
+      confirmButtonText: 'Yes, delete it!',
+      reverseButtons: true
+
+    }).then((id) => {
+      if (id.isConfirmed) {
+        Swal.fire({
+          title: 'Deleted!',
+          text: 'Your imaginary file has been deleted.',
+          icon: 'success',
+          confirmButtonColor: '#6259ca'
+        })
+      }
+    })
+    // this.router.navigateByUrl('/user/userlist')
+    setTimeout(() => {
+      this.getdrawlist();
+        },5000)
+
+  }
 
  
   editsymbol(drawEdit) {
@@ -83,19 +112,19 @@ submitted:boolean=false;
       this.getdrawlist();
     });
   }
-  deleteuser(drawdelete) {
-    const dialogRef = this.dialog.open(DeletepervComponent, {
-      width: '600px',
-      height: '600px',
+  // deleteuser(drawdelete) {
+  //   const dialogRef = this.dialog.open(DeletepervComponent, {
+  //     width: '600px',
+  //     height: '600px',
 
-      data: { data: drawdelete, }
-    });
-    dialogRef.afterClosed().subscribe((result) => {
-      setInterval(() => {
-        this.getdrawlist();
-      }, 3000);
-    });
-  }
+  //     data: { data: drawdelete, }
+  //   });
+  //   dialogRef.afterClosed().subscribe((result) => {
+  //     setInterval(() => {
+  //       this.getdrawlist();
+  //     }, 3000);
+  //   });
+  // }
   
   // textClear(){
   //   this.username =''; 
@@ -189,10 +218,21 @@ submitted:boolean=false;
   //    }
   //    console.log(this.data)
   // }
- 
+  searchuser(){
+
+    if(this.username == ""){
+     this.search();
+    }else{
+      this.data = this.data.filter(res =>{
+        const name=res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase());
+        // const email=res.email.toLowerCase().includes(this.email.toLowerCase())
+        return (name);
+      })
+    }
+  }
   
   search(){
-    debugger
+    //debugger
      //search api
   this.submitted=true;
   let jsonData = {
@@ -205,29 +245,38 @@ submitted:boolean=false;
     this.data = res['data']
     // this.drawstatus();
   });
-  
+  if(this.username == ""){
+      this.getdrawlist();
+    }
   // this.ngOnInit();
-  if(this.username == undefined){
-    this.drawstatus();
-  }
+  
 
   }
-  drawstatus(){
-    debugger
-    this.submitted=true;
-  let jsonData = {
-    // id: this.id,
-  status:this.value,
-  }
+  // drawstatus(){
+  //   //debugger
+  //   this.submitted=true;
+  // let jsonData = {
+  //   // id: this.id,
+  // status:this.value,
+  // }
   
-  this.httpService.getdrawstatus(jsonData).subscribe((res: any) => {
-    console.log(res['data'])
-    this.data = res['data']
-  });
-  if(this.value == null){
-    this.getdrawlist();
-  }
-  this.textClear();
+  // this.httpService.getdrawstatus(jsonData).subscribe((res: any) => {
+  //   console.log(res['data'])
+  //   this.data = res['data']
+  // });
+  // if(this.value == null){
+  //   this.getdrawlist();
+  // }
+  // this.textClear();
  
+  // }
+  getdrawdelete(){
+    // //debugger
+    let jsonData = {
+      id:this.id,
+    }
+    this.httpService.getdrawdelete(jsonData).subscribe(res => {
+      this.loader.stop();
+    });
   }
 }

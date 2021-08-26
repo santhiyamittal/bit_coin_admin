@@ -71,7 +71,7 @@ export class AddpaymentComponent implements OnInit {
   }
   onSubmit() {
 
-    // debugger
+    // //debugger
     this.submitted = true;
    
  

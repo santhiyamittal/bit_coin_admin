@@ -122,7 +122,7 @@ gotoinactive(){
   }
   
   getpaymentlist() {
-// debugger
+// //debugger
     this.httpService.getpaymentlist().subscribe((res: any) => {
 
       console.log(res['data'])

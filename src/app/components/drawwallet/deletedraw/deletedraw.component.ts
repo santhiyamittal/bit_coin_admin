@@ -84,7 +84,7 @@ this.created=this.createdat.split(".")[0],
 
   }
   getdrawdelete(){
-      // debugger
+      // //debugger
       let jsonData = {
         id:this.id,
       }

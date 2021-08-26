@@ -21,7 +21,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // debugger
+    // //debugger
     if (!this.appcomponent.inactive) {
       this.appcomponent.startWatching();
       // this.userIdle.startWatching();

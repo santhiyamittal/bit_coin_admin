@@ -45,7 +45,7 @@ export class ResetComponent implements OnInit {
     });
   }
   onSubmit() {
-    // debugger
+    // //debugger
     this.submitted = true;
 
     let jsonData = {

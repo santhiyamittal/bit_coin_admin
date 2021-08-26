@@ -21,6 +21,7 @@ export class ViewlistComponent implements OnInit {
   lastname: any;
   zipcode: any;
   country: any;
+  address1: any;
 
   constructor(public dialogRef: MatDialogRef<ViewlistComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,) { 
@@ -34,6 +35,7 @@ export class ViewlistComponent implements OnInit {
       this.lastname=this.data['data']['last_name']
       this.zipcode=this.data['data']['zip_code']
       this.country=this.data['data']['country']
+      this.address1=this.data['data']['address2']
 
       console.log(this.Email)
    

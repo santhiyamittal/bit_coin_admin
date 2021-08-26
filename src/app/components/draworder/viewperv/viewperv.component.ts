@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { HttpService } from 'src/app/shared/services/http.service';
+import Swal from 'sweetalert2';
 import { DeletepervComponent } from '../deleteperv/deleteperv.component';
 import { EditpervComponent } from '../editperv/editperv.component';
 
@@ -34,6 +35,7 @@ export class ViewpervComponent implements OnInit {
   totalprice: number = 0;
   totprice: number = 0;
     drawview: any[];
+  delete: any;
   // username: any;
   // email: any;
   
@@ -73,7 +75,36 @@ export class ViewpervComponent implements OnInit {
     });
   }
   
-  
+  warningAlert(item) {
+    //debugger
+    this.delete=item['user_id']['_id']
+    this.getdrawdelete();
+    Swal.fire({
+      icon: 'warning',
+      title: 'Are you sure ?',
+      text: 'Your will not be able to recover this imaginary file!',
+      showCancelButton: true,
+      confirmButtonColor: '#6259ca',
+      cancelButtonColor: '#6259ca',
+      confirmButtonText: 'Yes, delete it!',
+      reverseButtons: true
+
+    }).then((id) => {
+      if (id.isConfirmed) {
+        Swal.fire({
+          title: 'Deleted!',
+          text: 'Your imaginary file has been deleted.',
+          icon: 'success',
+          confirmButtonColor: '#6259ca'
+        })
+      }
+    })
+    // this.router.navigateByUrl('/user/userlist')
+    setTimeout(() => {
+      this.getviewlist();
+        },5000)
+
+  }
   textClear(){
     // this.username =''; 
     this.value = null;
@@ -139,7 +170,7 @@ export class ViewpervComponent implements OnInit {
   //     });
   //   }
   // getviewlist(){
-  //   debugger
+  //   //debugger
   //   this.httpService.getview().subscribe((res: any) => {
     
   //     console.log(res['data'])
@@ -168,7 +199,7 @@ export class ViewpervComponent implements OnInit {
   //   });
   // }
   getviewlist() {
-    // debugger
+    // //debugger
     let jsonData={
      
       id:this.id,
@@ -200,10 +231,21 @@ export class ViewpervComponent implements OnInit {
       }
         });
       }
-    
+      searchuser(){
+
+        if(this.username == ""){
+         this.search();
+        }else{
+          this.data = this.data.filter(res =>{
+            const name=res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase());
+            // const email=res.email.toLowerCase().includes(this.email.toLowerCase())
+            return (name);
+          })
+        }
+      }
     
       search(){
-        // debugger
+        // //debugger
          //search api
       this.submitted=true;
       let jsonData = {
@@ -216,26 +258,33 @@ export class ViewpervComponent implements OnInit {
         this.data = res['data']
         // this.drawstatus();
       });
-      
-      // this.ngOnInit();
-      if(this.username == undefined){
-        this.drawstatus();
+      if(this.username == ""){
+        this.getviewlist();
       }
+     
     
       }
-      drawstatus(){
-        // debugger
-        this.submitted=true;
-      let jsonData = {
-        // id: this.id,
-      status:this.value,
-      }
+      // drawstatus(){
+      //   // //debugger
+      //   this.submitted=true;
+      // let jsonData = {
+      //   // id: this.id,
+      // status:this.value,
+      // }
       
-      this.httpService.getdrawstatus(jsonData).subscribe((res: any) => {
-        console.log(res['data'])
-        this.data = res['data']
-      });
-      this.textClear();
+      // this.httpService.getdrawstatus(jsonData).subscribe((res: any) => {
+      //   console.log(res['data'])
+      //   this.data = res['data']
+      // });
+      // this.textClear();
+      // }
+      getdrawdelete(){
+        //debugger
+        let jsonData = {
+          id:this.delete,
+        }
+        this.httpService.getdrawdelete(jsonData).subscribe(res => {
+          this.loader.stop();
+        });
       }
-
 }

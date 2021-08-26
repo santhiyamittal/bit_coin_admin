@@ -36,6 +36,8 @@ submitted:boolean=false;
   statustrue: any;
   statusfalse: any;
   p: number[] = [];
+  item: any[];
+  delete: any=[];
   // username: any;
   // email: any;
 
@@ -43,7 +45,6 @@ submitted:boolean=false;
     public dialog: MatDialog,
     public toastr: ToastrService,
     private formBuilder: FormBuilder,
-
     private route: ActivatedRoute,
     private router: Router,
     private routeTo: Router,
@@ -110,24 +111,54 @@ submitted:boolean=false;
       this.getUserlist();
     });
   }
-  deleteuser(userdelete) {
-    const dialogRef = this.dialog.open(DeleteuserComponent, {
-      width: '600px',
-      height: '600px',
+  // deleteuser(userdelete) {
+  //   const dialogRef = this.dialog.open(DeleteuserComponent, {
+  //     width: '600px',
+  //     height: '600px',
 
-      data: { data: userdelete, }
-    });
-    dialogRef.afterClosed().subscribe((result) => {
-      setInterval(() => {
-        this.getUserlist();
-      }, 3000);
-    });
-  }
+  //     data: { data: userdelete, }
+  //   });
+  //   dialogRef.afterClosed().subscribe((result) => {
+  //     setInterval(() => {
+  //       this.getUserlist();
+  //     }, 3000);
+  //   });
+  // }
   
   // textClear(){
   //   this.username =''; 
   //   this.email ='';
   // }
+  warningAlert(item) {
+    this.id=item['_id']
+    this.deleteuser();
+    Swal.fire({
+      icon: 'warning',
+      title: 'Are you sure ?',
+      text: 'Your will not be able to recover this imaginary file!',
+      showCancelButton: true,
+      confirmButtonColor: '#6259ca',
+      cancelButtonColor: '#6259ca',
+      confirmButtonText: 'Yes, delete it!',
+      reverseButtons: true
+
+    }).then((id) => {
+      if (id.isConfirmed) {
+        Swal.fire({
+          title: 'Deleted!',
+          text: 'Your imaginary file has been deleted.',
+          icon: 'success',
+          confirmButtonColor: '#6259ca'
+        })
+      }
+    })
+    // this.router.navigateByUrl('/user/userlist')
+    setTimeout(() => {
+      this.getUserlist();
+        },10000)
+
+  }
+
   add() {
     this.router.navigateByUrl('/user/adduser')
 
@@ -147,6 +178,8 @@ submitted:boolean=false;
       this.data = res['data']
       this.status = res['data']['status']
       this.id = res['data']['_id']
+      localStorage.setItem("dataid", JSON.stringify(res['data']['_id']));
+
       console.log(this.id)
       this.totalLength = this.data.length;
 
@@ -190,9 +223,33 @@ submitted:boolean=false;
     }
   }
   
-  
+  deleteuser(){
+    // //debugger
+    
+   
+// }
+    let jsonData = {
+      id:this.id,
+    }
+    this.httpService.getdelete(jsonData).subscribe(res => {
+      this.loader.stop();
+      // // this.appComponent.startWatching();
+      // if (res['success'] == true) {
+      //   this.httpService.toastr.success('', '', {
+      //     positionClass: 'toast-bottom-right', closeButton: true, timeOut: 3000
+      //   });
+      //   // this.generateUserOTP();
+      // } else if (res['success'] == false) {
+      //   // this.notOKstat = res['UserConfiguration']['ErrorMessage'];
+      //   // this.httpService.toastr.error(res['UserConfiguration']['ErrorMessage']);
+      //   this.httpService.toastr.error(res['message'], '', {
+      //     positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
+      //   });
+      // }
+    });
+  }
   // searchuser() {
-  //   debugger
+  //   //debugger
   //   this.submitted = true;
     
   //   let jsonData = {

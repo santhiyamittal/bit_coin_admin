@@ -120,7 +120,7 @@ gotoinactive(){
   }
   
   getpaymentstatus() {
-// debugger
+// //debugger
 let jsonData={
   status:true,
 }

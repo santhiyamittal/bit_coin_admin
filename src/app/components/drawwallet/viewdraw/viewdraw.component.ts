@@ -79,7 +79,35 @@ textClear(){
   // this.username =''; 
   this.value = null;
 }
+warningAlert(item) {
+  this.id=item['_id']
+  this.getdrawdelete();
+  Swal.fire({
+    icon: 'warning',
+    title: 'Are you sure ?',
+    text: 'Your will not be able to recover this imaginary file!',
+    showCancelButton: true,
+    confirmButtonColor: '#6259ca',
+    cancelButtonColor: '#6259ca',
+    confirmButtonText: 'Yes, delete it!',
+    reverseButtons: true
 
+  }).then((id) => {
+    if (id.isConfirmed) {
+      Swal.fire({
+        title: 'Deleted!',
+        text: 'Your imaginary file has been deleted.',
+        icon: 'success',
+        confirmButtonColor: '#6259ca'
+      })
+    }
+  })
+  // this.router.navigateByUrl('/user/userlist')
+  setTimeout(() => {
+    this.getviewdata();
+      },5000)
+
+}
 
 editsymbol(drawEdit) {
   const dialogRef = this.dialog.open(EditdrawComponent, {
@@ -169,12 +197,12 @@ else {
   });
 }
 getviewlist() {
-  // debugger
+  //debugger
   let jsonData={
     // id:this.id
     // id:'612480f7288d443094dca546',
     // user_id:'611a1282c3c0543978f01705',
-    id:'612480f7288d443094dca546',
+    id:this.id,
     // Sequence_number:'010256785632',
   }
       this.httpService.getviewdraw(jsonData).subscribe((res: any) => {
@@ -206,8 +234,21 @@ getviewlist() {
     }
   
   
+    searchuser(){
+
+      if(this.username == ""){
+       this.search();
+      }else{
+        this.data = this.data.filter(res =>{
+          const name=res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase());
+          // const email=res.email.toLowerCase().includes(this.email.toLowerCase())
+          return (name);
+        })
+      }
+    }
+    
     search(){
-      // debugger
+      //debugger
        //search api
     this.submitted=true;
     let jsonData = {
@@ -220,15 +261,15 @@ getviewlist() {
       this.data = res['data']
       // this.drawstatus();
     });
-    
+    if(this.username == ""){
+        this.getviewdata();
+      }
     // this.ngOnInit();
-    if(this.username == undefined){
-      this.drawstatus();
-    }
+    
   
     }
     drawstatus(){
-      // debugger
+      // //debugger
       this.submitted=true;
     let jsonData = {
       // id: this.id,
@@ -240,5 +281,14 @@ getviewlist() {
       this.data = res['data']
     });
     this.textClear();
+    }
+    getdrawdelete(){
+      // //debugger
+      let jsonData = {
+        id:this.id,
+      }
+      this.httpService.getdrawdelete(jsonData).subscribe(res => {
+        this.loader.stop();
+      });
     }
 }

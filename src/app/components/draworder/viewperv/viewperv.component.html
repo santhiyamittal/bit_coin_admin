@@ -32,7 +32,7 @@
                         <i class="mdi mdi-account-multiple icon-size float-right text-primary"></i><span
                             class="font-weight-bold">{{count}}</span>
                     </h2>
-                    <p class="mb-0 text-muted">Monthly users<span class="float-left">50%</span></p>
+                    <!-- <p class="mb-0 text-muted">Monthly users<span class="float-left">50%</span></p> -->
                 </div>
             </div>
         </div>
@@ -42,10 +42,10 @@
         <div class="card custom-card">
             <div class="card-body">
                 <div class="card-widget">
-                    <label class="main-content-label mb-3 pt-1">Total tax</label>
+                    <label class="main-content-label mb-3 pt-1">Total Ticket Buy</label>
                     <h2 class="text-left"><i class="mdi mdi-cube icon-size float-right text-primary"></i><span
-                            class="font-weight-bold">$89,265</span></h2>
-                    <p class="mb-0 text-muted">Monthly Income<span class="float-left">$7,893</span></p>
+                            class="font-weight-bold">$0</span></h2>
+                    <!-- <p class="mb-0 text-muted">Monthly Income<span class="float-left">$7,893</span></p> -->
                 </div>
             </div>
         </div>
@@ -55,16 +55,16 @@
         <div class="card custom-card">
             <div class="card-body">
                 <div class="card-widget">
-                    <label class="main-content-label mb-3 pt-1">Total Winning</label>
+                    <label class="main-content-label mb-3 pt-1">Total Amount</label>
                     <h2 class="text-left"><i class="icon-size mdi mdi-poll-box   float-right text-primary"></i><span
                             class="font-weight-bold">${{totalprice}}</span></h2>
-                    <p class="mb-0 text-muted">Monthly Profit<span class="float-left">$4,678</span></p>
+                    <!-- <p class="mb-0 text-muted">Monthly Profit<span class="float-left">$4,678</span></p> -->
                 </div>
             </div>
         </div>
     </div>
     <!-- COL END -->
-    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
+    <!-- <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
         <div class="card custom-card">
             <div class="card-body">
                 <div class="card-widget">
@@ -75,7 +75,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- COL END -->
 </div>
 
@@ -83,49 +83,8 @@
     <div class="col-sm-12 col-lg-12 col-xl-12">
         <div class="card bg-primary custom-card card-box">
             <div class="card-body p-4">
-                <!-- <label>User Name</label>
-                <input type="text"  [(ngModel)]="username" (ngModelChange)="searchdraw()"class="form-control" placeholder="Enter the User Name" /> -->
-                <div class="row align-items-center">
-                    <form [formGroup]="loginForm" (ngSubmit)="search()" novalidate>
-
-                        <div class="row">
-                            <div class="col-lg-8 col-md-8 col-sm-8">
-
-                                <div class="form-group text-left">
-                                    <label>User Name</label>
-                                    <input type="text" class="form-control" formControlName="username"
-                                        [(ngModel)]="username" class="form-control"
-                                        [ngClass]="{ 'valid': submitted  }" />
-
-                                </div>
-                            </div>
-
-                            <div class="col-lg-8 col-md-8 col-sm-8">
-                                <label>Status
-                                    <!-- <span class="tx-danger">*</span> -->
-                                </label>
-                                <div class="form-group text-left">
-                                    <!-- <input type="password" formControlName="gender" class="form-control" [ngClass]="{ 'is-invalid': submitted && loginFormControl.gender.errors }" />
-                                    <div *ngIf="submitted && loginFormControl.gender.errors" class="invalid-feedback">
-                                        <div *ngIf="loginFormControl.gender.errors.required">Zip code is required</div>
-                                        <div *ngIf="loginFormControl.gender.errors.minlength">Zip code must be at least 6 characters</div>
-                                    </div> -->
-                                    <select class="select" formControlName="value" class="form-control" [(ngModel)]="value" >
-                                        <label>Status</label>
-                                        <option value="1">Active</option>
-                                        <option value="0">Pending</option>
-                                        <!-- <option value="2">Cancel</option> -->
-                                    </select>
-                                   
-                                </div>
-                            </div>
-                            <div class="col-lg-5 col-md-5 col-sm-5">
-                                <label>&nbsp;</label>
-                                <button type="submit" class="btn btn-sm btn-primary btn-block">Get</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                <label>User Name</label>
+                <input type="text"  [(ngModel)]="username" (ngModelChange)="searchuser()"class="form-control" placeholder="Enter the User Name " />
             </div>
         </div>
     </div>
@@ -157,10 +116,10 @@
                     <table class="table card-table table-striped table-vcenter text-nowrap mb-0">
                         <thead>
                             <tr>
-                                <th class="wd-lg-8p"><span>Name</span></th>
+                                <th class="wd-lg-8p"><span>User Name</span></th>
                                 <!-- <th class="wd-lg-20p"><span></span></th> -->
                                 <th class="wd-lg-20p"><span>Winning Price</span></th>
-                                <th class="wd-lg-20p"><span>Status</span></th>
+                                <!-- <th class="wd-lg-20p"><span>Status</span></th> -->
                                 <th class="wd-lg-20p">Sequence Number</th>
                                 <th class="wd-lg-20p"><span>Start Time</span></th>
                                 <th class="wd-lg-20p"><span>End Time</span></th>
@@ -168,7 +127,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let item of data |  paginate:{
+                            <tr *ngFor="let item of data |filter:username |  paginate:{
                                 itemsPerPage: 10,
                                  currentPage:page,
                                 totalitem:totalLength }">
@@ -177,19 +136,19 @@
                                     <img alt="avatar" class="rounded-circle avatar-md mr-2"
                                         src="../../assets/img/users/1.jpg">
                                 </td> -->
-                                <td>{{item['draw_id']['name'] == "" ? 'NA': item['draw_id']['name']}} </td>
+                                <td>{{item['user_id']['username'] == "" ? 'NA': item['user_id']['username']}} </td>
                                 <td>
-                                    {{item['draw_id']['winning_price']}}
+                                    {{item['winning_price']}}
                                 </td>
                         
-                                <td >
+                                <!-- <td >
                                 <span *ngIf="item['deleted'] === false"
                                 [class]="item['deleted'] === false ? 'text-warning' : item['deleted']=== true ? 'text-success':''">
                                 {{item['deleted'] === false ? 'Pending':item['deleted']}}</span>
                                 <span *ngIf="item['deleted'] === true"
                                 [class]="item['deleted'] === false ? 'text-warning' : item['deleted']=== true ? 'text-success':''">
                                 {{item['deleted'] === true ? 'Active':item['deleted']}}</span>
-                            </td>
+                            </td> -->
                         
                                
                                 <td>
@@ -208,7 +167,7 @@
                                     <button (click)="editsymbol(item)" class="btn btn-sm btn-info mr-1">
                                         <i class="fe fe-edit-2"></i>
                                     </button>
-                                    <button (click)="deleteuser(item)" class="btn btn-sm btn-danger">
+                                    <button (click)="warningAlert(item)" class="btn btn-sm btn-danger">
                                         <i class="fe fe-trash"></i>
                                     </button>
                                 </td>
