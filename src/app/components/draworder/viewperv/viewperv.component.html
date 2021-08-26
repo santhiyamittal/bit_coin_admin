@@ -161,8 +161,10 @@
                                 <!-- <th class="wd-lg-20p"><span></span></th> -->
                                 <th class="wd-lg-20p"><span>Winning Price</span></th>
                                 <th class="wd-lg-20p"><span>Status</span></th>
-                                <th class="wd-lg-20p"><span>Start time</span></th>
-                                <th class="wd-lg-20p">End time</th>
+                                <th class="wd-lg-20p">Sequence Number</th>
+                                <th class="wd-lg-20p"><span>Start Time</span></th>
+                                <th class="wd-lg-20p"><span>End Time</span></th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -175,9 +177,9 @@
                                     <img alt="avatar" class="rounded-circle avatar-md mr-2"
                                         src="../../assets/img/users/1.jpg">
                                 </td> -->
-                                <td>{{item['name'] == "" ? 'NA': item['name']}} </td>
+                                <td>{{item['draw_id']['name'] == "" ? 'NA': item['draw_id']['name']}} </td>
                                 <td>
-                                    {{item['winning_price']}}
+                                    {{item['draw_id']['winning_price']}}
                                 </td>
                         
                                 <td >
@@ -189,11 +191,15 @@
                                 {{item['deleted'] === true ? 'Active':item['deleted']}}</span>
                             </td>
                         
+                               
                                 <td>
-                                    {{item['start_time'] | date :'medium'}}
+                                    {{item['Sequence_number']}}
                                 </td>
                                 <td>
-                                    {{item['end_time']| date :'medium'}}
+                                    {{item['draw_id']['start_time'] | date :'medium'}}
+                                </td>
+                                <td>
+                                    {{item['draw_id']['end_time'] | date :'medium'}}
                                 </td>
                                 <td>
                                     <!-- <button (click)="gotoview()" class="btn btn-sm btn-primary mr-1">

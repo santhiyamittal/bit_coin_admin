@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserIdleService } from 'angular-user-idle';
+import { AppComponent } from 'src/app/app.component';
 import * as chartData from '../../../shared/data/dashboard';
 
 
@@ -10,12 +12,24 @@ import * as chartData from '../../../shared/data/dashboard';
 export class DashboardComponent implements OnInit {
 
 
-  constructor() {
+  constructor(
+    public appcomponent: AppComponent,
+    private userIdle: UserIdleService,
+
+  ) {
     
   }
 
   ngOnInit(): void {
-    
+    // debugger
+    if (!this.appcomponent.inactive) {
+      this.appcomponent.startWatching();
+      // this.userIdle.startWatching();
+      this.userIdle.onTimerStart().subscribe(count => console.log(count));
+      this.userIdle.onTimeout().subscribe(() => this.appcomponent.goToLockScreen());
+    } else if (this.appcomponent.inactive) {
+      this.appcomponent.goToLockScreen();
+    }
   }
   //line Chart
   public lineChartOptions = chartData.lineChartOptions;

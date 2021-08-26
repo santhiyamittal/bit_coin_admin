@@ -58,6 +58,7 @@ export class TwofactorComponent implements OnInit {
   getdashboard() {
     this.router.navigateByUrl('dashboard/dashboard');
     // this.routeTo.navigateByUrl('custom/reset-password');
+    localStorage.setItem("loginState", JSON.stringify(true));
 
   }
 

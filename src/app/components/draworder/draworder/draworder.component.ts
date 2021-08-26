@@ -192,7 +192,7 @@ submitted:boolean=false;
  
   
   search(){
-    // debugger
+    debugger
      //search api
   this.submitted=true;
   let jsonData = {
@@ -213,7 +213,7 @@ submitted:boolean=false;
 
   }
   drawstatus(){
-    // debugger
+    debugger
     this.submitted=true;
   let jsonData = {
     // id: this.id,
@@ -224,6 +224,10 @@ submitted:boolean=false;
     console.log(res['data'])
     this.data = res['data']
   });
+  if(this.value == null){
+    this.getdrawlist();
+  }
   this.textClear();
+ 
   }
 }

@@ -122,6 +122,7 @@ export class AuthenticationComponent implements OnInit {
         console.log(res);
         localStorage.setItem("userid", JSON.stringify(res['admin']['email']));
         localStorage.setItem("data", JSON.stringify(res['data']));
+        localStorage.setItem("loginState", JSON.stringify(true));
 
         this.userId = res['admin']['email'];
         // localStorage.setItem("userid", JSON.stringify(this.loginForm.value.userid));

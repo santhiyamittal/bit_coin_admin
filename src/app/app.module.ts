@@ -16,13 +16,13 @@ import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { UserIdleModule } from 'angular-user-idle';
+// import { BnNgIdleService } from 'bn-ng-idle'; // import bn-ng-idle service
 
 // import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 @NgModule({
   declarations: [
     AppComponent,
     AuthenticationComponent,
-    
 
   ],
   imports: [
@@ -48,7 +48,7 @@ import { UserIdleModule } from 'angular-user-idle';
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 
-  providers: [],
+  providers: [], // add it to the providers of your module
   bootstrap: [AppComponent],
 })
 export class AppModule { }
