@@ -12,7 +12,6 @@ import { TwofactorComponent } from './twofactor/twofactor.component';
 const routes: Routes = [
   {
     path: '',
-    // canActivate:[AuthencationGuard],
 
     children: [
       
