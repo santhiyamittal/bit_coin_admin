@@ -1,6 +1,6 @@
 not-allowed {
     cursor: not-allowed !important;
 }
-// button[disabled] {
-//     cursor: not-allowed;
-//   }
+button[disabled] {
+    cursor: not-allowed;
+  }

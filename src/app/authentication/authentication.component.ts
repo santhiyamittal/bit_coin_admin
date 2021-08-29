@@ -130,6 +130,7 @@ export class AuthenticationComponent implements OnInit {
         this.httpService.toastr.success(res['message'], '', {
           positionClass: 'toast-bottom-right', closeButton: true, timeOut: 1000
         });
+
         this.router.navigate(['/custom/twofactor']);
 
       }

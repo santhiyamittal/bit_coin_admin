@@ -45,7 +45,7 @@
                                                 <div *ngIf="loginFormControl.password.errors.minlength">Password must be at least 6 characters</div>
                                             </div>
                                         </div>
-                                        <button class="btn ripple btn-main-primary btn-block not-allowed"
+                                        <button class="btn ripple btn-main-primary btn-block not-allowed" [disabled]="!loginForm.valid"
                                             >Sign In</button>
                                     </form>
                                     <div class="text-left mt-5 ml-0">
