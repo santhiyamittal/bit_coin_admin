@@ -34,6 +34,7 @@ export class EditdrawComponent implements OnInit {
   pipe = new DatePipe("en-us");
   StartTime: number;
   EndTime: number;
+  price: any;
   // StartTime: string;
   // EndTime: string;
 
@@ -58,6 +59,8 @@ export class EditdrawComponent implements OnInit {
       this.User=this.data['data']['name']
       this.status=this.data['data']['status']
       this.winningprice=this.data['data']['winning_price']
+      this.price=this.data['data']['price']
+
       this.id=this.data['data']['_id']
       // this.StartTime=Date.now();
       // this.EndTime=Date.now();
@@ -85,6 +88,8 @@ export class EditdrawComponent implements OnInit {
       'StartTime': ['', Validators.required],
       'EndTime':['', Validators.required],
       'winningprice':['', Validators.required],
+      'price':['', Validators.required],
+
     });
   }
   closeModelBox(): void {
@@ -115,6 +120,8 @@ export class EditdrawComponent implements OnInit {
       end_time:this.loginForm.value.EndTime,
       start_time:this.loginForm.value.StartTime,
       winning_price: this.loginForm.value.winningprice,
+      price: this.loginForm.value.price,
+
     }
     this.httpService.getUpdatedraw(jsonData).subscribe(res => {
       if (res['success'] == true) {

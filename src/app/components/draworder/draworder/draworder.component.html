@@ -10,13 +10,8 @@
 
     <div class="d-flex">
         <div class="justify-content-center">
-            <!-- <button type="button" class="btn btn-white btn-icon-text my-2 mr-2">
-              <i class="fe fe-download mr-2"></i> Import
-            </button>
-            <button type="button" class="btn btn-white btn-icon-text my-2 mr-2">
-              <i class="fe fe-filter mr-2"></i> Filter
-            </button> -->
-            <!-- <button type="button" class="btn btn-primary my-2 btn-icon-text" routerLink="/drawwallet/adddraw">
+          
+            <!-- <button type="button" class="btn btn-primary my-2 btn-icon-text" routerLink="/draworder/addperv">
                 <i class="fas fa-plus"></i> Add Draw
             </button> -->
         </div>
@@ -64,7 +59,7 @@
                                 <th class="wd-lg-8p"><span>Name</span></th>
                                 <!-- <th class="wd-lg-20p"><span></span></th> -->
                                 <th class="wd-lg-20p"><span>Winning Price</span></th>
-                                <!-- <th class="wd-lg-20p"><span>Status</span></th> -->
+                                <th class="wd-lg-20p"><span>Price</span></th>
                                 <th class="wd-lg-20p"><span>Start time</span></th>
                                 <th class="wd-lg-20p">End time</th>
                             </tr>
@@ -92,7 +87,9 @@
                                 [class]="item['deleted'] === false ? 'text-warning' : item['deleted']=== true ? 'text-success':''">
                                 {{item['deleted'] === true ? 'Active':item['deleted']}}</span>
                             </td> -->
-                        
+                            <td>
+                                {{item['price']}}
+                            </td>
                                 <td>
                                     {{item['start_time'] | date :'medium'}}
                                 </td>
@@ -115,7 +112,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="center" *ngIf="!showDatafound">
+                <div class="center sel" *ngIf="!showDatafound">
                     <span>NO DATA FOUND </span>
                 </div>
                 <pagination-controls class="pagination mt-4 mb-0 float-right page-item" (pageChange)="page = $event">

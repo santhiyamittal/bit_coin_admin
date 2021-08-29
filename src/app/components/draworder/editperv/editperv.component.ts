@@ -31,6 +31,7 @@ export class EditpervComponent implements OnInit {
   pipe = new DatePipe("en-us");
   StartTime: number;
   EndTime: number;
+  price:any;
   // StartTime: string;
   // EndTime: string;
 
@@ -55,7 +56,8 @@ export class EditpervComponent implements OnInit {
       this.User=this.data['data']['user_id']['username']
       this.status=this.data['data']['status']
       this.winningprice=this.data['data']['winning_price']
-      this.id=this.data['data']['draw_id']['_id']
+      this.price=this.data['data']['price']
+      this.id=this.data['data']['_id']
       // this.StartTime=Date.now();
       // this.EndTime=Date.now();
       console.log(this.data['data']['start_time'])
@@ -82,6 +84,8 @@ export class EditpervComponent implements OnInit {
       'StartTime': ['', Validators.required],
       'EndTime':['', Validators.required],
       'winningprice':['', Validators.required],
+      // 'price':['', Validators.required],
+
     });
   }
   closeModelBox(): void {
@@ -112,6 +116,8 @@ export class EditpervComponent implements OnInit {
       end_time:this.loginForm.value.EndTime,
       start_time:this.loginForm.value.StartTime,
       winning_price: this.loginForm.value.winningprice,
+      // price: this.loginForm.value.price,
+
     }
     this.httpService.getUpdatedraw(jsonData).subscribe(res => {
       if (res['success'] == true) {

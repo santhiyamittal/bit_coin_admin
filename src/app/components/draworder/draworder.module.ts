@@ -11,9 +11,10 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ViewpervComponent } from './viewperv/viewperv.component';
+import { AddpervComponent } from './addperv/addperv.component';
 
 @NgModule({
-  declarations: [DraworderComponent, EditpervComponent, DeletepervComponent, ViewpervComponent],
+  declarations: [DraworderComponent, EditpervComponent, DeletepervComponent, ViewpervComponent, AddpervComponent],
   imports: [
     CommonModule,
     DraworderRoutingModule,

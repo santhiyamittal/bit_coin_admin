@@ -6,6 +6,7 @@ import { AuthencationGuard } from 'src/app/shared/services/authencation.guard';
 import { EditpervComponent } from './editperv/editperv.component';
 import { DeletepervComponent } from './deleteperv/deleteperv.component';
 import { ViewpervComponent } from './viewperv/viewperv.component';
+import { AddpervComponent } from './addperv/addperv.component';
 
 
 
@@ -31,6 +32,10 @@ const routes: Routes = [
       {
         path: 'viewlist',
         component:ViewpervComponent
+      },
+      {
+        path: 'addperv',
+        component:AddpervComponent
       },
     ]
   }

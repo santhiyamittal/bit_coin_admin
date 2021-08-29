@@ -102,7 +102,16 @@
             <div *ngIf="loginFormControl.winningprice.errors.required">winningprice is required</div>
             <div *ngIf="loginFormControl.winningprice.errors.minlength">winningprice must be Entered</div>
         </div>
-
+        <label> Price
+            <span class="tx-danger">*</span>
+        </label>
+        <input type="text" formControlName="price" class="form-control" value={{price}}
+            [(ngModel)]="price"
+            [ngClass]="{ 'is-invalid': submitted && loginFormControl.price.errors }" />
+        <div *ngIf="submitted && loginFormControl.price.errors" class="invalid-feedback">
+            <div *ngIf="loginFormControl.price.errors.required">price is required</div>
+            <div *ngIf="loginFormControl.price.errors.minlength">price must be Entered</div>
+        </div>
         <label>Start Time
             <span class="tx-danger">*</span>
         </label>

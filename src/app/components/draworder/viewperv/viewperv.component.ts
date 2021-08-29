@@ -36,6 +36,7 @@ export class ViewpervComponent implements OnInit {
   totprice: number = 0;
     drawview: any[];
   delete: any;
+  sellcount: any;
   // username: any;
   // email: any;
   
@@ -210,7 +211,8 @@ export class ViewpervComponent implements OnInit {
           this.data = res['data']
           this.count=res['count']
           this.status = res['data']['status']
-      
+          this.sellcount=res['data']['sellcount']
+          // this.totprice=res['data']['draw_id']['price']
           console.log(this.count)
   
   

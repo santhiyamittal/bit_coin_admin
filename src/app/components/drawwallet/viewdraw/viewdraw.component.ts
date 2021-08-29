@@ -35,6 +35,7 @@ count: any;
 totalprice: number = 0;
 totprice: number = 0;
   drawview: any[];
+  sellcount: any[];
 // username: any;
 // email: any;
 
@@ -175,6 +176,8 @@ getviewdata(){
     this.data = res['data']
     this.count=res['count']
     this.status = res['data']['status']
+    this.sellcount=res['data']['sellcount']
+    this.totprice=res['data']['draw_id']['price']
 
     console.log(this.count)
 

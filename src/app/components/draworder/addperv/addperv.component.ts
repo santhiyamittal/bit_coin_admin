@@ -7,11 +7,11 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { HttpService } from 'src/app/shared/services/http.service';
 
 @Component({
-  selector: 'app-adddraw',
-  templateUrl: './adddraw.component.html',
-  styleUrls: ['./adddraw.component.scss']
+  selector: 'app-addperv',
+  templateUrl: './addperv.component.html',
+  styleUrls: ['./addperv.component.scss']
 })
-export class AdddrawComponent implements OnInit {
+export class AddpervComponent implements OnInit {
   User: any;
   status: any;
   createdat: any;
@@ -63,7 +63,7 @@ export class AdddrawComponent implements OnInit {
     return this.loginForm.controls;
   }
   gotodraw(){
-    this.router.navigateByUrl('/drawwallet/Drawwallet')
+    this.router.navigateByUrl('draworder/draworderpage')
   
   }
   onSubmit() {
@@ -118,4 +118,5 @@ export class AdddrawComponent implements OnInit {
     });
   }
   }
+
 }
