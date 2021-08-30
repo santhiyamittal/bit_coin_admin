@@ -112,6 +112,62 @@
             <div *ngIf="loginFormControl.price.errors.required">price is required</div>
             <div *ngIf="loginFormControl.price.errors.minlength">price must be Entered</div>
         </div>
+        <label> Cold percentage(%)
+            <span class="tx-danger">*</span>
+        </label>
+        <div class="form-group">
+            <input type="number" formControlName="coldprice" class="form-control" [(ngModel)]="coldprice"
+                [ngClass]="{ 'is-invalid': submitted && loginFormControl.coldprice.errors }" />
+            <div *ngIf="submitted && loginFormControl.coldprice.errors" class="invalid-feedback">
+                <div *ngIf="loginFormControl.coldprice.errors.required">coldprice is required</div>
+                <div *ngIf="loginFormControl.coldprice.errors.minlength">coldprice must be Entered</div>
+            </div>
+        </div>
+        <label> First Prize(%)
+            <span class="tx-danger">*</span>
+        </label>
+        <div class="form-group">
+            <input type="number"
+             formControlName="firstprice" class="form-control"[(ngModel)]="firstprice"
+                [ngClass]="{ 'is-invalid': submitted && loginFormControl.firstprice.errors }"appPercentage />
+            <div *ngIf="submitted && loginFormControl.firstprice.errors" class="invalid-feedback">
+                <div *ngIf="loginFormControl.firstprice.errors.required">firstprice is required</div>
+                <div *ngIf="loginFormControl.firstprice.errors.minlength">firstprice must be Entered percentage</div>
+            </div>
+        </div>
+        <label> Secong Prize (%)
+            <span class="tx-danger">*</span>
+        </label>
+        <div class="form-group">
+            <input type="number" formControlName="secondprice" class="form-control"[(ngModel)]="secondprice"
+                [ngClass]="{ 'is-invalid': submitted && loginFormControl.secondprice.errors }"appPercentage />
+            <div *ngIf="submitted && loginFormControl.secondprice.errors" class="invalid-feedback">
+                <div *ngIf="loginFormControl.secondprice.errors.required">secondprice is required</div>
+                <div *ngIf="loginFormControl.secondprice.errors.minlength">secondprice must be Entered percentage</div>
+            </div>
+        </div>
+        <label> Thrid Prize(%)
+            <span class="tx-danger">*</span>
+        </label>
+        <div class="form-group">
+            <input type="number" formControlName="thridprice" class="form-control"[(ngModel)]="thridprice"
+                [ngClass]="{ 'is-invalid': submitted && loginFormControl.thridprice.errors }"appPercentage />
+            <div *ngIf="submitted && loginFormControl.thridprice.errors" class="invalid-feedback">
+                <div *ngIf="loginFormControl.thridprice.errors.required">thridprice is required</div>
+                <div *ngIf="loginFormControl.thridprice.errors.minlength">thridprice must be Entered percentage</div>
+            </div>
+        </div>
+        <label> Fourth Prize (%)
+            <span class="tx-danger">*</span>
+        </label>
+        <div class="form-group">
+            <input type="number" formControlName="fourthprice" class="form-control"[(ngModel)]="fourthprice"
+                [ngClass]="{ 'is-invalid': submitted && loginFormControl.fourthprice.errors }"appPercentage />
+            <div *ngIf="submitted && loginFormControl.fourthprice.errors" class="invalid-feedback">
+                <div *ngIf="loginFormControl.fourthprice.errors.required">fourthprice is required</div>
+                <div *ngIf="loginFormControl.fourthprice.errors.minlength">fourthprice must be Entered percentage</div>
+            </div>
+        </div>
         <label>Start Time
             <span class="tx-danger">*</span>
         </label>

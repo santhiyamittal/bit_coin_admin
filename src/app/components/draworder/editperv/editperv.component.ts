@@ -32,6 +32,11 @@ export class EditpervComponent implements OnInit {
   StartTime: number;
   EndTime: number;
   price:any;
+  coldprice: any;
+  firstprice: any;
+  secondprice: any;
+  thridprice: any;
+  fourthprice: any;
   // StartTime: string;
   // EndTime: string;
 
@@ -57,6 +62,11 @@ export class EditpervComponent implements OnInit {
       this.status=this.data['data']['status']
       this.winningprice=this.data['data']['winning_price']
       this.price=this.data['data']['price']
+      this.coldprice=this.data['data']['cold_wallet_percentage']
+      this.firstprice=this.data['data']['percentage_1']
+      this.secondprice=this.data['data']['percentage_2']
+      this.thridprice=this.data['data']['percentage_3']
+      this.fourthprice=this.data['data']['percentage_4']
       this.id=this.data['data']['_id']
       // this.StartTime=Date.now();
       // this.EndTime=Date.now();
@@ -85,7 +95,11 @@ export class EditpervComponent implements OnInit {
       'EndTime':['', Validators.required],
       'winningprice':['', Validators.required],
       'price':['', Validators.required],
-
+      'coldprice':['', [Validators.required,Validators.pattern("[0-9]+(\.[0-9]{1,2})?%?")]],
+      'firstprice':['', [Validators.required,Validators.pattern("[0-9]+(\.[0-9]{1,2})?%?")]],
+      'secondprice':['', [Validators.required,Validators.pattern("[0-9]+(\.[0-9]{1,2})?%?")]],
+      'thridprice':['', [Validators.required,Validators.pattern("[0-9]+(\.[0-9]{1,2})?%?")]],
+      'fourthprice':['', [Validators.required,Validators.pattern("[0-9]+(\.[0-9]{1,2})?%?")]],
     });
   }
   closeModelBox(): void {

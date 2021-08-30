@@ -37,6 +37,12 @@ export class ViewpervComponent implements OnInit {
     drawview: any;
   delete: any;
   sellcount: any;
+  name: any;
+  cldamount: any;
+  firstamount: any;
+  secondamount: any;
+  thridamount: any;
+  fourthamount: any;
   // username: any;
   // email: any;
   
@@ -54,6 +60,14 @@ export class ViewpervComponent implements OnInit {
   ) {
     this.drawview = JSON.parse(localStorage.getItem("dataview"))
     this.id=this.drawview['_id']
+    this.count=this.drawview['count']
+    this.name=this.drawview['name']
+    this.cldamount=this.drawview['cold_wallet_percentage']
+    this.firstamount=this.drawview['percentage_1']
+    this.secondamount=this.drawview['percentage_2']
+    this.thridamount=this.drawview['percentage_3']
+    this.fourthamount=this.drawview['percentage_3']
+
     console.log(this.id)
   
   }
@@ -73,7 +87,7 @@ export class ViewpervComponent implements OnInit {
     this.loginForm = this.formBuilder.group({
   
       username: ['', Validators.required],
-      value: ['', Validators.required],
+      // value: ['', Validators.required],
     });
   }
   
@@ -146,7 +160,7 @@ export class ViewpervComponent implements OnInit {
   
   }
   gotoview() {
-    this.router.navigateByUrl('/drawwallet/Drawwallet')
+    this.router.navigateByUrl('draworder/draworderpage')
   }
   gotohome() {
     this.router.navigateByUrl('/dashboard/dashboard')
@@ -235,7 +249,7 @@ export class ViewpervComponent implements OnInit {
         });
       }
       searchuser(){
-
+debugger
         if(this.username == ""){
          this.search();
         }else{

@@ -26,6 +26,12 @@ export class AdddrawComponent implements OnInit {
   StartTime: string;
   EndTime: string;
   price:any;
+  firstprice:any;
+  coldprice:any;
+  secondprice:any;
+  fourthprice:any;
+  thridprice:any;
+
   constructor(
     public toastr: ToastrService,
 
@@ -47,6 +53,8 @@ export class AdddrawComponent implements OnInit {
 
     console.log(this.StartTime)
   }
+  
+
   createForm() {
     this.loginForm = this.formBuilder.group({
       
@@ -55,6 +63,11 @@ export class AdddrawComponent implements OnInit {
       'EndTime':['', Validators.required],
       'winningprice': ['', Validators.required],
       'price':['', Validators.required],
+      'coldprice':['', [Validators.required, Validators.maxLength(8)]],
+      'firstprice':['', [Validators.required,Validators.pattern("[0-9]+(\.[0-9]{1,2})?%?")]],
+      'secondprice':['', [Validators.required,Validators.pattern("[0-9]+(\.[0-9]{1,2})?%?")]],
+      'thridprice':['', [Validators.required,Validators.pattern("[0-9]+(\.[0-9]{1,2})?%?")]],
+      'fourthprice':['', [Validators.required,Validators.pattern("[0-9]+(\.[0-9]{1,2})?%?")]],
 
     });
   }
@@ -68,7 +81,7 @@ export class AdddrawComponent implements OnInit {
   }
   onSubmit() {
 
-    debugger
+    // debugger
     this.submitted = true;
    
   
@@ -78,7 +91,11 @@ export class AdddrawComponent implements OnInit {
       price:this.loginForm.value.price,
       start_time:this.loginForm.value.StartTime,
       end_time:this.loginForm.value.EndTime,
-      
+      percentage_1:this.loginForm.value.firstprice,
+      percentage_2:this.loginForm.value.secondprice,
+      percentage_3:this.loginForm.value.thridprice,
+      percentage_4:this.loginForm.value.fourthprice,
+      cold_wallet_percentage:this.loginForm.value.coldprice,
     }
     if (this.loginForm.value.username .length > 0) {
   
@@ -88,7 +105,7 @@ export class AdddrawComponent implements OnInit {
       this.loader.stop();
       // this.appComponent.startWatching();
       if (res['success'] == true) {
-        this.router.navigateByUrl('draworder/draworderpage')
+        this.router.navigateByUrl('drawwallet/Drawwallet')
 
       } else if (res['success'] == false) {
         // this.notOKstat = res['UserConfiguration']['ErrorMessage'];

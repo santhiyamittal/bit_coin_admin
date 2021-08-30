@@ -31,10 +31,15 @@ export class EditdrawComponent implements OnInit {
   starttime: any;
   winningprice: any;
   startTime: any;
-  pipe = new DatePipe("en-us");
+  // pipe = new DatePipe("en-us");
   StartTime: number;
   EndTime: number;
   price: any;
+  coldprice: any;
+  firstprice: any;
+  secondprice: any;
+  thridprice: any;
+  fourthprice: any;
   // StartTime: string;
   // EndTime: string;
 
@@ -60,7 +65,11 @@ export class EditdrawComponent implements OnInit {
       this.status=this.data['data']['status']
       this.winningprice=this.data['data']['winning_price']
       this.price=this.data['data']['price']
-
+      this.coldprice=this.data['data']['cold_wallet_percentage']
+      this.firstprice=this.data['data']['percentage_1']
+      this.secondprice=this.data['data']['percentage_2']
+      this.thridprice=this.data['data']['percentage_3']
+      this.fourthprice=this.data['data']['percentage_4']
       this.id=this.data['data']['_id']
       // this.StartTime=Date.now();
       // this.EndTime=Date.now();
@@ -89,7 +98,11 @@ export class EditdrawComponent implements OnInit {
       'EndTime':['', Validators.required],
       'winningprice':['', Validators.required],
       'price':['', Validators.required],
-
+      'coldprice':['', [Validators.required]],
+      'firstprice':['', [Validators.required]],
+      'secondprice':['', [Validators.required]],
+      'thridprice':['', [Validators.required]],
+      'fourthprice':['', [Validators.required]],
     });
   }
   closeModelBox(): void {
@@ -121,7 +134,11 @@ export class EditdrawComponent implements OnInit {
       start_time:this.loginForm.value.StartTime,
       winning_price: this.loginForm.value.winningprice,
       price: this.loginForm.value.price,
-
+      cold_wallet_percentage: this.loginForm.value.coldprice,
+      percentage_1:this.loginForm.value.firstprice,
+      percentage_2:this.loginForm.value.secondprice,
+      percentage_3:this.loginForm.value.thridprice,
+      percentage_4:this.loginForm.value.fourthprice,
     }
     this.httpService.getUpdatedraw(jsonData).subscribe(res => {
       if (res['success'] == true) {

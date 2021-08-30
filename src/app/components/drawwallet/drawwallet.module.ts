@@ -21,11 +21,12 @@ import { DeletedrawComponent } from './deletedraw/deletedraw.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 // import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { PercentageDirective } from './percentage.directive';
 
 
 
 @NgModule({
-  declarations: [DrawwalletComponent, AdddrawComponent, ViewdrawComponent, EditdrawComponent, DeletedrawComponent],
+  declarations: [DrawwalletComponent, AdddrawComponent, ViewdrawComponent, EditdrawComponent, DeletedrawComponent, PercentageDirective,],
   imports: [
     CommonModule,
   DrawWalletRoutingModule,

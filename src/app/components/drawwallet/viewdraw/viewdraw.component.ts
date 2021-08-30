@@ -38,6 +38,13 @@ totprice: number = 0;
   sellcount: any[];
   upcomview: any;
   iddata: any;
+  name: any[];
+  cldamount: any;
+  firstamount: any;
+  secondamount: any;
+  thridamount: any;
+  fourthamount: any;
+  sell: any;
 // username: any;
 // email: any;
 
@@ -55,6 +62,13 @@ constructor(
 ) {
   this.upcomview = JSON.parse(localStorage.getItem("upview"))
   this.iddata=this.upcomview['_id']
+  this.name=this.upcomview['name']
+  this.sell=this.upcomview['sell_count']
+  this.cldamount=this.upcomview['cold_wallet_percentage']
+  this.firstamount=this.upcomview['percentage_1']
+  this.secondamount=this.upcomview['percentage_2']
+  this.thridamount=this.upcomview['percentage_3']
+  this.fourthamount=this.upcomview['percentage_3']
 console.log(this.iddata)
 }
 
@@ -73,7 +87,7 @@ createForm() {
   this.loginForm = this.formBuilder.group({
 
     username: ['', Validators.required],
-    value: ['', Validators.required],
+    // value: ['', Validators.required],
   });
 }
 
@@ -218,7 +232,7 @@ getviewlist() {
         this.status = res['data']['status']
         this.sellcount=res['data']['sellcount']
         // this.totprice=res['data']['draws']['price']
-        console.log(this.count)
+        console.log(this.name)
 
 
         console.log(this.totprice)

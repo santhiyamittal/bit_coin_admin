@@ -40,6 +40,7 @@ submitted:boolean=false;
   datastatus: any;
   value:number;
   del: any;
+  name: any;
   // username: any;
   // email: any;
   
@@ -163,7 +164,7 @@ submitted:boolean=false;
       console.log(res['data'])
 
       this.data = res['data']
-      // this.status = res['data']['status']
+      // this.name = res['data']['draw_id']['name']
       this.id = res['data']['_id']
       console.log(this.id)
       this.totalLength = this.data.length;

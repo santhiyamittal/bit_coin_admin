@@ -75,7 +75,7 @@ submitted:boolean=false;
   
 
   warningAlert(item) {
-    debugger
+    // debugger
     this.id=item['_id']
     this.del=item['_id']
     var id =this.id

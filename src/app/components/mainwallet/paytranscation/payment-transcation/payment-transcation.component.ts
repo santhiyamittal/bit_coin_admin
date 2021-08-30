@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -14,6 +14,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./payment-transcation.component.scss']
 })
 export class PaymentTranscationComponent implements OnInit {
+  Symbol: any = ['BTC', 'DTC']
 
   Status: any = ['Active', 'Inactive'];
   public loginForm: FormGroup;
@@ -22,13 +23,15 @@ submitted:boolean=false;
   Data: any[];
   totalLength: any;
   page: number = 1
-  status: any[];
+  status: number;
   id: any;
   userDetails: any;
   showDatafound: boolean;
   username: any;
   email: any;
   datastatus: any;
+  DrawId:any;
+  drawname: any;
   // username: any;
   // email: any;
 
@@ -49,18 +52,19 @@ submitted:boolean=false;
 
   ngOnInit(): void {
     this.getpaymentlist();
- 
+ this.createForm();
   }
   get loginFormControl() {
     return this.loginForm.controls;
   }
-  // createForm() {
-  //   this.loginForm = this.formBuilder.group({
+  createForm() {
+    this.loginForm = this.formBuilder.group({
 
-  //     username: ['', Validators.required],
-  //     email: ['', Validators.required],
-  //   });
-  // }
+      'drawname': ['', Validators.required],
+      'symbol': ['', Validators.required],
+      'coinname': ['', Validators.required],
+    });
+  }
   
   
   // view(paymentdetails) {
@@ -126,9 +130,8 @@ gotoinactive(){
     this.httpService.getpaymentlist().subscribe((res: any) => {
 
       console.log(res['data'])
-
+        if(res['data']['paymentstatus'] == 1){
       this.data = res['data']
-      this.status = res['data']['status']
       this.id = res['data']['_id']
       console.log(this.id)
       this.totalLength = this.data.length;
@@ -140,6 +143,7 @@ gotoinactive(){
       }
     }
   }
+}
   else {
     this.showDatafound = false;
     console.log("No Data found");
@@ -148,23 +152,26 @@ gotoinactive(){
 
     });
   }
-  searchpayment() {
-    if(this.username == ""){
-      this.showDatafound = false;
+  // searchpayment() {
+  //   if(this.username == ""){
+  //     this.showDatafound = false;
 
-      this.search();
-     }else{
-       this.data = this.data.filter(res =>{
-         return res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase());
-       })
-     }
-     console.log(this.data)
-  }
+  //     this.search();
+  //    }else{
+  //      this.data = this.data.filter(res =>{
+  //        return res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase());
+  //      })
+  //    }
+  //    console.log(this.data)
+  // }
  search(){
-  
+  debugger
+  this.submitted=true;
   let jsonData = {
     // id: this.id,
-    key: this.username,
+    key:this.loginForm.value.drawname,
+    symbol:this.loginForm.value.symbol,
+    coinname:this.loginForm.value.coinname,
     // status:false,
   }
   

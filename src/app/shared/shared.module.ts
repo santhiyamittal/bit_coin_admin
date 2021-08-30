@@ -22,7 +22,7 @@ import { HorizontalMenuComponent } from './components-horizontal/horizontal-menu
 
 
 @NgModule({
-  declarations: [ FooterComponent, HeaderComponent, LoaderComponent, TapToTopComponent, SidemenuComponent, NotificationSidebarComponent, FullLayoutComponent, ContentLayoutComponent, FullscreenToggleDirective,  MessageLayoutComponent, ErrorLayoutComponent, SearchDatePipe, HoriFullLayoutComponent, HoriHeaderComponent, HorizontalMenuComponent  ],
+  declarations: [ FooterComponent, HeaderComponent, LoaderComponent, TapToTopComponent, SidemenuComponent, NotificationSidebarComponent, FullLayoutComponent, ContentLayoutComponent, FullscreenToggleDirective,  MessageLayoutComponent, ErrorLayoutComponent, SearchDatePipe, HoriFullLayoutComponent, HoriHeaderComponent, HorizontalMenuComponent,  ],
   imports: [
     CommonModule,
     RouterModule,

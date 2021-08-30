@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -11,6 +11,7 @@ import { HttpService } from 'src/app/shared/services/http.service';
   styleUrls: ['./inactivepayment.component.scss']
 })
 export class InactivepaymentComponent implements OnInit {
+  Symbol: any = ['BTC', 'DTC']
 
 
   Status: any = ['Active', 'Inactive'];
@@ -47,18 +48,19 @@ submitted:boolean=false;
 
   ngOnInit(): void {
     this.getpaymentstatus();
- 
+ this.createForm();
   }
   get loginFormControl() {
     return this.loginForm.controls;
   }
-  // createForm() {
-  //   this.loginForm = this.formBuilder.group({
+  createForm() {
+    this.loginForm = this.formBuilder.group({
 
-  //     username: ['', Validators.required],
-  //     email: ['', Validators.required],
-  //   });
-  // }
+      'drawname': ['', Validators.required],
+      'symbol': ['', Validators.required],
+      'coinname': ['', Validators.required],
+    });
+  }
   
   
   // view(paymentdetails) {
@@ -122,7 +124,7 @@ gotoinactive(){
   getpaymentstatus() {
 // //debugger
 let jsonData={
-  status:true,
+  status:0,
 }
     this.httpService.getpaymentstatus(jsonData).subscribe((res: any) => {
 
@@ -149,24 +151,26 @@ let jsonData={
 
     });
   }
-  searchpayment() {
-    if(this.username == ""){
-      this.showDatafound = false;
+  // searchpayment() {
+  //   if(this.username == ""){
+  //     this.showDatafound = false;
 
-      this.search();
-     }else{
-       this.data = this.data.filter(res =>{
-         return res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase());
-       })
-     }
-     console.log(this.data)
-  }
+  //     this.search();
+  //    }else{
+  //      this.data = this.data.filter(res =>{
+  //        return res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase());
+  //      })
+  //    }
+  //    console.log(this.data)
+  // }
  search(){
-  
+  this.submitted=true;
+
   let jsonData = {
     // id: this.id,
-    key: this.username,
-    // status:false,
+    key:this.loginForm.value.drawname,
+    symbol:this.loginForm.value.symbol,
+    coinname:this.loginForm.value.coinname,    // status:false,
   }
   
   this.httpService.getsearchpayment(jsonData).subscribe((res: any) => {

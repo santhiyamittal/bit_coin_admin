@@ -112,11 +112,60 @@
             <div *ngIf="loginFormControl.price.errors.required">price is required</div>
             <div *ngIf="loginFormControl.price.errors.minlength">price must be Entered</div>
         </div>
-
+        <label> Cold Price
+            <span class="tx-danger">*</span>
+        </label>
+        <input type="text" formControlName="coldprice" class="form-control" value={{coldprice}}
+            [(ngModel)]="coldprice"
+            [ngClass]="{ 'is-invalid': submitted && loginFormControl.coldprice.errors }" />
+        <div *ngIf="submitted && loginFormControl.coldprice.errors" class="invalid-feedback">
+            <div *ngIf="loginFormControl.coldprice.errors.required">coldprice is required</div>
+            <div *ngIf="loginFormControl.coldprice.errors.minlength">coldprice must be Entered</div>
+        </div>
+        <label> First Prize
+            <span class="tx-danger">*</span>
+        </label>
+        <input type="text" formControlName="firstprice" class="form-control" value={{firstprice}}
+            [(ngModel)]="firstprice"
+            [ngClass]="{ 'is-invalid': submitted && loginFormControl.firstprice.errors }" />
+        <div *ngIf="submitted && loginFormControl.firstprice.errors" class="invalid-feedback">
+            <div *ngIf="loginFormControl.firstprice.errors.required">firstprice is required</div>
+            <div *ngIf="loginFormControl.firstprice.errors.minlength">firstprice must be Entered</div>
+        </div>
+        <label> Second Prize
+            <span class="tx-danger">*</span>
+        </label>
+        <input type="text" formControlName="secondprice" class="form-control" value={{secondprice}}
+            [(ngModel)]="secondprice"
+            [ngClass]="{ 'is-invalid': submitted && loginFormControl.secondprice.errors }" />
+        <div *ngIf="submitted && loginFormControl.secondprice.errors" class="invalid-feedback">
+            <div *ngIf="loginFormControl.secondprice.errors.required">secondprice is required</div>
+            <div *ngIf="loginFormControl.secondprice.errors.minlength">secondprice must be Entered</div>
+        </div>
+        <label> Thrid Prize
+            <span class="tx-danger">*</span>
+        </label>
+        <input type="text" formControlName="thridprice" class="form-control" value={{thridprice}}
+            [(ngModel)]="thridprice"
+            [ngClass]="{ 'is-invalid': submitted && loginFormControl.thridprice.errors }" />
+        <div *ngIf="submitted && loginFormControl.thridprice.errors" class="invalid-feedback">
+            <div *ngIf="loginFormControl.thridprice.errors.required">thridprice is required</div>
+            <div *ngIf="loginFormControl.thridprice.errors.minlength">thridprice must be Entered</div>
+        </div>
+        <label> Fourth Prize
+            <span class="tx-danger">*</span>
+        </label>
+        <input type="text" formControlName="fourthprice" class="form-control" value={{fourthprice}}
+            [(ngModel)]="fourthprice"
+            [ngClass]="{ 'is-invalid': submitted && loginFormControl.fourthprice.errors }" />
+        <div *ngIf="submitted && loginFormControl.fourthprice.errors" class="invalid-feedback">
+            <div *ngIf="loginFormControl.fourthprice.errors.required">fourthprice is required</div>
+            <div *ngIf="loginFormControl.fourthprice.errors.minlength">fourthprice must be Entered</div>
+        </div>
         <label style="color: white;">Start Time
             <span class="tx-danger">*</span>
         </label>
-        <input type="datetime-local" formControlName="StartTime" class="form-control"  value={{StartTime}} [(ngModel)]="StartTime"
+        <input type="datetime-local" formControlName="StartTime" class="form-control"  
             [ngClass]="{ 'is-invalid': submitted && loginFormControl.StartTime.errors }" />
         <div *ngIf="submitted && loginFormControl.StartTime.errors" class="invalid-feedback">
             <div *ngIf="loginFormControl.StartTime.errors.required">StartTime is required</div>
@@ -126,7 +175,7 @@
         <label style="color: white;">End time
             <span class="tx-danger">*</span>
         </label>
-        <input type="datetime-local" formControlName="EndTime" class="form-control" value={{EndTime}} [(ngModel)]="EndTime"
+        <input type="datetime-local" formControlName="EndTime" class="form-control" 
             [ngClass]="{ 'is-invalid': submitted && loginFormControl.EndTime.errors }" />
         <div *ngIf="submitted && loginFormControl.EndTime.errors" class="invalid-feedback">
             <div *ngIf="loginFormControl.EndTime.errors.required">EndTime is required</div>

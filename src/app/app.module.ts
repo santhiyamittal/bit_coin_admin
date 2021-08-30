@@ -23,7 +23,6 @@ import { UserIdleModule } from 'angular-user-idle';
   declarations: [
     AppComponent,
     AuthenticationComponent,
-
   ],
   imports: [
     BrowserModule,

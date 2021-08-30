@@ -179,6 +179,7 @@ submitted:boolean=false;
 
       console.log(res['data'])
       this.data = res['data']
+      
       this.status = res['data']['status']
       this.id = res['data']['_id']
       localStorage.setItem("dataid", JSON.stringify(res['data']['_id']));
