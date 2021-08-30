@@ -60,6 +60,8 @@
                                 <!-- <th class="wd-lg-20p"><span></span></th> -->
                                 <th class="wd-lg-20p"><span>Winning Price</span></th>
                                 <th class="wd-lg-20p"><span>Price</span></th>
+                                <th class="wd-lg-20p"><span> Cold Price</span></th>
+                                <th class="wd-lg-20p"><span> First Price</span></th>
                                 <th class="wd-lg-20p"><span>Start time</span></th>
                                 <th class="wd-lg-20p">End time</th>
                             </tr>
@@ -89,6 +91,12 @@
                             </td> -->
                             <td>
                                 {{item['price']}}
+                            </td>
+                            <td>
+                                {{item['cold_wallet_percentage'] == null ? 'NA': item['cold_wallet_percentage']}}
+                            </td>
+                            <td>
+                                {{item['percentage_1'] == null ? 'NA': item['percentage_1']}}
                             </td>
                                 <td>
                                     {{item['start_time'] | date :'medium'}}
