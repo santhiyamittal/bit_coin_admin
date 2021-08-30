@@ -38,6 +38,7 @@ submitted:boolean=false;
   p: number[] = [];
   item: any[];
   delete: any=[];
+  del: any;
   // username: any;
   // email: any;
 
@@ -131,7 +132,7 @@ submitted:boolean=false;
   // }
   warningAlert(item) {
     this.id=item['_id']
-    this.deleteuser();
+    this.del=item['_id']
     Swal.fire({
       icon: 'warning',
       title: 'Are you sure ?',
@@ -150,12 +151,14 @@ submitted:boolean=false;
           icon: 'success',
           confirmButtonColor: '#6259ca'
         })
+        this.deleteuser();
+
       }
     })
     // this.router.navigateByUrl('/user/userlist')
-    setTimeout(() => {
-      this.getUserlist();
-        },10000)
+    // setTimeout(() => {
+    //   this.getUserlist();
+    //     },10000)
 
   }
 
@@ -247,6 +250,8 @@ submitted:boolean=false;
       //   });
       // }
     });
+      this.getUserlist();
+      
   }
   // searchuser() {
   //   //debugger

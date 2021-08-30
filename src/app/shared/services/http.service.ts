@@ -33,6 +33,7 @@ searchuser:string="admin/user/listbyid";
 statususer:string="admin/user/status";
 //Draw
 getdrawupcom:string="admin/draw/upcominglist";
+// getdrawupcom:string="admin/draw/list";
 getdrawperv:string="admin/draw/perviouslist";
 createdraw:string="admin/draw/create";
 updatedraw:string="admin/draw/update";

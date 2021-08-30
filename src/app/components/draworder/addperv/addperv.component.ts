@@ -62,61 +62,61 @@ export class AddpervComponent implements OnInit {
   get loginFormControl(){
     return this.loginForm.controls;
   }
-  gotodraw(){
-    this.router.navigateByUrl('draworder/draworderpage')
+  // gotopervdraw(){
+  //   this.router.navigateByUrl('draworder/draworderpage')
   
-  }
-  onSubmit() {
-
-    // //debugger
-    this.submitted = true;
-   
-  // for(let idex of this.mobile){
-  //   this.mobile =  idex['number'];
-  //   this.country =  idex['countryCode'];
-  //   this.countrycode =  idex['dialCode'];
   // }
+  // onSubmit() {
 
-    // 
-    let jsonData = {
-      name:this.loginForm.value.username,
-      winning_price:this.loginForm.value.winningprice,
-      price:this.loginForm.value.price,
-      start_time:this.loginForm.value.StartTime,
-      end_time:this.loginForm.value.EndTime,
+  //   // //debugger
+  //   this.submitted = true;
+   
+  // // for(let idex of this.mobile){
+  // //   this.mobile =  idex['number'];
+  // //   this.country =  idex['countryCode'];
+  // //   this.countrycode =  idex['dialCode'];
+  // // }
+
+  //   // 
+  //   let jsonData = {
+  //     name:this.loginForm.value.username,
+  //     winning_price:this.loginForm.value.winningprice,
+  //     price:this.loginForm.value.price,
+  //     start_time:this.loginForm.value.StartTime,
+  //     end_time:this.loginForm.value.EndTime,
       
-    }
-    if (this.loginForm.value.username .length > 0) {
+  //   }
+  //   if (this.loginForm.value.username .length > 0) {
   
-    this.loader.start();
-    this.httpService.getcreatedraw(jsonData).subscribe(res => {
+  //   this.loader.start();
+  //   this.httpService.getcreatedraw(jsonData).subscribe(res => {
   
-      this.loader.stop();
-      // this.appComponent.startWatching();
-      if (res['success'] == true) {
-        // this.httpService.toastr.success(res['message'], '', {
-        //   positionClass: 'toast-bottom-right', closeButton: true, timeOut: 3000
-        // });
-        // setInterval(() => {
+  //     this.loader.stop();
+  //     // this.appComponent.startWatching();
+  //     if (res['success'] == true) {
+  //       // this.httpService.toastr.success(res['message'], '', {
+  //       //   positionClass: 'toast-bottom-right', closeButton: true, timeOut: 3000
+  //       // });
+  //       // setInterval(() => {
   
-        // }, 1500);
-        // this.router.navigateByUrl('/user/userlist')
-  this.gotodraw();
-        // this.generateUserOTP();
-      } else if (res['success'] == false) {
-        // this.notOKstat = res['UserConfiguration']['ErrorMessage'];
-        // this.httpService.toastr.error(res['UserConfiguration']['ErrorMessage']);
-        this.httpService.toastr.error(res['message'], '', {
-          positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
-        });
-      }
-    },
-    (err) => {
-      // this.loader.stop();
-      this.toastr.error("email_already_found");
-      // this.httpService.errorCallBack(false);
-    });
-  }
-  }
+  //       // }, 1500);
+  //       // this.router.navigateByUrl('/user/userlist')
+  // // this.gotopervdraw();
+  //       // this.generateUserOTP();
+  //     } else if (res['success'] == false) {
+  //       // this.notOKstat = res['UserConfiguration']['ErrorMessage'];
+  //       // this.httpService.toastr.error(res['UserConfiguration']['ErrorMessage']);
+  //       this.httpService.toastr.error(res['message'], '', {
+  //         positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
+  //       });
+  //     }
+  //   },
+  //   (err) => {
+  //     // this.loader.stop();
+  //     this.toastr.error("email_already_found");
+  //     // this.httpService.errorCallBack(false);
+  //   });
+  // }
+  // }
 
 }

@@ -33,6 +33,9 @@ submitted:boolean=false;
   email: any;
   datastatus: any;
   value:number;
+  CancelButton: boolean;
+  del: any;
+  drawlist: any[];
   // username: any;
   // email: any;
   
@@ -72,8 +75,10 @@ submitted:boolean=false;
   
 
   warningAlert(item) {
+    debugger
     this.id=item['_id']
-    this.getdrawdelete();
+    this.del=item['_id']
+    var id =this.id
     Swal.fire({
       icon: 'warning',
       title: 'Are you sure ?',
@@ -84,20 +89,25 @@ submitted:boolean=false;
       confirmButtonText: 'Yes, delete it!',
       reverseButtons: true
 
-    }).then((id) => {
-      if (id.isConfirmed) {
+    }).then((item) => {
+      if (item.isConfirmed) {
         Swal.fire({
           title: 'Deleted!',
           text: 'Your imaginary file has been deleted.',
           icon: 'success',
           confirmButtonColor: '#6259ca'
         })
-      }
+        this.getdrawdelete();
+
+      } 
+    
+
+      
+
     })
     // this.router.navigateByUrl('/user/userlist')
-    setTimeout(() => {
-      this.getdrawlist();
-        },5000)
+    // setTimeout(() => {
+    //     },5000)
 
   }
 
@@ -172,14 +182,14 @@ submitted:boolean=false;
 
       console.log(res['data'])
 
-      this.data = res['data']
+      this.drawlist = res['data']
       // this.status = res['data']['status']
       this.id = res['data']['_id']
       console.log(this.id)
-      this.totalLength = this.data.length;
+      this.totalLength = this.drawlist.length;
 
-      if (this.data) {
-        if (this.data.length > 0) {
+      if (this.drawlist) {
+        if (this.drawlist.length > 0) {
       if (res['success'] == true) {
         this.showDatafound = true;
         // this.searchdraw();
@@ -278,5 +288,9 @@ submitted:boolean=false;
     this.httpService.getdrawdelete(jsonData).subscribe(res => {
       this.loader.stop();
     });
-  }
+          // this.getdrawlist();
+
+      this.getdrawlist();
+       
+     }
 }

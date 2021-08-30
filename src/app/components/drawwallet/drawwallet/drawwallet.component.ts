@@ -39,6 +39,7 @@ submitted:boolean=false;
   email: any;
   datastatus: any;
   value:number;
+  del: any;
   // username: any;
   // email: any;
   
@@ -60,7 +61,7 @@ submitted:boolean=false;
 
   ngOnInit(): void {
    
-    this.getdrawlist();
+    this.getlist();
     
  this.createForm();
   }
@@ -78,8 +79,10 @@ submitted:boolean=false;
   
   
   warningAlert(item) {
+    // debugger
     this.id=item['_id']
-    this.getdrawdelete();
+    this.del=item['_id']
+    var id =this.id
     Swal.fire({
       icon: 'warning',
       title: 'Are you sure ?',
@@ -90,20 +93,21 @@ submitted:boolean=false;
       confirmButtonText: 'Yes, delete it!',
       reverseButtons: true
 
-    }).then((id) => {
-      if (id.isConfirmed) {
+    }).then((item) => {
+      if (item.isConfirmed) {
         Swal.fire({
           title: 'Deleted!',
           text: 'Your imaginary file has been deleted.',
           icon: 'success',
           confirmButtonColor: '#6259ca'
         })
-      }
+        this.getdrawdelete();
+      } 
+
     })
     // this.router.navigateByUrl('/user/userlist')
-    setTimeout(() => {
-      this.getdrawlist();
-        },5000)
+    // setTimeout(() => {
+    //     },5000)
 
   }
 
@@ -115,7 +119,7 @@ submitted:boolean=false;
       data: { data: drawEdit, }
     });
     dialogRef.afterClosed().subscribe((result) => {
-      this.getdrawlist();
+      this.getlist();
     });
   }
   // deleteuser(drawdelete) {
@@ -127,7 +131,7 @@ submitted:boolean=false;
   //   });
   //   dialogRef.afterClosed().subscribe((result) => {
   //     setInterval(() => {
-  //       this.getdrawlist();
+  //       this.getlist();
   //     }, 3000);
   //   });
   // }
@@ -141,37 +145,19 @@ submitted:boolean=false;
     this.router.navigateByUrl('/user/adduser')
 
   }
-  gotoview() {
+  gotoview(upcomview) {
+    // debugger
     this.router.navigateByUrl('/drawwallet/viewdraw')
     
-    // localStorage.setItem("dataview", JSON.stringify(drawview));
+    localStorage.setItem("upview", JSON.stringify(upcomview));
 
   }
   gotohome() {
     this.router.navigateByUrl('/dashboard/dashboard')
   }
-  //   getUseractive(){
-
-  //     this.httpService.getUser().subscribe((res: any) => {
-  //       this.loader.stop();
-
-  //       console.log(res['data'])
-  //       this.data= res['data']
-  // this.totalLength=this.data.length;
-  // console.log(this.totalLength)
-  //       if (res['success'] == true) {
-  //         // this.toastr.success(res['StatusOfRequest']['Message'], '', { closeButton: true, timeOut: 5000 });
-  //         this.httpService.toastr.success(res['message'], '', {
-  //           positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
-  //         });
-  //         // this.routeTo.navigateByUrl('custom/twofactor');
-  //       }
-  //     }, (err) => {
-  //       this.toastr.error("Please try after some time");
-  //     });
-  //   }
-  getdrawlist() {
-
+ 
+  getlist() {
+    // debugger
     this.httpService.getdrawupcomlist().subscribe((res: any) => {
 
       console.log(res['data'])
@@ -186,11 +172,6 @@ submitted:boolean=false;
         if (this.data.length > 0) {
       if (res['success'] == true) {
         this.showDatafound = true;
-        // this.searchdraw();
-
-        // this.httpService.toastr.success(res['message'], '', {
-        //   positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
-        // });
       }
     }
   }
@@ -199,26 +180,9 @@ submitted:boolean=false;
     console.log("No Data found");
 
   }
-
-
-    // delete this.loginForm.value.email;
-    // delete this.loginForm.value.username;
-    // }, (err) => {
-    //   this.toastr.error("Please try after some time");
     });
   }
-  // searchdraw() {
-  //   if(this.username == ""){
-  //     this.showDatafound = false;
-
-  //     this.search();
-  //    }else{
-  //      this.data = this.data.filter(res =>{
-  //        return res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase());
-  //      })
-  //    }
-  //    console.log(this.data)
-  // }
+ 
   searchuser(){
 
     if(this.username == ""){
@@ -247,7 +211,7 @@ submitted:boolean=false;
     // this.drawstatus();
   });
   if(this.username == ""){
-      this.getdrawlist();
+      this.getlist();
     }
   // this.ngOnInit();
 }
@@ -267,7 +231,7 @@ submitted:boolean=false;
   // });
   // this.textClear();
   // if(this.value == undefined){
-  //   this.getdrawlist();
+  //   this.getlist();
   // }
   // }
   getdrawdelete(){
@@ -278,6 +242,10 @@ submitted:boolean=false;
     this.httpService.getdrawdelete(jsonData).subscribe(res => {
       this.loader.stop();
     });
+    
+      this.getlist();
+      
   }
+  
    }
 

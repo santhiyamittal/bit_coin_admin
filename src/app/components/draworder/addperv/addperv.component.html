@@ -1,8 +1,8 @@
-<div class="page-header">
+<!-- <div class="page-header">
     <div>
         <h2 class="main-content-title tx-24 mg-b-5">Add Draw</h2>
         <ol class="breadcrumb">
-            <li  class ="breadcrumb-item cus"(click)=" gotodraw()">Draw Wallet</li>
+            <li  class ="breadcrumb-item cus"(click)=" gotopervdraw()">Draw Wallet</li>
             <li class="breadcrumb-item active" aria-current="page">Add Draw</li>
 
 
@@ -10,15 +10,7 @@
     </div>
     <div class="d-flex">
         <div class="justify-content-center">
-            <!-- <button type="button" class="btn btn-white btn-icon-text my-2 mr-2">
-                <i class="fe fe-download mr-2"></i> Import
-            </button>
-            <button type="button" class="btn btn-white btn-icon-text my-2 mr-2">
-                <i class="fe fe-filter mr-2"></i> Filter
-            </button>
-            <button type="button" class="btn btn-primary my-2 btn-icon-text">
-                <i class="fe fe-download-cloud mr-2"></i> Download Report
-            </button> -->
+      
         </div>
     </div>
 </div>
@@ -45,7 +37,7 @@
             <span class="tx-danger">*</span>
         </label>
         <div class="form-group">
-        <input type="text" formControlName="winningprice" class="form-control" value={{winningprice}}
+        <input type="number" formControlName="winningprice" class="form-control" value={{winningprice}}
             [(ngModel)]="winningprice"
             [ngClass]="{ 'is-invalid': submitted && loginFormControl.winningprice.errors }" />
         <div *ngIf="submitted && loginFormControl.winningprice.errors" class="invalid-feedback">
@@ -60,7 +52,7 @@
                     <span class="tx-danger">*</span>
                 </label>
                 <div class="form-group">
-                <input type="text" formControlName="price" class="form-control" value={{price}}
+                <input type="n" formControlName="price" class="form-control" value={{price}}
                     [(ngModel)]="price"
                     [ngClass]="{ 'is-invalid': submitted && loginFormControl.winningprice.errors }" />
                 <div *ngIf="submitted && loginFormControl.winningprice.errors" class="invalid-feedback">
@@ -75,7 +67,7 @@
                         <span class="tx-danger">*</span>
                     </label>
                     <div class="form-group">
-                    <input type="text" formControlName="StartTime" class="form-control" value={{StartTime}} [(ngModel)]="StartTime"
+                    <input type="datetime-local" formControlName="StartTime" class="form-control" value={{StartTime}} [(ngModel)]="StartTime"
                         [ngClass]="{ 'is-invalid': submitted && loginFormControl.StartTime.errors }" />
                     <div *ngIf="submitted && loginFormControl.StartTime.errors" class="invalid-feedback">
                         <div *ngIf="loginFormControl.StartTime.errors.required">StartTime is required</div>
@@ -89,7 +81,7 @@
                 </label>
                 <div class="form-group">
 
-                <input type="text" formControlName="EndTime" class="form-control" value={{EndTime}} [(ngModel)]="EndTime"
+                <input type="datetime-local" formControlName="EndTime" class="form-control" value={{EndTime}} [(ngModel)]="EndTime"
                     [ngClass]="{ 'is-invalid': submitted && loginFormControl.EndTime.errors }" />
                 <div *ngIf="submitted && loginFormControl.EndTime.errors" class="invalid-feedback">
                     <div *ngIf="loginFormControl.EndTime.errors.required">EndTime is required</div>
@@ -109,23 +101,4 @@
     </form>
 </div> 
 </div>
-</div>
-<!-- <div class="card-body mt-2 mb-2">
-    <form>
-        <div class="form-group text-left">
-            <label>Name</label>
-            <input class="form-control" placeholder="Enter your Name" type="text">
-        </div>
-        <div class="form-group text-left">
-            <label>Email</label>
-            <input class="form-control" placeholder="Enter your email" type="text">
-        </div>
-        <div class="custom-form">
-            <label class="Custom-label ">Phone No</label>
-            <input type="text" class="form-control Custom-input" formControlName="phoneno" placeholder="Enter Phone No">
-</div>
-
-
-    </form>
-    
 </div> -->

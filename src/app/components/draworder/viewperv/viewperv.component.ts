@@ -34,7 +34,7 @@ export class ViewpervComponent implements OnInit {
   count: any;
   totalprice: number = 0;
   totprice: number = 0;
-    drawview: any[];
+    drawview: any;
   delete: any;
   sellcount: any;
   // username: any;
@@ -54,6 +54,7 @@ export class ViewpervComponent implements OnInit {
   ) {
     this.drawview = JSON.parse(localStorage.getItem("dataview"))
     this.id=this.drawview['_id']
+    console.log(this.id)
   
   }
   
@@ -212,7 +213,7 @@ export class ViewpervComponent implements OnInit {
           this.count=res['count']
           this.status = res['data']['status']
           this.sellcount=res['data']['sellcount']
-          // this.totprice=res['data']['draw_id']['price']
+          this.totprice=res['data']['price']
           console.log(this.count)
   
   

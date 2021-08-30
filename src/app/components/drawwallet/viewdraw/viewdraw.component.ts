@@ -23,7 +23,7 @@ Data: any[];
 totalLength: any;
 page: number []=[];
 status: any[];
-id: any;
+id: any[];
 userDetails: any;
 showDatafound: boolean;
 username: any;
@@ -36,6 +36,8 @@ totalprice: number = 0;
 totprice: number = 0;
   drawview: any[];
   sellcount: any[];
+  upcomview: any;
+  iddata: any;
 // username: any;
 // email: any;
 
@@ -51,13 +53,13 @@ constructor(
   public httpService: HttpService,
   private loader: NgxUiLoaderService,
 ) {
-  this.drawview = JSON.parse(localStorage.getItem("dataview"))
-  this.id=this.drawview['_id']
-
+  this.upcomview = JSON.parse(localStorage.getItem("upview"))
+  this.iddata=this.upcomview['_id']
+console.log(this.iddata)
 }
 
 ngOnInit(): void {
-    this.getviewdata();
+    this.getviewlist();
   
 
  this.createForm();
@@ -105,7 +107,7 @@ warningAlert(item) {
   })
   // this.router.navigateByUrl('/user/userlist')
   setTimeout(() => {
-    this.getviewdata();
+    this.getviewlist();
       },5000)
 
 }
@@ -117,7 +119,7 @@ editsymbol(drawEdit) {
     data: { data: drawEdit, }
   });
   dialogRef.afterClosed().subscribe((result) => {
-    this.getviewdata();
+    this.getviewlist();
   });
 }
 deleteuser(drawdelete) {
@@ -129,7 +131,7 @@ deleteuser(drawdelete) {
   });
   dialogRef.afterClosed().subscribe((result) => {
     setInterval(() => {
-      this.getviewdata();
+      this.getviewlist();
     }, 3000);
   });
 }
@@ -168,44 +170,44 @@ gotohome() {
 //       this.toastr.error("Please try after some time");
 //     });
 //   }
-getviewdata(){
+// getviewlist(){
   
-  this.httpService.getview().subscribe((res: any) => {
+//   this.httpService.getview().subscribe((res: any) => {
   
-    console.log(res['data'])
-    this.data = res['data']
-    this.count=res['count']
-    this.status = res['data']['status']
-    this.sellcount=res['data']['sellcount']
-    this.totprice=res['data']['draw_id']['price']
+//     console.log(res['data'])
+//     // this.data = res['data']
+//     // this.count=res['count']
+//     this.status = res['data']['status']
+//     // this.sellcount=res['data']['sellcount']
+//     // this.totprice=res['data']['draw_id']['price']
 
-    console.log(this.count)
+//     console.log(this.count)
 
 
-    console.log(this.totprice)
-    if (this.data) {
-      if (this.data.length > 0) {
-    if (res['success'] == true) {
-      this.showDatafound = true;
+//     console.log(this.totprice)
+//     if (this.data) {
+//       if (this.data.length > 0) {
+//     if (res['success'] == true) {
+//       this.showDatafound = true;
 
      
-    }
-  }
-}
-else {
-  this.showDatafound = false;
-  console.log("No Data found");
+//     }
+//   }
+// }
+// else {
+//   this.showDatafound = false;
+//   console.log("No Data found");
 
-}
-  });
-}
+// }
+//   });
+// }
 getviewlist() {
   //debugger
   let jsonData={
     // id:this.id
     // id:'612480f7288d443094dca546',
     // user_id:'611a1282c3c0543978f01705',
-    id:this.id,
+    id:this.iddata,
     // Sequence_number:'010256785632',
   }
       this.httpService.getviewdraw(jsonData).subscribe((res: any) => {
@@ -214,7 +216,8 @@ getviewlist() {
         this.data = res['data']
         this.count=res['count']
         this.status = res['data']['status']
-    
+        this.sellcount=res['data']['sellcount']
+        // this.totprice=res['data']['draws']['price']
         console.log(this.count)
 
 
@@ -265,7 +268,7 @@ getviewlist() {
       // this.drawstatus();
     });
     if(this.username == ""){
-        this.getviewdata();
+        this.getviewlist();
       }
     // this.ngOnInit();
     

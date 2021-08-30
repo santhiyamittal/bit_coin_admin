@@ -115,7 +115,7 @@
         <label>Start Time
             <span class="tx-danger">*</span>
         </label>
-        <input type="text" formControlName="StartTime" class="form-control"  value={{StartTime}} [(ngModel)]="StartTime"
+        <input type="datetime-local" formControlName="StartTime" class="form-control"  value={{StartTime}} [(ngModel)]="StartTime"
             [ngClass]="{ 'is-invalid': submitted && loginFormControl.StartTime.errors }" />
         <div *ngIf="submitted && loginFormControl.StartTime.errors" class="invalid-feedback">
             <div *ngIf="loginFormControl.StartTime.errors.required">StartTime is required</div>
@@ -125,7 +125,7 @@
         <label>End time
             <span class="tx-danger">*</span>
         </label>
-        <input type="text" formControlName="EndTime" class="form-control" value={{EndTime}} [(ngModel)]="EndTime"
+        <input type="datetime-local" formControlName="EndTime" class="form-control" value={{EndTime}} [(ngModel)]="EndTime"
             [ngClass]="{ 'is-invalid': submitted && loginFormControl.EndTime.errors }" />
         <div *ngIf="submitted && loginFormControl.EndTime.errors" class="invalid-feedback">
             <div *ngIf="loginFormControl.EndTime.errors.required">EndTime is required</div>

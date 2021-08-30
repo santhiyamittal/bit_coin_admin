@@ -53,7 +53,7 @@ export class AdddrawComponent implements OnInit {
       'username':['', Validators.required],
       'StartTime': ['', Validators.required],
       'EndTime':['', Validators.required],
-      'winningprice':['', Validators.required],
+      'winningprice': ['', Validators.required],
       'price':['', Validators.required],
 
     });
@@ -63,21 +63,15 @@ export class AdddrawComponent implements OnInit {
     return this.loginForm.controls;
   }
   gotodraw(){
-    this.router.navigateByUrl('/drawwallet/Drawwallet')
+    this.router.navigateByUrl('drawwallet/Drawwallet')
   
   }
   onSubmit() {
 
-    // //debugger
+    debugger
     this.submitted = true;
    
-  // for(let idex of this.mobile){
-  //   this.mobile =  idex['number'];
-  //   this.country =  idex['countryCode'];
-  //   this.countrycode =  idex['dialCode'];
-  // }
-
-    // 
+  
     let jsonData = {
       name:this.loginForm.value.username,
       winning_price:this.loginForm.value.winningprice,
@@ -90,19 +84,12 @@ export class AdddrawComponent implements OnInit {
   
     this.loader.start();
     this.httpService.getcreatedraw(jsonData).subscribe(res => {
-  
+
       this.loader.stop();
       // this.appComponent.startWatching();
       if (res['success'] == true) {
-        // this.httpService.toastr.success(res['message'], '', {
-        //   positionClass: 'toast-bottom-right', closeButton: true, timeOut: 3000
-        // });
-        // setInterval(() => {
-  
-        // }, 1500);
-        // this.router.navigateByUrl('/user/userlist')
-  this.gotodraw();
-        // this.generateUserOTP();
+        this.router.navigateByUrl('draworder/draworderpage')
+
       } else if (res['success'] == false) {
         // this.notOKstat = res['UserConfiguration']['ErrorMessage'];
         // this.httpService.toastr.error(res['UserConfiguration']['ErrorMessage']);
