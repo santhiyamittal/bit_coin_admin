@@ -12,6 +12,7 @@ import { HttpService } from 'src/app/shared/services/http.service';
 })
 export class InactivepaymentComponent implements OnInit {
   Symbol: any = ['BTC', 'DTC']
+  bitcoin: any = ['bitcoin', 'digitalcoin']
 
 
   Status: any = ['Active', 'Inactive'];

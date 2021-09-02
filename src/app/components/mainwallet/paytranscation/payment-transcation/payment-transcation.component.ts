@@ -15,6 +15,7 @@ import Swal from 'sweetalert2';
 })
 export class PaymentTranscationComponent implements OnInit {
   Symbol: any = ['BTC', 'DTC']
+ bitcoin: any = ['bitcoin', 'digitalcoin']
 
   Status: any = ['Active', 'Inactive'];
   public loginForm: FormGroup;

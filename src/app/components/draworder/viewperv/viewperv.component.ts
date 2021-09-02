@@ -43,6 +43,7 @@ export class ViewpervComponent implements OnInit {
   secondamount: any;
   thridamount: any;
   fourthamount: any;
+  sell: any;
   // username: any;
   // email: any;
   
@@ -60,13 +61,13 @@ export class ViewpervComponent implements OnInit {
   ) {
     this.drawview = JSON.parse(localStorage.getItem("dataview"))
     this.id=this.drawview['_id']
-    this.count=this.drawview['count']
+    // this.count=this.drawview['count']
     this.name=this.drawview['name']
-    this.cldamount=this.drawview['cold_wallet_percentage']
-    this.firstamount=this.drawview['percentage_1']
-    this.secondamount=this.drawview['percentage_2']
-    this.thridamount=this.drawview['percentage_3']
-    this.fourthamount=this.drawview['percentage_3']
+    // this.cldamount=this.drawview['cold_wallet_percentage']
+    // this.firstamount=this.drawview['percentage_1']
+    // this.secondamount=this.drawview['percentage_2']
+    // this.thridamount=this.drawview['percentage_3']
+    // this.fourthamount=this.drawview['percentage_3']
 
     console.log(this.id)
   
@@ -226,8 +227,14 @@ export class ViewpervComponent implements OnInit {
           this.data = res['data']
           this.count=res['count']
           this.status = res['data']['status']
-          this.sellcount=res['data']['sellcount']
-          this.totprice=res['data']['price']
+          this.sellcount=res['selled']
+          // this.totprice=res['data']['price']
+          this.sell=res['sellcount']
+          this.cldamount=res['percentages']['cold_wallet_percentage']
+          this.firstamount=res['percentages']['percentage_1']
+          this.secondamount=res['percentages']['percentage_2']
+          this.thridamount=res['percentages']['percentage_3']
+          this.fourthamount=res['percentages']['percentage_4']
           console.log(this.count)
   
   

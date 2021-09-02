@@ -100,10 +100,18 @@ export class NavService implements OnDestroy{
       },
       ]
     },
-  
     {
-      path: 'payment/userpayment', title: 'User Payment', type: 'link', icon: 'fa fa-money', 
+      title: 'Payment',  type: 'sub',icon: 'fa fa-money', active: false,
+      children: [
+      {path: 'payment/withdrawpayment', title: 'WithDraw', type: 'link',  },
+      {
+        path: 'payment/depositpayment', title: 'Deposit', type: 'link', 
+      },
+      ]
     },
+    // {
+    //   path: 'payment/userpayment', title: 'User Payment', type: 'link', icon: 'fa fa-money', 
+    // },
    
     {
       path: 'wallet/paytranscation', title: 'Pay Transcation', type: 'link', icon: 'fas fa-receipt', 

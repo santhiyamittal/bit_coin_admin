@@ -16,6 +16,7 @@
             <button type="button" class="btn btn-white btn-icon-text my-2 mr-2">
               <i class="fe fe-filter mr-2"></i> Filter
             </button> -->
+            
             <button type="button" class="btn btn-primary my-2 btn-icon-text" routerLink="/drawwallet/adddraw">
                 <i class="fas fa-plus"></i> Add Draw
             </button>
@@ -98,8 +99,8 @@
                                 <!-- <th class="wd-lg-20p"><span></span></th> -->
                                 <th class="wd-lg-20p"><span>Winning Price</span></th>
                                 <th class="wd-lg-20p"><span>Price</span></th>
-                                <th class="wd-lg-20p"><span> Cold Price</span></th>
-                                <th class="wd-lg-20p"><span> First Price</span></th>
+                                <th class="wd-lg-20p"><span> Status</span></th>
+                                <!-- <th class="wd-lg-20p"><span> First Price</span></th> -->
 
                                 <th class="wd-lg-20p"><span>Start time</span></th>
                                 <th class="wd-lg-20p">End time</th>
@@ -117,25 +118,25 @@
                                 </td> -->
                                 <td>{{item['name'] == "" ? 'NA': item['name']}} </td>
                                 <td>
-                                    {{item['winning_price'] ==  "" ? 'NA': item['winning_price']}}
+                                    {{item['winning_price'] ==  null ? 0: item['winning_price']}}
                                 </td>
                                 <td>
                                     {{item['price'] == "" ? 'NA': item['price']}}
                                 </td>
-                                <td>
+                                <!-- <td>
                                     {{item['cold_wallet_percentage'] == "" ? 'NA': item['cold_wallet_percentage']}}
                                 </td>
                                 <td>
                                     {{item['percentage_1'] == "" ? 'NA': item['percentage_1']}}
-                                </td>
-                                <!-- <td >
-                                <span *ngIf="item['deleted'] === false"
-                                [class]="item['deleted'] === false ? 'text-warning' : item['deleted']=== true ? 'text-success':''">
-                                {{item['deleted'] === false ? 'Pending':item['deleted']}}</span>
-                                <span *ngIf="item['deleted'] === true"
-                                [class]="item['deleted'] === false ? 'text-warning' : item['deleted']=== true ? 'text-success':''">
-                                {{item['deleted'] === true ? 'Active':item['deleted']}}</span>
-                            </td> -->
+                                </td> -->
+                                <td >
+                                    <span *ngIf="item['status'] === true"
+                                   [class]="item['status'] === true ? 'text-danger':''">
+                                   {{item['status'] === true ? 'Inactive':item['status']}}</span>
+                                   <span *ngIf="item['status'] === false"
+                                   [class]="item['status'] === false ? 'text-success' : ''">
+                                   {{item['status'] === false ? 'Active':item['status']}}</span>
+                               </td> 
                         
                                 <td>
                                     {{item['start_time'] | date :'medium'}}
@@ -151,9 +152,9 @@
                                     <button (click)="editsymbol(item)" class="btn btn-sm btn-info mr-1">
                                         <i class="fe fe-edit-2"></i>
                                     </button>
-                                    <button (click)="warningAlert(item)" class="btn btn-sm btn-danger">
+                                    <!-- <button (click)="warningAlert(item)" class="btn btn-sm btn-danger">
                                         <i class="fe fe-trash"></i>
-                                    </button>
+                                    </button> -->
                                 </td>
                             </tr>
 

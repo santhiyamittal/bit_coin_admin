@@ -1,35 +1,39 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { HttpService } from 'src/app/shared/services/http.service';
+import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-inactivepayment',
-  templateUrl: './inactivepayment.component.html',
-  styleUrls: ['./inactivepayment.component.scss']
+  selector: 'app-depositpayment',
+  templateUrl: './depositpayment.component.html',
+  styleUrls: ['./depositpayment.component.scss']
 })
-export class InactivepaymentComponent implements OnInit {
+export class DepositpaymentComponent implements OnInit {
+  Symbol: any = ['BTC', 'DTC']
+  bitcoin: any = ['bitcoin', 'digitalcoin']
 
-
-  Status: any = ['Active', 'Inactive'];
   public loginForm: FormGroup;
 submitted:boolean=false;
   data: any[];
   Data: any[];
   totalLength: any;
   page: number = 1
-  status: any[];
+  status:any[];
   id: any;
   userDetails: any;
   showDatafound: boolean;
   username: any;
   email: any;
   datastatus: any;
+  value:number;
+  del: any;
+  name: any;
   // username: any;
   // email: any;
-
+  
   constructor(
     public dialog: MatDialog,
     public toastr: ToastrService,
@@ -45,20 +49,22 @@ submitted:boolean=false;
     
   }
 
+
   ngOnInit(): void {
-    this.getpaymentstatus();
- 
+    this.getdepositlist();
+ this.createForm();
   }
   get loginFormControl() {
     return this.loginForm.controls;
   }
-  // createForm() {
-  //   this.loginForm = this.formBuilder.group({
+  createForm() {
+    this.loginForm = this.formBuilder.group({
 
-  //     username: ['', Validators.required],
-  //     email: ['', Validators.required],
-  //   });
-  // }
+      'drawname': ['', Validators.required],
+      'symbol': ['', Validators.required],
+      'coinname': ['', Validators.required],
+    });
+  }
   
   
   // view(paymentdetails) {
@@ -109,22 +115,19 @@ submitted:boolean=false;
 
 //   }
 gotoadd(){
-  this.router.navigateByUrl('/payment/addpayment')
+  this.router.navigateByUrl('/wallet/addpayment')
 }
 gotoinactive(){
   this.router.navigateByUrl('/wallet/inactivepayment')
 
 }
   gotohome() {
-    this.router.navigateByUrl('/wallet/userpayment')
+    this.router.navigateByUrl('/wallet/paytranscation')
   }
-  
-  getpaymentstatus() {
+  getdepositlist() {
 // //debugger
-let jsonData={
-  status:true,
-}
-    this.httpService.getpaymentstatus(jsonData).subscribe((res: any) => {
+
+    this.httpService.getdepositlist().subscribe((res: any) => {
 
       console.log(res['data'])
 
@@ -149,24 +152,27 @@ let jsonData={
 
     });
   }
-  searchpayment() {
-    if(this.username == ""){
-      this.showDatafound = false;
-
-      this.search();
-     }else{
-       this.data = this.data.filter(res =>{
-         return res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase());
-       })
-     }
-     console.log(this.data)
-  }
- search(){
   
+  // searchpayment() {
+  //   if(this.username == ""){
+  //     this.showDatafound = false;
+
+  //     this.search();
+  //    }else{
+  //      this.data = this.data.filter(res =>{
+  //        return res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase());
+  //      })
+  //    }
+  //    console.log(this.data)
+  // }
+ search(){
+  this.submitted=true;
+
   let jsonData = {
     // id: this.id,
-    key: this.username,
-    // status:false,
+    key:this.loginForm.value.drawname,
+    symbol:this.loginForm.value.symbol,
+    coinname:this.loginForm.value.coinname,    // status:false,
   }
   
   this.httpService.getsearchpayment(jsonData).subscribe((res: any) => {
@@ -175,6 +181,4 @@ let jsonData={
   });
  }
 }
-
-
 

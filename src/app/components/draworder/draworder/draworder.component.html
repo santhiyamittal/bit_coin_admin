@@ -60,8 +60,8 @@
                                 <!-- <th class="wd-lg-20p"><span></span></th> -->
                                 <th class="wd-lg-20p"><span>Winning Price</span></th>
                                 <th class="wd-lg-20p"><span>Price</span></th>
-                                <th class="wd-lg-20p"><span> Cold Price</span></th>
-                                <th class="wd-lg-20p"><span> First Price</span></th>
+                                <th class="wd-lg-20p"><span> Status</span></th>
+                                <!-- <th class="wd-lg-20p"><span> First Price</span></th> -->
                                 <th class="wd-lg-20p"><span>Start time</span></th>
                                 <th class="wd-lg-20p">End time</th>
                             </tr>
@@ -80,24 +80,24 @@
                                 <td>
                                     {{item['winning_price']}}
                                 </td>
-                        
-                                <!-- <td >
-                                <span *ngIf="item['deleted'] === false"
-                                [class]="item['deleted'] === false ? 'text-warning' : item['deleted']=== true ? 'text-success':''">
-                                {{item['deleted'] === false ? 'Pending':item['deleted']}}</span>
-                                <span *ngIf="item['deleted'] === true"
-                                [class]="item['deleted'] === false ? 'text-warning' : item['deleted']=== true ? 'text-success':''">
-                                {{item['deleted'] === true ? 'Active':item['deleted']}}</span>
-                            </td> -->
-                            <td>
-                                {{item['price']}}
-                            </td>
-                            <td>
+                                <td>
+                                    {{item['price']}}
+                                </td>
+                                <td >
+                                    <span *ngIf="item['status'] === true"
+                                   [class]="item['status'] === true ? 'text-danger':''">
+                                   {{item['status'] === true ? 'Inactive':item['status']}}</span>
+                                   <span *ngIf="item['status'] === false"
+                                   [class]="item['status'] === false ? 'text-danger' : ''">
+                                   {{item['status'] === false ? 'Active':item['status']}}</span>
+                               </td> 
+                           
+                            <!-- <td>
                                 {{item['cold_wallet_percentage'] == null ? 'NA': item['cold_wallet_percentage']}}
                             </td>
                             <td>
                                 {{item['percentage_1'] == null ? 'NA': item['percentage_1']}}
-                            </td>
+                            </td> -->
                                 <td>
                                     {{item['start_time'] | date :'medium'}}
                                 </td>
@@ -111,9 +111,9 @@
                                     <button (click)="editsymbol(item)" class="btn btn-sm btn-info mr-1">
                                         <i class="fe fe-edit-2"></i>
                                     </button>
-                                    <button (click)="warningAlert(item)" class="btn btn-sm btn-danger">
+                                     <button (click)="warningAlert(item)" class="btn btn-sm btn-danger">
                                         <i class="fe fe-trash"></i>
-                                    </button>
+                                    </button> 
                                 </td>
                             </tr>
 

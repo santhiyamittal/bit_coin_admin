@@ -4,7 +4,8 @@ import { AuthencationGuard } from 'src/app/shared/services/authencation.guard';
 import { AdddrawComponent } from '../drawwallet/adddraw/adddraw.component';
 import { AddpaymentComponent } from './addpayment/addpayment.component';
 import { DeletepaymentComponent } from './deletepayment/deletepayment.component';
-import { UserpaymentComponent } from './userpayment/userpayment.component';
+import { DepositpaymentComponent } from './depositpayment/depositpayment.component';
+import { WithdrawpaymentComponent } from './withdrawpayment/withdrawpayment.component';
 
 
 
@@ -16,8 +17,12 @@ const routes: Routes = [
 
     children: [
       {
-        path: 'userpayment',
-        component:UserpaymentComponent
+        path: 'depositpayment',
+        component:DepositpaymentComponent
+      },
+      {
+        path: 'withdrawpayment',
+        component:WithdrawpaymentComponent
       },
       {
         path: 'deletepayment',
@@ -28,7 +33,7 @@ const routes: Routes = [
         path: 'addpayment',
         component:AddpaymentComponent
       },
-      
+     
     ]
   }
 

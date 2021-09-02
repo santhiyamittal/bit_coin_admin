@@ -48,6 +48,13 @@ getpayment:string="admin/payment/list";
 searchpayment:string="admin/payment/listbyid";
 createpayment:string="admin/payment/create";
 deletepayment:string="admin/payment/delete";
+//deposit
+getdeposit:string="admin/deposit/list";
+getdepositcreate:string="admin/deposit/create";
+getdepositdelete:string="admin/deposit/delete";
+getdepositsearch:string="admin/deposit/listbyid";
+getdepositstatus:string="admin/deposit/status";
+
 //variables
 errorCount: number;
 
@@ -133,6 +140,7 @@ errorCount: number;
         headers: this.getAuthHeaders(),
       });
   }
+  //user api
   getUser(): Observable<any> {
     return this.http.get(this.baseURL + this.activityuser, {
       headers: this.getAuthHeaders(),
@@ -173,6 +181,7 @@ errorCount: number;
       headers: this.getAuthHeaders(),
     });
   }
+  //draw api
   getdrawstatus(jsonObj: any): Observable<any> {
     return this.http.post(this.baseURL + this.drawstatus,jsonObj,{
       headers: this.getAuthHeaders(),
@@ -218,6 +227,7 @@ errorCount: number;
       headers: this.getAuthHeaders(),
     });
   }
+  //payment api
   getpaymentlist(){
     return this.http.get(this.baseURL + this.getpayment, {
       headers: this.getAuthHeaders(),
@@ -240,6 +250,12 @@ errorCount: number;
   }
   getpaymentstatus(jsonObj: any): Observable<any> {
     return this.http.post(this.baseURL + this.statuspayment,jsonObj,{
+      headers: this.getAuthHeaders(),
+    });
+  }
+  //deposit api
+  getdepositlist(){
+    return this.http.get(this.baseURL + this.getdeposit, {
       headers: this.getAuthHeaders(),
     });
   }

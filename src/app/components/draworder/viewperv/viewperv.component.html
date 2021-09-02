@@ -30,7 +30,7 @@
                     <label class="main-content-label mb-3 pt-1">New Users</label>
                     <h2 class="text-left card-item-icon card-icon">
                         <i class="mdi mdi-account-multiple icon-size float-right text-primary"></i><span
-                            class="font-weight-bold">{{count}}</span>
+                            class="font-weight-bold">{{count == null ? 0: count}}</span>
                     </h2>
                     <!-- <p class="mb-0 text-muted">Monthly users<span class="float-left">50%</span></p> -->
                 </div>
@@ -44,7 +44,7 @@
                 <div class="card-widget">
                     <label class="main-content-label mb-3 pt-1">Total Ticket Buy</label>
                     <h2 class="text-left"><i class="mdi mdi-cube icon-size float-right text-primary"></i><span
-                            class="font-weight-bold">{{sellcount == null ? 0: sellcount}}</span></h2>
+                            class="font-weight-bold">{{sell == "NaN" ? 0:sell }}</span></h2>
                     <!-- <p class="mb-0 text-muted">Monthly Income<span class="float-left">$7,893</span></p> -->
                 </div>
             </div>
@@ -57,7 +57,7 @@
                 <div class="card-widget">
                     <label class="main-content-label mb-3 pt-1">Total Amount</label>
                     <h2 class="text-left"><i class="icon-size mdi mdi-poll-box   float-right text-primary"></i><span
-                            class="font-weight-bold">${{totprice == null ? 0: totprice}}</span></h2>
+                            class="font-weight-bold">${{sellcount == "NaN" ? 0: sellcount}}</span></h2>
                     <!-- <p class="mb-0 text-muted">Monthly Profit<span class="float-left">$4,678</span></p> -->
                 </div>
             </div>
@@ -69,7 +69,7 @@
                 <div class="card-widget">
                     <label class="main-content-label mb-3 pt-1">CLD Amount</label>
                     <h2 class="text-left"><i class="icon-size mdi mdi-poll-box   float-right text-primary"></i><span
-                            class="font-weight-bold">${{cldamount == null ? 0: cldamount}}</span></h2>
+                            class="font-weight-bold">${{cldamount == "NaN" ? 0: cldamount}}</span></h2>
                     <!-- <p class="mb-0 text-muted">Monthly Profit<span class="float-left">$4,678</span></p> -->
                 </div>
             </div>
@@ -83,7 +83,7 @@
                 <div class="card-widget">
                     <label class="main-content-label mb-3 pt-1">First Price</label>
                     <h2 class="text-left"><i class="icon-size mdi mdi-poll-box   float-right text-primary"></i><span
-                            class="font-weight-bold">${{firstamount == null ? 0: firstamount}}</span></h2>
+                            class="font-weight-bold">${{firstamount == "NaN" ? 0: firstamount}}</span></h2>
                     <!-- <p class="mb-0 text-muted">Monthly Profit<span class="float-left">$4,678</span></p> -->
                 </div>
             </div>
@@ -95,7 +95,7 @@
                 <div class="card-widget">
                     <label class="main-content-label mb-3 pt-1">Second Price</label>
                     <h2 class="text-left"><i class="icon-size mdi mdi-poll-box   float-right text-primary"></i><span
-                            class="font-weight-bold">${{secondamount == null ? 0: secondamount}}</span></h2>
+                            class="font-weight-bold">${{secondamount == "NaN" ? 0: secondamount}}</span></h2>
                     <!-- <p class="mb-0 text-muted">Monthly Profit<span class="float-left">$4,678</span></p> -->
                 </div>
             </div>
@@ -107,7 +107,7 @@
                 <div class="card-widget">
                     <label class="main-content-label mb-3 pt-1">Thrid Price</label>
                     <h2 class="text-left"><i class="icon-size mdi mdi-poll-box   float-right text-primary"></i><span
-                            class="font-weight-bold">${{thridamount == null ? 0: thridamount}}</span></h2>
+                            class="font-weight-bold">${{thridamount == "NaN" ? 0: thridamount}}</span></h2>
                     <!-- <p class="mb-0 text-muted">Monthly Profit<span class="float-left">$4,678</span></p> -->
                 </div>
             </div>
@@ -119,7 +119,7 @@
                 <div class="card-widget">
                     <label class="main-content-label mb-3 pt-1">Fourth Price</label>
                     <h2 class="text-left"><i class="icon-size mdi mdi-poll-box   float-right text-primary"></i><span
-                            class="font-weight-bold">${{fourthamount == null ? 0: fourthamount}}</span></h2>
+                            class="font-weight-bold">${{fourthamount == "NaN" ? 0: fourthamount}}</span></h2>
                     <!-- <p class="mb-0 text-muted">Monthly Profit<span class="float-left">$4,678</span></p> -->
                 </div>
             </div>

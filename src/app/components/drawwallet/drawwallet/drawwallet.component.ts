@@ -41,6 +41,7 @@ submitted:boolean=false;
   value:number;
   del: any;
   name: any;
+  drawid:number=0;
   // username: any;
   // email: any;
   
@@ -65,6 +66,7 @@ submitted:boolean=false;
     this.getlist();
     
  this.createForm();
+ 
   }
   get loginFormControl() {
     return this.loginForm.controls;
@@ -77,7 +79,12 @@ submitted:boolean=false;
       // value: ['', Validators.required],
     });
   }
-  
+  addfunction(){
+this.drawid=this.drawid+1
+console.log(this.drawid)
+localStorage.setItem("drawid", JSON.stringify(this.drawid));
+
+  }
   
   warningAlert(item) {
     // debugger

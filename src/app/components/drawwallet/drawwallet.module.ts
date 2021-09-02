@@ -24,7 +24,6 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { PercentageDirective } from './percentage.directive';
 
 
-
 @NgModule({
   declarations: [DrawwalletComponent, AdddrawComponent, ViewdrawComponent, EditdrawComponent, DeletedrawComponent, PercentageDirective,],
   imports: [
@@ -40,6 +39,7 @@ import { PercentageDirective } from './percentage.directive';
     HttpClientModule,
     CarouselModule,
     MatDialogModule,
+    
     NgxPaginationModule,
     Ng2SearchPipeModule,
     ToastrModule.forRoot(

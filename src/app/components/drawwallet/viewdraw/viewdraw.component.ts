@@ -63,12 +63,12 @@ constructor(
   this.upcomview = JSON.parse(localStorage.getItem("upview"))
   this.iddata=this.upcomview['_id']
   this.name=this.upcomview['name']
-  this.sell=this.upcomview['sell_count']
-  this.cldamount=this.upcomview['cold_wallet_percentage']
-  this.firstamount=this.upcomview['percentage_1']
-  this.secondamount=this.upcomview['percentage_2']
-  this.thridamount=this.upcomview['percentage_3']
-  this.fourthamount=this.upcomview['percentage_3']
+  // this.sell=this.upcomview['sell_count']
+  // this.cldamount=this.upcomview['cold_wallet_percentage']
+  // this.firstamount=this.upcomview['percentage_1']
+  // this.secondamount=this.upcomview['percentage_2']
+  // this.thridamount=this.upcomview['percentage_3']
+  // this.fourthamount=this.upcomview['percentage_3']
 console.log(this.iddata)
 }
 
@@ -230,7 +230,15 @@ getviewlist() {
         this.data = res['data']
         this.count=res['count']
         this.status = res['data']['status']
-        this.sellcount=res['data']['sellcount']
+        this.sellcount=res['selled']
+        // this.totprice=res['data']['price']
+        this.sell=res['sellcount']
+        // this.status = res['data']['status']
+  this.cldamount=res['percentages']['cold_wallet_percentage']
+  this.firstamount=res['percentages']['percentage_1']
+  this.secondamount=res['percentages']['percentage_2']
+  this.thridamount=res['percentages']['percentage_3']
+  this.fourthamount=res['percentages']['percentage_4']
         // this.totprice=res['data']['draws']['price']
         console.log(this.name)
 
