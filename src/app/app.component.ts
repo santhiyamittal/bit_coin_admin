@@ -30,6 +30,7 @@ export class AppComponent {
 ngOnInit(){
  
 }
+
 //Timer
 stop() {
   this.userIdle.stopTimer();
@@ -47,24 +48,16 @@ startWatching() {
 restart() {
   this.userIdle.resetTimer();
 }
-// goToLockScreen() {
-//   if (localStorage.getItem("loginState") != null || localStorage.getItem("loginState") != undefined) {
-//     var loginState = JSON.parse(localStorage.getItem("loginState"));
-//     this.inactive = true;
-//     this.stop();
-//     this.stopWatching(); 
-//     if (this.inactive && loginState)
-//       this.routeTo.navigateByUrl("dashboard/dashboard");
+goToLockScreen() {
+  if (localStorage.getItem("loginState") != null || localStorage.getItem("loginState") != undefined) {
+    var loginState = JSON.parse(localStorage.getItem("loginState"));
+    this.inactive = true;
+    this.stop();
+    this.stopWatching();
+    if (this.inactive && loginState)
+      this.routeTo.navigateByUrl("custom-pages/404-Error");
 
-//     // const dialogRef = this.dialog.open(LockscreenComponent, {
-//     //   width: "350px",
-//     //   autoFocus: false,
-//     //   height: "350px",
-//     //   data: '',
-//     // });
-//     // dialogRef.afterClosed().subscribe((result) => {
-//     //   this.restart();
-//     // });
-//   }
-// }
+   
+  }
+}
 }

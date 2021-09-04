@@ -54,6 +54,9 @@ getdepositcreate:string="admin/deposit/create";
 getdepositdelete:string="admin/deposit/delete";
 getdepositsearch:string="admin/deposit/listbyid";
 getdepositstatus:string="admin/deposit/status";
+//withdraw
+getwithdraw:string="admin/withdraw/list";
+getwithdrawstatus:string="admin/withdraw/status";
 
 //variables
 errorCount: number;
@@ -256,6 +259,22 @@ errorCount: number;
   //deposit api
   getdepositlist(){
     return this.http.get(this.baseURL + this.getdeposit, {
+      headers: this.getAuthHeaders(),
+    });
+  }
+  getdepstatus(jsonObj: any): Observable<any> {
+    return this.http.post(this.baseURL + this.getdepositstatus,jsonObj,{
+      headers: this.getAuthHeaders(),
+    });
+  }
+  //withdraw api
+  getwithdrawlist(){
+    return this.http.get(this.baseURL + this.getwithdraw, {
+      headers: this.getAuthHeaders(),
+    });
+  }
+  getWithdrawstatus(jsonObj: any): Observable<any> {
+    return this.http.post(this.baseURL + this.getwithdrawstatus,jsonObj,{
       headers: this.getAuthHeaders(),
     });
   }

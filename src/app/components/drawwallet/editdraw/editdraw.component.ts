@@ -6,7 +6,7 @@ import { HttpService } from 'src/app/shared/services/http.service';
 import { DatePipe } from '@angular/common';
 
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import Swal from 'sweetalert2';
 @Component({
@@ -94,8 +94,8 @@ export class EditdrawComponent implements OnInit {
     this.loginForm = this.formBuilder.group({
       
       'User':['', Validators.required],
-      'StartTime': ['', Validators.required],
-      'EndTime':['', Validators.required],
+      'StartTime': ['', [Validators.required,this.dateRangeValidator]],
+      'EndTime':['', [Validators.required,this.dateRangeValidator]],
       'winningprice':['', Validators.required],
       'price':['', Validators.required],
       'coldprice':['', [Validators.required]],
@@ -112,7 +112,7 @@ export class EditdrawComponent implements OnInit {
     return this.loginForm.controls;
   }
   successAlert() {
-    this.onSubmit();
+    // this.onSubmit();
     Swal.fire({
       icon: 'success',
       title: 'Well Done!',
@@ -122,6 +122,17 @@ export class EditdrawComponent implements OnInit {
     this.router.navigateByUrl('/drawwallet/Drawwallet')
 
   }
+  private dateRangeValidator: ValidatorFn = (): {
+    [key: string]: any;
+  } | null => {
+    let invalid = false;
+    const from = this.loginForm && this.loginForm.get("StartTime").value;
+    const to = this.loginForm && this.loginForm.get("EndTime").value;
+    if (from && to) {
+      invalid = new Date(from).valueOf() > new Date(to).valueOf();
+    }
+    return invalid ? { invalidRange: { from, to } } : null;
+  };
   onSubmit() {
 // //debugger
     this.submitted = true;
@@ -140,6 +151,10 @@ export class EditdrawComponent implements OnInit {
       percentage_3:this.loginForm.value.thridprice,
       percentage_4:this.loginForm.value.fourthprice,
     }
+    this.StartTime =this.loginForm.value.StartTime
+    this.EndTime =this.loginForm.value.EndTime
+
+    if (this.StartTime <= this.EndTime) {
     this.httpService.getUpdatedraw(jsonData).subscribe(res => {
       if (res['success'] == true) {
      
@@ -160,7 +175,7 @@ export class EditdrawComponent implements OnInit {
     // this.httpService.toastr.error('user_not_found', '', {
     //   positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
     // })  
+    this.successAlert();
   }
-  
-
+}
 }

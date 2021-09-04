@@ -22,14 +22,14 @@ export class DashboardComponent implements OnInit {
 
    ngOnInit(): void {
   //   debugger
-  //   if (!this.appcomponent.inactive) {
-  //     this.appcomponent.startWatching();
-  //     // this.userIdle.startWatching();
-  //     this.userIdle.onTimerStart().subscribe(count => console.log(count));
-  //     this.userIdle.onTimeout().subscribe(() => this.appcomponent.goToLockScreen());
-  //   } else if (this.appcomponent.inactive) {
-  //     this.appcomponent.goToLockScreen();
-  //   }
+  if (!this.appcomponent.inactive) {
+    this.appcomponent.startWatching();
+    // this.userIdle.startWatching();
+    this.userIdle.onTimerStart().subscribe(count => console.log(count));
+    this.userIdle.onTimeout().subscribe(() => this.appcomponent.goToLockScreen());
+  } else if (this.appcomponent.inactive) {
+    // this.appcomponent.goToLockScreen();
+  }
   }
   //line Chart
   public lineChartOptions = chartData.lineChartOptions;

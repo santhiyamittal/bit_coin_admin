@@ -10,6 +10,8 @@ import { HttpService } from 'src/app/shared/services/http.service';
   styleUrls: ['./addpayment.component.scss']
 })
 export class AddpaymentComponent implements OnInit {
+  Symbol: any = ['BTC', 'DTC']
+  bitcoin: any = ['bitcoin', 'digitalcoin']
   userid: any;
   status: any;
   coinname: any;
@@ -53,14 +55,14 @@ export class AddpaymentComponent implements OnInit {
       'amount':['', Validators.required],
       'pricereceived':['', Validators.required],
       'symbol':['', Validators.required],
-      'transactionfee':['', Validators.required],
+      // 'transactionfee':['', Validators.required],
 
     });
   }
  
   get loginFormControl(){
     return this.loginForm.controls;
-  }
+  } 
   gotopayment(){
     this.router.navigateByUrl('/payment/userpayment')
   
@@ -81,7 +83,7 @@ export class AddpaymentComponent implements OnInit {
       from_coinaddress:this.loginForm.value.fromcoinaddress,
       coinname:this.loginForm.value.coinname,
       amount:this.loginForm.value.amount,
-      transaction_fee:this.loginForm.value.transactionfee,
+      // transaction_fee:this.loginForm.value.transactionfee,
       symbol:this.loginForm.value.symbol,
       price_received:this.loginForm.value.pricereceived,
 

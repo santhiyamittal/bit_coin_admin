@@ -5,6 +5,8 @@ import { AdddrawComponent } from '../drawwallet/adddraw/adddraw.component';
 import { AddpaymentComponent } from './addpayment/addpayment.component';
 import { DeletepaymentComponent } from './deletepayment/deletepayment.component';
 import { DepositpaymentComponent } from './depositpayment/depositpayment.component';
+import { PendingdepositComponent } from './pendingdeposit/pendingdeposit.component';
+import { PendingwithdrawComponent } from './pendingwithdraw/pendingwithdraw.component';
 import { WithdrawpaymentComponent } from './withdrawpayment/withdrawpayment.component';
 
 
@@ -33,7 +35,15 @@ const routes: Routes = [
         path: 'addpayment',
         component:AddpaymentComponent
       },
-     
+      
+      {
+        path: 'pendeposit',
+        component:PendingdepositComponent
+      },
+      {
+        path: 'penwithdraw',
+        component:PendingwithdrawComponent
+      },
     ]
   }
 

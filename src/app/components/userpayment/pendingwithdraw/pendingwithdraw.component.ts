@@ -6,11 +6,11 @@ import { ToastrService } from 'ngx-toastr';
 import { HttpService } from 'src/app/shared/services/http.service';
 
 @Component({
-  selector: 'app-withdrawpayment',
-  templateUrl: './withdrawpayment.component.html',
-  styleUrls: ['./withdrawpayment.component.scss']
+  selector: 'app-pendingwithdraw',
+  templateUrl: './pendingwithdraw.component.html',
+  styleUrls: ['./pendingwithdraw.component.scss']
 })
-export class WithdrawpaymentComponent implements OnInit {
+export class PendingwithdrawComponent implements OnInit {
   Symbol: any = ['BTC', 'DTC']
   bitcoin: any = ['bitcoin', 'digitalcoin']
 
@@ -50,7 +50,7 @@ submitted:boolean=false;
 
 
   ngOnInit(): void {
-    this.getwithdrawlist();
+    this.getWithdrawstatus();
  this.createForm();
   }
   get loginFormControl() {
@@ -121,15 +121,17 @@ gotoinactive(){
 
 }
   gotohome() {
-    this.router.navigateByUrl('dashboard/dashboard')
+    this.router.navigateByUrl('payment/withdrawpayment')
   }
-  getwithdrawlist() {
+  getWithdrawstatus() {
 // //debugger
+let jsonData={
+  status:0
+}
 
-    this.httpService.getwithdrawlist().subscribe((res: any) => {
+    this.httpService.getWithdrawstatus(jsonData).subscribe((res: any) => {
 
       console.log(res['data'])
-      if(res['data']['paymentstatus'] == 1){
 
       this.data = res['data']
       this.status = res['data']['status']
@@ -144,7 +146,6 @@ gotoinactive(){
       }
     }
   }
-}
   else {
     this.showDatafound = false;
     console.log("No Data found");

@@ -34,7 +34,6 @@ export class AdddrawComponent implements OnInit {
   thridprice:any;
 index:any;
   drawid:number=0;
-  error:any={isError:false,errorMessage:''};
   touched: boolean;
   draw: any;
 
@@ -135,7 +134,7 @@ debugger
     this.submitted = true;
   
     let jsonData = {
-      // drawid:this.loginForm.value.drawid,
+      // drawid:this.loginForm.value.draw,
       name:this.loginForm.value.username,
       winning_price:this.loginForm.value.winningprice,
       price:this.loginForm.value.price,

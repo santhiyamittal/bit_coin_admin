@@ -122,7 +122,7 @@ gotoinactive(){
 
 }
   gotohome() {
-    this.router.navigateByUrl('/wallet/paytranscation')
+    this.router.navigateByUrl('/dashboard/dashboard')
   }
   getdepositlist() {
 // //debugger
@@ -131,7 +131,9 @@ gotoinactive(){
 
       console.log(res['data'])
 
-      this.data = res['data']
+      
+      if(res['data']['paymentstatus'] == 1){
+        this.data = res['data']
       this.status = res['data']['status']
       this.id = res['data']['_id']
       console.log(this.id)
@@ -144,6 +146,7 @@ gotoinactive(){
       }
     }
   }
+}
   else {
     this.showDatafound = false;
     console.log("No Data found");

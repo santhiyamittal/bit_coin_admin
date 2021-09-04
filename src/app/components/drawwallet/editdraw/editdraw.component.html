@@ -185,13 +185,13 @@
             [ngClass]="{ 'is-invalid': submitted && loginFormControl.EndTime.errors }" />
         <div *ngIf="submitted && loginFormControl.EndTime.errors" class="invalid-feedback">
             <div *ngIf="loginFormControl.EndTime.errors.required">EndTime is required</div>
-            <div *ngIf="loginFormControl.EndTime.errors.minlength">EndTime must be Entered</div>
+            <div *ngIf="loginFormControl.EndTime.errors.dateRangeValidator">EndTime must be Entered</div>
         </div>
 
 
 
         <div class="modal-footer">
-            <button class="btn ripple btn-primary" type="submit"(click)="successAlert()">Save changes</button>
+            <button class="btn ripple btn-primary" type="submit"(click)="onSubmit()">Save changes</button>
             <button type="button" class="btn ripple btn-secondary" (click)="closeModelBox()">Close</button>
         </div>
     </form>
