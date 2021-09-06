@@ -6,11 +6,11 @@ import { ToastrService } from 'ngx-toastr';
 import { HttpService } from 'src/app/shared/services/http.service';
 
 @Component({
-  selector: 'app-pendingdeposit',
-  templateUrl: './pendingdeposit.component.html',
-  styleUrls: ['./pendingdeposit.component.scss']
+  selector: 'app-cancelwithdraw',
+  templateUrl: './cancelwithdraw.component.html',
+  styleUrls: ['./cancelwithdraw.component.scss']
 })
-export class PendingdepositComponent implements OnInit {
+export class CancelwithdrawComponent implements OnInit {
   Symbol: any = ['BTC', 'DTC']
   bitcoin: any = ['bitcoin', 'digitalcoin']
 
@@ -50,7 +50,7 @@ submitted:boolean=false;
 
 
   ngOnInit(): void {
-    this.getdepstatus();
+    this.getWithdrawstatus();
  this.createForm();
   }
   get loginFormControl() {
@@ -121,15 +121,15 @@ gotoinactive(){
 
 }
   gotohome() {
-    this.router.navigateByUrl('payment/depositpayment')
+    this.router.navigateByUrl('payment/withdrawpayment')
   }
-  getdepstatus() {
+  getWithdrawstatus() {
 // //debugger
 let jsonData={
-  status:0
+  status:2
 }
 
-    this.httpService.getdepstatus(jsonData).subscribe((res: any) => {
+    this.httpService.getWithdrawstatus(jsonData).subscribe((res: any) => {
 
       console.log(res['data'])
 
@@ -156,11 +156,10 @@ let jsonData={
   }
   
   searchpayment() {
-    debugger
     if(this.username == ""){
       this.showDatafound = false;
 
-      this.getdepstatus();
+      this.getWithdrawstatus();
      }else{
        this.data = this.data.filter(res =>{
          return res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase());
@@ -169,20 +168,20 @@ let jsonData={
      console.log(this.data)
   }
  search(){
-  debugger
   this.submitted=true;
 
   let jsonData = {
     // id: this.id,
-    key:this.loginForm.value.username,
-    // symbol:this.loginForm.value.symbol,
-    // coinname:this.loginForm.value.coinname,    // status:false,
+    key:this.loginForm.value.drawname,
+    symbol:this.loginForm.value.symbol,
+    coinname:this.loginForm.value.coinname,    // status:false,
   }
   
-  this.httpService.getdepsearch(jsonData).subscribe((res: any) => {
+  this.httpService.getsearchpayment(jsonData).subscribe((res: any) => {
     console.log(res['data'])
     this.data = res['data']
   });
  }
+
 
 }

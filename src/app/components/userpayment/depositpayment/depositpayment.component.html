@@ -15,7 +15,9 @@
                 Add Deposit           </button>&nbsp; -->
            <button type="button" class="btn btn-primary my-2 btn-icon-text"routerLink="/payment/pendeposit">
                Pending Deposit
-           </button>
+           </button>&nbsp;
+             <button type="button" class="btn btn-primary my-2 btn-icon-text"routerLink="/payment/canceldeposit">
+                Cancel Deposit           </button> 
        </div>
    </div>
 </div>
@@ -24,9 +26,9 @@
    <div class="col-sm-12 col-lg-12 col-xl-12">
        <div class="card bg-primary custom-card card-box">
            <div class="card-body p-4">
-               <!-- <label>User Name</label>
-               <input type="text"  [(ngModel)]="username" (ngModelChange)="searchpayment()"class="form-control" placeholder="Enter the User Name" /> -->
-               <div class="row align-items-center">
+               <label>User Name</label>
+               <input type="text"  [(ngModel)]="username" (ngModelChange)="searchpayment()"class="form-control" placeholder="Enter the User Name" /> 
+               <!-- <div class="row align-items-center">
                 <form [formGroup]="loginForm" (ngSubmit)="search()" novalidate>
 
                     <div class="row">
@@ -42,9 +44,8 @@
                           
                         <div class="form-group text-left">
                             <label>Coin Name</label>
-                            <!-- <input type="text" formControlName="coinname" class="form-control" [ngClass]="{ 'valid': submitted  }" /> -->
+                            <input type="text" formControlName="coinname" class="form-control" [ngClass]="{ 'valid': submitted  }" /> 
                             <select class="select form-control" formControlName="coinname">
-                            <!-- placeholder="bitcoin" -->
                         <option *ngFor="let bit of bitcoin">{{bit}}</option>
                     </select>
                     </div>
@@ -53,7 +54,6 @@
                             <div class="form-group">
                                 <label>Symbol</label>
                                 <select class="select form-control" formControlName="symbol">
-                                    <!-- placeholder="symbol" -->
                                 <option *ngFor="let sym of Symbol">{{sym}}</option>
                             </select>
                                 
@@ -67,7 +67,7 @@
                         </div>
                         </div>
                     </form>
-            </div> 
+            </div>  -->
            </div>
        </div>
    </div>

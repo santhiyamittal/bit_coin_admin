@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthencationGuard } from 'src/app/shared/services/authencation.guard';
 import { AdddrawComponent } from '../drawwallet/adddraw/adddraw.component';
 import { AddpaymentComponent } from './addpayment/addpayment.component';
+import { CanceldepositComponent } from './canceldeposit/canceldeposit.component';
+import { CancelwithdrawComponent } from './cancelwithdraw/cancelwithdraw.component';
 import { DeletepaymentComponent } from './deletepayment/deletepayment.component';
 import { DepositpaymentComponent } from './depositpayment/depositpayment.component';
 import { PendingdepositComponent } from './pendingdeposit/pendingdeposit.component';
@@ -41,9 +43,17 @@ const routes: Routes = [
         component:PendingdepositComponent
       },
       {
+        path: 'canceldeposit',
+        component:CanceldepositComponent
+      },
+      {
         path: 'penwithdraw',
         component:PendingwithdrawComponent
       },
+      {
+        path: 'cancelwithdraw',
+        component:CancelwithdrawComponent
+      }
     ]
   }
 

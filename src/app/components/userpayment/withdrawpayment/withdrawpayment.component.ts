@@ -154,18 +154,18 @@ gotoinactive(){
     });
   }
   
-  // searchpayment() {
-  //   if(this.username == ""){
-  //     this.showDatafound = false;
+  searchpayment() {
+    if(this.username == ""){
+      this.showDatafound = false;
 
-  //     this.search();
-  //    }else{
-  //      this.data = this.data.filter(res =>{
-  //        return res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase());
-  //      })
-  //    }
-  //    console.log(this.data)
-  // }
+      this.getwithdrawlist();
+     }else{
+       this.data = this.data.filter(res =>{
+         return res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase());
+       })
+     }
+     console.log(this.data)
+  }
  search(){
   this.submitted=true;
 

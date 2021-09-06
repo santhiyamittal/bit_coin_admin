@@ -6,11 +6,11 @@ import { ToastrService } from 'ngx-toastr';
 import { HttpService } from 'src/app/shared/services/http.service';
 
 @Component({
-  selector: 'app-pendingdeposit',
-  templateUrl: './pendingdeposit.component.html',
-  styleUrls: ['./pendingdeposit.component.scss']
+  selector: 'app-canceldeposit',
+  templateUrl: './canceldeposit.component.html',
+  styleUrls: ['./canceldeposit.component.scss']
 })
-export class PendingdepositComponent implements OnInit {
+export class CanceldepositComponent implements OnInit {
   Symbol: any = ['BTC', 'DTC']
   bitcoin: any = ['bitcoin', 'digitalcoin']
 
@@ -59,9 +59,9 @@ submitted:boolean=false;
   createForm() {
     this.loginForm = this.formBuilder.group({
 
-      'username': ['', Validators.required],
-      // 'symbol': ['', Validators.required],
-      // 'coinname': ['', Validators.required],
+      'drawname': ['', Validators.required],
+      'symbol': ['', Validators.required],
+      'coinname': ['', Validators.required],
     });
   }
   
@@ -126,12 +126,13 @@ gotoinactive(){
   getdepstatus() {
 // //debugger
 let jsonData={
-  status:0
+  status:2
 }
 
     this.httpService.getdepstatus(jsonData).subscribe((res: any) => {
 
       console.log(res['data'])
+      if(res['data']['paymentstatus'] == 2){
 
       this.data = res['data']
       this.status = res['data']['status']
@@ -146,6 +147,7 @@ let jsonData={
       }
     }
   }
+}
   else {
     this.showDatafound = false;
     console.log("No Data found");
@@ -156,7 +158,6 @@ let jsonData={
   }
   
   searchpayment() {
-    debugger
     if(this.username == ""){
       this.showDatafound = false;
 
@@ -169,7 +170,6 @@ let jsonData={
      console.log(this.data)
   }
  search(){
-  debugger
   this.submitted=true;
 
   let jsonData = {
@@ -184,5 +184,6 @@ let jsonData={
     this.data = res['data']
   });
  }
+
 
 }

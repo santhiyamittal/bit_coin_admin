@@ -30,7 +30,7 @@ export class UseractiveComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUser();
-
+// this.username="Admin"
     let jsonData={
       key: this.username,
      location: this.location,

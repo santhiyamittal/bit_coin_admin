@@ -13,10 +13,12 @@ import { DepositpaymentComponent } from './depositpayment/depositpayment.compone
 import { WithdrawpaymentComponent } from './withdrawpayment/withdrawpayment.component';
 import { PendingdepositComponent } from './pendingdeposit/pendingdeposit.component';
 import { PendingwithdrawComponent } from './pendingwithdraw/pendingwithdraw.component';
+import { CanceldepositComponent } from './canceldeposit/canceldeposit.component';
+import { CancelwithdrawComponent } from './cancelwithdraw/cancelwithdraw.component';
 
 
 @NgModule({
-  declarations: [DeletepaymentComponent, AddpaymentComponent, DepositpaymentComponent, WithdrawpaymentComponent, PendingdepositComponent, PendingwithdrawComponent],
+  declarations: [DeletepaymentComponent, AddpaymentComponent, DepositpaymentComponent, WithdrawpaymentComponent, PendingdepositComponent, PendingwithdrawComponent, CanceldepositComponent, CancelwithdrawComponent],
   imports: [
     CommonModule,
     UserpaymentRoutingModule,

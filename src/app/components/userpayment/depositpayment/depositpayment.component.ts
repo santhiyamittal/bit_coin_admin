@@ -156,29 +156,30 @@ gotoinactive(){
     });
   }
   
-  // searchpayment() {
-  //   if(this.username == ""){
-  //     this.showDatafound = false;
+  searchpayment() {
+    if(this.username == ""){
+      this.showDatafound = false;
 
-  //     this.search();
-  //    }else{
-  //      this.data = this.data.filter(res =>{
-  //        return res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase());
-  //      })
-  //    }
-  //    console.log(this.data)
-  // }
+      this.getdepositlist();
+     }else{
+       this.data = this.data.filter(res =>{
+         return res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase());
+       })
+     }
+     console.log(this.data)
+  }
  search(){
+   debugger
   this.submitted=true;
 
   let jsonData = {
     // id: this.id,
-    key:this.loginForm.value.drawname,
-    symbol:this.loginForm.value.symbol,
-    coinname:this.loginForm.value.coinname,    // status:false,
+    key:this.loginForm.value.username,
+    // symbol:this.loginForm.value.symbol,
+    // coinname:this.loginForm.value.coinname,    // status:false,
   }
   
-  this.httpService.getsearchpayment(jsonData).subscribe((res: any) => {
+  this.httpService.getdepsearch(jsonData).subscribe((res: any) => {
     console.log(res['data'])
     this.data = res['data']
   });

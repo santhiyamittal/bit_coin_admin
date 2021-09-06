@@ -57,7 +57,8 @@ getdepositstatus:string="admin/deposit/status";
 //withdraw
 getwithdraw:string="admin/withdraw/list";
 getwithdrawstatus:string="admin/withdraw/status";
-
+//settings
+create :string="/admin/settings/update";
 //variables
 errorCount: number;
 
@@ -110,7 +111,12 @@ errorCount: number;
       headers: this.headers,
     });
   }
-  
+  settingupdate(jsonObj: any): Observable<any> {
+    // //debugger
+    return this.http.post(this.baseURL + this.create, jsonObj, {
+      headers: this.headers,
+    });
+  }
   generateMobileOTP(): Observable<any> {
     return this.http.get(this.baseURL + this.userOTPUrl, {
       headers: this.getAuthHeaders(),
@@ -259,6 +265,12 @@ errorCount: number;
   //deposit api
   getdepositlist(){
     return this.http.get(this.baseURL + this.getdeposit, {
+      headers: this.getAuthHeaders(),
+    });
+  }
+
+  getdepsearch(jsonObj: any): Observable<any> {
+    return this.http.post(this.baseURL + this.getdepositsearch,jsonObj,{
       headers: this.getAuthHeaders(),
     });
   }

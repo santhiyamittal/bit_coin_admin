@@ -95,7 +95,7 @@ debugger
     this.loginForm = this.formBuilder.group({
 
       'draw':['', Validators.required],
-      'username':['', Validators.required],
+      // 'username':['', Validators.required],
       'StartTime': ['', [Validators.required,this.dateRangeValidator]],
       'EndTime':['', [Validators.required,this.dateRangeValidator]],
       'winningprice': ['', Validators.required],
@@ -135,7 +135,7 @@ debugger
   
     let jsonData = {
       // drawid:this.loginForm.value.draw,
-      name:this.loginForm.value.username,
+      name:this.loginForm.value.draw,
       winning_price:this.loginForm.value.winningprice,
       price:this.loginForm.value.price,
       start_time:this.loginForm.value.StartTime,
