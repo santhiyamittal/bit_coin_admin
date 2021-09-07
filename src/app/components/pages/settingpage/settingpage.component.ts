@@ -19,6 +19,7 @@ export class SettingpageComponent implements OnInit {
   submitted1 = false;
   submitted2 = false;
   loginForm: FormGroup;
+  
   Country : any= [
     {
     "name": "Afghanistan",
@@ -325,6 +326,11 @@ export class SettingpageComponent implements OnInit {
     "dial_code": "+1849",
     "code": "DO"
     },
+    {
+      "name": "Dubai",
+      "dial_code": "+971",
+      "code": "UAE"
+      },
     {
     "name": "Ecuador",
     "dial_code": "+593",
@@ -1231,6 +1237,20 @@ export class SettingpageComponent implements OnInit {
     "code": "ZW"
     }
     ]
+  data: any;
+  totalLength: any;
+  showDatafound: boolean;
+  applicationname: any;
+  companyname: any;
+  address: any;
+  email: any;
+  websiteurl: any;
+  country: any;
+  state: any;
+  city: any;
+  postalcode: any;
+  phonenumber: any;
+  fax: any;
   constructor(
     public toastr: ToastrService,
 
@@ -1244,6 +1264,7 @@ export class SettingpageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getlist();
   this.createForm();
   }
   get loginFormControl() {
@@ -1297,7 +1318,7 @@ onSubmit() {
     this.loader.stop();
     // this.appComponent.startWatching();
     if (res['success'] == true) {
-      // this.router.navigateByUrl('drawwallet/Drawwallet')
+      this.router.navigateByUrl('pages/Settingpage')
 
     } else if (res['success'] == false) {
       // this.notOKstat = res['UserConfiguration']['ErrorMessage'];
@@ -1314,7 +1335,46 @@ onSubmit() {
   });
 }
 
+getlist() {
+  // debugger
+  this.httpService.setlist().subscribe((res: any) => {
 
+    console.log(res['data'])
+
+    // this.data = res['data']
+    this.applicationname= res['data']['0']['application_name']
+    this.companyname=res['data']['0']['company_name']
+    this.address=res['data']['0']['address']
+    this.email=res['data']['0']['email']
+    this.websiteurl=res['data']['0']['website_url']
+    this.country=res['data']['0']['country_name']
+    this.state=res['data']['0']['state']
+    this.city=res['data']['0']['city']
+    this.postalcode=res['data']['0']['postal_code']
+    this.phonenumber=res['data']['0']['phone_number']
+    this.fax=res['data']['0']['fax']
+    // this.name = res['data']['draw_id']['name']
+    // this.id = res['data']['_id']
+    console.log(res['data']['0']['fax'])
+    // this.totalLength = this.data.length;
+
+//     if (this.data) {
+//       if (this.data.length > 0) {
+//     if (res['success'] == true) {
+//       this.showDatafound = true;
+//     }
+//   }
+// }
+// else {
+//   this.showDatafound = false;
+//   console.log("No Data found");
+
+// }
+  });
+}
+  id(id: any) {
+    throw new Error('Method not implemented.');
+  }
   //Angular Editor
   public config: AngularEditorConfig = {
     editable: true,

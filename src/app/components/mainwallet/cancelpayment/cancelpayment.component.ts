@@ -6,33 +6,32 @@ import { ToastrService } from 'ngx-toastr';
 import { HttpService } from 'src/app/shared/services/http.service';
 
 @Component({
-  selector: 'app-pendingdeposit',
-  templateUrl: './pendingdeposit.component.html',
-  styleUrls: ['./pendingdeposit.component.scss']
+  selector: 'app-cancelpayment',
+  templateUrl: './cancelpayment.component.html',
+  styleUrls: ['./cancelpayment.component.scss']
 })
-export class PendingdepositComponent implements OnInit {
+export class CancelpaymentComponent implements OnInit {
   Symbol: any = ['BTC', 'DTC']
   bitcoin: any = ['bitcoin', 'digitalcoin']
 
+
+  Status: any = ['Active', 'Inactive'];
   public loginForm: FormGroup;
 submitted:boolean=false;
   data: any[];
   Data: any[];
   totalLength: any;
   page: number = 1
-  status:any[];
+  status: any[];
   id: any;
   userDetails: any;
   showDatafound: boolean;
   username: any;
   email: any;
   datastatus: any;
-  value:number;
-  del: any;
-  name: any;
   // username: any;
   // email: any;
-  
+
   constructor(
     public dialog: MatDialog,
     public toastr: ToastrService,
@@ -48,9 +47,8 @@ submitted:boolean=false;
     
   }
 
-
   ngOnInit(): void {
-    this.getdepstatus();
+    this.getpaymentstatus();
  this.createForm();
   }
   get loginFormControl() {
@@ -59,9 +57,9 @@ submitted:boolean=false;
   createForm() {
     this.loginForm = this.formBuilder.group({
 
-      'username': ['', Validators.required],
-      // 'symbol': ['', Validators.required],
-      // 'coinname': ['', Validators.required],
+      'drawname': ['', Validators.required],
+      'symbol': ['', Validators.required],
+      'coinname': ['', Validators.required],
     });
   }
   
@@ -120,16 +118,16 @@ gotoinactive(){
   this.router.navigateByUrl('/wallet/inactivepayment')
 
 }
-  gotohome() {
-    this.router.navigateByUrl('dashboard/dashboard')
-  }
-  getdepstatus() {
+gotohome() {
+  this.router.navigateByUrl('/dashboard/dashboard')
+}
+  
+  getpaymentstatus() {
 // //debugger
 let jsonData={
-  status:0
+  status:2,
 }
-
-    this.httpService.getdepstatus(jsonData).subscribe((res: any) => {
+    this.httpService.getpaymentstatus(jsonData).subscribe((res: any) => {
 
       console.log(res['data'])
 
@@ -154,32 +152,29 @@ let jsonData={
 
     });
   }
-  
-  searchpayment() {
-    debugger
-    if(this.username == ""){
-      this.showDatafound = false;
+  // searchpayment() {
+  //   if(this.username == ""){
+  //     this.showDatafound = false;
 
-      this.getdepstatus();
-     }else{
-       this.data = this.data.filter(res =>{
-         return res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase());
-       })
-     }
-     console.log(this.data)
-  }
+  //     this.search();
+  //    }else{
+  //      this.data = this.data.filter(res =>{
+  //        return res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase());
+  //      })
+  //    }
+  //    console.log(this.data)
+  // }
  search(){
-  debugger
   this.submitted=true;
 
   let jsonData = {
     // id: this.id,
-    key:this.loginForm.value.username,
-    // symbol:this.loginForm.value.symbol,
-    // coinname:this.loginForm.value.coinname,    // status:false,
+    key:this.loginForm.value.drawname,
+    symbol:this.loginForm.value.symbol,
+    coinname:this.loginForm.value.coinname,    // status:false,
   }
   
-  this.httpService.getdepsearch(jsonData).subscribe((res: any) => {
+  this.httpService.getsearchpayment(jsonData).subscribe((res: any) => {
     console.log(res['data'])
     this.data = res['data']
   });

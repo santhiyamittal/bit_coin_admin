@@ -121,7 +121,7 @@ gotoinactive(){
 
 }
   gotohome() {
-    this.router.navigateByUrl('payment/depositpayment')
+    this.router.navigateByUrl('dashboard/dashboard')
   }
   getdepstatus() {
 // //debugger

@@ -6,12 +6,14 @@ import { ChangepasspageComponent } from './changepasspage/changepasspage.compone
 import { ConstantpageComponent } from './constantpage/constantpage.component';
 import { CreditpageComponent } from './creditpage/creditpage.component';
 import { DangermessageComponent } from './dangermessage/dangermessage.component';
+import { DeletelogComponent } from './deletelog/deletelog.component';
 import { DocumentpageComponent } from './documentpage/documentpage.component';
 import { EmailpageComponent } from './emailpage/emailpage.component';
 import { EmptypageComponent } from './emptypage/emptypage.component';
 import { ExtrapageComponent } from './extrapage/extrapage.component';
 import { FaqsComponent } from './faqs/faqs.component';
 import { GalleryComponent } from './gallery/gallery.component';
+import { GetlogComponent } from './getlog/getlog.component';
 import { InvoiceComponent } from './invoice/invoice.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -96,6 +98,14 @@ const routes: Routes = [
       {
         path: 'documenttype',
         component:DocumentpageComponent
+      },
+      {
+        path: 'getlog',
+        component:GetlogComponent
+      },
+      {
+        path: 'deletelog',
+        component:DeletelogComponent
       },
     ]
   }

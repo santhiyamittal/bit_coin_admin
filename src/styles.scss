@@ -111,3 +111,6 @@ $angular-default-theme: mat-light-theme(
 .mat-dialog-container {
   background-color: black !important;
 }
+.disabled{
+  cursor: not-allowed !important;
+}

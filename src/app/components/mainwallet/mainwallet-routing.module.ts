@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthencationGuard } from 'src/app/shared/services/authencation.guard';
 import { AccumulatefundsComponent } from './accumulatefunds/accumulatefunds.component';
 import { BuySellComponent } from './buy-sell/buy-sell.component';
+import { CancelpaymentComponent } from './cancelpayment/cancelpayment.component';
 import { ColdpagewalletComponent } from './coldpagewallet/coldpagewallet.component';
 import { CryptoDashboardComponent } from './crypto-dashboard/crypto-dashboard.component';
 import { CurrencyExchangeComponent } from './currency-exchange/currency-exchange.component';
@@ -64,6 +65,10 @@ const routes: Routes = [
       {
         path: 'inactivepayment',
         component: InactivepaymentComponent
+      },
+      {
+        path: 'cancelpayment',
+        component: CancelpaymentComponent
       },
     ]
   }

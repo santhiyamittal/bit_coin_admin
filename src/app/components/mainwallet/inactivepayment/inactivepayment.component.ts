@@ -118,9 +118,9 @@ gotoinactive(){
   this.router.navigateByUrl('/wallet/inactivepayment')
 
 }
-  gotohome() {
-    this.router.navigateByUrl('/wallet/paytranscation')
-  }
+gotohome() {
+  this.router.navigateByUrl('/dashboard/dashboard')
+}
   
   getpaymentstatus() {
 // //debugger

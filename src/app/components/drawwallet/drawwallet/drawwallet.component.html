@@ -152,9 +152,16 @@
                                     <button (click)="editsymbol(item)" class="btn btn-sm btn-info mr-1">
                                         <i class="fe fe-edit-2"></i>
                                     </button>
-                                    <!-- <button (click)="warningAlert(item)" class="btn btn-sm btn-danger">
-                                        <i class="fe fe-trash"></i>
-                                    </button> -->
+                                    <span *ngIf="item['status'] === true">
+                                    <button (click)="warningAlert(item)" class="btn btn-sm btn-danger" disabled>
+                                        <i class="fe fe-trash" ></i>
+                                    </button>
+                                </span>
+                                <span *ngIf="item['status'] === false">
+                                    <button (click)="warningAlert(item)" class="btn btn-sm btn-danger" >
+                                        <i class="fe fe-trash" ></i>
+                                    </button>
+                                </span>
                                 </td>
                             </tr>
 

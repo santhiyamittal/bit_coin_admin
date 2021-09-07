@@ -121,7 +121,7 @@ gotoinactive(){
 
 }
   gotohome() {
-    this.router.navigateByUrl('payment/withdrawpayment')
+    this.router.navigateByUrl('dashboard/dashboard')
   }
   getWithdrawstatus() {
 // //debugger

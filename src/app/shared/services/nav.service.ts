@@ -117,7 +117,15 @@ export class NavService implements OnDestroy{
       path: 'wallet/paytranscation', title: 'Pay Transcation', type: 'link', icon: 'fas fa-receipt', 
     },
     {
-      path: 'user/useractive', title: 'User Active', type: 'link', icon: 'mdi mdi-account', 
+      path: 'user/useractive', title: 'Active', type: 'sub', icon: 'mdi mdi-account', 
+      children: [
+        {
+          path: 'user/useractive', title: 'User', type: 'link', icon: 'fas fa-toolbox', 
+        },
+        {
+          path: 'user/adminuser', title: 'Admin ', type: 'link', icon: 'fas fa-toolbox', 
+        },
+      ]
     },
     {
       path: 'pages/Constant', title: 'Constant page', type: 'link', icon: 'fa fa-address-book', 
@@ -127,7 +135,7 @@ export class NavService implements OnDestroy{
       children: [
         { path: '/pages/backendpage', title: 'How to play backend', type: 'link' },
         { path: '/pages/creditpage', title: 'How to Add Credit', type: 'link' },
-        { path: '/pages/faqs', title: 'FAQS', type: 'link' },
+        // { path: '/pages/faqs', title: 'FAQS', type: 'link' },
         { path: '/pages/withdrawpage', title: 'How to Withdraw', type: 'link' },
       ]
     },
@@ -136,6 +144,9 @@ export class NavService implements OnDestroy{
       children: [
         {
           path: 'pages/Settingpage', title: 'System ', type: 'link', icon: 'fas fa-toolbox', 
+        },
+        {
+          path: 'pages/getlog', title: 'Log ', type: 'link', icon: 'fas fa-toolbox', 
         },
         {
           path: 'pages/Changepasswpage', title: 'Change Password ', type: 'link', icon: 'fas fa-lock-open', 

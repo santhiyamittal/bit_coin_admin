@@ -14,9 +14,13 @@
             <!-- <button type="button" class="btn btn-primary my-2 btn-icon-text" (click)="gotoadd()">
                 Add Payment
            </button>&nbsp; -->
-           <button type="button" class="btn btn-primary my-2 btn-icon-text"(click)="gotoinactive()">
+           <!-- <button type="button" class="btn btn-primary my-2 btn-icon-text"(click)="gotoinactive()">
                Pending Transcation
-           </button>
+           </button> -->
+           <button type="button" class="btn btn-primary my-2 btn-icon-text"routerLink="/wallet/inactivepayment">
+            Pending Transcation        </button>&nbsp;
+          <button type="button" class="btn btn-primary my-2 btn-icon-text"routerLink="/wallet/cancelpayment">
+             Cancel Transcation           </button> 
        </div>
    </div>
 </div>

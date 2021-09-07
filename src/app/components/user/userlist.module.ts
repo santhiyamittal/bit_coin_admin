@@ -19,10 +19,11 @@ import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 import { DeleteuserComponent } from './deleteuser/deleteuser.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { OrderModule } from 'ngx-order-pipe';
+import { AdminuserComponent } from './adminuser/adminuser.component';
 
 
 @NgModule({
-  declarations: [UserlistComponent, AddUserComponent, InactiveComponent, ViewlistComponent, EditlistComponent, UseractiveComponent, DeleteuserComponent, ],
+  declarations: [UserlistComponent, AddUserComponent, InactiveComponent, ViewlistComponent, EditlistComponent, UseractiveComponent, DeleteuserComponent, AdminuserComponent, ],
   imports: [
     CommonModule,
     UserListRoutingModule,

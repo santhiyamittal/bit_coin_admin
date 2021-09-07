@@ -59,6 +59,7 @@ getwithdraw:string="admin/withdraw/list";
 getwithdrawstatus:string="admin/withdraw/status";
 //settings
 create :string="/admin/settings/update";
+list :string="admin/settings/getall";
 //variables
 errorCount: number;
 
@@ -111,10 +112,16 @@ errorCount: number;
       headers: this.headers,
     });
   }
+  //setting
+  setlist(){
+    return this.http.get(this.baseURL + this.list, {
+      headers: this.getAuthHeaders(),
+    });
+  }
   settingupdate(jsonObj: any): Observable<any> {
     // //debugger
     return this.http.post(this.baseURL + this.create, jsonObj, {
-      headers: this.headers,
+      headers: this.getAuthHeaders(),
     });
   }
   generateMobileOTP(): Observable<any> {

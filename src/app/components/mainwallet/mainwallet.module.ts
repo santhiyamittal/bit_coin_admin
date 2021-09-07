@@ -28,9 +28,10 @@ import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { OrderModule } from 'ngx-order-pipe';
 import { InactivepaymentComponent } from './inactivepayment/inactivepayment.component';
+import { CancelpaymentComponent } from './cancelpayment/cancelpayment.component';
 
 @NgModule({
-  declarations: [MarketcapComponent,PaymentTranscationComponent, CurrencyExchangeComponent, BuySellComponent, WalletComponent, TransactionsComponent, CryptoDashboardComponent, DistpagewalletComponent, ColdpagewalletComponent, SubwalletComponent, AccumulatefundsComponent,InactivepaymentComponent],
+  declarations: [MarketcapComponent,PaymentTranscationComponent, CurrencyExchangeComponent, BuySellComponent, WalletComponent, TransactionsComponent, CryptoDashboardComponent, DistpagewalletComponent, ColdpagewalletComponent, SubwalletComponent, AccumulatefundsComponent,InactivepaymentComponent, CancelpaymentComponent],
   imports: [
     CommonModule,
     MainwalletRouting,
