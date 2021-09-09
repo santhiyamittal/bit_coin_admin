@@ -42,6 +42,7 @@ submitted:boolean=false;
   del: any;
   name: any;
   drawid:number=0;
+  dataa: any;
   // username: any;
   // email: any;
   
@@ -109,7 +110,7 @@ localStorage.setItem("drawid", JSON.stringify(this.drawid));
           icon: 'success',
           confirmButtonColor: '#6259ca'
         })
-        this.getdrawdelete();
+        // this.getdrawdelete();
       } 
 
     })
@@ -165,7 +166,7 @@ localStorage.setItem("drawid", JSON.stringify(this.drawid));
   }
  
   getlist() {
-    // debugger
+     debugger
     this.httpService.getdrawupcomlist().subscribe((res: any) => {
 
       console.log(res['data'])
@@ -188,7 +189,12 @@ localStorage.setItem("drawid", JSON.stringify(this.drawid));
     console.log("No Data found");
 
   }
+  // if(res['success'] == false){
+  //   this.routeTo.navigateByUrl("custom-pages/404-Error");
+  // }
     });
+  
+    
   }
  
   searchuser(){
@@ -198,7 +204,7 @@ localStorage.setItem("drawid", JSON.stringify(this.drawid));
     }else{
       this.data = this.data.filter(res =>{
         const name=res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase());
-        // const email=res.email.toLowerCase().includes(this.email.toLowerCase())
+        const email=res.email.toLowerCase().includes(this.email.toLowerCase());
         return (name);
       })
     }
@@ -242,12 +248,16 @@ localStorage.setItem("drawid", JSON.stringify(this.drawid));
   //   this.getlist();
   // }
   // }
-  getdrawdelete(){
-    // //debugger
+  getdrawdelete(item){
+    this.id=item['_id']
+
+    debugger
     let jsonData = {
       id:this.id,
     }
     this.httpService.getdrawdelete(jsonData).subscribe(res => {
+      console.log(res['data'])
+      this.dataa=res['data']
       this.loader.stop();
     });
     

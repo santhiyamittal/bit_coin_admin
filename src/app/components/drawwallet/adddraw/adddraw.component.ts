@@ -75,7 +75,7 @@ debugger
       this.drawid=0;
       this.draw ='Draw#' +this.drawid
 
-      localStorage.setItem("drawid", JSON.stringify(this.drawid));
+      // localStorage.setItem("drawid", JSON.stringify(this.drawid));
 
     }
     this.createForm();
@@ -98,7 +98,7 @@ debugger
       // 'username':['', Validators.required],
       'StartTime': ['', [Validators.required,this.dateRangeValidator]],
       'EndTime':['', [Validators.required,this.dateRangeValidator]],
-      'winningprice': ['', Validators.required],
+      // 'winningprice': ['', Validators.required],
       'price':['', Validators.required],
       'coldprice':['', [Validators.required, Validators.maxLength(8)]],
       'firstprice':['', Validators.required],
@@ -136,7 +136,7 @@ debugger
     let jsonData = {
       // drawid:this.loginForm.value.draw,
       name:this.loginForm.value.draw,
-      winning_price:this.loginForm.value.winningprice,
+      // winning_price:this.loginForm.value.winningprice,
       price:this.loginForm.value.price,
       start_time:this.loginForm.value.StartTime,
       end_time:this.loginForm.value.EndTime,

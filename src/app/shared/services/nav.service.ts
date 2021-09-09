@@ -120,10 +120,10 @@ export class NavService implements OnDestroy{
       path: 'user/useractive', title: 'Active', type: 'sub', icon: 'mdi mdi-account', 
       children: [
         {
-          path: 'user/useractive', title: 'User', type: 'link', icon: 'fas fa-toolbox', 
+          path: 'user/useractive', title: 'Admin', type: 'link', icon: 'fas fa-toolbox', 
         },
         {
-          path: 'user/adminuser', title: 'Admin ', type: 'link', icon: 'fas fa-toolbox', 
+          path: 'user/adminuser', title: 'User ', type: 'link', icon: 'fas fa-toolbox', 
         },
       ]
     },
