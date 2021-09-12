@@ -81,6 +81,7 @@ submitted:boolean=false;
     });
   }
   addfunction(){
+    this.router.navigateByUrl('/drawwallet/adddraw')
 this.drawid=this.drawid+1
 console.log(this.drawid)
 localStorage.setItem("drawid", JSON.stringify(this.drawid));

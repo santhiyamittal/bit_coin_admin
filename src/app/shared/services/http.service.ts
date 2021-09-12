@@ -60,6 +60,7 @@ getwithdrawstatus:string="admin/withdraw/status";
 //settings
 create :string="/admin/settings/update";
 list :string="admin/settings/getall";
+logo1:string="admin/settings/uploadlogo1";
 //variables
 errorCount: number;
 
@@ -121,6 +122,12 @@ errorCount: number;
   settingupdate(jsonObj: any): Observable<any> {
     // //debugger
     return this.http.post(this.baseURL + this.create, jsonObj, {
+      headers: this.getAuthHeaders(),
+    });
+  }
+  settinglogo1(jsonObj: any): Observable<any> {
+    debugger
+    return this.http.post(this.baseURL + this.logo1, jsonObj, {
       headers: this.getAuthHeaders(),
     });
   }

@@ -19,7 +19,8 @@ export class SettingpageComponent implements OnInit {
   submitted1 = false;
   submitted2 = false;
   loginForm: FormGroup;
-  
+  // fileToUpload: File | null = null;
+ baseApiUrl = "uploads/settings/"
   Country : any= [
     {
     "name": "Afghanistan",
@@ -1251,6 +1252,11 @@ export class SettingpageComponent implements OnInit {
   postalcode: any;
   phonenumber: any;
   fax: any;
+  image:any;
+   fileToUpload: any;
+  imageUrl: any;
+  public formData = new FormData();
+
   constructor(
     public toastr: ToastrService,
 
@@ -1371,6 +1377,42 @@ getlist() {
 
 // }
   });
+}
+
+handleFileInput(files: FileList) {
+    this.fileToUpload = files.item(0);
+     let reader = new FileReader();
+    reader.onload = (event: any) => {
+      this.imageUrl = event.target.result;
+    }
+    reader.readAsDataURL(this.fileToUpload);
+}
+uploadFiles( system_logo ) {
+        console.log( 'file', system_logo )
+        for ( let i = 0; i < system_logo.length; i++ ) {
+this.image=system_logo[i]['name']
+            this.formData.append( "file", system_logo[i], system_logo[i]['name'] );
+        }
+    }
+
+getsettinglogo1(){
+    this.submitted = true;
+
+  debugger
+    
+    // var formData = new FormData();
+    // for (let i = 0; i < this.fileToUpload.length; i++) {
+    //   formData.append("file", fileToUpload[i]['name']);
+    // }
+  
+  let jsonData = {
+    // system_logo1: "uploads/settings/admin@bitcoinio.com1631169039717.png"
+        // system_logo1: this.baseApiUrl + this.image
+ system_logo1:this.image
+  }
+    this.httpService.settinglogo1(jsonData).subscribe((res: any) => {
+ console.log(res['data']);
+});
 }
   id(id: any) {
     throw new Error('Method not implemented.');

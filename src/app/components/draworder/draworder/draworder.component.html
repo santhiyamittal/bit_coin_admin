@@ -78,7 +78,7 @@
                                 </td> -->
                                 <td>{{item['name'] == "" ? 'NA': item['name']}} </td>
                                 <td>
-                                    {{item['winning_price']}}
+                                    {{item['winning_price'] == null ? 0 : item['winning_price']}}
                                 </td>
                                 <td>
                                     {{item['price']}}

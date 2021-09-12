@@ -175,7 +175,7 @@
                                 <div class="tab-pane active show" id="Company_Settings">
                                     <!-- <div class="container-fluid"> -->
                                     <div class="card">
-                                        <div class="header" style="padding-left: 24px;">
+                                        <div class="header" style="padding-left: 24px;margin-top:20px">
                                             <h2>Company Settings</h2>
                                         </div>
                                         <div class="card-body">
@@ -436,17 +436,18 @@
                             <a href="javascript:;" ngbNavLink>System Logo</a>
                             <ng-template ngbNavContent>
                                 <div class="card-body">
-                                    <form action="" method="post" id="formSystemLogo" enctype="multipart/form-data">
+                                    <form action="" [formGroup]="loginForm" (ngSubmit)="getsettinglogo1()" enctype="multipart/form-data">
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <div class="row">
                                                     <div class="col-sm-12">
                                                         <img id="sys_preview" src="assets/img/brand/Bitconia white.png"
-                                                            alt="System Logo" width="100" height="80">
+                                                            alt="System Logo" width="100" height="80"> 
+                                                            <!-- <img width="100" height="80" *ngIf="imageUrl" [src]="imageUrl" class="image"> -->
                                                     </div>
                                                     <div class="col-sm-12">
-                                                        <br><input type="file" onchange="systemURL(this);"
-                                                            name="system_logo" id="system_logo" class="">
+                                                        <br><input type="file"
+                                                        name="system_logo" id="system_logo"(change)="uploadFiles($event.target.files)"class="">
                                                         <input type="hidden" value="1593930072.png"
                                                             name="system_logo_hide" id="system_logo_hide">
                                                         <br><br>

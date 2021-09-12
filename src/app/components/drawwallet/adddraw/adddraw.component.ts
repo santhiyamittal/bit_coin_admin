@@ -64,6 +64,8 @@ index:any;
 debugger
     try{
       this.drawid = JSON.parse(localStorage.getItem("drawid"))
+          this.draw ='Draw#' +this.drawid
+
       if(this.drawid==null){
         this.drawid=0;
         localStorage.setItem("drawid", JSON.stringify(this.drawid));
