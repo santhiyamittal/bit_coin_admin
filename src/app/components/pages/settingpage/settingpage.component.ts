@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { HttpService } from 'src/app/shared/services/http.service';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
+import { CommondataService } from 'src/app/shared/services/Commondata.service';
 
 @Component({
   selector: 'app-settingpage',
@@ -14,13 +15,14 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
   styleUrls: ['./settingpage.component.scss']
 })
 export class SettingpageComponent implements OnInit {
-
+imageUrl="assets/img/brand/Bitconia white.png";
+FavIcon="assets/img/brand/Symbo-pngl.ico";
+signin_logo="assets/img/brand/Bitconia white.png";
   submitted = false;
   submitted1 = false;
   submitted2 = false;
-  loginForm: FormGroup;
-  // fileToUpload: File | null = null;
- baseApiUrl = "uploads/settings/"
+  fileToUpload: File | null = null;
+ baseApiUrl = "https://www.bitconia.com/uploads/settings/admin@bitcoinio.com"
   Country : any= [
     {
     "name": "Afghanistan",
@@ -1252,10 +1254,15 @@ export class SettingpageComponent implements OnInit {
   postalcode: any;
   phonenumber: any;
   fax: any;
-  image:any;
-   fileToUpload: any;
-  imageUrl: any;
-  public formData = new FormData();
+  image1:any;
+    image2:any;
+  image3:any;
+
+  //  fileToUpload: any;
+    loginForm: FormGroup;
+    form: FormGroup;
+
+  // public formData = new FormData();
 
   constructor(
     public toastr: ToastrService,
@@ -1266,8 +1273,13 @@ export class SettingpageComponent implements OnInit {
   
     public httpService: HttpService,
     private loader: NgxUiLoaderService,
-    private router: Router
-  ) { }
+    private router: Router,
+    private imageservice:CommondataService
+  ) { 
+     this.form = this.formBuilder.group({
+      img: [null]
+    })
+  }
 
   ngOnInit(): void {
     this.getlist();
@@ -1387,31 +1399,125 @@ handleFileInput(files: FileList) {
     }
     reader.readAsDataURL(this.fileToUpload);
 }
+handleFile(files: FileList) {
+    this.fileToUpload = files.item(0);
+     let reader = new FileReader();
+    reader.onload = (event: any) => {
+      this.FavIcon = event.target.result;
+    }
+    reader.readAsDataURL(this.fileToUpload);
+}
+handle(files: FileList) {
+    this.fileToUpload = files.item(0);
+     let reader = new FileReader();
+    reader.onload = (event: any) => {
+      this.signin_logo = event.target.result;
+    }
+    reader.readAsDataURL(this.fileToUpload);
+}
 uploadFiles( system_logo ) {
         console.log( 'file', system_logo )
         for ( let i = 0; i < system_logo.length; i++ ) {
-this.image=system_logo[i]['name']
-            this.formData.append( "file", system_logo[i], system_logo[i]['name'] );
+// this.image=system_logo[i]['name']
+            // this.formData.append( "file", system_logo[i], system_logo[i]['name'] );
         }
     }
-
+upload(event) {
+  debugger
+    const file = (event.target as HTMLInputElement).files[0];
+    this.form.patchValue({
+      img: file
+    });
+    this.form.get('img').updateValueAndValidity()
+ }
 getsettinglogo1(){
-    this.submitted = true;
+    // this.submitted = true;
+//  var formData: any = new FormData();
+//     formData.append("img", this.form.get('img').value);
 
   debugger
     
+     let fileNames = (<HTMLInputElement>document.getElementById("system_logo")).files;
     // var formData = new FormData();
-    // for (let i = 0; i < this.fileToUpload.length; i++) {
-    //   formData.append("file", fileToUpload[i]['name']);
-    // }
-  
+    for (let i = 0; i < fileNames.length; i++) {
+      // formData.append("file", fileNames[i]['name']);
+            this.image1=fileNames[i]['name']
+
+      console.log(fileNames[i]['name'])
+    }
+  if(this.image1==0){
   let jsonData = {
-    // system_logo1: "uploads/settings/admin@bitcoinio.com1631169039717.png"
-        // system_logo1: this.baseApiUrl + this.image
- system_logo1:this.image
+//     // system_logo1: "uploads/settings/admin@bitcoinio.com1631169039717.png"
+        system_logo1: this.baseApiUrl+ this.image1
+// //  system_logo1:"uploads/settings/admin@bitcoinio.com",this.image
   }
     this.httpService.settinglogo1(jsonData).subscribe((res: any) => {
  console.log(res['data']);
+  this.toastr.success(res ['message'], "", {
+          positionClass: "toast-bottom-right",
+          closeButton: true,
+          timeOut: 5000,
+        });
+});
+  }
+this.getsettinglogo2();
+}
+getsettinglogo2(){
+    // this.submitted = true;
+//  var formData: any = new FormData();
+//     formData.append("img", this.form.get('img').value);
+
+  debugger
+    
+     let fileNames = (<HTMLInputElement>document.getElementById("fav_icon")).files;
+    // var formData = new FormData();
+    for (let i = 0; i < fileNames.length; i++) {
+      // formData.append("file", fileNames[i]['name']);
+      this.image2=fileNames[i]['name']
+      console.log(fileNames[i]['name'])
+    }
+  
+  let jsonData = {
+//     // system_logo1: "uploads/settings/admin@bitcoinio.com1631169039717.png"
+        system_logo2: this.baseApiUrl+ this.image2
+// //  system_logo1:"uploads/settings/admin@bitcoinio.com",this.image
+  }
+    this.httpService.settinglogo2(jsonData).subscribe((res: any) => {
+ console.log(res['data']);
+  this.toastr.success(res ['message'], "", {
+          positionClass: "toast-bottom-right",
+          closeButton: true,
+          timeOut: 5000,
+        });
+});
+}
+getsettinglogo3(){
+    // this.submitted = true;
+//  var formData: any = new FormData();
+//     formData.append("img", this.form.get('img').value);
+
+  debugger
+    
+     let fileNames = (<HTMLInputElement>document.getElementById("signin_logo")).files;
+    // var formData = new FormData();
+    for (let i = 0; i < fileNames.length; i++) {
+      // formData.append("file", fileNames[i]['name']);
+      this.image3=fileNames[i]['name']
+      console.log(fileNames[i]['name'])
+    }
+  
+  let jsonData = {
+//     // system_logo1: "uploads/settings/admin@bitcoinio.com1631169039717.png"
+        sigin_page_logo: this.baseApiUrl+ this.image3
+// //  system_logo1:"uploads/settings/admin@bitcoinio.com",this.image
+  }
+    this.httpService.settinglogo3(jsonData).subscribe((res: any) => {
+ console.log(res['data']);
+  this.toastr.success(res ['message'], "", {
+          positionClass: "toast-bottom-right",
+          closeButton: true,
+          timeOut: 5000,
+        });
 });
 }
   id(id: any) {

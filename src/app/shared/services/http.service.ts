@@ -14,6 +14,8 @@ export class HttpService {
   //LIVE
   baseURL: string = "https://www.bitconia.com/api/v1/";
   headers: any = new HttpHeaders({ "Content-Type": "application/json" });
+    // headers1: any = new HttpHeaders({ "Content-Type": "multipart/form-data" });
+
 //Api
 userloginurl: string = "admin/auth/login";
   logout: string ="admin/auth/logout";
@@ -61,6 +63,8 @@ getwithdrawstatus:string="admin/withdraw/status";
 create :string="/admin/settings/update";
 list :string="admin/settings/getall";
 logo1:string="admin/settings/uploadlogo1";
+logo2:string="admin/settings/uploadlogo2";
+singlelogo:string="admin/settings/siginlogo";
 //variables
 errorCount: number;
 
@@ -128,6 +132,18 @@ errorCount: number;
   settinglogo1(jsonObj: any): Observable<any> {
     debugger
     return this.http.post(this.baseURL + this.logo1, jsonObj, {
+      headers: this.getAuthHeaders(),
+    });
+  }
+    settinglogo2(jsonObj: any): Observable<any> {
+    debugger
+    return this.http.post(this.baseURL + this.logo2, jsonObj, {
+      headers: this.getAuthHeaders(),
+    });
+  }  
+  settinglogo3(jsonObj: any): Observable<any> {
+    debugger
+    return this.http.post(this.baseURL + this.singlelogo, jsonObj, {
       headers: this.getAuthHeaders(),
     });
   }
