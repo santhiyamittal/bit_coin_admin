@@ -7,7 +7,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { HttpService } from 'src/app/shared/services/http.service';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
-import { CommondataService } from 'src/app/shared/services/Commondata.service';
 
 @Component({
   selector: 'app-settingpage',
@@ -1274,7 +1273,6 @@ signin_logo="assets/img/brand/Bitconia white.png";
     public httpService: HttpService,
     private loader: NgxUiLoaderService,
     private router: Router,
-    private imageservice:CommondataService
   ) { 
      this.form = this.formBuilder.group({
       img: [null]
