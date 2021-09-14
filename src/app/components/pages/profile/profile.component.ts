@@ -19,7 +19,10 @@ export class ProfileComponent implements OnInit {
   data: any;
   role: any;
   username: any;
+    fileToUpload: File | null = null;
 
+profile_logo="assets/img/brand/Bitconia white.png";
+imageUrl="assets/img/brand/Symbo-pngl.ico";
   constructor(
     private galleryService: GalleryService,
     private route: ActivatedRoute,
@@ -188,7 +191,22 @@ export class ProfileComponent implements OnInit {
     this.GalleryImage = [...this.GalleryImage, newImage];
   }
 
-
+handleFileInput(files: FileList) {
+    this.fileToUpload = files.item(0);
+     let reader = new FileReader();
+    reader.onload = (event: any) => {
+      this.profile_logo = event.target.result;
+    }
+    reader.readAsDataURL(this.fileToUpload);
+}
+handleFile(files: FileList) {
+    this.fileToUpload = files.item(0);
+     let reader = new FileReader();
+    reader.onload = (event: any) => {
+      this.imageUrl = event.target.result;
+    }
+    reader.readAsDataURL(this.fileToUpload);
+}
   getprofile() {
    
     this.httpService.getProfile().subscribe((res) => {

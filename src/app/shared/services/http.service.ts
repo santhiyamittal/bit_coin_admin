@@ -14,7 +14,7 @@ export class HttpService {
   //LIVE
   baseURL: string = "https://www.bitconia.com/api/v1/";
   headers: any = new HttpHeaders({ "Content-Type": "application/json" });
-    // headers1: any = new HttpHeaders({ "Content-Type": "multipart/form-data" });
+  // formheaders: any = new HttpHeaders({ "Content-Type": "multipart/form-data" });
 
 //Api
 userloginurl: string = "admin/auth/login";
@@ -37,6 +37,7 @@ statususer:string="admin/user/status";
 getdrawupcom:string="admin/draw/upcominglist";
 // getdrawupcom:string="admin/draw/list";
 getdrawperv:string="admin/draw/perviouslist";
+nextdraw:string="admin/draw/nextdraw";
 createdraw:string="admin/draw/create";
 updatedraw:string="admin/draw/update";
 deletedraw:string="admin/draw/delete";
@@ -65,6 +66,13 @@ list :string="admin/settings/getall";
 logo1:string="admin/settings/uploadlogo1";
 logo2:string="admin/settings/uploadlogo2";
 singlelogo:string="admin/settings/siginlogo";
+meta:string="admin/settings/meta";
+googleauth:string="admin/settings/googleauthkey";
+emailkey:string="admin/settings/emailkey";
+smskey:string="admin/settings/smskey";
+//log
+log:string="admin/settings/getlog";
+deletelog:string="admin/settings/deletealllog";
 //variables
 errorCount: number;
 
@@ -132,18 +140,55 @@ errorCount: number;
   settinglogo1(jsonObj: any): Observable<any> {
     debugger
     return this.http.post(this.baseURL + this.logo1, jsonObj, {
-      headers: this.getAuthHeaders(),
+      headers: this.headers(),
     });
   }
     settinglogo2(jsonObj: any): Observable<any> {
     debugger
     return this.http.post(this.baseURL + this.logo2, jsonObj, {
-      headers: this.getAuthHeaders(),
+      headers: this.headers(),
     });
   }  
   settinglogo3(jsonObj: any): Observable<any> {
     debugger
     return this.http.post(this.baseURL + this.singlelogo, jsonObj, {
+      headers: this.headers(),
+    });
+  }
+  getmeta(jsonObj: any): Observable<any> {
+    debugger
+    return this.http.post(this.baseURL + this.meta, jsonObj, {
+      headers: this.getAuthHeaders(),
+    });
+  }
+  getgoogleauth(jsonObj: any): Observable<any> {
+    debugger
+    return this.http.post(this.baseURL + this.googleauth, jsonObj, {
+      headers: this.getAuthHeaders(),
+    });
+  }
+  getemailkey(jsonObj: any): Observable<any> {
+    debugger
+    return this.http.post(this.baseURL + this.emailkey, jsonObj, {
+      headers: this.getAuthHeaders(),
+    });
+  }
+  getsmskey(jsonObj: any): Observable<any> {
+    debugger
+    return this.http.post(this.baseURL + this.smskey, jsonObj, {
+      headers: this.getAuthHeaders(),
+    });
+  }
+  //log
+    getlog(): Observable<any> {
+    
+    return this.http.get(this.baseURL + this.log,{
+      headers: this.getAuthHeaders(),
+    });
+  }
+  getdeletelog(): Observable<any> {
+    
+    return this.http.get(this.baseURL + this.deletelog,{
       headers: this.getAuthHeaders(),
     });
   }
@@ -238,6 +283,11 @@ errorCount: number;
   }
   getdrawupcomlist(){
     return this.http.get(this.baseURL + this.getdrawupcom, {
+      headers: this.getAuthHeaders(),
+    });
+  }
+   getnextdraw(){
+    return this.http.get(this.baseURL + this.nextdraw, {
       headers: this.getAuthHeaders(),
     });
   }

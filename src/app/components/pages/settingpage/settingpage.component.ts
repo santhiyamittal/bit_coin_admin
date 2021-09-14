@@ -7,7 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { HttpService } from 'src/app/shared/services/http.service';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
-
+// import { LoaderComponent } from 'src/app/shared/components/loader/load.service';
 @Component({
   selector: 'app-settingpage',
   templateUrl: './settingpage.component.html',
@@ -1260,7 +1260,18 @@ signin_logo="assets/img/brand/Bitconia white.png";
   //  fileToUpload: any;
     loginForm: FormGroup;
     form: FormGroup;
-
+meta:FormGroup;
+sms:FormGroup;
+emailauth:FormGroup;
+googleauth:FormGroup;
+sms_ak:any;
+sms_sk:any;
+email_ak:any;
+email_sk:any;
+googleauth_ak:any;
+googleauth_sk:any;
+meta_description:any;
+meta_keywords:any;
   // public formData = new FormData();
 
   constructor(
@@ -1271,23 +1282,40 @@ signin_logo="assets/img/brand/Bitconia white.png";
     private routeTo: Router,
   
     public httpService: HttpService,
-    private loader: NgxUiLoaderService,
     private router: Router,
+    private loader:NgxUiLoaderService,
   ) { 
-     this.form = this.formBuilder.group({
-      img: [null]
-    })
+     this.meta = this.formBuilder.group({
+   'description':['', Validators.required],
+    // 'username':['', Validators.required],
+    'keywords': ['', Validators.required],    })
+   
+  //    this.emailkey = this.formBuilder.group({
+  //  'email_ak':['', Validators.required],
+  //   // 'username':['', Validators.required],
+  //   'email_sk': ['', Validators.required],    })
+     this.googleauth = this.formBuilder.group({
+   'googleauth_ak':['', Validators.required],
+    // 'username':['', Validators.required],
+    'googleauth_sk': ['', Validators.required],    })
   }
 
   ngOnInit(): void {
     this.getlist();
   this.createForm();
+  this.SMS();
   }
   get loginFormControl() {
     return this.loginForm.controls;
   }
 getdashboard(){
   this.router.navigateByUrl('/dashboard/dashboard')
+}
+SMS() {
+  this.sms = this.formBuilder.group({
+   'sms_ak':['', Validators.required],
+    // 'username':['', Validators.required],
+    'sms_sk': ['', Validators.required],    })
 }
 createForm() {
   this.loginForm = this.formBuilder.group({
@@ -1307,6 +1335,7 @@ createForm() {
   },
   );
 }
+
 onSubmit() {
 
   debugger
@@ -1369,6 +1398,16 @@ getlist() {
     this.postalcode=res['data']['0']['postal_code']
     this.phonenumber=res['data']['0']['phone_number']
     this.fax=res['data']['0']['fax']
+        this.fax=res['data']['0']['fax']
+    this.sms_sk=res['data']['0']['sms_sk']
+    this.sms_ak=res['data']['0']['sms_ak']
+    this.email_sk=res['data']['0']['email_sk']
+    this.email_ak=res['data']['0']['email_ak']
+    this.googleauth_sk=res['data']['0']['googleauth_sk']
+    this.googleauth_ak=res['data']['0']['googleauth_ak']
+    this.meta_description=res['data']['0']['meta_description']
+    this.meta_keywords=res['data']['0']['meta_keywords']
+
     // this.name = res['data']['draw_id']['name']
     // this.id = res['data']['_id']
     console.log(res['data']['0']['fax'])
@@ -1517,6 +1556,59 @@ getsettinglogo3(){
           timeOut: 5000,
         });
 });
+}
+
+getmeta(){
+  let jsonData = {
+  meta_description:this.meta.value.description,
+   meta_keywords:this.meta.value.keywords,
+  }
+    this.httpService.getmeta(jsonData).subscribe((res: any) => {
+ console.log(res['data']);
+         localStorage.setItem("description", JSON.stringify(res['data']['meta_description']));
+         localStorage.setItem("keywords", JSON.stringify(res['data']['meta_keywords']));
+
+  this.toastr.success(res ['message'], "", {
+          positionClass: "toast-bottom-right",
+          closeButton: true,
+          timeOut: 5000,
+        });
+});
+}
+
+getsmskey(){
+  debugger
+  let jsonData = {
+    sms_sk:this.sms.value.sms_sk,
+    sms_ak:this.sms.value.sms_ak,
+  }
+
+    this.httpService.getsmskey(jsonData).subscribe((res: any) => {
+ console.log(res['data']);
+ this.toastr.success(res ['message'], "", {
+          positionClass: "toast-bottom-right",
+          closeButton: true,
+          timeOut: 5000,
+        });
+ });
+//  this.getlist();
+}
+
+getgoogleauth(){
+  debugger
+  let jsonData = {
+    googleauth_sk:this.googleauth.value.googleauth_sk,
+    googleauth_ak:this.googleauth.value.googleauth_ak,
+  }
+
+    this.httpService.getgoogleauth(jsonData).subscribe((res: any) => {
+ console.log(res['data']);
+ this.toastr.success(res ['message'], "", {
+          positionClass: "toast-bottom-right",
+          closeButton: true,
+          timeOut: 5000,
+        });
+ });
 }
   id(id: any) {
     throw new Error('Method not implemented.');

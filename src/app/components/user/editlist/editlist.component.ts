@@ -14,8 +14,22 @@ import { SearchCountryField, CountryISO } from 'ngx-intl-tel-input';
   styleUrls: ['./editlist.component.scss']
 })
 export class EditlistComponent implements OnInit {
-  gender: any = ['Male', 'Female','Other']
-
+  Gender: any = [  {
+    "name": "Male",
+    "dial_code": "+93",
+    "code": "AF"
+    },
+    {
+    "name": "Female",
+    "dial_code": "+358",
+    "code": "AX"
+    },
+    {
+    "name": "Other",
+    "dial_code": "+355",
+    "code": "AL"
+    },
+  ]
   public loginForm: FormGroup;
   SearchCountryField = SearchCountryField;
 	CountryISO = CountryISO;
@@ -38,6 +52,8 @@ export class EditlistComponent implements OnInit {
   id: any;
   password: any;
   Dob: any;
+  country:any;
+  gender:any;
   Country : any=[
     {
     "name": "Afghanistan",
@@ -1251,7 +1267,9 @@ export class EditlistComponent implements OnInit {
     }
     ]
   address1: any;
-  code: any;
+  Code: any;
+    code: any;
+
   constructor(public dialogRef: MatDialogRef<EditlistComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     
@@ -1276,6 +1294,9 @@ export class EditlistComponent implements OnInit {
       this.address=this.data['data']['address']
       this.address1=this.data['data']['address2']
       this.code=this.data['data']['country_code']
+       this.country=this.data['data']['country']
+       this.gender=this.data['data']['gender']
+
       this.createdat=this.data['data']['createdAt']
       this.zipcode=this.data['data']['zip_code']
       this.dob=this.data['data']['dob']
@@ -1319,6 +1340,7 @@ this.created=this.createdat.split("T")[0];
     return this.loginForm.controls;
   }
   successAlert() {
+    debugger
     this.onSubmit();
     Swal.fire({
       icon: 'success',

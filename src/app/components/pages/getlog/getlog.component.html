@@ -40,28 +40,13 @@
         <div class="card custom-card">
             <div class="card-header border-bottom-0 pb-0">
                 <div class="d-flex justify-content-between">
-                    <!-- <label class="main-content-label mb-0 pt-1">User Table</label> -->
-                    <!-- <div class="ml-auto float-right">
-                        <div ngbDropdown class="">
-                            <a href="javascript:;" class="option-dots" ngbDropdownToggle><i
-                                    class="fe fe-more-horizontal"></i></a>
-                            <div ngbDropdownMenu class="dropdown-menu-right">
-                                <a ngbDropdownItem href="javascript:;">Today</a>
-                                <a ngbDropdownItem href="javascript:;">Last Week</a>
-                                <a ngbDropdownItem href="javascript:;">Last Month</a>
-                                <a ngbDropdownItem href="javascript:;">Last Year</a>
-                            </div>
-                        </div>
-                    </div> -->
+                   
                 </div>
-                <!-- <p class="tx-12 tx-gray-500 mt-0 mb-2">Example of Spruha Simple Table. <a href="javascript:;">Learn
-                        more</a></p> -->
+                
             </div>
             <div class="card-body">
-                <div class="table-responsive border userlist-table" *ngIf="showDatafound">
-                 
-                </div>
-                <div class="center" *ngIf="!showDatafound">
+                {{data}}
+             <div class="center" *ngIf="!showDatafound">
                     <span>NO DATA FOUND </span>
                 </div>
                 <!-- <pagination-controls class="pagination mt-4 mb-0 float-right page-item" (pageChange)="page = $event">

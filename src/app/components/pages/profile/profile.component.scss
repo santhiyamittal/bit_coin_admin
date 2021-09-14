@@ -25,3 +25,11 @@
     transform: translate(-150px, 24px) !important;
     z-index: 9 !important;
  }
+
+    .profile-cover__img {
+        position: absolute;
+        bottom: 34px !important;
+        left: 50px;
+        text-align: center;
+        z-index: 1;
+    }

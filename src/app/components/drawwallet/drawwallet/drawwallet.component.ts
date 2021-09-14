@@ -41,8 +41,9 @@ submitted:boolean=false;
   value:number;
   del: any;
   name: any;
-  drawid:number=0;
+  drawid:any;
   dataa: any;
+  draw:any
   // username: any;
   // email: any;
   
@@ -82,10 +83,7 @@ submitted:boolean=false;
   }
   addfunction(){
     this.router.navigateByUrl('/drawwallet/adddraw')
-this.drawid=this.drawid+1
-console.log(this.drawid)
-localStorage.setItem("drawid", JSON.stringify(this.drawid));
-
+this.getnxtdraw()
   }
   
   warningAlert(item) {
@@ -96,22 +94,22 @@ localStorage.setItem("drawid", JSON.stringify(this.drawid));
     Swal.fire({
       icon: 'warning',
       title: 'Are you sure ?',
-      text: 'Your will not be able to recover this imaginary file!',
+      // text: 'Your will not be able to recover this imaginary file!',
       showCancelButton: true,
       confirmButtonColor: '#6259ca',
       cancelButtonColor: '#6259ca',
-      confirmButtonText: 'Yes, delete it!',
+      confirmButtonText: 'Yes, Change it!',
       reverseButtons: true
 
     }).then((item) => {
       if (item.isConfirmed) {
         Swal.fire({
-          title: 'Deleted!',
-          text: 'Your imaginary file has been deleted.',
+          title: 'Status Change!',
+          text: 'Status Changed.',
           icon: 'success',
           confirmButtonColor: '#6259ca'
         })
-        // this.getdrawdelete();
+        this.getdrawdelete();
       } 
 
     })
@@ -249,8 +247,8 @@ localStorage.setItem("drawid", JSON.stringify(this.drawid));
   //   this.getlist();
   // }
   // }
-  getdrawdelete(item){
-    this.id=item['_id']
+  getdrawdelete(){
+    // this.id=item['_id']
 
     debugger
     let jsonData = {
@@ -265,6 +263,15 @@ localStorage.setItem("drawid", JSON.stringify(this.drawid));
       this.getlist();
       
   }
-  
+   getnxtdraw() {
+     debugger
+    this.httpService.getnextdraw().subscribe((res: any) => {
+      console.log(res['data'])
+      this.drawid=res['data']
+              this.draw =this.drawid+1;
+              console.log(this.draw)
+
+    });
+  }
    }
 

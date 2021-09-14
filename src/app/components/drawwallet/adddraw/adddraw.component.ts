@@ -33,7 +33,7 @@ export class AdddrawComponent implements OnInit {
   fourthprice:any;
   thridprice:any;
 index:any;
-  drawid:number=0;
+  drawid:any;
   touched: boolean;
   draw: any;
 
@@ -54,32 +54,32 @@ index:any;
     //   this.drawid=[i];
     //   console.log(this.drawid);
     // }
-    this.drawid = JSON.parse(localStorage.getItem("drawid"))
-    this.draw ='Draw#' +this.drawid
+    // this.drawid = JSON.parse(localStorage.getItem("drawid"))
+    // this.draw ='Draw#' +this.drawid
 
     // this.drawid=this.drawid+1;
   }
   ngOnInit(): void {
+this.getnxtdraw();
     // this.drawid="Draw#1"
-debugger
-    try{
-      this.drawid = JSON.parse(localStorage.getItem("drawid"))
-          this.draw ='Draw#' +this.drawid
 
-      if(this.drawid==null){
-        this.drawid=0;
-        localStorage.setItem("drawid", JSON.stringify(this.drawid));
-        this.draw ='Draw#' +this.drawid
+    // try{
+    //   this.drawid = JSON.parse(localStorage.getItem("drawid"))
+    //       this.draw ='Draw#' +this.drawid
 
-      }
-    }
-    catch{
-      this.drawid=0;
-      this.draw ='Draw#' +this.drawid
+    //   if(this.drawid==null){
+    //     this.drawid=0;
+    //     localStorage.setItem("drawid", JSON.stringify(this.drawid));
+    //     this.draw ='Draw#' +this.drawid
 
-      // localStorage.setItem("drawid", JSON.stringify(this.drawid));
+    //   }
+    // }
+    // catch{
+    //   this.drawid=0;
+    //   this.draw ='Draw#' +this.drawid
 
-    }
+
+    // }
     this.createForm();
     // var datePipe = new DatePipe("en-US");
 
@@ -176,11 +176,31 @@ debugger
     });
   }
   }
+  getnxtdraw() {
+     debugger
+    this.httpService.getnextdraw().subscribe((res: any) => {
+      console.log(res['data'])
+      this.drawid=res['data']
+    
+              // this.draw =this.drawid+1;
+              console.log(this.draw)
+                if (this.draw === this.drawid) {
+      console.log("disable");
+    } else {
+      this.draw++;
+      console.log("Value of num1 after increment ", this.draw);
+    }
+  
+
+    });
+  }
   addfunction(){
+
     if(this.loginForm.value.EndTime.length>0){
-    this.drawid=this.drawid+1
-        localStorage.setItem("drawid", JSON.stringify(this.drawid));
-        this.draw ='Draw#' +this.drawid
+    // this.drawid=this.drawid+1
+        // localStorage.setItem("drawid", JSON.stringify(this.drawid));
+                this.getnxtdraw();
+
     }
       }
 }
