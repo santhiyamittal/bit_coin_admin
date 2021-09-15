@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { map } from 'rxjs/operators';
 
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { HttpService } from 'src/app/shared/services/http.service';
@@ -14,6 +15,8 @@ import { HttpService } from 'src/app/shared/services/http.service';
 export class GetlogComponent implements OnInit {
   showDatafound:true
   data:any=[];
+  dataa={ log: []};
+log:any;
   constructor(
 public toastr: ToastrService,
 
@@ -35,8 +38,11 @@ public toastr: ToastrService,
   getlog(){
         this.httpService.getlog().subscribe((res: any) => {
           console.log(res['data'])
-          this.data=res['data']['1630839361530']
-  
+          this.data=res['data']
+     var getKeysArray = Object.keys( this.data);
+var getValueArray = Object.values( this.data);
+this.log= getKeysArray[0] as string +  getValueArray[0] as string ;
+            console.log(this.log);
            });
   }
 }

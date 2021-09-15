@@ -33,10 +33,10 @@ export class AdddrawComponent implements OnInit {
   fourthprice:any;
   thridprice:any;
 index:any;
-  drawid:any;
+  drawid:number;
   touched: boolean;
   draw: any;
-
+drawname:string;
   constructor(
     public toastr: ToastrService,
 
@@ -88,7 +88,7 @@ this.getnxtdraw();
 
     console.log(this.StartTime)
     // console.log( 'Tick time - ' +this.drawid)
-    // this.draw ='Draw#' +this.drawid
+    this.draw ='Draw#' +this.drawid
 
   }
  
@@ -180,16 +180,17 @@ this.getnxtdraw();
      debugger
     this.httpService.getnextdraw().subscribe((res: any) => {
       console.log(res['data'])
-      this.drawid=res['data']
-    
-              // this.draw =this.drawid+1;
+      var res= res['data']
+      
+      this.drawid=parseInt(res.split("#")[1]);
+    this.drawid=this.drawid+1;
+
+        this.draw ='Draw#' +this.drawid
+
+    // this.drawname="Draw#"
+    // this.drawname=this.drawname+this.drawid
               console.log(this.draw)
-                if (this.draw === this.drawid) {
-      console.log("disable");
-    } else {
-      this.draw++;
-      console.log("Value of num1 after increment ", this.draw);
-    }
+      
   
 
     });

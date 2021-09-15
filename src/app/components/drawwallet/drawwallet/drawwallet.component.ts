@@ -268,7 +268,7 @@ this.getnxtdraw()
     this.httpService.getnextdraw().subscribe((res: any) => {
       console.log(res['data'])
       this.drawid=res['data']
-              this.draw =this.drawid+1;
+              this.draw =this.drawid+=1;
               console.log(this.draw)
 
     });

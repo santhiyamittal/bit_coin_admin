@@ -28,7 +28,7 @@
         <div class="card custom-card">
             <div class="card-body">
                 <div class="panel profile-cover">
-                    <img width="100" height="80" [src]="profile_logo" class="image">
+                    <img width="10%" height="80" [src]="profile_logo" class="image">
 
                     <div class="profile-cover__img">
                         <img width="100" height="80" [src]="imageUrl" class="image">
@@ -231,6 +231,12 @@
                         <input type="file"id="fav_icon"(change)="handleFile($event.target.files)"
                                                             name="fav_icon" class="">
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 text-right m-t-20">
+                    <button type="submit" id="system_submit"
+                        class="btn btn-primary">Update</button>
                 </div>
             </div>
             <!-- <div class="mb-4 main-content-label">About Yourself</div>

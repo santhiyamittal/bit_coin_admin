@@ -255,10 +255,9 @@
                                                         <div class="form-group">
                                                             <label>Country
                                                             </label>
-                                                            <select class="select" formControlName="country"class="form-control"[(ngModel)]="country"value={{country}}
+                                                            <select class="select" [(ngModel)]="country" formControlName="country"class="form-control"
                                                           >
-                                                            <option ></option>
-                                                            <option *ngFor="let con of Country">{{con['name']}}</option>
+                                                            <option *ngFor="let con of Country"[ngValue]="country">{{con['name']}}</option>
                                                         </select>
                                                         </div>
                                                     </div>
