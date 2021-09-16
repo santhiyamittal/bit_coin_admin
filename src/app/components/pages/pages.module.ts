@@ -38,16 +38,25 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { GetlogComponent } from './getlog/getlog.component';
 import { DeletelogComponent } from './deletelog/deletelog.component';
+import { CreatewithdrawComponent } from './createwithdraw/createwithdraw.component';
+import { ViewwithdrawComponent } from './viewwithdraw/viewwithdraw.component';
+import { EditwithdrawComponent } from './editwithdraw/editwithdraw.component';
+import { OrderModule } from 'ngx-order-pipe';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 
 
 @NgModule({
-  declarations: [ProfileComponent, InvoiceComponent, PricingComponent, GalleryComponent, FaqsComponent, SuccessmessageComponent, DangermessageComponent, WarningmessageComponent, EmptypageComponent, ConstantpageComponent, ExtrapageComponent, SettingpageComponent, SystemsettingpageComponent, ChangepasspageComponent, EmailpageComponent, BackendpageComponent, CreditpageComponent, DocspageComponent, WithdrawpageComponent, QualificationpageComponent, DocumentpageComponent, GetlogComponent, DeletelogComponent],
+  declarations: [ProfileComponent, InvoiceComponent, PricingComponent, GalleryComponent, FaqsComponent, SuccessmessageComponent, DangermessageComponent, WarningmessageComponent, EmptypageComponent, ConstantpageComponent, ExtrapageComponent, SettingpageComponent, SystemsettingpageComponent, ChangepasspageComponent, EmailpageComponent, BackendpageComponent, CreditpageComponent, DocspageComponent, WithdrawpageComponent, QualificationpageComponent, DocumentpageComponent, GetlogComponent, DeletelogComponent, CreatewithdrawComponent, ViewwithdrawComponent, EditwithdrawComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,
     PageMsgRoutingModule,
     NgbModule,
+    Ng2SearchPipeModule,
+    OrderModule,
+    NgxPaginationModule,
     GalleryModule.forRoot(),
     NgSelectModule,
     FormsModule,
@@ -69,6 +78,7 @@ import { DeletelogComponent } from './deletelog/deletelog.component';
  
     ToastrService
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 
 })
 

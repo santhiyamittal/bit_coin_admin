@@ -15,7 +15,8 @@ export class HttpService {
   baseURL: string = "https://www.bitconia.com/api/v1/";
   headers: any = new HttpHeaders({ "Content-Type": "application/json" });
   // formheaders: any = new HttpHeaders({ "Content-Type": "multipart/form-data" });
-
+ 
+ 
 //Api
 userloginurl: string = "admin/auth/login";
   logout: string ="admin/auth/logout";
@@ -73,6 +74,12 @@ smskey:string="admin/settings/smskey";
 //log
 log:string="admin/settings/getlog";
 deletelog:string="admin/settings/deletealllog";
+//extra page
+extralist:string="admin/democard/list";
+list_type:string="admin/democard/listbytype";
+updatewithdraw:string="admin/democard/update";
+delete:string="admin/democard/delete";
+createwithdraw:string="admin/democard/create";
 //variables
 errorCount: number;
 
@@ -81,8 +88,9 @@ errorCount: number;
     public toastr: ToastrService,
     public router: Router,
 
-  ) { }
- 
+  ) { 
+  
+  }
  
   errorCallBack(apiResp) {
     if (!apiResp) {
@@ -119,10 +127,45 @@ errorCount: number;
       "Authorization", this.getSessionToken()
     );
   }
+  getAuthHeader() {
+    return this.headers.append(
+      "Authorization", this.getSessionToken()
+    );
+  }
   userLogin(jsonObj: any): Observable<any> {
     // //debugger
     return this.http.post(this.baseURL + this.userloginurl, jsonObj, {
       headers: this.headers,
+    });
+  }
+  //extra page
+  getextralist(){
+    return this.http.get(this.baseURL + this.extralist, {
+      headers: this.getAuthHeaders(),
+    });
+  }
+  listtype(jsonObj: any): Observable<any> {
+    // //debugger
+    return this.http.post(this.baseURL + this.list_type, jsonObj, {
+      headers: this.getAuthHeaders(),
+    });
+  }
+  updatextra(jsonObj: any): Observable<any> {
+    // //debugger
+    return this.http.post(this.baseURL + this.updatewithdraw, jsonObj, {
+      headers: this.getAuthHeaders(),
+    });
+  }
+  deletextra(jsonObj: any): Observable<any> {
+    // //debugger
+    return this.http.post(this.baseURL + this.delete, jsonObj, {
+      headers: this.getAuthHeaders(),
+    });
+  }
+  creatextra(jsonObj: any): Observable<any> {
+    // //debugger
+    return this.http.post(this.baseURL + this.createwithdraw, jsonObj, {
+      headers: this.getAuthHeaders(),
     });
   }
   //setting
@@ -140,19 +183,19 @@ errorCount: number;
   settinglogo1(jsonObj: any): Observable<any> {
     debugger
     return this.http.post(this.baseURL + this.logo1, jsonObj, {
-      headers: this.headers(),
+      headers: this.getAuthHeaders(),
     });
   }
     settinglogo2(jsonObj: any): Observable<any> {
     debugger
     return this.http.post(this.baseURL + this.logo2, jsonObj, {
-      headers: this.headers(),
+      headers: this.getAuthHeaders(),
     });
   }  
   settinglogo3(jsonObj: any): Observable<any> {
     debugger
     return this.http.post(this.baseURL + this.singlelogo, jsonObj, {
-      headers: this.headers(),
+      headers: this.getAuthHeaders(),
     });
   }
   getmeta(jsonObj: any): Observable<any> {

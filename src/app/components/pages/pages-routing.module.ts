@@ -4,10 +4,12 @@ import { AuthencationGuard } from 'src/app/shared/services/authencation.guard';
 import { BackendpageComponent } from './backendpage/backendpage.component';
 import { ChangepasspageComponent } from './changepasspage/changepasspage.component';
 import { ConstantpageComponent } from './constantpage/constantpage.component';
+import { CreatewithdrawComponent } from './createwithdraw/createwithdraw.component';
 import { CreditpageComponent } from './creditpage/creditpage.component';
 import { DangermessageComponent } from './dangermessage/dangermessage.component';
 import { DeletelogComponent } from './deletelog/deletelog.component';
 import { DocumentpageComponent } from './documentpage/documentpage.component';
+import { EditwithdrawComponent } from './editwithdraw/editwithdraw.component';
 import { EmailpageComponent } from './emailpage/emailpage.component';
 import { EmptypageComponent } from './emptypage/emptypage.component';
 import { ExtrapageComponent } from './extrapage/extrapage.component';
@@ -21,6 +23,7 @@ import { QualificationpageComponent } from './qualificationpage/qualificationpag
 import { SettingpageComponent } from './settingpage/settingpage.component';
 import { SuccessmessageComponent } from './successmessage/successmessage.component';
 import { SystemsettingpageComponent } from './systemsettingpage/systemsettingpage.component';
+import { ViewwithdrawComponent } from './viewwithdraw/viewwithdraw.component';
 import { WarningmessageComponent } from './warningmessage/warningmessage.component';
 import { WithdrawpageComponent } from './withdrawpage/withdrawpage.component';
 
@@ -90,6 +93,18 @@ const routes: Routes = [
       {
         path: 'withdrawpage',
         component:WithdrawpageComponent
+      },
+      {
+        path: 'viewwithdraw',
+        component:ViewwithdrawComponent
+      },
+      {
+        path: 'editwithdraw',
+        component:EditwithdrawComponent
+      },
+      {
+        path: 'createwithdraw',
+        component:CreatewithdrawComponent
       },
       {
         path: 'qualification',

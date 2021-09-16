@@ -89,8 +89,7 @@ submitted:boolean=false;
   
   addsymbol(userdetails) {
     const dialogRef = this.dialog.open(ViewlistComponent, {
-      width: '600px',
-      height: '600px',
+     
       data: { data: userdetails, }
     });
     dialogRef.afterClosed().subscribe((result) => {
