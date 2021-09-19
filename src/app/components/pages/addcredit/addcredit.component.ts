@@ -7,11 +7,11 @@ import { HttpService } from 'src/app/shared/services/http.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-createwithdraw',
-  templateUrl: './createwithdraw.component.html',
-  styleUrls: ['./createwithdraw.component.scss']
+  selector: 'app-addcredit',
+  templateUrl: './addcredit.component.html',
+  styleUrls: ['./addcredit.component.scss']
 })
-export class CreatewithdrawComponent implements OnInit {
+export class AddcreditComponent implements OnInit {
   public loginForm: FormGroup;
   imageSrc: string;
   file: any;
@@ -22,6 +22,7 @@ export class CreatewithdrawComponent implements OnInit {
   type: any;
   image: any;
   fileToUpload: File | null = null;
+  image1: string;
   constructor(
     public toastr: ToastrService,
 
@@ -39,7 +40,7 @@ export class CreatewithdrawComponent implements OnInit {
   }
   createForm() {
     this.loginForm = this.formBuilder.group({
-      'file':['', Validators.required],
+      // 'file':['', Validators.required],
       'content':['', Validators.required],
       'type':['', Validators.required],
        'no':['', Validators.required],
@@ -61,7 +62,7 @@ export class CreatewithdrawComponent implements OnInit {
       text: 'User Get Updated',
       confirmButtonColor: '#6259ca'
     })
-    this.router.navigateByUrl('/pages/withdrawpage')
+    this.router.navigateByUrl('/pages/creditpage')
 
   }
   onFileChange(event) {
@@ -91,15 +92,23 @@ export class CreatewithdrawComponent implements OnInit {
     reader.readAsDataURL(this.fileToUpload);
 }
 user(){
-  this.router.navigateByUrl('/pages/withdrawpage')
+  this.router.navigateByUrl('/pages/creditpage')
 
 }
   onSubmit() {
+    let fileNames = (<HTMLInputElement>document.getElementById("file")).files;
+    // var formData = new FormData();
+    for (let i = 0; i < fileNames.length; i++) {
+      // formData.append("file", fileNames[i]['name']);
+            this.image1=fileNames[i]['name']
+
+      console.log(fileNames[i]['name'])
+    }
     this.submitted = true;
   
     debugger
     let jsonData = {
-      file:this.loginForm.value.file,
+      file:this.image1,
       content:this.loginForm.value.content,
       no:this.loginForm.value.no,
       type:this.loginForm.value.type,

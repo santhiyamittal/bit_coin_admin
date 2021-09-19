@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthencationGuard } from 'src/app/shared/services/authencation.guard';
+import { AddbackendComponent } from './addbackend/addbackend.component';
+import { AddcreditComponent } from './addcredit/addcredit.component';
 import { BackendpageComponent } from './backendpage/backendpage.component';
 import { ChangepasspageComponent } from './changepasspage/changepasspage.component';
 import { ConstantpageComponent } from './constantpage/constantpage.component';
@@ -23,6 +25,8 @@ import { QualificationpageComponent } from './qualificationpage/qualificationpag
 import { SettingpageComponent } from './settingpage/settingpage.component';
 import { SuccessmessageComponent } from './successmessage/successmessage.component';
 import { SystemsettingpageComponent } from './systemsettingpage/systemsettingpage.component';
+import { ViewbackendComponent } from './viewbackend/viewbackend.component';
+import { ViewcreditComponent } from './viewcredit/viewcredit.component';
 import { ViewwithdrawComponent } from './viewwithdraw/viewwithdraw.component';
 import { WarningmessageComponent } from './warningmessage/warningmessage.component';
 import { WithdrawpageComponent } from './withdrawpage/withdrawpage.component';
@@ -87,8 +91,23 @@ const routes: Routes = [
         component:BackendpageComponent
       },
       {
+        path: 'addbackend',
+        component:AddbackendComponent
+      },{
+        path: 'viewbackend',
+        component:ViewbackendComponent
+      },
+      {
         path: 'creditpage',
         component:CreditpageComponent
+      },
+      {
+        path: 'addcredit',
+        component:AddcreditComponent
+      },
+      {
+        path: 'viewcredit',
+        component:ViewcreditComponent
       },
       {
         path: 'withdrawpage',

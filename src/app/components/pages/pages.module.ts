@@ -44,11 +44,17 @@ import { EditwithdrawComponent } from './editwithdraw/editwithdraw.component';
 import { OrderModule } from 'ngx-order-pipe';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
-import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
+import {NgxPaginationModule} from 'ngx-pagination';
+import { AddcreditComponent } from './addcredit/addcredit.component';
+import { EditcreditComponent } from './editcredit/editcredit.component';
+import { EditbackendComponent } from './editbackend/editbackend.component';
+import { AddbackendComponent } from './addbackend/addbackend.component';
+import { ViewbackendComponent } from './viewbackend/viewbackend.component';
+import { ViewcreditComponent } from './viewcredit/viewcredit.component'; // <-- import the module
 
 
 @NgModule({
-  declarations: [ProfileComponent, InvoiceComponent, PricingComponent, GalleryComponent, FaqsComponent, SuccessmessageComponent, DangermessageComponent, WarningmessageComponent, EmptypageComponent, ConstantpageComponent, ExtrapageComponent, SettingpageComponent, SystemsettingpageComponent, ChangepasspageComponent, EmailpageComponent, BackendpageComponent, CreditpageComponent, DocspageComponent, WithdrawpageComponent, QualificationpageComponent, DocumentpageComponent, GetlogComponent, DeletelogComponent, CreatewithdrawComponent, ViewwithdrawComponent, EditwithdrawComponent],
+  declarations: [ProfileComponent, InvoiceComponent, PricingComponent, GalleryComponent, FaqsComponent, SuccessmessageComponent, DangermessageComponent, WarningmessageComponent, EmptypageComponent, ConstantpageComponent, ExtrapageComponent, SettingpageComponent, SystemsettingpageComponent, ChangepasspageComponent, EmailpageComponent, BackendpageComponent, CreditpageComponent, DocspageComponent, WithdrawpageComponent, QualificationpageComponent, DocumentpageComponent, GetlogComponent, DeletelogComponent, CreatewithdrawComponent, ViewwithdrawComponent, EditwithdrawComponent, AddcreditComponent, EditcreditComponent, EditbackendComponent, AddbackendComponent, ViewbackendComponent, ViewcreditComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,

@@ -1,9 +1,9 @@
 <div class="page-header">
     <div>
-        <h2 class="main-content-title tx-24 mg-b-5">Add Withdraw</h2>
+        <h2 class="main-content-title tx-24 mg-b-5">Add Cerdit</h2>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item cus" (click)="user()">Withdraw</li>
-            <li class="breadcrumb-item active" aria-current="page">Add Withdraw</li>
+            <li class="breadcrumb-item cus" (click)="user()">Cerdit</li>
+            <li class="breadcrumb-item active" aria-current="page">Add Cerdit</li>
 
 
         </ol>
@@ -63,16 +63,15 @@
                     <span class="tx-danger">*</span>
     
                 </label>                <input 
-                    formControlName="file"
                     id="file" 
                     type="file" 
                     class="form-control"
-                    (change)="onFileChange($event)" [ngClass]="{ 'is-invalid': submitted && loginFormControl.file.errors }">
-                    <div *ngIf="submitted && loginFormControl.file.errors" class="invalid-feedback">
+                    (change)="handleFileInput($event.target.files)">
+                    <!-- <div *ngIf="submitted && loginFormControl.file.errors" class="invalid-feedback">
                         <div *ngIf="loginFormControl.file.errors.required">File is required.</div>
-                </div>
+                </div> -->
             </div>
-            <img [src]="imageSrc" *ngIf="imageSrc" style="height: 30px; width:50px">
+            <img [src]="image" *ngIf="image" style="height: 30px; width:50px">
 
                            
                             <div class="modal-footer">

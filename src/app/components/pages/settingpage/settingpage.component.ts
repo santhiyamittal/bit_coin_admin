@@ -1290,10 +1290,7 @@ meta_keywords:any;
     // 'username':['', Validators.required],
     'keywords': ['', Validators.required],    })
    
-  //    this.emailkey = this.formBuilder.group({
-  //  'email_ak':['', Validators.required],
-  //   // 'username':['', Validators.required],
-  //   'email_sk': ['', Validators.required],    })
+     
      this.googleauth = this.formBuilder.group({
    'googleauth_ak':['', Validators.required],
     // 'username':['', Validators.required],
@@ -1304,12 +1301,19 @@ meta_keywords:any;
     this.getlist();
   this.createForm();
   this.SMS();
+  this.Email();
   }
   get loginFormControl() {
     return this.loginForm.controls;
   }
 getdashboard(){
   this.router.navigateByUrl('/dashboard/dashboard')
+}
+Email(){
+  this.emailauth = this.formBuilder.group({
+    'email_ak':['', Validators.required],
+     // 'username':['', Validators.required],
+     'email_sk': ['', Validators.required],    })
 }
 SMS() {
   this.sms = this.formBuilder.group({
@@ -1593,7 +1597,23 @@ getsmskey(){
  });
 //  this.getlist();
 }
+getemailkey(){
+  debugger
+  let jsonData = {
+    email_sk:this.emailauth.value.email_sk,
+    email_ak:this.emailauth.value.email_ak,
+  }
 
+    this.httpService.getemailkey(jsonData).subscribe((res: any) => {
+ console.log(res['data']);
+ this.toastr.success(res ['message'], "", {
+          positionClass: "toast-bottom-right",
+          closeButton: true,
+          timeOut: 5000,
+        });
+ });
+//  this.getlist();
+}
 getgoogleauth(){
   debugger
   let jsonData = {

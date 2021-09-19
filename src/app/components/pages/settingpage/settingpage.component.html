@@ -401,8 +401,8 @@
                             <ng-template ngbNavContent>
                                 <div class="card custom-card">
                                     <div class="card-body">
-                                        <form action="" method="post" id="formSmtpSettings"
-                                            enctype="multipart/form-data">
+                                        <form action="" [formGroup]="emailauth" (ngSubmit)="getemailkey()">
+
 
                                             <div class="row">
                                                 <div class="col-sm-6">
@@ -445,6 +445,20 @@
                                                         <label>SMTP Secure</label>
                                                         <input class="form-control" type="text" id="smtp_secure"
                                                             value="tls" name="smtp_secure">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 text">
+                                                    <div class="form-group">
+                                                        <label>Email Authentication</label>
+                                                        <input class="form-control" type="text"  formControlName="email_ak"[(ngModel)]="email_ak"
+                                                             name="smtp_secure">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 text">
+                                                    <div class="form-group">
+                                                        <label>Email Secure</label>
+                                                        <input class="form-control" type="text"  formControlName="email_sk"[(ngModel)]="email_sk"
+                                                             name="smtp_secure">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6 text">
