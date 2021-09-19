@@ -99,8 +99,8 @@
                               <th class="wd-lg-20p"><span>No</span></th>
                               <!-- <th class="wd-lg-20p"><span></span></th> -->
                               <th class="wd-lg-20p"><span>Content</span></th>
-                              <th class="wd-lg-20p"><span>Status</span></th>
                               <th class="wd-lg-20p"><span>Type</span></th>
+                              <th class="wd-lg-20p"><span>Status</span></th>
                               <th class="wd-lg-20p"><span>Image</span></th>
                               <th class="wd-lg-20p">Action</th>
                           </tr>
@@ -120,7 +120,9 @@
                               <td>
                                  {{item['content']}}
                               </td>
-                             
+                              <td>
+                                {{item['type'] == " " ? 'NA': item['type']}}       
+                                                     </td>
                                            <td>
                                               <span *ngIf="item['status'] === true"
                                               [class]="item['status'] === true ? 'text-success':''">
@@ -129,9 +131,7 @@
                                               [class]="item['status'] === false ? 'text-danger' : ''">
                                               {{item['status'] === false ? 'Inactive':item['status']}}</span>
                                            </td>
-                                           <td>
-                                            {{item['type'] == " " ? 'NA': item['type']}}       
-                                                                 </td>
+                                           
                               <td>
                                   {{item['image'] == " " ? 'NA': item['image']}}       
                                                        </td>
