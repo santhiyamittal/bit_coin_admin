@@ -82,8 +82,8 @@
                             </div>
                             <div class="card-item-body">
                                 <div class="card-item-stat">
-                                    <h4 class="font-weight-bold">$5,900.00</h4>
-                                    <small><b class="text-success">55%</b> higher</small>
+                                    <h4 class="font-weight-bold">${{balanace}}</h4>
+                                    <!-- <small><b class="text-success">55%</b> higher</small> -->
                                 </div>
                             </div>
                         </div>
@@ -110,8 +110,8 @@
                             </div>
                             <div class="card-item-body">
                                 <div class="card-item-stat">
-                                    <h4 class="font-weight-bold">15</h4>
-                                    <small><b class="text-success">5%</b> Increased</small>
+                                    <h4 class="font-weight-bold">{{draw}}</h4>
+                                    <!-- <small><b class="text-success">5%</b> Increased</small> -->
                                 </div>
                             </div>
                         </div>
@@ -139,8 +139,8 @@
                             </div>
                             <div class="card-item-body">
                                 <div class="card-item-stat">
-                                    <h4 class="font-weight-bold">$8,500</h4>
-                                    <small><b class="text-danger">12%</b> Decreased</small>
+                                    <h4 class="font-weight-bold">{{user}}</h4>
+                                    <!-- <small><b class="text-danger">12%</b> Decreased</small> -->
                                 </div>
                             </div>
                         </div>
@@ -458,116 +458,30 @@
             <span class="d-block tx-12 mb-2 text-muted">Projects where development work is on completion</span>
             <table class="table table-hover m-b-0 transcations mt-2">
                 <tbody>
-                    <tr>
+                    <tr *ngFor="let item of data">
                         <td class="wd-5p">
                             <div class="main-img-user avatar-md ml-3">
                                 <!-- <img alt="avatar" class="rounded-circle ml-3" src="../../assets/img/users/5.jpg"> -->
                             </div>
                         </td>
-                        <td>
-                            <div class="d-flex align-middle mr-3">
+                        <td (click)="popup(item)">
+                            <div class="d-flex align-middle mr-3 cus">
                                 <div class="d-inline-block">
-                                    <h6 class="mb-1">Flicker</h6>
-                                    <p class="mb-0 tx-13 text-muted">App improvement</p>
+                                    <h6 class="mb-1">{{item['username']}}</h6>
+                                    <p class="mb-0 tx-13 text-muted">{{item['coinname']}}</p>
                                 </div>
                             </div>
                         </td>
                         <td class="text-left">
                             <div class="d-inline-block">
-                                <h6 class="mb-2 tx-15 font-weight-semibold">$45.234<i
-                                        class="fas fa-level-up-alt mr-2 text-success m-r-10"></i></h6>
-                                <p class="mb-0 tx-11 text-muted">12 Jan 2020</p>
+                                <h6 class="mb-2 tx-15 font-weight-semibold">${{item['price_received']}}</h6>
+                                <!-- <i
+                                        class="fas fa-level-up-alt mr-2 text-success m-r-10"></i></h6> -->
+                                <p class="mb-0 tx-11 text-muted">{{item['date']| date :'mediumDate'}}</p>
                             </div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="wd-5p">
-                            <div class="main-img-user avatar-md">
-                                <!-- <img alt="avatar" class="rounded-circle ml-3" src="../../assets/img/users/6.jpg"> -->
-                            </div>
-                        </td>
-                        <td>
-                            <div class="d-flex align-middle mr-3">
-                                <div class="d-inline-block">
-                                    <h6 class="mb-1">Intoxica</h6>
-                                    <p class="mb-0 tx-13 text-muted">Milestone</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="text-left">
-                            <div class="d-inline-block">
-                                <h6 class="mb-2 tx-15 font-weight-semibold">$23.452<i
-                                        class="fas fa-level-down-alt mr-2 text-danger m-r-10"></i></h6>
-                                <p class="mb-0 tx-11 text-muted">23 Jan 2020</p>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="wd-5p">
-                            <div class="main-img-user avatar-md">
-                                <!-- <img alt="avatar" class="rounded-circle ml-3" src="../../assets/img/users/7.jpg"> -->
-                            </div>
-                        </td>
-                        <td>
-                            <div class="d-flex align-middle mr-3">
-                                <div class="d-inline-block">
-                                    <h6 class="mb-1">Digiwatt</h6>
-                                    <p class="mb-0 tx-13 text-muted">Sales executive</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="text-left">
-                            <div class="d-inline-block">
-                                <h6 class="mb-2 tx-15 font-weight-semibold">$78.001<i
-                                        class="fas fa-level-down-alt mr-2 text-danger m-r-10"></i></h6>
-                                <p class="mb-0 tx-11 text-muted">4 Apr 2020</p>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="wd-5p">
-                            <div class="main-img-user avatar-md">
-                                <!-- <img alt="avatar" class="rounded-circle ml-3" src="../../assets/img/users/8.jpg"> -->
-                            </div>
-                        </td>
-                        <td>
-                            <div class="d-flex align-middle mr-3">
-                                <div class="d-inline-block">
-                                    <h6 class="mb-1">Flicker</h6>
-                                    <p class="mb-0 tx-13 text-muted">Milestone2</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="text-left">
-                            <div class="d-inline-block">
-                                <h6 class="mb-2 tx-15 font-weight-semibold">$37.285<i
-                                        class="fas fa-level-up-alt mr-2 text-success m-r-10"></i></h6>
-                                <p class="mb-0 tx-11 text-muted">4 Apr 2020</p>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="wd-5p pb-0">
-                            <div class="main-img-user avatar-md">
-                                <!-- <img alt="avatar" class="rounded-circle ml-3" src="../../assets/img/users/4.jpg"> -->
-                            </div>
-                        </td>
-                        <td class="pb-0">
-                            <div class="d-flex align-middle mr-3">
-                                <div class="d-inline-block">
-                                    <h6 class="mb-1">Flicker</h6>
-                                    <p class="mb-0 tx-13 text-muted">App improvement</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="text-left pb-0">
-                            <div class="d-inline-block">
-                                <h6 class="mb-2 tx-15 font-weight-semibold">$25.341<i
-                                        class="fas fa-level-down-alt mr-2 text-danger m-r-10"></i></h6>
-                                <p class="mb-0 tx-11 text-muted">4 Apr 2020</p>
-                            </div>
-                        </td>
-                    </tr>
+                  
                 </tbody>
             </table>
         </div>

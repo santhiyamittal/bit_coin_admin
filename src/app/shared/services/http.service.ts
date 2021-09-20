@@ -80,6 +80,11 @@ list_type:string="admin/democard/listbytype";
 updatewithdraw:string="admin/democard/update";
 delete:string="admin/democard/delete";
 createwithdraw:string="admin/democard/create";
+//
+//dashboard
+totallist: string="admin/dash/totallist";
+translist:string="admin/dash/transcationlist";
+charts:string="admin/dash/graph";
 //variables
 errorCount: number;
 
@@ -165,6 +170,22 @@ errorCount: number;
   creatextra(jsonObj: any): Observable<any> {
     // //debugger
     return this.http.post(this.baseURL + this.createwithdraw, jsonObj, {
+      headers: this.getAuthHeaders(),
+    });
+  }
+  //dashboard
+  total_list(){
+    return this.http.get(this.baseURL + this.totallist, {
+      headers: this.getAuthHeaders(),
+    });
+  }
+  trans_list(){
+    return this.http.get(this.baseURL + this.translist, {
+      headers: this.getAuthHeaders(),
+    });
+  }
+  chartslist(){
+    return this.http.get(this.baseURL + this.charts, {
       headers: this.getAuthHeaders(),
     });
   }

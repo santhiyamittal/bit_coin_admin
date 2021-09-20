@@ -1,5 +1,8 @@
 import { ChartDataSets, ChartOptions, ChartType} from 'chart.js';
 import { Color, Label} from 'ng2-charts';
+import { HttpService } from 'src/app/shared/services/http.service';
+
+
 
 //Chart js
 export let lineChartOptions: ChartOptions = {
@@ -52,12 +55,14 @@ export let lineChartOptions: ChartOptions = {
     }
 }
 
-export let lineChartLabels: Label[] = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Aug', 'Sep', 'Oct'];
+// export let lineChartLabels: Label[] = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Aug', 'Sep', 'Oct'];
+export let lineChartLabels: Label[] = ['Sep'];
+
 export let lineChartType: ChartType = 'line';
 export let lineChartLegend = true;
 export let lineChartData: ChartDataSets[] = [
     {
-        label: 'TOTAL BUDGET',
+        label: 'SellCount',
         data: [100, 210, 180, 454, 454, 230, 230, 656, 656, 350, 350, 210, 410],
         borderWidth: 3,
         backgroundColor: 'transparent',
@@ -66,7 +71,7 @@ export let lineChartData: ChartDataSets[] = [
         pointRadius: 0,
     },
     {
-        label: 'AMOUNT USED',
+        label: 'Price',
         data: [200, 530, 110, 110, 480, 520, 780, 435, 475, 738, 454, 454, 230],
         borderWidth: 3,
         backgroundColor: 'transparent',
