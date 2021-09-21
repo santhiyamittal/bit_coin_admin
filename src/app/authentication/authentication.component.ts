@@ -131,8 +131,8 @@ export class AuthenticationComponent implements OnInit {
           positionClass: 'toast-bottom-right', closeButton: true, timeOut: 1000
         });
 
-        // this.router.navigate(['/custom/twofactor']);
-        this.router.navigate(['/dashboard/dashboard']);
+        this.router.navigate(['/custom/twofactor']);
+        // this.router.navigate(['/dashboard/dashboard']);
 
 
       }

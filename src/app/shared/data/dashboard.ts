@@ -1,6 +1,6 @@
-import { ChartDataSets, ChartOptions, ChartType} from 'chart.js';
 import { Color, Label} from 'ng2-charts';
 import { HttpService } from 'src/app/shared/services/http.service';
+import { ChartDataSets, ChartOptions, ChartType} from 'chart.js';
 
 
 
@@ -54,6 +54,16 @@ export let lineChartOptions: ChartOptions = {
         }
     }
 }
+let graph = JSON.parse(localStorage.getItem("list"))
+for (let idx of graph) {
+
+    const sell = idx['amount']['sell_count']    
+    let price= idx['amount']['price']     
+let count= idx['amount']['count']     
+let date= idx['date']     
+
+console.log( date)
+}
 
 // export let lineChartLabels: Label[] = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Aug', 'Sep', 'Oct'];
 export let lineChartLabels: Label[] = ['Sep'];
@@ -63,7 +73,7 @@ export let lineChartLegend = true;
 export let lineChartData: ChartDataSets[] = [
     {
         label: 'SellCount',
-        data: [100, 210, 180, 454, 454, 230, 230, 656, 656, 350, 350, 210, 410],
+        data: [, 210, 180, 454, 454, 230, 230, 656, 656, 350, 350, 210, 410],
         borderWidth: 3,
         backgroundColor: 'transparent',
         borderColor: '#6259ca',

@@ -44,8 +44,11 @@
                 </div>
                 
             </div> -->
-            <div class="card-body">
+            <div class="card-body"*ngIf="showDatafound">
                 {{log}}
+            </div>
+            <div class="center" *ngIf="!showDatafound">
+                <span>NO DATA FOUND </span>
             </div>
         </div>
     </div><!-- COL END -->

@@ -166,16 +166,20 @@
                         <div class>
                             <div class="container">
 
-                                <div id="chartLine" class="chart-dropshadow2 ht-250">
+                                <!-- <div id="chart" class="chart-dropshadow2 ht-250">
                                     <canvas baseChart 
                                         [datasets]="lineChartData" 
                                         [labels]="lineChartLabels"
                                         [options]="lineChartOptions" 
                                         [legend]="lineChartLegend"
                                         [chartType]="lineChartType">
-                                    </canvas>
-                                </div>
+                                    </canvas> 
+                                    <canvas id="canvas">{{ chart }}</canvas>
 
+                                </div> -->
+                                <div *ngIf="chart"  class="chart-dropshadow2 ht-250">
+                                    <canvas id="canvas">{{ chart }}</canvas>
+                                  </div>
                             </div>
                         </div>
                     </div>

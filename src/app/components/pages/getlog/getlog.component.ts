@@ -13,7 +13,7 @@ import { HttpService } from 'src/app/shared/services/http.service';
   styleUrls: ['./getlog.component.scss']
 })
 export class GetlogComponent implements OnInit {
-  showDatafound:true
+  showDatafound:boolean
   data:any=[];
   dataa={ log: []};
 log:any;
@@ -39,6 +39,20 @@ public toastr: ToastrService,
         this.httpService.getlog().subscribe((res: any) => {
           console.log(res['data'])
           this.data=res['data']
+          if (this.data) {
+            if (this.data.length > 0) {
+          if (res['success'] == true) {
+            this.showDatafound = true;
+    
+           
+          }
+        }
+      }
+      else {
+        this.showDatafound = false;
+        console.log("No Data found");
+    
+      }
      var getKeysArray = Object.keys( this.data);
 var getValueArray = Object.values( this.data);
 this.log= getKeysArray[0] as string +  getValueArray[0] as string ;
