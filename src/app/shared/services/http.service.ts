@@ -85,6 +85,11 @@ createwithdraw:string="admin/democard/create";
 totallist: string="admin/dash/totallist";
 translist:string="admin/dash/transcationlist";
 charts:string="admin/dash/graph";
+//wallet
+walletlist:string="admin/dash/walletlist";
+addwallet:string="admin/dash/walletcreate";
+walletgraph:string="admin/dash/walletlistgraph";
+walletbalance:string="admin/dash/walletbalance";
 //variables
 errorCount: number;
 
@@ -186,6 +191,30 @@ errorCount: number;
   }
   chartslist(){
     return this.http.get(this.baseURL + this.charts, {
+      headers: this.getAuthHeaders(),
+    });
+  }
+  //wallet
+  wallet_list(jsonObj: any): Observable<any> {
+    // //debugger
+    return this.http.post(this.baseURL + this.walletlist, jsonObj, {
+      headers: this.getAuthHeaders(),
+    });
+  }
+  add_wallet(jsonObj: any): Observable<any> {
+    // //debugger
+    return this.http.post(this.baseURL + this.addwallet, jsonObj, {
+      headers: this.getAuthHeaders(),
+    });
+  }
+  wallet_graph(jsonObj: any): Observable<any> {
+    // //debugger
+    return this.http.post(this.baseURL + this.walletgraph, jsonObj, {
+      headers: this.getAuthHeaders(),
+    });
+  }
+  walletbal(){
+    return this.http.get(this.baseURL + this.walletbalance, {
       headers: this.getAuthHeaders(),
     });
   }

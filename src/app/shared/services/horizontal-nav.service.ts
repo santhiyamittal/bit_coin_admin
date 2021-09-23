@@ -26,7 +26,7 @@ export class HorizontalNavService {
 
   MENUITEMS: HorizontalMenu[] = [
     {
-      path: '/dashboard', title: 'Dashboard', type: 'link', icon: 'ti-home', active: true
+      path: '/dashboard/dashboard', title: 'Dashboard', type: 'link', icon: 'ti-home', active: true
     },
     {
       title: 'Crypto Currencies', icon: 'ti-wallet', type: 'sub', active: false,

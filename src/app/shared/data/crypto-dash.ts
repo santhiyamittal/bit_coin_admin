@@ -334,7 +334,8 @@ export let donutApexData: ApexOptions = {
 }
 //Donut Chart2 using Apex
 export let donutApexProfile: ApexOptions = {
-    series: [10, 4, 4],
+    series: [0,],
+
     dataLabels: {
         enabled: false
     },
@@ -342,7 +343,7 @@ export let donutApexProfile: ApexOptions = {
         type: "donut",
         height: 90,
     },
-    colors: ["#6259ca", "#f16d75", "#19b159"],
+    colors: ["#6259ca", "#f16d75", "#19b159","#F7931A"],
     legend: {
         show: false,
     },
@@ -376,7 +377,7 @@ export let lineApexChart: ApexOptions = {
     colors: ['#6259ca'],
     series: [
         {
-            data: [83, 56, 85, 62, 75, 45, 86, 56],
+            data: [0, 10,23, 34, ],
             name:'Bitcoin'
         }
     ],

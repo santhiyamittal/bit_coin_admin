@@ -6,6 +6,7 @@ import { LockscreenComponent } from './lockscreen/lockscreen.component';
 import { ResetComponent } from './reset/reset.component';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
+import { SmsotpComponent } from './smsotp/smsotp.component';
 import { TwofactorComponent } from './twofactor/twofactor.component';
 
 
@@ -39,7 +40,10 @@ const routes: Routes = [
         path: 'twofactor',
         component: TwofactorComponent
       },
-   
+      {
+        path: 'smsotp',
+        component: SmsotpComponent
+      },
     ]
   }
 

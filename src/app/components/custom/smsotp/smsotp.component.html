@@ -25,7 +25,7 @@
                                     <label>Authentication</label>
                                     <p class="mb-4 text-muted tx-13 ml-0 text-left"></p>
                                     <form [formGroup]="otpForm">
-                                        <!-- <div class="form-group text-left">
+                                        <div class="form-group text-left">
                                             <label> SMS OTP</label>
                                             <input class="form-control"maxlength='6' formControlName="otp" placeholder="Enter your OTP" 
                                             value="">
@@ -36,8 +36,8 @@
                                         <div *ngIf="otpFormControl.otp.errors?.pattern" class="tx-danger">
                                             <small>Enter a valid OTP</small>
                                         </div>
-                                        </div> -->
-                                        <div class="form-group text-left">
+                                        </div>
+                                        <!-- <div class="form-group text-left">
                                             <label> Email OTP</label>
                                             <input class="form-control"maxlength='6' formControlName="otp" placeholder="Enter your OTP" 
                                             value="">
@@ -48,9 +48,9 @@
                                         <div *ngIf="otpFormControl.otp.errors?.pattern" class="tx-danger">
                                             <small>Enter a valid OTP</small>
                                         </div>
-                                        </div>
+                                        </div> -->
                                         <!-- <button class="btn ripple btn-main-primary btn-block "  [disabled]="!otpForm.valid" (click)="getdashboard()">Submit -->
-                                            <button type="button" class="btn ripple btn-main-primary btn-block "(click)="getdashboard()">Submit
+                                            <button type="button" class="btn ripple btn-main-primary btn-block "routerLink="dashboard/dashboard">Submit
 
                                         </button>
                                             

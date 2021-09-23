@@ -140,6 +140,10 @@ this.router.navigateByUrl("pages/profile");
 
       // });
     }
+    getsecurity(){
+      this.router.navigateByUrl("pages/security");
+
+    }
   }
 
 

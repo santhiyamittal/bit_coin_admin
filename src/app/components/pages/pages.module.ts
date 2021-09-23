@@ -50,11 +50,15 @@ import { EditcreditComponent } from './editcredit/editcredit.component';
 import { EditbackendComponent } from './editbackend/editbackend.component';
 import { AddbackendComponent } from './addbackend/addbackend.component';
 import { ViewbackendComponent } from './viewbackend/viewbackend.component';
-import { ViewcreditComponent } from './viewcredit/viewcredit.component'; // <-- import the module
+import { ViewcreditComponent } from './viewcredit/viewcredit.component';
+import { SecuritypageComponent } from './securitypage/securitypage.component';
+import { GoogleAuthenticatorComponent } from './google-authenticator/google-authenticator.component'; // <-- import the module
+import { ArchwizardModule } from 'angular-archwizard';
+import { SmspageComponent } from './smspage/smspage.component';
 
 
 @NgModule({
-  declarations: [ProfileComponent, InvoiceComponent, PricingComponent, GalleryComponent, FaqsComponent, SuccessmessageComponent, DangermessageComponent, WarningmessageComponent, EmptypageComponent, ConstantpageComponent, ExtrapageComponent, SettingpageComponent, SystemsettingpageComponent, ChangepasspageComponent, EmailpageComponent, BackendpageComponent, CreditpageComponent, DocspageComponent, WithdrawpageComponent, QualificationpageComponent, DocumentpageComponent, GetlogComponent, DeletelogComponent, CreatewithdrawComponent, ViewwithdrawComponent, EditwithdrawComponent, AddcreditComponent, EditcreditComponent, EditbackendComponent, AddbackendComponent, ViewbackendComponent, ViewcreditComponent],
+  declarations: [ProfileComponent, InvoiceComponent, PricingComponent, GalleryComponent, FaqsComponent, SuccessmessageComponent, DangermessageComponent, WarningmessageComponent, EmptypageComponent, ConstantpageComponent, ExtrapageComponent, SettingpageComponent, SystemsettingpageComponent, ChangepasspageComponent, EmailpageComponent, BackendpageComponent, CreditpageComponent, DocspageComponent, WithdrawpageComponent, QualificationpageComponent, DocumentpageComponent, GetlogComponent, DeletelogComponent, CreatewithdrawComponent, ViewwithdrawComponent, EditwithdrawComponent, AddcreditComponent, EditcreditComponent, EditbackendComponent, AddbackendComponent, ViewbackendComponent, ViewcreditComponent, SecuritypageComponent, GoogleAuthenticatorComponent, SmspageComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,
@@ -62,13 +66,14 @@ import { ViewcreditComponent } from './viewcredit/viewcredit.component'; // <-- 
     NgbModule,
     Ng2SearchPipeModule,
     OrderModule,
+    ArchwizardModule,
+    ClipboardModule,
     NgxPaginationModule,
     GalleryModule.forRoot(),
     NgSelectModule,
     FormsModule,
     ReactiveFormsModule,
     MatTabsModule,
-    ClipboardModule,
     HttpClientModule,
     CarouselModule,
     MatDialogModule,

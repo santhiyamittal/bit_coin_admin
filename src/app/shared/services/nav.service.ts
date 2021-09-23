@@ -149,7 +149,7 @@ export class NavService implements OnDestroy{
           path: 'pages/getlog', title: 'Log ', type: 'link', icon: 'fas fa-toolbox', 
         },
         {
-          path: 'pages/Changepasswpage', title: 'Change Password ', type: 'link', icon: 'fas fa-lock-open', 
+          path: 'pages/security', title: 'Security', type: 'link', icon: 'fas fa-lock-open', 
         },
       ]
     },

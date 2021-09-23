@@ -72,7 +72,7 @@
                     <i class="{{toggleClass}} fullscreen-button fullscreen header-icons"></i>
                 </a>
             </div>
-            <!-- <div ngbDropdown class="main-header-notification">
+            <div ngbDropdown class="main-header-notification">
                 <a ngbDropdownToggle class="nav-link icon" href="javascript:void(0)">
                     <i class="fe fe-bell header-icons"></i>
                     <span class="badge badge-danger nav-link-badge">4</span>
@@ -106,12 +106,12 @@
                     </div>
                 </div>
             </div>
-            <div ngbDropdown class="main-header-notification">
+            <!-- <div ngbDropdown class="main-header-notification">
                 <a ngbDropdownToggle class="nav-link icon" href="javascript:void(0)">
                     <i class="fe fe-message-square header-icons"></i>
                     <span class="badge badge-success nav-link-badge">6</span>
                 </a>
-                <div ngbDropdownMenu>
+                 <div ngbDropdownMenu>
                     <div class="header-navheading">
                         <p class="main-notification-text">3 new Messages</p>
                     </div>
@@ -144,8 +144,8 @@
                     <div class="dropdown-footer">
                         <a href="javascript:void(0)">View All</a>
                     </div>
-                </div>
-            </div> -->
+                </div> 
+            </div>  -->
 
             <div ngbDropdown class="main-profile-menu">
                 <a ngbDropdownToggle class="d-flex" href="javascript:void(0)">
@@ -159,6 +159,9 @@
                     </div>
                     <button ngbDropdownItem class=""(click)="getprofile()" >
                         <i class="fe fe-user"></i> My Profile
+                    </button>
+                    <button ngbDropdownItem class=""(click)="getsecurity()" >
+                        <i class="fe fe-user"></i> Security
                     </button>
                     <button ngbDropdownItem class=""(click)="logoutUser()" >
                         <i class="fe fe-power"></i> Sign Out
@@ -241,17 +244,17 @@
                     </a> -->
                 </div>
             </div>
-            <!-- <div class="dropdown">
+            <div class="dropdown">
                 <a class="nav-link icon full-screen-link" href="javascript:void(0)" appFullscreenToggle >
                     <i class="{{toggleClass}} fullscreen-button fullscreen header-icons"></i>
                 </a>
-            </div> -->
-            <!-- <div ngbDropdown class="main-header-notification">
+            </div> 
+             <div ngbDropdown class="main-header-notification">
                 <a ngbDropdownToggle class="nav-link icon" href="javascript:void(0)">
                     <i class="fe fe-bell header-icons"></i>
                     <span class="badge badge-danger nav-link-badge">4</span>
                 </a>
-                <div ngbDropdownMenu class="dropdown-menu">
+             <div ngbDropdownMenu class="dropdown-menu">
                     <div class="header-navheading">
                         <p class="main-notification-text">You have 1 unread notification<span class="badge badge-pill badge-primary ml-3">View all</span></p>
                     </div>
@@ -278,8 +281,8 @@
                     <div class="dropdown-footer">
                         <a href="javascript:void(0)">View All Notifications</a>
                     </div>
-                </div>
-            </div> -->
+                </div> 
+            </div> 
             <!---->
             <!-- <div ngbDropdown class="main-header-notification mt-2">
                 <a ngbDropdownToggle class="nav-link icon" href="javascript:void(0)">
@@ -324,7 +327,7 @@
             <!---->
             <div ngbDropdown class="main-profile-menu">
                 <a ngbDropdownToggle class="d-flex" href="javascript:void(0)">
-                    <span class="main-img-user" ><img alt="avatar" src="../../assets/img/brand/Bitconia white.png"></span>
+                    <span class="main-img-user" ><img alt="avatar" src="../../assets/img/brand/Symbo-pngl.ico"></span>
                 </a>
                 <div ngbDropdownMenu>
                     <div class="header-navheading">
@@ -333,6 +336,9 @@
                     </div>
                     <button ngbDropdownItem class=""(click)="getprofile()" >
                         <i class="fe fe-user"></i> My Profile
+                    </button>
+                    <button ngbDropdownItem class=""(click)="getsecurity()" >
+                        <i class="fe fe-user"></i> Security
                     </button>
                     <button ngbDropdownItem class=""(click)="logoutUser()" >
                         <i class="fe fe-power"></i> Sign Out

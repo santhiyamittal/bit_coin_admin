@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthencationGuard } from 'src/app/shared/services/authencation.guard';
 import { AccumulatefundsComponent } from './accumulatefunds/accumulatefunds.component';
+import { AddwalletComponent } from './addwallet/addwallet.component';
 import { BuySellComponent } from './buy-sell/buy-sell.component';
 import { CancelpaymentComponent } from './cancelpayment/cancelpayment.component';
 import { ColdpagewalletComponent } from './coldpagewallet/coldpagewallet.component';
@@ -69,6 +70,10 @@ const routes: Routes = [
       {
         path: 'cancelpayment',
         component: CancelpaymentComponent
+      },
+      {
+        path: 'addwallet',
+        component: AddwalletComponent
       },
     ]
   }

@@ -29,9 +29,10 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { OrderModule } from 'ngx-order-pipe';
 import { InactivepaymentComponent } from './inactivepayment/inactivepayment.component';
 import { CancelpaymentComponent } from './cancelpayment/cancelpayment.component';
+import { AddwalletComponent } from './addwallet/addwallet.component';
 
 @NgModule({
-  declarations: [MarketcapComponent,PaymentTranscationComponent, CurrencyExchangeComponent, BuySellComponent, WalletComponent, TransactionsComponent, CryptoDashboardComponent, DistpagewalletComponent, ColdpagewalletComponent, SubwalletComponent, AccumulatefundsComponent,InactivepaymentComponent, CancelpaymentComponent],
+  declarations: [MarketcapComponent,PaymentTranscationComponent, CurrencyExchangeComponent, BuySellComponent, WalletComponent, TransactionsComponent, CryptoDashboardComponent, DistpagewalletComponent, ColdpagewalletComponent, SubwalletComponent, AccumulatefundsComponent,InactivepaymentComponent, CancelpaymentComponent, AddwalletComponent],
   imports: [
     CommonModule,
     MainwalletRouting,
@@ -40,8 +41,6 @@ import { CancelpaymentComponent } from './cancelpayment/cancelpayment.component'
     NgSelectModule,
     NgbModule,
     ClipboardModule,
-    FormsModule,
-    ReactiveFormsModule,
     HttpClientModule,
     NgxDatatableModule,
     FormsModule,
@@ -63,7 +62,7 @@ import { CancelpaymentComponent } from './cancelpayment/cancelpayment.component'
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 
   providers: [
-    ToastrService
+    ToastrService,
   ]
 })
 export class MainWalletModule { }

@@ -18,11 +18,14 @@ import { ExtrapageComponent } from './extrapage/extrapage.component';
 import { FaqsComponent } from './faqs/faqs.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { GetlogComponent } from './getlog/getlog.component';
+import { GoogleAuthenticatorComponent } from './google-authenticator/google-authenticator.component';
 import { InvoiceComponent } from './invoice/invoice.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { ProfileComponent } from './profile/profile.component';
 import { QualificationpageComponent } from './qualificationpage/qualificationpage.component';
+import { SecuritypageComponent } from './securitypage/securitypage.component';
 import { SettingpageComponent } from './settingpage/settingpage.component';
+import { SmspageComponent } from './smspage/smspage.component';
 import { SuccessmessageComponent } from './successmessage/successmessage.component';
 import { SystemsettingpageComponent } from './systemsettingpage/systemsettingpage.component';
 import { ViewbackendComponent } from './viewbackend/viewbackend.component';
@@ -87,6 +90,10 @@ const routes: Routes = [
         component:EmailpageComponent
       },
       {
+      path: 'smspage',
+      component:SmspageComponent
+    },
+      {
         path: 'backendpage',
         component:BackendpageComponent
       },
@@ -140,6 +147,14 @@ const routes: Routes = [
       {
         path: 'deletelog',
         component:DeletelogComponent
+      },
+      {
+        path: 'security',
+        component:SecuritypageComponent
+      },
+      {
+        path: 'GoogleAuth',
+        component:GoogleAuthenticatorComponent
       },
     ]
   }

@@ -214,7 +214,7 @@ handleFile(files: FileList) {
 this.data=res['data']
 this.role=res['data']['role']
 this.username=res['data']['username']
-console.log(this.role);
+console.log(this.data);
 
 
 // this.router.navigateByUrl("pages/profile");

@@ -4,7 +4,10 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 import * as chartData from "../../../shared/data/crypto-dash";
 import { DataTable2, SimpleDataTable } from 'src/app/shared/data/tables/data-table';
 import { DataTable } from 'simple-datatables';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { FormBuilder } from '@angular/forms';
+import { HttpService } from 'src/app/shared/services/http.service';
 
 @Component({
   selector: 'app-distpagewallet',
@@ -16,13 +19,26 @@ export class DistpagewalletComponent implements OnInit {
   public tableData = DataTable2;
   cryptoDashdata = cryptoDashboard;
   customOptions: OwlOptions
-
+  p: number[] = [];
+  showDatafound: boolean;
+  chart:any= [];
+  dataa: any;
+  id: any;
+  amount: number = 0;
+  data: any;
   constructor(
-    private router: Router
+    public toastr: ToastrService,
 
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router,
+    private routeTo: Router,
+
+    public httpService: HttpService,
   ) { }
 
   ngOnInit(): void {
+    this.wallet_list();
     this.customOptions = {
       loop: true,
       autoplay: true,
@@ -60,12 +76,12 @@ export class DistpagewalletComponent implements OnInit {
   }
 }
 
-ngAfterViewInit() {
-  let dataTable1 = new DataTable("#myTable1", {
-    searchable: false,
-    fixedHeight: false,
-  });
-}
+// ngAfterViewInit() {
+//   let dataTable1 = new DataTable("#myTable1", {
+//     searchable: false,
+//     fixedHeight: false,
+//   });
+// }
 
   //DonutChart using Apex
   public donutApexData = chartData.donutApexData;
@@ -111,5 +127,38 @@ ngAfterViewInit() {
   ]
   gotohome() {
     this.router.navigateByUrl('/dashboard/dashboard')
+  }
+  wallet_list(){
+    let jsonData = {
+      wallet:"distribution"
+    }
+    this.httpService.wallet_list(jsonData).subscribe(res => {
+      this.data=res['data']
+      console.log(this.data)
+      
+      for(let idx of this.data){
+        this.amount+= +idx['amount']
+        console.log(this.amount)
+        
+      }
+
+      if (this.data.length > 0) {
+        if (res['success'] == true) {
+          this.showDatafound = true;
+          // this.searchuser();
+  
+          // this.httpService.toastr.success(res['message'], '', {
+          //   positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
+          // });
+        }
+      }
+    
+  
+    else {
+      this.showDatafound = false;
+      console.log("No Data found");
+  
+    }
+    });
   }
 }

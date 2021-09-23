@@ -174,8 +174,8 @@
 
                             <div>
                                 <span class="tx-18 mb-3">Bitcoin Amount</span>
-                                <h2 class="mb-2 mt-2">3.634528</h2>
-                                <span class="m-0 tx-15 mt-4 text-muted">$2500 USD</span>
+                                <h2 class="mb-2 mt-2">{{amount}}</h2>
+                                <span class="m-0 tx-15 mt-4 text-muted">${{amount}} USD</span>
                             </div>
                         </div>
                         <div class="col-sm-7">
@@ -204,75 +204,19 @@
                                         [stroke]="donutApexProfile.stroke">
                                     </apx-chart>
                                     <div class="my-auto d-block">
-                                        <h6 class="mb-2 tx-16">2.343434</h6>
-                                        <span class="m-0 tx-14 text-muted">$2500 USD</span>
+                                        <h6 class="mb-2 tx-16">{{amount}}</h6>
+                                        <span class="m-0 tx-14 text-muted">${{amount}} USD</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 my-auto text-sm-center">
+                            <!-- <div class="col-sm-6 my-auto text-sm-center">
                                 <h2 class="mb-2  mt-3 mt-sm-0">2.343434</h2>
                                 <span class="m-0 tx-14 mt-3 text-muted">Pending Balance</span>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="card card-aside custom-card">
-            <div class="card-body">
-        <div class="d-flex">
-            <div class="row1">
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <!-- <label>Date</label> -->
-                    <!-- <div class="input-group">
-                        <input type="text" data-provide="datepicker" id="filter_start_date" name="filter_start_date"
-                            data-date-autoclose="true" class="form-control" autocomplete="off" placeholder="Date"
-                            required="required">
-                    </div> -->
-                    <div class="form-group text-left">
-                        <label>Name</label>
-                        <input class="form-control" 
-                            type="text">
-                    </div>
-                </div>
-                <!-- <div class="col-lg-4 col-md-4 col-sm-6">
-                    <label>Company</label>
-                    <div class="form-group">
-                        <select class="custom-select" name="filter_company" id="filter_company">
-                            <option value="">-- Company --</option>
-                            <option value="10">Dev Test</option>
-                        </select>
-                    </div>
-                </div> -->
-    
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="form-group">
-                        <label>Email</label>
-                        <select class="custom-select" name="main_dept" id="main_dept">
-                        </select>
-                    </div>
-                </div>
-    
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="form-group">
-                        <label>Status</label>
-                        <select class="custom-select" name="filter_status" id="filter_status">
-                            <option value="">--Status--</option>
-                            <option value="1">Pending</option>
-                            <option value="2">Approved</option>
-                            <option value="3">Rejected</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <label>&nbsp;</label>
-                    <button type="button" id="attendance_search" class="btn btn-sm btn-primary btn-block"
-                        title="">Get</button>
-                </div>
-            </div>
-            
-        </div>
-        </div>
         </div>
         <div class="row row-sm">
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 grid-margin">
@@ -280,8 +224,8 @@
                     <div class="card-header border-bottom-0 pb-0">
                         <div class="d-flex justify-content-between">
                             <!-- <label class="main-content-label mb-0 pt-1">User Table</label> -->
-                            <div class="ml-auto float-right">
-                                <!-- <div ngbDropdown class="">
+                            <!-- <div class="ml-auto float-right">
+                                <div ngbDropdown class="">
                                     <a href="javascript:;" class="option-dots" ngbDropdownToggle><i
                                             class="fe fe-more-horizontal"></i></a>
                                     <div ngbDropdownMenu class="dropdown-menu-right">
@@ -290,253 +234,176 @@
                                         <a ngbDropdownItem href="javascript:;">Last Month</a>
                                         <a ngbDropdownItem href="javascript:;">Last Year</a>
                                     </div>
-                                </div> -->
-                            </div>
+                                </div>
+                            </div> -->
                         </div>
                         <!-- <p class="tx-12 tx-gray-500 mt-0 mb-2">Example of Spruha Simple Table. <a href="javascript:;">Learn
                                 more</a></p> -->
                     </div>
                     <div class="card-body">
-                        <div class="table-responsive border userlist-table">
+                        <div class="table-responsive border userlist-table" *ngIf="showDatafound">
                             <table class="table card-table table-striped table-vcenter text-nowrap mb-0">
                                 <thead>
                                     <tr>
-                                        <th class="wd-lg-8p"><span>User</span></th>
-                                        <th class="wd-lg-20p"><span>Created</span></th>
+                                        <th class="wd-lg-20p"><span>No</span></th>
+                                        <!-- <th class="wd-lg-20p"><span></span></th> -->
+                                        <th class="wd-lg-20p"><span>Amount</span></th>
+                                        <th class="wd-lg-20p"><span>Type</span></th>
                                         <th class="wd-lg-20p"><span>Status</span></th>
-                                        <th class="wd-lg-20p"><span>Email</span></th>
+                                        <th class="wd-lg-20p"><span>Created</span></th>
+                                        <th class="wd-lg-20p">Updated</th>
                                         <!-- <th class="wd-lg-20p">Action</th> -->
+
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                     <tr *ngFor="let i = index;let item of data |filter:username | paginate:{
+                                        itemsPerPage: 10,
+                                         currentPage:p,
+                                         item:item,
+                                        totalitem:totalLength }">	
+                                  <!-- <tr *ngFor="let item of data "> -->
                                         <!-- <td>
                                             <img alt="avatar" class="rounded-circle avatar-md mr-2"
                                                 src="../../assets/img/users/1.jpg">
                                         </td> -->
-                                        <td>Megan Peters</td>
+                                        <td>{{i+1}} </td>
                                         <td>
-                                            08/06/2020
+                                           {{item['amount'] }}
                                         </td>
-                                        <td class="text-center">
-                                            <span class="label text-muted d-flex"><span
-                                                    class="dot-label bg-gray-300 mr-1"></span>Inactive</span>
-                                        </td>
+                                        <!-- <td class="label text-success d-flex">
+                                                     
+                                                        {{item['status']> 0 ? 'Active':item['status']}}
+          
+                                                     </td> -->
+                                                     <td>
+                                                      {{item['type'] == " " ? 'NA': item['type']}}       
+                                                                           </td>
+                                                     <td>
+                                                        <span *ngIf="item['status'] === true"
+                                                        [class]="item['status'] === true ? 'text-success':''">
+                                                        {{item['status'] === true ? 'Active':item['status']}}</span>
+                                                        <span *ngIf="item['status'] === false"
+                                                        [class]="item['status'] === false ? 'text-danger' : ''">
+                                                        {{item['status'] === false ? 'Inactive':item['status']}}</span>
+                                                     </td>
+          
                                         <td>
-                                            <a href="javascript:;">mila@kunis.com</a>
-                                        </td>
-                                      
-                                    </tr>
-                                    <tr>
+                                            {{item['createdAt'] | date :'medium'}}       
+                                                                 </td>
+                                                                 <td>
+                                                                    {{item['updatedAt'] | date :'medium'}}       
+                                                                                         </td>
                                         <!-- <td>
-                                            <img alt="avatar" class="rounded-circle avatar-md mr-2"
-                                                src="../../assets/img/users/2.jpg">
-                                        </td> -->
-                                        <td>George Clooney</td>
-                                        <td>
-                                            12/06/2020
-                                        </td>
-                                        <td class="text-center">
-                                            <span class="label text-success d-flex"><span
-                                                    class="dot-label bg-success mr-1"></span>Active</span>
-                                        </td>
-                                        <td>
-                                            <a href="javascript:;">marlon@brando.com</a>
-                                        </td>
-                                     
-                                    </tr>
-                                    <tr>
-                                        <!-- <td>
-                                            <img alt="avatar" class="rounded-circle avatar-md mr-2"
-                                                src="../../assets/img/users/3.jpg">
-                                        </td> -->
-                                        <td>Ryan Gossling</td>
-                                        <td>
-                                            14/06/2020
-                                        </td>
-                                        <td class="text-center">
-                                            <span class="label text-danger d-flex"><span
-                                                    class="dot-label bg-danger mr-1"></span> Banned</span>
-                                        </td>
-                                        <td>
-                                            <a href="javascript:;">jack@nicholson</a>
-                                        </td>
-                                    
-                                    </tr>
-                                    <tr>
-                                        <!-- <td>
-                                            <img alt="avatar" class="rounded-circle avatar-md mr-2"
-                                                src="../../assets/img/users/1.jpg">
-                                        </td> -->
-                                        <td> Emma Watson</td>
-                                        <td>
-                                            16/06/2020
-                                        </td>
-                                        <td class="text-center">
-                                            <span class="label text-warning d-flex"><span
-                                                    class="dot-label bg-warning mr-1"></span>Pending</span>
-                                        </td>
-                                        <td>
-                                            <a href="javascript:;">jack@nicholsonm</a>
-                                        </td>
-                                     
-                                    </tr>
-                                    <tr>
-                                        <!-- <td>
-                                            <img alt="avatar" class="rounded-circle avatar-md mr-2"
-                                                src="../../assets/img/users/12.jpg">
-                                        </td> -->
-                                        <td>Mila Kunis</td>
-                                        <td>
-                                            18/06/2020
-                                        </td>
-                                        <td class="text-center">
-                                            <span class="label text-muted d-flex"><span
-                                                    class="dot-label bg-gray-300 mr-1"></span>Inactive</span>
-                                        </td>
-                                        <td>
-                                            <a href="javascript:;">mila@kunis.com</a>
-                                        </td>
-                                     
-                                    </tr>
-                                    <tr>
-                                        <!-- <td>
-                                            <img alt="avatar" class="rounded-circle avatar-md mr-2"
-                                                src="../../assets/img/users/4.jpg">
-                                        </td> -->
-                                        <td>Phil Watson</td>
-                                        <td>
-                                            23/06/2020
-                                        </td>
-                                        <td class="text-center">
-                                            <span class="label text-success d-flex"><span
-                                                    class="dot-label bg-success mr-1"></span>active</span>
-                                        </td>
-                                        <td>
-                                            <a href="javascript:;">phil@watson.com</a>
-                                        </td>
-                                       
-                                    </tr>
-                                    <tr>
-                                        <!-- <td>
-                                            <img alt="avatar" class="rounded-circle avatar-md mr-2"
-                                                src="../../assets/img/users/5.jpg">
-                                        </td> -->
-                                        <td>Sonia Robertson</td>
-                                        <td>
-                                            25/06/2020
-                                        </td>
-                                        <td class="text-center">
-                                            <span class="label text-success d-flex"><span
-                                                    class="dot-label bg-success mr-1"></span>active</span>
-                                        </td>
-                                        <td>
-                                            <a href="javascript:;">robertson@sonia.com</a>
-                                        </td>
-                                        <!-- <td>
-                                            <a href="javascript:;" class="btn btn-sm btn-primary mr-1">
+                                            <button (click)="addsymbol(item)" class="btn btn-sm btn-primary mr-1">
                                                 <i class="si si-eye"></i>
-                                            </a>
-                                            <a href="javascript:;" class="btn btn-sm btn-info mr-1">
+                                            </button>
+                                            <button (click)="editsymbol(item)" class="btn btn-sm btn-info mr-1">
                                                 <i class="fe fe-edit-2"></i>
-                                            </a>
-                                            <a href="javascript:;" class="btn btn-sm btn-danger">
+                                            </button>
+                                            <button (click)="warningAlert(item)" class="btn btn-sm btn-danger">
                                                 <i class="fe fe-trash"></i>
-                                            </a>
+                                            </button> 
                                         </td> -->
                                     </tr>
-                                    <tr>
-                                        <!-- <td>
-                                            <img alt="avatar" class="rounded-circle avatar-md mr-2"
-                                                src="../../assets/img/users/7.jpg">
-                                        </td> -->
-                                        <td>Adam Hamilton</td>
-                                        <td>
-                                            31/06/2020
-                                        </td>
-                                        <td class="text-center">
-                                            <span class="label text-danger d-flex"><span
-                                                    class="dot-label bg-danger mr-1"></span>Banned</span>
-                                        </td>
-                                        <td>
-                                            <a href="javascript:;">mila@kunis.com</a>
-                                        </td>
-                                     
-                                    </tr>
-                                    <tr>
-                                        <!-- <td>
-                                            <img alt="avatar" class="rounded-circle avatar-md mr-2"
-                                                src="../../assets/img/users/9.jpg">
-                                        </td> -->
-                                        <td>Leah Morgan</td>
-                                        <td>
-                                            02/07/2020
-                                        </td>
-                                        <td class="text-center">
-                                            <span class="label text-warning d-flex"><span
-                                                    class="dot-label bg-warning mr-1"></span>pending</span>
-                                        </td>
-                                        <td>
-                                            <a href="javascript:;">morganleah@.com</a>
-                                        </td>
-                                      
-                                    </tr>
-                                    <tr>
-                                        <!-- <td>
-                                            <img alt="avatar" class="rounded-circle avatar-md mr-2"
-                                                src="../../assets/img/users/11.jpg">
-                                        </td> -->
-                                        <td>Amelia McDonald</td>
-                                        <td>
-                                            08/07/2020
-                                        </td>
-                                        <td class="text-center">
-                                            <span class="label text-success d-flex"><span
-                                                    class="dot-label bg-success mr-1"></span>active</span>
-                                        </td>
-                                        <td>
-                                            <a href="javascript:;">amelia23@kunis.com</a>
-                                        </td>
-                                     
-                                    </tr>
-                                    <tr>
-                                        <!-- <td>
-                                            <img alt="avatar" class="rounded-circle avatar-md mr-2"
-                                                src="../../assets/img/users/6.jpg">
-                                        </td> -->
-                                        <td>Paul Molive</td>
-                                        <td>
-                                            12/07/2020
-                                        </td>
-                                        <td class="text-center">
-                                            <span class="label text-success d-flex"><span
-                                                    class="dot-label bg-success mr-1"></span>active</span>
-                                        </td>
-                                        <td>
-                                            <a href="javascript:;">paul45@kunis.com</a>
-                                        </td>
-                                     
-                                    </tr>
+               
                                 </tbody>
                             </table>
                         </div>
-                        <ul class="pagination mt-4 mb-0 float-right">
-                            <li class="page-item page-prev disabled">
-                                <a class="page-link" href="javascript:;" tabindex="-1">Prev</a>
-                            </li>
-                            <li class="page-item active"><a class="page-link" href="javascript:;">1</a></li>
-                            <li class="page-item"><a class="page-link" href="javascript:;">2</a></li>
-                            <li class="page-item"><a class="page-link" href="javascript:;">3</a></li>
-                            <li class="page-item"><a class="page-link" href="javascript:;">4</a></li>
-                            <li class="page-item"><a class="page-link" href="javascript:;">5</a></li>
-                            <li class="page-item page-next">
-                                <a class="page-link" href="javascript:;">Next</a>
-                            </li>
-                        </ul>
+                        <div class="center" *ngIf="!showDatafound">
+                            <span>NO DATA FOUND </span>
+                          </div>
+                        <pagination-controls class="pagination mt-4 mb-0 float-right page-item" (pageChange)="p = $event"   item:item></pagination-controls>
+                        
                     </div>
                 </div>
             </div><!-- COL END -->
-        </div>
+          </div>
     </div>
-   
+    <!-- <div class="col-md-12 col-sm-12 col-lg-12  col-xl-12 col-xxl-4">
+        <div class="card custom-card overflow-hidden">
+            <div class="card-header border-bottom-0">
+                <label class="main-content-label my-auto pt-2">Activity</label>
+                <span class="d-block tx-12 mb-4 mt-1 text-muted">Activity is one of the many blockchain consensus
+                    algorithms</span>
+            </div>
+            <ul class="crypto-transcation list-unstyled mg-b-0">
+                <li class="list-item mb-0 pl-3 pr-3 mt-0 pb-3">
+                    <div class="media align-items-center">
+                        <div class="crypto-icon bg-primary-transparent text-primary"> <i
+                                class="cf cf-btc wd-20 ht-20 text-center tx-18"></i>
+                        </div>
+                        <div class="media-body ml-3">
+                            <p class="tx-medium mg-b-3 tx-15">Sent Litecoin</p>
+                            <p class="tx-11 mg-b-0 tx-gray-500">To bitcoin Address</p>
+                        </div>
+                    </div>
+                    <div class="text-right ml-auto my-auto">
+                        <h5 class="font-weight-semibold tx-16 mb-0">+ 0.0147<i
+                                class="text-success tx-16 fe fe-arrow-up ml-1"></i></h5>
+                    </div>
+                </li>
+                <li class="list-item mb-0 pl-3 pr-3 pb-3">
+                    <div class="media align-items-center">
+                        <div class="crypto-icon bg-primary-transparent text-primary"> <i
+                                class="cf cf-ltc wd-20 ht-20 text-center tx-18"></i>
+                        </div>
+                        <div class="media-body ml-3">
+                            <p class="tx-medium mg-b-3 tx-15">Sent Ethereum</p>
+                            <p class="tx-11 mg-b-0 tx-gray-500">Pending</p>
+                        </div>
+                    </div>
+                    <div class="text-right ml-auto my-auto">
+                        <h5 class="font-weight-semibold tx-16 mb-0">- 0.0345<i
+                                class="text-danger tx-16 fe fe-arrow-down ml-1"></i></h5>
+                    </div>
+                </li>
+                <li class="list-item mb-0 pl-3 pr-3 pb-3">
+                    <div class="media align-items-center">
+                        <div class="crypto-icon bg-primary-transparent text-primary"> <i
+                                class="cf cf-dash wd-20 ht-20 text-center tx-18"></i>
+                        </div>
+                        <div class="media-body ml-3">
+                            <p class="tx-medium mg-b-3 tx-15">Received Dash</p>
+                            <p class="tx-11 mg-b-0 tx-gray-500">To Received Address</p>
+                        </div>
+                    </div>
+                    <div class="text-right ml-auto my-auto">
+                        <h5 class="font-weight-semibold tx-16 mb-0">- 0.0346<i
+                                class="text-danger tx-16 fe fe-arrow-down ml-1"></i></h5>
+                    </div>
+                </li>
+                <li class="list-item pl-3 pr-3 pb-3">
+                    <div class="media align-items-center">
+                        <div class="crypto-icon bg-primary-transparent text-primary"> <i
+                                class="cf cf-xrp wd-20 ht-20 text-center tx-18"></i>
+                        </div>
+                        <div class="media-body ml-3">
+                            <p class="tx-medium mg-b-3 tx-15">Received Ripple</p>
+                            <p class="tx-11 mg-b-0 tx-gray-500">To Received Address</p>
+                        </div>
+                    </div>
+                    <div class="text-right ml-auto my-auto">
+                        <h5 class="font-weight-semibold tx-16 mb-0">+ 0.0237<i
+                                class="text-success tx-16 fe fe-arrow-up ml-1"></i></h5>
+                    </div>
+                </li>
+                <li class="list-item pl-3 pr-3 pb-3">
+                    <div class="media align-items-center">
+                        <div class="crypto-icon bg-primary-transparent text-primary"> <i
+                                class="cf cf-bsd wd-20 ht-20 text-center tx-18"></i>
+                        </div>
+                        <div class="media-body ml-3">
+                            <p class="tx-medium mg-b-3 tx-15">Received Ripple</p>
+                            <p class="tx-11 mg-b-0 tx-gray-500">To Received Address</p>
+                        </div>
+                    </div>
+                    <div class="text-right ml-auto my-auto">
+                        <h5 class="font-weight-semibold tx-16 mb-0">- 0.0348<i
+                                class="text-danger tx-16 fe fe-arrow-down ml-1"></i></h5>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div> -->
 </div>

@@ -15,11 +15,12 @@ import { Custom500RoutingModule } from './custom500-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TwofactorComponent } from './twofactor/twofactor.component';
+import { SmsotpComponent } from './smsotp/smsotp.component';
 
 
 
 @NgModule({
-  declarations: [SigninComponent, SignupComponent, ForgetComponent, ResetComponent, LockscreenComponent, UnderconstructionComponent,Error500Component, Error404Component, TwofactorComponent],
+  declarations: [SigninComponent, SignupComponent, ForgetComponent, ResetComponent, LockscreenComponent, UnderconstructionComponent,Error500Component, Error404Component, TwofactorComponent, SmsotpComponent],
   imports: [
     CommonModule,
     CustomRoutingModule,
