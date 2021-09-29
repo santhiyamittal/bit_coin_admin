@@ -55,10 +55,12 @@ import { SecuritypageComponent } from './securitypage/securitypage.component';
 import { GoogleAuthenticatorComponent } from './google-authenticator/google-authenticator.component'; // <-- import the module
 import { ArchwizardModule } from 'angular-archwizard';
 import { SmspageComponent } from './smspage/smspage.component';
+import { RemovegoogleauthComponent } from './removegoogleauth/removegoogleauth.component';
+import { AngularOtpLibModule } from 'angular-otp-box';
 
 
 @NgModule({
-  declarations: [ProfileComponent, InvoiceComponent, PricingComponent, GalleryComponent, FaqsComponent, SuccessmessageComponent, DangermessageComponent, WarningmessageComponent, EmptypageComponent, ConstantpageComponent, ExtrapageComponent, SettingpageComponent, SystemsettingpageComponent, ChangepasspageComponent, EmailpageComponent, BackendpageComponent, CreditpageComponent, DocspageComponent, WithdrawpageComponent, QualificationpageComponent, DocumentpageComponent, GetlogComponent, DeletelogComponent, CreatewithdrawComponent, ViewwithdrawComponent, EditwithdrawComponent, AddcreditComponent, EditcreditComponent, EditbackendComponent, AddbackendComponent, ViewbackendComponent, ViewcreditComponent, SecuritypageComponent, GoogleAuthenticatorComponent, SmspageComponent],
+  declarations: [ProfileComponent, InvoiceComponent, PricingComponent, GalleryComponent, FaqsComponent, SuccessmessageComponent, DangermessageComponent, WarningmessageComponent, EmptypageComponent, ConstantpageComponent, ExtrapageComponent, SettingpageComponent, SystemsettingpageComponent, ChangepasspageComponent, EmailpageComponent, BackendpageComponent, CreditpageComponent, DocspageComponent, WithdrawpageComponent, QualificationpageComponent, DocumentpageComponent, GetlogComponent, DeletelogComponent, CreatewithdrawComponent, ViewwithdrawComponent, EditwithdrawComponent, AddcreditComponent, EditcreditComponent, EditbackendComponent, AddbackendComponent, ViewbackendComponent, ViewcreditComponent, SecuritypageComponent, GoogleAuthenticatorComponent, SmspageComponent, RemovegoogleauthComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,
@@ -78,7 +80,7 @@ import { SmspageComponent } from './smspage/smspage.component';
     CarouselModule,
     MatDialogModule,
     AngularEditorModule,
-
+    AngularOtpLibModule,
     ToastrModule.forRoot(
       {
         timeOut: 1000

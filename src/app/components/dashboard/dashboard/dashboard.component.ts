@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserIdleService } from 'angular-user-idle';
 import { AppComponent } from 'src/app/app.component';
 import * as chartData from '../../../shared/data/dashboard';
@@ -11,6 +11,8 @@ import { number } from 'echarts';
 import { DatePipe } from '@angular/common';
 import { ChartDataSets, ChartOptions, ChartType} from 'chart.js';
 import { GraphService } from '../graph.service';
+import { ApexOptions } from 'apexcharts';
+import { ChartComponent, } from "ng-apexcharts";
 
 @Component({
   selector: 'app-dashboard',
@@ -62,7 +64,7 @@ var datePipe = new DatePipe('en-US');
               let formatedDate = datePipe.transform(res, ' MMM-d-yy');
                       weatherDates.push(formatedDate)
 
-        // console.log(weatherDates)
+        console.log(weatherDates)
 
       })
       this.chart = new Chart('canvas', {
@@ -89,21 +91,7 @@ var datePipe = new DatePipe('en-US');
         pointRadius: 0,
         borderDash: [7,3]
             },
-        //     {
-        //       label: 'Count',
-        //       data: count,
-        //       borderWidth: 3,
-        // backgroundColor: 'transparent',
-        // borderColor: '#FD6074',
-        // pointBackgroundColor: '#ffffff',
-        // pointRadius: 0,
-        // borderDash: [7,3]
-        //     },
-            // {
-            //   data: count,
-            //   borderColor: '#ffcc00',
-            //   fill: false
-            // },
+        
           ]
         },
         options: {
@@ -120,6 +108,12 @@ var datePipe = new DatePipe('en-US');
     },
     scales: {
         xAxes: [{
+          type: 'time',
+          time: {
+              displayFormats: {
+                  quarter: 'MMM-d-yy'
+              },
+            },
             ticks: {
                 fontColor: '#c8ccdb',
             },
@@ -176,9 +170,46 @@ var datePipe = new DatePipe('en-US');
   // public lineChartType = this.graph.lineChartType;
   // public lineChartLegend = this.graph.lineChartLegend;
   // public lineChartData = this.graph.lineChartData;
+  @ViewChild("chart", { static: false }) datqa: ChartComponent;
 
- 
-
+  public chartOptions: ApexOptions;
+  public activeOptionButton = "all";
+  public updateOptionsData = {
+    "1m": {
+      xaxis: {
+        min: new Date("Sep-1-21").getTime(),
+        max: new Date("Sep-30-21").getTime()
+      }
+    },
+    // "6m": {
+    //   xaxis: {
+    //     min: new Date("27 Sep 2012").getTime(),
+    //     max: new Date("27 Feb 2013").getTime()
+    //   }
+    // },
+    // "1y": {
+    //   xaxis: {
+    //     min: new Date("27 Feb 2012").getTime(),
+    //     max: new Date("27 Feb 2013").getTime()
+    //   }
+    // },
+    // "1yd": {
+    //   xaxis: {
+    //     min: new Date("01 Jan 2013").getTime(),
+    //     max: new Date("27 Feb 2013").getTime()
+    //   }
+    // },
+    all: {
+      xaxis: {
+        min: undefined,
+        max: undefined
+      }
+    }
+  };
+  public updateOptions(option: any): void {
+    this.activeOptionButton = option;
+    this.datqa.updateOptions(this.updateOptionsData[option], false, true, true);
+  }
 
   totallist(){
     this.httpService.total_list().subscribe((res: any) => {

@@ -25,6 +25,7 @@ export class AccumulatefundsComponent implements OnInit {
   data: any;
   showDatafound: boolean;
   amount: number = 0;
+  bal: any;
   constructor(
     public toastr: ToastrService,
 
@@ -38,6 +39,11 @@ export class AccumulatefundsComponent implements OnInit {
 
   ngOnInit(): void {
     this.wallet_list();
+    this.httpService.walletbal().subscribe((res: any) => {
+      this.bal = res['data']['accumulate_fund']
+      console.log(this.bal);
+
+    });
     this.customOptions = {
       loop: true,
       autoplay: true,

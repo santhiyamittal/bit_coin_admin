@@ -23,6 +23,7 @@ import { InvoiceComponent } from './invoice/invoice.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { ProfileComponent } from './profile/profile.component';
 import { QualificationpageComponent } from './qualificationpage/qualificationpage.component';
+import { RemovegoogleauthComponent } from './removegoogleauth/removegoogleauth.component';
 import { SecuritypageComponent } from './securitypage/securitypage.component';
 import { SettingpageComponent } from './settingpage/settingpage.component';
 import { SmspageComponent } from './smspage/smspage.component';
@@ -155,6 +156,10 @@ const routes: Routes = [
       {
         path: 'GoogleAuth',
         component:GoogleAuthenticatorComponent
+      },
+      {
+        path: 'removegoogleauth',
+        component:RemovegoogleauthComponent
       },
     ]
   }

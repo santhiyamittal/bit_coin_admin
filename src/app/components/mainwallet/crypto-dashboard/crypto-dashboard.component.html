@@ -165,7 +165,7 @@
 <!-- row opened -->
 <div class="row row-sm">
     <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 col-xxl-8">
-        <div class="row row-sm">
+        <!-- <div class="row row-sm">
             <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
                 <div class="card custom-card">
                     <div class="card-body row">
@@ -195,24 +195,55 @@
                     <div class="card-body">
                         <span class="tx-18">Bitcoin Balance</span>
                         <div class="row mt-3">
-                            <div class="col-sm-6 my-auto border-right text-centerd-flex no-block align-items-center">
-                                <div class="d-flex">
-                                    <apx-chart [chart]="donutApexProfile.chart" [series]="donutApexProfile.series"
-                                        [colors]="donutApexProfile.colors" [legend]="donutApexProfile.legend"
-                                        [labels]="donutApexProfile.labels" [dataLabels]="donutApexProfile.dataLabels"
-                                        [stroke]="donutApexProfile.stroke">
-                                    </apx-chart>
-                                    <div class="my-auto d-block">
-                                        <h6 class="mb-2 tx-16">{{amount}}</h6>
-                                        <span class="m-0 tx-14 text-muted">${{amount}} USD</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- <div class="col-sm-6 my-auto text-sm-center">
-                                <h2 class="mb-2  mt-3 mt-sm-0">2.343434</h2>
-                                <span class="m-0 tx-14 mt-3 text-muted">Pending Balance</span>
-                            </div> -->
+                         
+                            {{bal}}
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <div class="row row-sm">
+            <div class="col-sm-6 col-md-6 col-xl-3">
+                <div class="card custom-card">
+                    <div class="card-body text-center">
+                        <div class="icon-service bg-primary-transparent rounded-circle text-primary">
+                            <i class="fe fe-dollar-sign"></i>
+                        </div>
+                        <p class="mb-1 text-muted">Bitcoin Amount</p>
+                        <h3 class="mb-0">${{amount}}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xl-3">
+                <div class="card custom-card">
+                    <div class="card-body text-center">
+                        <div class="icon-service bg-secondary-transparent rounded-circle text-secondary">
+                            <i class="fab fa-btc" style="width: 20px;"></i>
+                        </div>
+                        <p class="mb-1 text-muted">Bitcoin Balance</p>
+                        <h3 class="mb-0">${{bal}}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xl-3">
+                <div class="card custom-card">
+                    <div class="card-body text-center">
+                        <div class="icon-service bg-info-transparent rounded-circle text-info">
+                            <i class="fe fe-activity"></i>
+                        </div>
+                        <p class="mb-1 text-muted">Type</p>
+                        <h3 class="mb-0">Main</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xl-3">
+                <div class="card custom-card">
+                    <div class="card-body text-center">
+                        <div class="icon-service bg-success-transparent rounded-circle text-success">
+                            <i class="fe fe-book"></i>
+                        </div>
+                        <p class="mb-1 text-muted">No Of Wallet</p>
+                        <h3 class="mb-0">6</h3>
                     </div>
                 </div>
             </div>

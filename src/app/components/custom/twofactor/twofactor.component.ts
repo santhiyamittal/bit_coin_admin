@@ -31,7 +31,12 @@ export class TwofactorComponent implements OnInit {
   hasFinished: boolean;
   remainingTime: any;
   displayTime: string;
-
+  public settings = {
+    length: 5,
+    numbersOnly: true,
+    timer: 60,
+    timerType: 1
+  }
   constructor(
     private fb: FormBuilder,
     public toastr: ToastrService,
@@ -54,6 +59,19 @@ export class TwofactorComponent implements OnInit {
   }
   get otpFormControl() {
     return this.otpForm.controls;
+  }
+  public onInputChange(e) {
+    console.log(e);
+    if(e.length == this.settings.length) {
+      // e will emit values entered as otp and,
+      console.log('otp is', e);
+    }else if(e == -1) {
+      // if e == -1, timer has stopped
+      console.log(e, 'resend button enables');
+    }else if(e == -2) {
+      // e == -2, button click handle
+      console.log('resend otp');
+    }
   }
   getdashboard() {
     this.router.navigateByUrl('dashboard/dashboard');

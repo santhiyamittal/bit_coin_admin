@@ -16,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TwofactorComponent } from './twofactor/twofactor.component';
 import { SmsotpComponent } from './smsotp/smsotp.component';
+import { AngularOtpLibModule } from 'angular-otp-box';
 
 
 
@@ -27,6 +28,7 @@ import { SmsotpComponent } from './smsotp/smsotp.component';
     CustomPageRoutingModule,
     Custom500RoutingModule,
     FormsModule,
+    AngularOtpLibModule,
     ReactiveFormsModule,
     RouterModule
   ]

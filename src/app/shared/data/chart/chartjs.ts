@@ -36,13 +36,13 @@ export let lineChartOptions: ChartOptions = {
     }]
   }
 };
-export let lineChartLabels: Label[] = ["Sun", "Mon", "Tus", "Wed", "Thu", "Fri", "Sat"];
+export let lineChartLabels: Label[] = ["2021-09-22", "2021-09-22",];
 export let lineChartType: ChartType = 'line';
 export let lineChartLegend = true;
 export let lineChartData: ChartDataSets[] = [
   {
-    label: 'Profits',
-    data: [20, 420, 210, 354, 580, 320, 480],
+    label: 'Amount',
+    data: [10,17],
 
   }
 ];
@@ -91,14 +91,14 @@ export let barChartOptions: ChartOptions = {
     }]
   }
 };
-export let barChartLabels: Label[] = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"];
+export let barChartLabels: Label[] = [" Sep-9-21", "Sep-9-21",];
 export let barChartType: ChartType = 'bar';
 export let barChartLegend = true;
 export let barChartPlugins = [];
 export let barChartData: ChartDataSets[] = [
   {
-    data: [200, 450, 290, 367, 256, 543, 345],
-    label: 'Sales',
+    data: [19, 10],
+    label: 'Amount',
     borderWidth: 2,
     backgroundColor: '#9877f9',
     borderColor: '#9877f9',

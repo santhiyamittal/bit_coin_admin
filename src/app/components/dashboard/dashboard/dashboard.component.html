@@ -160,6 +160,18 @@
                              <!-- <span
                                 class="d-block tx-12 mb-0 text-muted">The Project Budget is a tool used by project
                                 managers to estimate the total cost of a project</span> -->
+                                <!-- <div class="ml-auto">
+                                    <ul class="nav nav-tabs crypto-btc-usd border-0">
+                                        <li class="nav-item border-0">
+                                            <button class="nav-link border-0" (click)="updateOptions( 'all' )" [class.active]="activeOptionButton=='all'">All</button>
+                                        </li>
+                                        <li class="nav-item border-0">
+                                            <button class="nav-link border-0" (click)="updateOptions( '1m' )" [class.active]="activeOptionButton=='1m'">1M</button>
+                                        </li>
+                                      
+                                    </ul>
+            
+                                </div> -->
                         </div>
                     </div>
                     <div class="card-body pl-0">
@@ -178,7 +190,7 @@
 
                                 </div> -->
                                 <div *ngIf="chart"  class="chart-dropshadow2 ht-250">
-                                    <canvas id="canvas">{{ chart }}</canvas>
+                                    <canvas id="canvas">{{chart}}</canvas>
                                   </div>
                             </div>
                         </div>
@@ -478,9 +490,11 @@
                         </td>
                         <td class="text-left">
                             <div class="d-inline-block">
-                                <h6 class="mb-2 tx-15 font-weight-semibold">${{item['price_received']}}</h6>
-                                <!-- <i
-                                        class="fas fa-level-up-alt mr-2 text-success m-r-10"></i></h6> -->
+                                <!-- <h6 class="mb-2 tx-15 font-weight-semibold">${{item['price_received']}}</h6>
+                                <i
+                                    class="fas fa-level-up-alt mr-2 text-success m-r-10"></i> -->
+                                    <h6 class="mb-2 tx-15 font-weight-semibold">${{item['price_received']}}<i
+                                        class="fas fa-level-up-alt ml-2 text-success m-l-10"></i></h6>
                                 <p class="mb-0 tx-11 text-muted">{{item['date']| date :'mediumDate'}}</p>
                             </div>
                         </td>

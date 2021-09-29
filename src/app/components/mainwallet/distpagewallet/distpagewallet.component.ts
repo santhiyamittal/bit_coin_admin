@@ -26,6 +26,7 @@ export class DistpagewalletComponent implements OnInit {
   id: any;
   amount: number = 0;
   data: any;
+  bal: any;
   constructor(
     public toastr: ToastrService,
 
@@ -39,6 +40,11 @@ export class DistpagewalletComponent implements OnInit {
 
   ngOnInit(): void {
     this.wallet_list();
+    this.httpService.walletbal().subscribe((res: any) => {
+      this.bal = res['data']['distribute_wallet']
+      console.log(this.bal);
+
+    });
     this.customOptions = {
       loop: true,
       autoplay: true,

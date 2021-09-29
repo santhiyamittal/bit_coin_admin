@@ -31,6 +31,12 @@
                                                                 <label>Description</label>
                                                                 <input class="form-control" value="Phone Number Verification"
                                                                     type="text">
+                                                                    
+                                                                    <span style="color:red;">
+                                                                        Protect your account and transactions.<br>
+                                                                       SMS to protect your account.
+
+                                                                    </span>
                                                             </div>
                                                         </div>
                                         
@@ -53,7 +59,7 @@
                                                     
                                                         <div class="col-sm-12 text-right m-t-20">
                                                             <button type="submit" id="system_submit"style="width:9%"
-                                                                class="btn btn-primary" (click)="gotosms()">Get</button>
+                                                                class="btn btn-primary" (click)="gotosms()">Enable</button>
                                                         
                                                     </div>
                                                 </div>
@@ -83,6 +89,13 @@
                                                                 <div class=" text-left">
                                                                     <input class="form-control" 
                                                                         type="text" value="Google Authentication">
+                                                                    
+                                                                        <span style="color:red;">
+                                                                            Protect your account and transactions.
+                                                                            <br>
+                                                                            Google Authenticator to protect your account.
+
+                                                                        </span>
                                                                 </div>
                                                             </div>
                                             
@@ -103,10 +116,12 @@
                                                         </div> -->
                                                         
                                                             <div class="col-sm-12 text-right m-t-20">
+                                                                <button type="submit" id="system_submit"style="width:9%;"
+                                                                class="btn btn-primary"(click)="gotoauth()" >Enable</button>&nbsp; &nbsp; 
                                                                 <button type="submit" id="system_submit"style="width:9%;float: right;"
-                                                                class="btn btn-primary"(click)="gotoauth()" >Enable</button>    
-                                                            
+                                                                class="btn btn-primary"(click)="gotoremove()" >Remove</button>  
                                                         </div>
+                                                     
                                                     </div>
                                                     <!-- </form> -->
                                                 </div>
@@ -117,7 +132,7 @@
                                         </ng-template>
                                         </ng-container>
                                         <ng-container ngbNavItem>
-                                            <a href="javascript:;" ngbNavLink>Eamil Otp </a>
+                                            <a href="javascript:;" ngbNavLink>Email Otp </a>
                                             <ng-template ngbNavContent>
                                                 <div class="tab-pane active show" id="Company_Settings">
                                                     <!-- <div class="container-fluid"> -->
@@ -135,6 +150,12 @@
                                                                             <label>Description</label>
                                                                             <input class="form-control" value="Email Address Verification"
                                                                                 type="text">
+                                                                                <span style="color:red;">
+                                                                                    Protect your account and transactions.
+                                                                                    <br>
+                                                                                   Email to protect your account.
+        
+                                                                                </span>
                                                                         </div>
                                                                     </div>
                                                     

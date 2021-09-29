@@ -103,7 +103,7 @@ export class NavService implements OnDestroy{
     {
       title: 'Payment',  type: 'sub',icon: 'fa fa-money', active: false,
       children: [
-      // {path: 'payment/withdrawpayment', title: 'WithDraw', type: 'link',  },
+      {path: 'payment/withdrawpayment', title: 'WithDraw', type: 'link',  },
       {
         path: 'payment/depositpayment', title: 'Deposit', type: 'link', 
       },
@@ -119,9 +119,9 @@ export class NavService implements OnDestroy{
     {
       path: 'user/useractive', title: 'Active', type: 'sub', icon: 'mdi mdi-account', 
       children: [
-        // {
-        //   path: 'user/useractive', title: 'Admin', type: 'link', icon: 'fas fa-toolbox', 
-        // },
+        {
+          path: 'user/useractive', title: 'Admin', type: 'link', icon: 'fas fa-toolbox', 
+        },
         {
           path: 'user/adminuser', title: 'User ', type: 'link', icon: 'fas fa-toolbox', 
         },

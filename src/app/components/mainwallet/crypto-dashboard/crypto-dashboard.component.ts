@@ -28,6 +28,7 @@ export class CryptoDashboardComponent implements OnInit {
   id: any;
   amount: number = 0;
   PieChart: any = [];
+  bal: any;
 
   constructor(
     public toastr: ToastrService,
@@ -44,8 +45,9 @@ export class CryptoDashboardComponent implements OnInit {
     this.wallet();
     this.wallet_list();
     this.httpService.walletbal().subscribe((res: any) => {
-      console.log(res['data'])
-      this.data = res['data']['main_wallet']
+      this.bal = res['data']['main_wallet']
+      console.log(this.bal);
+
     });
     
     this.PieChart = new Chart('canvas', {

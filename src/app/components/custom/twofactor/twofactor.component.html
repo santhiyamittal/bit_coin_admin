@@ -39,8 +39,9 @@
                                         </div> -->
                                         <div class="form-group text-left">
                                             <label> Email OTP</label>
-                                            <input class="form-control"maxlength='6' formControlName="otp" placeholder="Enter your OTP" 
-                                            value="">
+                                            <!-- <input class="form-control"maxlength='6' formControlName="otp" placeholder="Enter your OTP" 
+                                            value=""> -->
+                                            <otp [setting]="settings" (onValueChange)="onInputChange($event)"></otp>
                                             <div *ngIf="(otpFormControl.otp.touched || submitted1) && (otpFormControl.otp.errors?.required)"
                                             class="tx-danger">
                                             <small>OTP is required</small>

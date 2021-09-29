@@ -130,8 +130,8 @@
                                     awPreviousStep>Previous</button>
                             </form>
                         </aw-wizard-step>
-                        <aw-wizard-completion-step stepTitle="Google Authenticator" [navigationSymbol]="{ symbol: '4' }"
-                        awEnableBackLinks>
+                        <aw-wizard-step stepTitle="Google Authenticator" [navigationSymbol]="{ symbol: '4' }"
+                        >
                         <div class="col-md-12">
 
                                 <h5 class="text-center pd-t-30">Verification Your Account</h5>
@@ -140,27 +140,16 @@
                                         <div class="container-fluid">
                                             <div class="row row-sm">
                                                 <div class="card-body mt-2 mb-2">
-                                                    <form [formGroup]="firstFormGroup" class="mt-5">
+                                                    <form  class="mt-5">
                                                         
                                                         <div class="form-group text-left">
-                                                            <label>E-mail verification code
+                                                            <label>E-mail 
                                                             </label>
-                                                            <input class="form-control" placeholder="Enter your email" type="number"
-                                                                placeholder="mail verification code"  formControlName="email"
+                                                            <input class="form-control" placeholder="Enter your email" type="text"
+                                                                   value="admin@b*****nio.com"
                                                                 >
-                                                                <span >Enter the 6 digit code received by admin@b*****nio.com.
-                                                                </span>
-                                                            <!-- <ng-container class="invalid"
-                                                                *ngIf="firstFormGroup.get('email').hasError('required') && firstFormGroup.get('email').touched">
-                                                                <small class="tx-danger">Email is required</small>
-                                                            </ng-container> -->
-                                                            <!-- <ng-container class="invalid"
-                                                                *ngIf="firstFormGroup.get('email').hasError('email') && firstFormGroup.get('email').touched">
-                                                                <small class="tx-danger">Email is not valid</small>
-                                                            </ng-container> -->
-                                                    
                                                         </div>
-                                                        <div class="form-group text-left pd-t-30">
+                                                        <!-- <div class="form-group text-left pd-t-30">
                                                             <label>Authenticator Code
                                                             </label>
                                                             <input class="form-control"
@@ -168,14 +157,11 @@
                                                                 <span>Enter the 6-digit code from Google Authenticator
                             
                                                                 </span>
-                                                            <!-- <ng-container class="invalid"
-                                                                *ngIf="firstFormGroup.get('password').hasError('required') && firstFormGroup.get('password').touched">
-                                                                <small class="tx-danger">Password is required</small>
-                                                            </ng-container> -->
-                                                        </div>
+                                                          
+                                                        </div> -->
                                                         <br>
-                                                        <button class="btn btn-success pull-right" type="button"awNextStep
-                                                        [disabled]="!firstFormGroup.valid" >Next</button>
+                                                        <button class="btn btn-primary pull-right" type="button"awNextStep
+                                                        >Next</button>
                                                     <button class="btn btn-secondary pull-right mr-1" type="button"
                                                         awPreviousStep>Previous</button>
                                                     </form>
@@ -188,8 +174,59 @@
                      
                        
                        
-                    </aw-wizard-completion-step>
-                        <aw-wizard-completion-step  stepTitle="Finished" [navigationSymbol]="{ symbol: '5' }"
+                    </aw-wizard-step>
+                    <aw-wizard-completion-step stepTitle="Verification Email" [navigationSymbol]="{ symbol: '5' }"
+                    awEnableBackLinks>
+                    <div class="col-md-12">
+
+                            <h5 class="text-center pd-t-30">Verification Your Account</h5>
+
+                            
+                                    <div class="container-fluid">
+                                        <div class="row row-sm">
+                                            <div class="card-body mt-2 mb-2">
+                                                <form [formGroup]="otpForm" class="mt-5">
+                                                    
+                                                    <div class="form-group text-left">
+                                                        <label>E-mail verification code
+                                                        </label>
+                                                        <!-- <input class="form-control" placeholder="Enter your email" type="text"
+                                                            placeholder="mail verification code"  formControlName="email" value="admin@b*****nio.com"
+                                                            > -->
+                                                            <otp [setting]="settings" (onValueChange)="onInputChange($event)"></otp>
+
+                                                            <!-- <span >Enter the 6 digit code received by admin@b*****nio.com.
+                                                            </span> -->
+                                                     
+                                                
+                                                    </div>
+                                                     <div class="form-group text-left pd-t-30">
+                                                        <label>Authenticator Code
+                                                        </label>
+                                                        <input class="form-control"
+                                                            type="number" placeholder="AuthenticatorCode"  formControlName="AuthenticatorCode">
+                                                            <span>Enter the 6-digit code from Google Authenticator
+                        
+                                                            </span>
+                                                      
+                                                    </div> 
+                                                    <br>
+                                                    <button class="btn btn-success pull-right" type="button"awNextStep
+                                                     >Next</button>
+                                                <button class="btn btn-secondary pull-right mr-1" type="button"
+                                                    awPreviousStep>Previous</button>
+                                                </form>
+                                               
+                                            </div>
+                                        </div>
+                            </div>
+                        </div>
+                    
+                 
+                   
+                   
+                </aw-wizard-completion-step>
+                        <aw-wizard-completion-step  stepTitle="Finished" [navigationSymbol]="{ symbol: '6' }"
                             awEnableBackLinks>
 
                             <form class="mt-5">

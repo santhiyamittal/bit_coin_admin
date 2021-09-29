@@ -60,6 +60,10 @@ export class SecuritypageComponent implements OnInit {
     this.router.navigateByUrl('/pages/smspage')
 
   }
+  gotoremove(){
+    this.router.navigateByUrl('/pages/removegoogleauth')
+
+  }
   createForm() {
     this.changepass = this.formBuilder.group({
       'oldPass': ['', [Validators.required, Validators.minLength(6)]],
