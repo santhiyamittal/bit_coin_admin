@@ -151,7 +151,7 @@ submitted:boolean=false;
   //     });
   //   }
   getinactivelist() {
-// //debugger
+// ////debugger
 let jsonData={
    status:true
 }
@@ -204,7 +204,7 @@ let jsonData={
   }
   
   // searchview() {
-  //   //debugger
+  //   ////debugger
   //   this.submitted = true;
     
   //   let jsonData = {

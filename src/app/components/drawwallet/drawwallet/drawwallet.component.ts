@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApexOptions } from 'apexcharts';
@@ -16,6 +16,7 @@ import { EditdrawComponent } from '../editdraw/editdraw.component';
 import { ViewdrawComponent } from '../viewdraw/viewdraw.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DatePipe } from '@angular/common';
+import { CommondataService } from 'src/app/shared/services/commondata.service';
 
 @Component({
   selector: 'app-drawwallet',
@@ -43,10 +44,14 @@ submitted:boolean=false;
   name: any;
   drawid:any;
   dataa: any;
-  draw:any
+  draw:any;
+  date : any;
+  minDate:any;
+  maxDate:any;
   // username: any;
   // email: any;
-  
+  startDate = new FormControl(new Date());
+  endDate = new FormControl(new Date());
   constructor(
     public dialog: MatDialog,
     public toastr: ToastrService,
@@ -55,12 +60,18 @@ submitted:boolean=false;
     private route: ActivatedRoute,
     private router: Router,
     private routeTo: Router,
-
+    public sharedata:CommondataService,
     public httpService: HttpService,
     private loader: NgxUiLoaderService,
 
   ) {
+    this.sharedata.activityLogShare.subscribe((msg: any) => {
+     
+
+      console.log( 'yuttttty',msg)
+      
     
+  });
   }
 
   ngOnInit(): void {
@@ -68,7 +79,7 @@ submitted:boolean=false;
     this.getlist();
     
  this.createForm();
- 
+
   }
   get loginFormControl() {
     return this.loginForm.controls;
@@ -87,7 +98,7 @@ this.getnxtdraw()
   }
   
   warningAlert(item) {
-    // debugger
+    // //debugger
     this.id=item['_id']
     this.del=item['_id']
     var id =this.id
@@ -154,7 +165,7 @@ this.getnxtdraw()
 
   }
   gotoview(upcomview) {
-    // debugger
+    // //debugger
     this.router.navigateByUrl('/drawwallet/viewdraw')
     
     localStorage.setItem("upview", JSON.stringify(upcomview));
@@ -165,7 +176,7 @@ this.getnxtdraw()
   }
  
   getlist() {
-     debugger
+     //debugger
     this.httpService.getdrawupcomlist().subscribe((res: any) => {
 
       console.log(res['data'])
@@ -196,21 +207,21 @@ this.getnxtdraw()
     
   }
  
-  searchuser(){
+  // searchuser(){
 
-    if(this.username == ""){
-     this.search();
-    }else{
-      this.data = this.data.filter(res =>{
-        const name=res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase());
-        const email=res.email.toLowerCase().includes(this.email.toLowerCase());
-        return (name);
-      })
-    }
-  }
+  //   if(this.username == ""){
+  //    this.search();
+  //   }else{
+  //     this.data = this.data.filter(res =>{
+  //       const name=res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase());
+  //       const email=res.email.toLowerCase().includes(this.email.toLowerCase());
+  //       return (name);
+  //     })
+  //   }
+  // }
   
   search(){
-    // //debugger
+    // ////debugger
      //search api
   // this.submitted=true;
   let jsonData = {
@@ -231,7 +242,7 @@ this.getnxtdraw()
 
   // }
   // drawstatus(){
-  //   // //debugger
+  //   // ////debugger
   //   this.submitted=true;
   // let jsonData = {
   //   // id: this.id,
@@ -250,7 +261,7 @@ this.getnxtdraw()
   getdrawdelete(){
     // this.id=item['_id']
 
-    debugger
+    //debugger
     let jsonData = {
       id:this.id,
     }
@@ -264,7 +275,7 @@ this.getnxtdraw()
       
   }
    getnxtdraw() {
-     debugger
+     //debugger
     this.httpService.getnextdraw().subscribe((res: any) => {
       console.log(res['data'])
       this.drawid=res['data']

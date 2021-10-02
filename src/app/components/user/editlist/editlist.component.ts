@@ -1340,7 +1340,7 @@ this.created=this.createdat.split("T")[0];
     return this.loginForm.controls;
   }
   successAlert() {
-    debugger
+    //debugger
     this.onSubmit();
     Swal.fire({
       icon: 'success',
@@ -1354,7 +1354,7 @@ this.created=this.createdat.split("T")[0];
   onSubmit() {
     this.submitted = true;
   
-    // //debugger
+    // ////debugger
     let jsonData = {
       id:this.id,
       first_name:this.loginForm.value.firstname,

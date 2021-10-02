@@ -67,7 +67,7 @@ export class EditwithdrawComponent implements OnInit {
     return this.loginForm.controls;
   }
   successAlert() {
-    debugger
+    //debugger
     this.onSubmit();
     Swal.fire({
       icon: 'success',
@@ -106,7 +106,7 @@ export class EditwithdrawComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
   
-    // //debugger
+    // ////debugger
     let jsonData = {
       id:this.id,
       file:this.loginForm.value.file,

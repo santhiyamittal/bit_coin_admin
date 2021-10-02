@@ -123,7 +123,7 @@ gotohome() {
 }
   
   getpaymentstatus() {
-// //debugger
+// ////debugger
 let jsonData={
   status:0,
 }

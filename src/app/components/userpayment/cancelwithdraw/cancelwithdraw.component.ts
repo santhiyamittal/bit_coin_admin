@@ -124,7 +124,7 @@ gotoinactive(){
     this.router.navigateByUrl('dashboard/dashboard')
   }
   getWithdrawstatus() {
-// //debugger
+// ////debugger
 let jsonData={
   status:2
 }

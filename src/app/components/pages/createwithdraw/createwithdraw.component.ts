@@ -53,7 +53,7 @@ export class CreatewithdrawComponent implements OnInit {
     return this.loginForm.controls;
   }
   successAlert() {
-    debugger
+    //debugger
     this.onSubmit();
     Swal.fire({
       icon: 'success',
@@ -97,7 +97,7 @@ user(){
   onSubmit() {
     this.submitted = true;
   
-    debugger
+    //debugger
     let jsonData = {
       file:this.loginForm.value.file,
       content:this.loginForm.value.content,

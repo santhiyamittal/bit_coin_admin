@@ -75,7 +75,7 @@ submitted:boolean=false;
   
 
   warningAlert(item) {
-    // debugger
+    // //debugger
     this.id=item['_id']
     this.del=item['_id']
     var id =this.id
@@ -242,7 +242,7 @@ submitted:boolean=false;
   }
   
   search(){
-    //debugger
+    ////debugger
      //search api
   this.submitted=true;
   let jsonData = {
@@ -263,7 +263,7 @@ submitted:boolean=false;
 
   }
   // drawstatus(){
-  //   //debugger
+  //   ////debugger
   //   this.submitted=true;
   // let jsonData = {
   //   // id: this.id,
@@ -281,7 +281,7 @@ submitted:boolean=false;
  
   // }
   getdrawdelete(){
-    // //debugger
+    // ////debugger
     let jsonData = {
       id:this.id,
     }

@@ -90,7 +90,7 @@ export class SecuritypageComponent implements OnInit {
   changepassword() {
     this.submitted = true;
 
-    // //debugger
+    // ////debugger
     if (this.changepass.value.newPass== this.changepass.value.confirmPass) {
       let JsonData = {
         "old_password": this.changepass.value.oldPass,
@@ -99,7 +99,7 @@ export class SecuritypageComponent implements OnInit {
         // "userId": this.userID,
       }
       this.httpService.changePassword(JsonData).subscribe(res => {
-        // //debugger
+        // ////debugger
         if (res['success'] == true) {
           // this.toastr.success("Password changed Successfully");
           this.httpService.toastr.success(res['message'], '', {
@@ -129,7 +129,7 @@ export class SecuritypageComponent implements OnInit {
 
   
   getsmskey(){
-    debugger
+    //debugger
     let jsonData = {
       sms_sk:this.sms.value.sms_sk,
       sms_ak:this.sms.value.sms_ak,
@@ -146,7 +146,7 @@ export class SecuritypageComponent implements OnInit {
   //  this.getlist();
   }
   getemailkey(){
-    debugger
+    //debugger
     let jsonData = {
       email_sk:this.emailauth.value.email_sk,
       email_ak:this.emailauth.value.email_ak,
@@ -163,7 +163,7 @@ export class SecuritypageComponent implements OnInit {
   //  this.getlist();
   }
   getgoogleauth(){
-    debugger
+    //debugger
     let jsonData = {
       googleauth_sk:this.googleauth.value.googleauth_sk,
       googleauth_ak:this.googleauth.value.googleauth_ak,

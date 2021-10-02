@@ -127,7 +127,7 @@ gotoinactive(){
   }
   
   getpaymentlist() {
-// //debugger
+// ////debugger
     this.httpService.getpaymentlist().subscribe((res: any) => {
 
       console.log(res['data'])
@@ -166,7 +166,7 @@ gotoinactive(){
   //    console.log(this.data)
   // }
  search(){
-  debugger
+  //debugger
   this.submitted=true;
   let jsonData = {
     // id: this.id,

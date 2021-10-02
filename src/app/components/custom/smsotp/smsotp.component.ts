@@ -66,7 +66,7 @@ export class SmsotpComponent implements OnInit {
    * Method to generate otp
    */
   generateUserOTP() {
-    // //debugger
+    // ////debugger
     var apiSlowdown: boolean = false;
 
     // this.loader.start();
@@ -93,7 +93,7 @@ export class SmsotpComponent implements OnInit {
 
  
   sendOTP() {
-    // //debugger
+    // ////debugger
     let jsonData = {
       otp: this.otpForm.value.otp,
     };

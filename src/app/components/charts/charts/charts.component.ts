@@ -93,7 +93,7 @@ export class ChartsComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    debugger
+    // //debugger
       let jsonData = {
         wallet:"main"
       }

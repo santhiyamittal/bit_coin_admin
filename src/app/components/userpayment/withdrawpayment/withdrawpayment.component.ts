@@ -124,7 +124,7 @@ gotoinactive(){
     this.router.navigateByUrl('dashboard/dashboard')
   }
   getwithdrawlist() {
-// //debugger
+// ////debugger
 
     this.httpService.getwithdrawlist().subscribe((res: any) => {
 

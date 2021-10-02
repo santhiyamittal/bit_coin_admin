@@ -6,15 +6,15 @@ import { HttpService } from 'src/app/shared/services/http.service';
   providedIn: 'root'
 })
 export class CommondataService {
-  
+  public getdrawupcom = new BehaviorSubject<any>("");
+
+  activityLogShare = this.getdrawupcom.asObservable();
+
   constructor(
-    private httpService:HttpService
   ) { }
-  // postfile(fileToUpload:file){
-  //   const endpoint="https://www.bitconia.com/uploads/settings/admin@bitcoinio.com";
-  //   const formData:FormData =new FormData();
-  //   formData.append('Image',fileToUpload,fileToUpload.name);
-  //   return this.httpService.post(endpoint, formData);
-  // }
+
  
+  activity(data) {
+    this.getdrawupcom.next(data);
+  }
 }

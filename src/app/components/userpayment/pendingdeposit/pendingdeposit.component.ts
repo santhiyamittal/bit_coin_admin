@@ -124,7 +124,7 @@ gotoinactive(){
     this.router.navigateByUrl('dashboard/dashboard')
   }
   getdepstatus() {
-// //debugger
+// ////debugger
 let jsonData={
   status:0
 }
@@ -156,7 +156,7 @@ let jsonData={
   }
   
   searchpayment() {
-    debugger
+    //debugger
     if(this.username == ""){
       this.showDatafound = false;
 
@@ -169,7 +169,7 @@ let jsonData={
      console.log(this.data)
   }
  search(){
-  debugger
+  //debugger
   this.submitted=true;
 
   let jsonData = {

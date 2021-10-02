@@ -125,7 +125,7 @@ gotoinactive(){
     this.router.navigateByUrl('/dashboard/dashboard')
   }
   getdepositlist() {
-// //debugger
+// ////debugger
 
     this.httpService.getdepositlist().subscribe((res: any) => {
 
@@ -169,7 +169,7 @@ gotoinactive(){
      console.log(this.data)
   }
  search(){
-   debugger
+   //debugger
   this.submitted=true;
 
   let jsonData = {

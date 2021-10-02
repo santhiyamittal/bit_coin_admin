@@ -1342,7 +1342,7 @@ createForm() {
 
 onSubmit() {
 
-  debugger
+  //debugger
   this.submitted = true;
 
   let jsonData = {
@@ -1385,7 +1385,7 @@ onSubmit() {
 }
 
 getlist() {
-  // debugger
+  // //debugger
   this.httpService.setlist().subscribe((res: any) => {
 
     console.log(res['data'])
@@ -1464,7 +1464,7 @@ uploadFiles( system_logo ) {
         }
     }
 upload(event) {
-  debugger
+  //debugger
     const file = (event.target as HTMLInputElement).files[0];
     this.form.patchValue({
       img: file
@@ -1476,7 +1476,7 @@ getsettinglogo1(){
 //  var formData: any = new FormData();
 //     formData.append("img", this.form.get('img').value);
 
-  debugger
+  //debugger
     
      let fileNames = (<HTMLInputElement>document.getElementById("system_logo")).files;
     // var formData = new FormData();
@@ -1508,7 +1508,7 @@ getsettinglogo2(){
 //  var formData: any = new FormData();
 //     formData.append("img", this.form.get('img').value);
 
-  debugger
+  //debugger
     
      let fileNames = (<HTMLInputElement>document.getElementById("fav_icon")).files;
     // var formData = new FormData();
@@ -1537,7 +1537,7 @@ getsettinglogo3(){
 //  var formData: any = new FormData();
 //     formData.append("img", this.form.get('img').value);
 
-  debugger
+  //debugger
     
      let fileNames = (<HTMLInputElement>document.getElementById("signin_logo")).files;
     // var formData = new FormData();
@@ -1581,7 +1581,7 @@ getmeta(){
 }
 
 getsmskey(){
-  debugger
+  //debugger
   let jsonData = {
     sms_sk:this.sms.value.sms_sk,
     sms_ak:this.sms.value.sms_ak,
@@ -1598,7 +1598,7 @@ getsmskey(){
 //  this.getlist();
 }
 getemailkey(){
-  debugger
+  //debugger
   let jsonData = {
     email_sk:this.emailauth.value.email_sk,
     email_ak:this.emailauth.value.email_ak,
@@ -1615,7 +1615,7 @@ getemailkey(){
 //  this.getlist();
 }
 getgoogleauth(){
-  debugger
+  //debugger
   let jsonData = {
     googleauth_sk:this.googleauth.value.googleauth_sk,
     googleauth_ak:this.googleauth.value.googleauth_ak,

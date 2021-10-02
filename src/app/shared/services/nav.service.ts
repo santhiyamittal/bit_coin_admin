@@ -143,14 +143,15 @@ export class NavService implements OnDestroy{
       path: 'pages', title: 'Setting page', type: 'sub', icon: 'fas fa-cogs', 
       children: [
         {
+          path: 'pages/security', title: 'Security', type: 'link', icon: 'fas fa-lock-open', 
+        },
+        {
           path: 'pages/Settingpage', title: 'System ', type: 'link', icon: 'fas fa-toolbox', 
         },
         {
           path: 'pages/getlog', title: 'Log ', type: 'link', icon: 'fas fa-toolbox', 
         },
-        {
-          path: 'pages/security', title: 'Security', type: 'link', icon: 'fas fa-lock-open', 
-        },
+        
       ]
     },
   

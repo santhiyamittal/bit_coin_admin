@@ -120,10 +120,10 @@ export class EditpervComponent implements OnInit {
 
   }
   onSubmit() {
-//debugger
+////debugger
     this.submitted = true;
 
-    // //debugger
+    // ////debugger
     let jsonData = {
       id:this.id,
       name:this.loginForm.value.User,

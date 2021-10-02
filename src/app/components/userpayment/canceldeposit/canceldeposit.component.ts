@@ -124,7 +124,7 @@ gotoinactive(){
     this.router.navigateByUrl('dashboard/dashboard')
   }
   getdepstatus() {
-// //debugger
+// ////debugger
 let jsonData={
   status:2
 }

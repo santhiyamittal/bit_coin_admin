@@ -1314,7 +1314,7 @@ this.mobileForm();
   //   }
   // }
   // onSubmit() {
-  //   //debugger
+  //   ////debugger
   //   localStorage.clear();
   //   let jsonData = {
   //     email: this.loginForm.value.email,
@@ -1343,7 +1343,7 @@ this.mobileForm();
 
   }
   onSubmit() {
-    // //debugger
+    // ////debugger
     localStorage.clear();
     this.submitted=true;
     let jsonData = {
@@ -1388,7 +1388,7 @@ this.mobileForm();
 
   }
   generateUserOTP() {
-    // //debugger
+    // ////debugger
     var apiSlowdown: boolean = false;
 
     this.loader.start();

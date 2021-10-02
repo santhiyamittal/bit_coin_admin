@@ -93,7 +93,7 @@ export class ViewpervComponent implements OnInit {
   }
   
   warningAlert(item) {
-    //debugger
+    ////debugger
     this.delete=item['user_id']['_id']
     this.getdrawdelete();
     Swal.fire({
@@ -187,7 +187,7 @@ export class ViewpervComponent implements OnInit {
   //     });
   //   }
   // getviewlist(){
-  //   //debugger
+  //   ////debugger
   //   this.httpService.getview().subscribe((res: any) => {
     
   //     console.log(res['data'])
@@ -216,7 +216,7 @@ export class ViewpervComponent implements OnInit {
   //   });
   // }
   getviewlist() {
-    // //debugger
+    // ////debugger
     let jsonData={
      
       id:this.id,
@@ -256,7 +256,7 @@ export class ViewpervComponent implements OnInit {
         });
       }
       searchuser(){
-debugger
+//debugger
         if(this.username == ""){
          this.search();
         }else{
@@ -269,7 +269,7 @@ debugger
       }
     
       search(){
-        // //debugger
+        // ////debugger
          //search api
       this.submitted=true;
       let jsonData = {
@@ -289,7 +289,7 @@ debugger
     
       }
       // drawstatus(){
-      //   // //debugger
+      //   // ////debugger
       //   this.submitted=true;
       // let jsonData = {
       //   // id: this.id,
@@ -303,7 +303,7 @@ debugger
       // this.textClear();
       // }
       getdrawdelete(){
-        //debugger
+        ////debugger
         let jsonData = {
           id:this.delete,
         }

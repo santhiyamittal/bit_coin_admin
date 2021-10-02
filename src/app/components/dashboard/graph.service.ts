@@ -14,7 +14,7 @@ export class GraphService {
   ) { }
 
   graphlist(){
-    debugger
+    // //debugger
     
         return this.httpService.chartslist()
           .map(result => result);

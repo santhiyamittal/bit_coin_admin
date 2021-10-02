@@ -75,7 +75,7 @@ export class DeletepaymentComponent implements OnInit {
 
   }
   deletepayment(){
-      // //debugger
+      // ////debugger
       let jsonData = {
         id:this.id,
       }

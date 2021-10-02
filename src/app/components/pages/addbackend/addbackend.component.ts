@@ -53,7 +53,7 @@ export class AddbackendComponent implements OnInit {
     return this.loginForm.controls;
   }
   successAlert() {
-    debugger
+    //debugger
     this.onSubmit();
     Swal.fire({
       icon: 'success',
@@ -105,7 +105,7 @@ user(){
     }
     this.submitted = true;
   
-    debugger
+    //debugger
     let jsonData = {
       file:this.image1,
       content:this.loginForm.value.content,

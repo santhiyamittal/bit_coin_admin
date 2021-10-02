@@ -216,7 +216,7 @@ gotohome() {
 //   });
 // }
 getviewlist() {
-  //debugger
+  ////debugger
   let jsonData={
     // id:this.id
     // id:'612480f7288d443094dca546',
@@ -276,7 +276,7 @@ getviewlist() {
     }
     
     search(){
-      //debugger
+      ////debugger
        //search api
     this.submitted=true;
     let jsonData = {
@@ -297,7 +297,7 @@ getviewlist() {
   
     }
     drawstatus(){
-      // //debugger
+      // ////debugger
       this.submitted=true;
     let jsonData = {
       // id: this.id,
@@ -311,7 +311,7 @@ getviewlist() {
     this.textClear();
     }
     getdrawdelete(){
-      // //debugger
+      // ////debugger
       let jsonData = {
         id:this.id,
       }

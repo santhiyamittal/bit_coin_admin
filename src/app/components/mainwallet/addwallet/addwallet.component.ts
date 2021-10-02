@@ -59,7 +59,7 @@ export class AddwalletComponent implements OnInit {
 
   onSubmit() {
 
-    debugger
+    //debugger
     this.submitted = true;
   
     let jsonData = {

@@ -34,10 +34,10 @@
     <div class="col-sm-12 col-lg-12 col-xl-12">
         <div class="card bg-primary custom-card card-box">
             <div class="card-body p-4">
-                <label>Draw Name </label>
-                <input type="text"  [(ngModel)]="username" (ngModelChange)="searchuser()"class="form-control" placeholder="Enter the Draw Name " />
-                <!-- <div class="row align-items-center">
-                    <form [formGroup]="loginForm" (ngSubmit)="searchuser()" novalidate>
+                <!-- <label>Draw Name </label>
+                <input type="text"  [(ngModel)]="username" (ngModelChange)="searchuser()"class="form-control" placeholder="Enter the Draw Name " /> -->
+                <div class="row align-items-center">
+                    <form [formGroup]="loginForm" (ngSubmit)="search()" novalidate>
 
                         <div class="row">
                             <div class="col-lg-7 col-md-7 col-sm-7">
@@ -67,7 +67,7 @@
                             </div>
                             </div>
                         </form>
-                </div> -->
+                </div> 
             </div>
         </div>
     </div>

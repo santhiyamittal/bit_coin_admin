@@ -68,7 +68,7 @@ export class AddpervComponent implements OnInit {
   // }
   // onSubmit() {
 
-  //   // //debugger
+  //   // ////debugger
   //   this.submitted = true;
    
   // // for(let idex of this.mobile){

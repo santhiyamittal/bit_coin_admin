@@ -37,6 +37,9 @@ index:any;
   touched: boolean;
   draw: any;
 drawname:string;
+startDate = new FormControl(new Date());
+endDate = new FormControl(new Date());
+  today: string;
   constructor(
     public toastr: ToastrService,
 
@@ -60,6 +63,11 @@ drawname:string;
     // this.drawid=this.drawid+1;
   }
   ngOnInit(): void {
+    var today = new Date();
+    var datePipe = new DatePipe('en-US');
+    this.today = datePipe.transform(today, 'yyyy-MM-dd');
+    console.log("Today Date", this.today);
+    
 this.getnxtdraw();
     // this.drawid="Draw#1"
 
@@ -111,6 +119,7 @@ this.getnxtdraw();
     },
     );
   }
+  
   private dateRangeValidator: ValidatorFn = (): {
     [key: string]: any;
   } | null => {
@@ -129,10 +138,10 @@ this.getnxtdraw();
     this.router.navigateByUrl('drawwallet/Drawwallet')
   
   }
-
+  
   onSubmit() {
 
-    debugger
+    // //debugger
     this.submitted = true;
   
     let jsonData = {
@@ -177,7 +186,7 @@ this.getnxtdraw();
   }
   }
   getnxtdraw() {
-     debugger
+    //  //debugger
     this.httpService.getnextdraw().subscribe((res: any) => {
       console.log(res['data'])
       var res= res['data']

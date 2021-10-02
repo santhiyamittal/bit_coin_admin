@@ -108,7 +108,7 @@ export class WithdrawpageComponent implements OnInit {
     }
     
     warningAlert(item) {
-      // debugger
+      // //debugger
       this.id=item['_id']
       this.del=item['_id']
       var id =this.id
@@ -153,7 +153,7 @@ export class WithdrawpageComponent implements OnInit {
     }
   
     getUserlist() {
-      debugger
+      //debugger
       let jsonData={
         type:"withdraw"
       }
@@ -198,7 +198,7 @@ export class WithdrawpageComponent implements OnInit {
     }
     
     deleteuser(){
-      debugger
+      //debugger
       
      
   // }

@@ -227,7 +227,7 @@ submitted:boolean=false;
   }
   
   deleteuser(){
-    // //debugger
+    // ////debugger
     
    
 // }
@@ -254,7 +254,7 @@ submitted:boolean=false;
       
   }
   // searchuser() {
-  //   //debugger
+  //   ////debugger
   //   this.submitted = true;
     
   //   let jsonData = {

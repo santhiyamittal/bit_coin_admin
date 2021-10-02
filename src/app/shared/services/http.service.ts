@@ -143,7 +143,7 @@ errorCount: number;
     );
   }
   userLogin(jsonObj: any): Observable<any> {
-    // //debugger
+    // ////debugger
     return this.http.post(this.baseURL + this.userloginurl, jsonObj, {
       headers: this.headers,
     });
@@ -155,25 +155,25 @@ errorCount: number;
     });
   }
   listtype(jsonObj: any): Observable<any> {
-    // //debugger
+    // ////debugger
     return this.http.post(this.baseURL + this.list_type, jsonObj, {
       headers: this.getAuthHeaders(),
     });
   }
   updatextra(jsonObj: any): Observable<any> {
-    // //debugger
+    // ////debugger
     return this.http.post(this.baseURL + this.updatewithdraw, jsonObj, {
       headers: this.getAuthHeaders(),
     });
   }
   deletextra(jsonObj: any): Observable<any> {
-    // //debugger
+    // ////debugger
     return this.http.post(this.baseURL + this.delete, jsonObj, {
       headers: this.getAuthHeaders(),
     });
   }
   creatextra(jsonObj: any): Observable<any> {
-    // //debugger
+    // ////debugger
     return this.http.post(this.baseURL + this.createwithdraw, jsonObj, {
       headers: this.getAuthHeaders(),
     });
@@ -196,19 +196,19 @@ errorCount: number;
   }
   //wallet
   wallet_list(jsonObj: any): Observable<any> {
-    // //debugger
+    // ////debugger
     return this.http.post(this.baseURL + this.walletlist, jsonObj, {
       headers: this.getAuthHeaders(),
     });
   }
   add_wallet(jsonObj: any): Observable<any> {
-    // //debugger
+    // ////debugger
     return this.http.post(this.baseURL + this.addwallet, jsonObj, {
       headers: this.getAuthHeaders(),
     });
   }
   wallet_graph(jsonObj: any): Observable<any> {
-    // //debugger
+    // ////debugger
     return this.http.post(this.baseURL + this.walletgraph, jsonObj, {
       headers: this.getAuthHeaders(),
     });
@@ -225,49 +225,49 @@ errorCount: number;
     });
   }
   settingupdate(jsonObj: any): Observable<any> {
-    // //debugger
+    // ////debugger
     return this.http.post(this.baseURL + this.create, jsonObj, {
       headers: this.getAuthHeaders(),
     });
   }
   settinglogo1(jsonObj: any): Observable<any> {
-    debugger
+    //debugger
     return this.http.post(this.baseURL + this.logo1, jsonObj, {
       headers: this.getAuthHeaders(),
     });
   }
     settinglogo2(jsonObj: any): Observable<any> {
-    debugger
+    //debugger
     return this.http.post(this.baseURL + this.logo2, jsonObj, {
       headers: this.getAuthHeaders(),
     });
   }  
   settinglogo3(jsonObj: any): Observable<any> {
-    debugger
+    //debugger
     return this.http.post(this.baseURL + this.singlelogo, jsonObj, {
       headers: this.getAuthHeaders(),
     });
   }
   getmeta(jsonObj: any): Observable<any> {
-    debugger
+    //debugger
     return this.http.post(this.baseURL + this.meta, jsonObj, {
       headers: this.getAuthHeaders(),
     });
   }
   getgoogleauth(jsonObj: any): Observable<any> {
-    debugger
+    //debugger
     return this.http.post(this.baseURL + this.googleauth, jsonObj, {
       headers: this.getAuthHeaders(),
     });
   }
   getemailkey(jsonObj: any): Observable<any> {
-    debugger
+    //debugger
     return this.http.post(this.baseURL + this.emailkey, jsonObj, {
       headers: this.getAuthHeaders(),
     });
   }
   getsmskey(jsonObj: any): Observable<any> {
-    debugger
+    //debugger
     return this.http.post(this.baseURL + this.smskey, jsonObj, {
       headers: this.getAuthHeaders(),
     });
@@ -296,7 +296,7 @@ errorCount: number;
     });
   }
   logoutSession(jsonObj: any): Observable<any> {
-    // //debugger
+    // ////debugger
     return this.http.post(this.baseURL + this.logout, jsonObj, {
       headers: this.getAuthHeaders(),
     });

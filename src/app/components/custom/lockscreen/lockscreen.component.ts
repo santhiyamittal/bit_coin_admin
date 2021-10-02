@@ -56,7 +56,7 @@ export class LockscreenComponent implements OnInit {
     this.fieldTextType = !this.fieldTextType;
   }
   onClick() {
-    debugger
+    // //debugger
     if (this.password === this.password ) {
       this.password = 'text';
       this.show = true;
@@ -78,7 +78,7 @@ export class LockscreenComponent implements OnInit {
 
   
   onpassSubmit() {
-    debugger
+    // //debugger
     var password = this.userPass.data
     if (password) {
       if (password === this.lockForm.value.password) {
