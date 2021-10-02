@@ -22,24 +22,25 @@ import { NgxPaginationModule } from 'ngx-pagination';
 // import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { PercentageDirective } from './percentage.directive';
-import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMomentDateModule } from "@angular/material-moment-adapter";
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import { MatInputModule } from '@angular/material/input';
+
 import { BrowserModule } from '@angular/platform-browser';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
+  
   declarations: [DrawwalletComponent, AdddrawComponent, ViewdrawComponent, EditdrawComponent, DeletedrawComponent, PercentageDirective,],
   imports: [
+
     CommonModule,
   DrawWalletRoutingModule,
     ChartsModule,
     NgApexchartsModule,
     NgSelectModule,
     NgbModule,
-    MatInputModule,
     MatDatepickerModule,
     ClipboardModule,
     FormsModule,

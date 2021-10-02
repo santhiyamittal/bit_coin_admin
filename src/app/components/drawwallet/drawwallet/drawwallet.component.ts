@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApexOptions } from 'apexcharts';
@@ -89,9 +89,20 @@ submitted:boolean=false;
     this.loginForm = this.formBuilder.group({
 
       username: ['', Validators.required],
-      // value: ['', Validators.required],
-    });
+      StartTime: ['', [Validators.required,this.dateRangeValidator]],
+      EndTime:['', [Validators.required,this.dateRangeValidator]],    });
   }
+  private dateRangeValidator: ValidatorFn = (): {
+    [key: string]: any;
+  } | null => {
+    let invalid = false;
+    const from = this.loginForm && this.loginForm.get("StartTime").value;
+    const to = this.loginForm && this.loginForm.get("EndTime").value;
+    if (from && to) {
+      invalid = new Date(from).valueOf() > new Date(to).valueOf();
+    }
+    return invalid ? { invalidRange: { from, to } } : null;
+  };
   addfunction(){
     this.router.navigateByUrl('/drawwallet/adddraw')
 this.getnxtdraw()
@@ -223,7 +234,7 @@ this.getnxtdraw()
   search(){
     // ////debugger
      //search api
-  // this.submitted=true;
+  this.submitted=true;
   let jsonData = {
     // id: this.id,
     key: this.username,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -68,11 +68,20 @@ submitted:boolean=false;
     this.loginForm = this.formBuilder.group({
 
       username: ['', Validators.required],
-      value: ['', Validators.required],
-    });
-  }
-  
-  
+  StartTime: ['', [Validators.required,this.dateRangeValidator]],
+  EndTime:['', [Validators.required,this.dateRangeValidator]],    });
+}
+private dateRangeValidator: ValidatorFn = (): {
+[key: string]: any;
+} | null => {
+let invalid = false;
+const from = this.loginForm && this.loginForm.get("StartTime").value;
+const to = this.loginForm && this.loginForm.get("EndTime").value;
+if (from && to) {
+  invalid = new Date(from).valueOf() > new Date(to).valueOf();
+}
+return invalid ? { invalidRange: { from, to } } : null;
+};
 
   warningAlert(item) {
     // //debugger

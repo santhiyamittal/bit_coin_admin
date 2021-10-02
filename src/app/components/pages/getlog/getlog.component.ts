@@ -17,6 +17,8 @@ export class GetlogComponent implements OnInit {
   data:any=[];
   dataa={ log: []};
 log:any;
+  getKeysArray: string[];
+  getValueArray: unknown[];
   constructor(
 public toastr: ToastrService,
 
@@ -53,10 +55,17 @@ public toastr: ToastrService,
         console.log("No Data found");
     
       }
+    // this.getKeysArray = Object.keys( this.data);
+    //   this. getValueArray = Object.values( this.data);
      var getKeysArray = Object.keys( this.data);
 var getValueArray = Object.values( this.data);
-this.log= getKeysArray[0] as string +  getValueArray[0] as string ;
+this.log= getKeysArray as unknown as string +  getValueArray as string ;
+// this.log= this.getKeysArray +  this.getValueArray ;
+
             console.log(this.log);
+            console.log(this.getValueArray);
+            console.log(this.getKeysArray);
+
            });
   }
 }

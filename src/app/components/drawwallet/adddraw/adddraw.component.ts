@@ -40,6 +40,12 @@ drawname:string;
 startDate = new FormControl(new Date());
 endDate = new FormControl(new Date());
   today: string;
+  fg: FormGroup;
+  percentage_1: any;
+  percentage_2: any;
+  percentage_3: any;
+  percentage_4: any;
+  cold_wallet_percentage: any;
   constructor(
     public toastr: ToastrService,
 
@@ -50,6 +56,8 @@ endDate = new FormControl(new Date());
     public httpService: HttpService,
     private loader: NgxUiLoaderService,
     private router: Router
+
+    
   ) { 
   
     // for(let i = 1; i <= 10; i++){
@@ -61,6 +69,13 @@ endDate = new FormControl(new Date());
     // this.draw ='Draw#' +this.drawid
 
     // this.drawid=this.drawid+1;
+    this.fg = new FormGroup(
+      {
+        from: new FormControl(''),
+        to: new FormControl(''),
+      },
+      [Validators.required, this.dateRangeValidator]
+    );
   }
   ngOnInit(): void {
     var today = new Date();
@@ -141,7 +156,7 @@ this.getnxtdraw();
   
   onSubmit() {
 
-    // //debugger
+    debugger
     this.submitted = true;
   
     let jsonData = {
@@ -159,8 +174,14 @@ this.getnxtdraw();
     }
     this.StartTime =this.loginForm.value.StartTime
     this.EndTime =this.loginForm.value.EndTime
-
-    if (this.StartTime <= this.EndTime) {
+    this.price=this.loginForm.value.price
+    
+    this.percentage_1=this.loginForm.value.firstprice
+    this. percentage_2=this.loginForm.value.secondprice
+    this.percentage_3=this.loginForm.value.thridprice
+    this.percentage_4=this.loginForm.value.fourthprice
+    this.cold_wallet_percentage=this.loginForm.value.coldprice
+    if (this.StartTime <= this.EndTime && this.price!=null && this.percentage_1!=null  && this.percentage_2!=null && this.percentage_3!=null && this.percentage_4!=null && this.cold_wallet_percentage!=null ) {
   
     this.loader.start();
     this.httpService.getcreatedraw(jsonData).subscribe(res => {

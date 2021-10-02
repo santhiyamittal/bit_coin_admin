@@ -142,13 +142,13 @@
                         <label>Start Time
                             <span class="tx-danger">*</span>
                         </label>
-                        <div class="form-group">
+                        <div class="form-group" >
                             <input type="datetime-local" min="today"  formControlName="StartTime" class="form-control"
                                 [ngClass]="{ 'is-invalid': submitted && loginFormControl.StartTime.errors }" />
                             <div *ngIf="submitted && loginFormControl.StartTime.errors" class="invalid-feedback">
                                 <div *ngIf="loginFormControl.StartTime.errors.required">StartTime is required</div>
-                                <div *ngIf="loginFormControl.StartTime.errors.dateRangeValidator">StartTime must be Entered</div>
-                            </div>
+                                <div  *ngIf="loginForm.invalid">Please add a valid from and to date</div >
+                                </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-12">
@@ -158,11 +158,10 @@
                         <div class="form-group">
                             <input type="datetime-local" min ="StartTime.value"  formControlName="EndTime" class="form-control"
                             [ngClass]="{ 'is-invalid': submitted && loginFormControl.EndTime.errors}" />
-
-                            <!-- <div *ngIf="submitted && loginFormControl.EndTime.errors" class="invalid-feedback">
+                            <div *ngIf="submitted && loginFormControl.EndTime.errors" class="invalid-feedback">
                                 <div *ngIf="loginFormControl.EndTime.errors.required">EndTime is required</div>
-                                <div *ngIf="loginFormControl.EndTime.errors.dateRangeValidator">EndTime must be Entered</div>
-                            </div>  -->
+                                <div  *ngIf="loginForm.invalid">Please add a valid from and to date</div >
+                            </div>  
 
                         </div>
 

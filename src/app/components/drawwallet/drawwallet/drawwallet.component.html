@@ -21,7 +21,7 @@
             <!-- <button type="button" class="btn btn-primary my-2 btn-icon-text"(click)="addfunction()">
                 <i class="fas fa-plus"></i> Add Draw
             </button>&nbsp; -->
-            <button type="button" class="btn btn-primary my-2 btn-icon-text">
+            <button type="button" class="btn btn-primary my-2 btn-icon-text"routerLink="/pages/invoice">
                 Download Report<i class="fe fe-download-cloud ml-2"></i>
             </button>
         </div>
@@ -36,40 +36,56 @@
             <div class="card-body p-4">
                 <!-- <label>Draw Name </label>
                 <input type="text"  [(ngModel)]="username" (ngModelChange)="searchuser()"class="form-control" placeholder="Enter the Draw Name " /> -->
-                <div class="row align-items-center">
+                <!-- <div class="row align-items-center"> -->
                     <form [formGroup]="loginForm" (ngSubmit)="search()" novalidate>
 
                         <div class="row">
-                            <div class="col-lg-7 col-md-7 col-sm-7">
+                            <div class="col-sm-7 col-md-7 col-lg-3">
                               
                                 <div class="form-group text-left">
-                                    <label>User Name</label>
+                                    <label>Draw Name</label>
                                     <input type="text" formControlName="username" [(ngModel)]="username"class="form-control" [ngClass]="{ 'valid': submitted  }" />
                                  
                             </div>
                           </div>
                 
-                            <div class="col-lg-7 col-md-7 col-sm-7">
-                                <div class="form-group">
-                                    <label>Email</label>
-                                    <div class="form-group">
-                                        <input type="text" formControlName="email" [(ngModel)]="email" class="form-control" [ngClass]="{ 'valid': submitted }" />
-                                       
+                            <div class="col-sm-7 col-md-7 col-lg-3">
+                                <label>Start Time
+                                </label>
+                                <div class="form-group" >
+                                    <input type="datetime-local"   formControlName="StartTime" class="form-control"
+                                        [ngClass]="{ 'is-invalid': submitted && loginFormControl.StartTime.errors }" />
+                                    <div *ngIf="submitted && loginFormControl.StartTime.errors" class="invalid-feedback">
+                                        <div *ngIf="loginFormControl.StartTime.errors.required">StartTime is required</div>
+                                        <div  *ngIf="loginForm.invalid">Please add a valid from and to date</div >
                                         </div>
-                                    
                                 </div>
                             </div>
                 
-                          
-                            <div class="col-lg-3 col-md-3 col-sm-3">
+                            <div class="col-sm-7 col-md-7 col-lg-3">
+                                <label>End time
+                                </label>
+                                <div class="form-group">
+                                    <input type="datetime-local" min ="StartTime.value"  formControlName="EndTime" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && loginFormControl.EndTime.errors}" />
+                                    <div *ngIf="submitted && loginFormControl.EndTime.errors" class="invalid-feedback">
+                                        <div *ngIf="loginFormControl.EndTime.errors.required">EndTime is required</div>
+                                        <div  *ngIf="loginForm.invalid">Please add a valid from and to date</div >
+                                    </div>  
+        
+                                </div>
+        
+                                </div>
+                            <div class="col-sm-3 col-md-3 col-lg-3">
                                 <label>&nbsp;</label>
-                                <button type="submit"class="btn btn-sm btn-primary btn-block">Get</button>
+                                <button type="submit" style="height: 34px;"  class="btn btn-sm btn-primary btn-block disabled"  [disabled]="!loginForm.valid">Get</button>
                             </div>
                             </div>
                         </form>
                 </div> 
-            </div>
+            <!-- </div> -->
         </div>
+        
     </div>
 </div>
 <div class="row row-sm">
@@ -111,7 +127,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let item of data |filter:username | paginate:{
+                            <tr *ngFor="let item of data  | paginate:{
                                 itemsPerPage: 10,
                                  currentPage:page,
                                 totalitem:totalLength }">
