@@ -27,15 +27,15 @@
 <div class="row row-sm">
     <div class="col-lg-12 col-md-12">
         <div class="card custom-card">
-            <div class="card-body">
+            <div class="card-body" id="htmlData">
                 <div class="d-lg-flex">
-                    <h2 class="main-content-label mb-1">#INV0678</h2>
+                    <h2 class="main-content-label mb-1">Upcoming Draw List</h2>
                     <div class="ml-auto">
                         <p class="mb-1"><span class="font-weight-bold">Invoice Date :</span> 01st November 2020</p>
                         <p class="mb-0"><span class="font-weight-bold">Due Date :</span> 01 May  2020</p>
                     </div>
                 </div>
-                <hr class="mg-b-40">
+                <hr class="mg-b-40" >
                 <!-- <div class="row row-sm">
                     <div class="col-lg-6">
                         <p class="h3">Invoice From:</p>
@@ -56,7 +56,7 @@
                         </address>
                     </div>
                 </div> -->
-                <div class="table-responsive mg-t-40">
+                <!-- <div class="table-responsive mg-t-40">
                     <table class="table table-invoice table-bordered">
                         <thead>
                             <tr>
@@ -89,37 +89,120 @@
                                 <td class="tx-right">$40.00</td>
                                 <td class="tx-right">$40.00</td>
                             </tr>
-                            <!-- <tr>
-                                <td class="valign-middle" colspan="2" rowspan="4">
-                                    <div class="invoice-notes">
-                                        <label class="main-content-label tx-13">Notes</label>
-                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                                    </div>
-                                </td>
-                                <td class="tx-right">Sub-Total</td>
-                                <td class="tx-right" colspan="2">$400.00</td>
-                            </tr>
-                            <tr>
-                                <td class="tx-right">Tax</td>
-                                <td class="tx-right" colspan="2">3%</td>
-                            </tr>
-                            <tr>
-                                <td class="tx-right">Discount</td>
-                                <td class="tx-right" colspan="2">10%</td>
-                            </tr>
-                            <tr>
-                                <td class="tx-right tx-uppercase tx-bold tx-inverse">Total Due</td>
-                                <td class="tx-right" colspan="2">
-                                    <h4 class="tx-bold">$450.00</h4>
-                                </td>
-                            </tr> -->
+                           
                         </tbody>
                     </table>
+                </div> -->
+                <div class="row row-sm" id="htmlData">
+                    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 grid-margin">
+                        <div class="card custom-card">
+                            <div class="card-header border-bottom-0 pb-0">
+                                <div class="d-flex justify-content-between">
+                                    <!-- <label class="main-content-label mb-0 pt-1">User Table</label> -->
+                                    <!-- <div class="ml-auto float-right">
+                                        <div ngbDropdown class="">
+                                            <a href="javascript:;" class="option-dots" ngbDropdownToggle><i
+                                                    class="fe fe-more-horizontal"></i></a>
+                                            <div ngbDropdownMenu class="dropdown-menu-right">
+                                                <a ngbDropdownItem href="javascript:;">Today</a>
+                                                <a ngbDropdownItem href="javascript:;">Last Week</a>
+                                                <a ngbDropdownItem href="javascript:;">Last Month</a>
+                                                <a ngbDropdownItem href="javascript:;">Last Year</a>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                </div>
+                                <!-- <p class="tx-12 tx-gray-500 mt-0 mb-2">Example of Spruha Simple Table. <a href="javascript:;">Learn
+                                        more</a></p> -->
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive border userlist-table">
+                                    <table class="table card-table table-striped table-vcenter text-nowrap mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th class="wd-lg-8p"><span> Draw Name</span></th>
+                                                <!-- <th class="wd-lg-20p"><span></span></th> -->
+                                                <th class="wd-lg-20p"><span>Winning Price</span></th>
+                                                <th class="wd-lg-20p"><span>Price</span></th>
+                                                <th class="wd-lg-20p"><span> Status</span></th>
+                                                <!-- <th class="wd-lg-20p"><span> First Price</span></th> -->
+                
+                                                <th class="wd-lg-20p"><span>Start time</span></th>
+                                                <th class="wd-lg-20p">End time</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let item of upcomdata ">
+                                                <!-- <tr *ngFor="let item of data "> -->
+                                                <!-- <td>
+                                                    <img alt="avatar" class="rounded-circle avatar-md mr-2"
+                                                        src="../../assets/img/users/1.jpg">
+                                                </td> -->
+                                                <td>{{item['name'] == "" ? 'NA': item['name']}} </td>
+                                                <td>
+                                                    {{item['winning_price'] ==  null ? 0: item['winning_price']}}
+                                                </td>
+                                                <td>
+                                                    {{item['price'] == "" ? 'NA': item['price']}}
+                                                </td>
+                                                <!-- <td>
+                                                    {{item['cold_wallet_percentage'] == "" ? 'NA': item['cold_wallet_percentage']}}
+                                                </td>
+                                                <td>
+                                                    {{item['percentage_1'] == "" ? 'NA': item['percentage_1']}}
+                                                </td> -->
+                                                <td >
+                                                    <span *ngIf="item['status'] === true"
+                                                   [class]="item['status'] === true ? 'text-danger':''">
+                                                   {{item['status'] === true ? 'Inactive':item['status']}}</span>
+                                                   <span *ngIf="item['status'] === false"
+                                                   [class]="item['status'] === false ? 'text-success' : ''">
+                                                   {{item['status'] === false ? 'Active':item['status']}}</span>
+                                               </td> 
+                                        
+                                                <td>
+                                                    {{item['start_time'] | date :'medium'}}
+                                                </td>
+                                                <td>
+                                                    {{item['end_time']| date :'medium'}}
+                                                </td>
+                                                <!-- <td>
+                                                    <button (click)="gotoview(item)" class="btn btn-sm btn-primary mr-1">
+                                                        <i class="si si-eye"></i>
+                                                    </button>
+                                                   
+                                                    <button (click)="editsymbol(item)" class="btn btn-sm btn-info mr-1">
+                                                        <i class="fe fe-edit-2"></i>
+                                                    </button>
+                                                    <span *ngIf="item['status'] === true">
+                                                    <button (click)="warningAlert(item)" class="btn btn-sm btn-success">
+                                                        <i class="fa fa-check" ></i>
+                                                    </button>
+                                                </span>
+                                                <span *ngIf="item['status'] === false">
+                                                    <button (click)="warningAlert(item)" class="btn btn-sm btn-danger" >
+                                                        <i class="fa fa-times-circle" ></i>
+                                                    </button>
+                                                </span>
+                                                </td> -->
+                                            </tr>
+                
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- <div class="center" *ngIf="!showDatafound">
+                                    <span>NO DATA FOUND </span>
+                                </div>
+                                <pagination-controls class="pagination mt-4 mb-0 float-right page-item" (pageChange)="page = $event">
+                                </pagination-controls> -->
+                            </div>
+                        </div>
+                    </div><!-- COL END -->
                 </div>
             </div>
              <div class="card-footer text-right">
                 <!-- <button type="button" class="btn ripple btn-primary mb-1 mr-1"><i class="fe fe-credit-card mr-1"></i> Pay Invoice</button> -->
-                <button type="button" class="btn ripple btn-secondary mb-1 mr-1"><i class="fe fe-send mr-1"></i> Download</button>
+                <button type="button" class="btn ripple btn-secondary mb-1 mr-1" (click)="openPDF()"><i class="fe fe-arrow-down-circle mr-1"></i> Download</button>
                 <button type="button" class="btn ripple btn-info mb-1" onclick="javascript:window.print();"><i class="fe fe-printer mr-1"></i> Print </button>
             </div> 
         </div>

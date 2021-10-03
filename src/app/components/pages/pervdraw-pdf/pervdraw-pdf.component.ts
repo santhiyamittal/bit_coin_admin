@@ -2,19 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import {  ViewChild, ElementRef } from '@angular/core';
-
 @Component({
-  selector: 'app-invoice',
-  templateUrl: './invoice.component.html',
-  styleUrls: ['./invoice.component.scss']
+  selector: 'app-pervdraw-pdf',
+  templateUrl: './pervdraw-pdf.component.html',
+  styleUrls: ['./pervdraw-pdf.component.scss']
 })
-export class InvoiceComponent implements OnInit {
-  upcomdata: any=[];
+export class PervdrawPdfComponent implements OnInit {
+  pervdrawdata: any=[];
   @ViewChild('htmlData') htmlData:ElementRef;
 
   constructor() {
-    this.upcomdata = JSON.parse(localStorage.getItem("upcomdraw"))
-console.log(this.upcomdata)
+    this.pervdrawdata = JSON.parse(localStorage.getItem("pervdraw"))
+console.log(this.pervdrawdata)
    }
 
   ngOnInit(): void {
@@ -33,7 +32,7 @@ console.log(this.upcomdata)
         let position = 0;
         PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight)
         
-        PDF.save('Upcoming_draw_list.pdf');
+        PDF.save('Pervious_draw_list.pdf');
     });     
     }
  

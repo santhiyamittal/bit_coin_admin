@@ -20,6 +20,7 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { GetlogComponent } from './getlog/getlog.component';
 import { GoogleAuthenticatorComponent } from './google-authenticator/google-authenticator.component';
 import { InvoiceComponent } from './invoice/invoice.component';
+import { PervdrawPdfComponent } from './pervdraw-pdf/pervdraw-pdf.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { ProfileComponent } from './profile/profile.component';
 import { QualificationpageComponent } from './qualificationpage/qualificationpage.component';
@@ -57,6 +58,10 @@ const routes: Routes = [
       {
         path: 'invoice',
         component: InvoiceComponent
+      },
+      {
+        path: 'pervpdf',
+        component: PervdrawPdfComponent
       },
       {
         path: 'pricing',

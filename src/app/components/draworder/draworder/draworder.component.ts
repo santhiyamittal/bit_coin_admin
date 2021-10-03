@@ -190,6 +190,7 @@ return invalid ? { invalidRange: { from, to } } : null;
     this.httpService.getdrawpervlist().subscribe((res: any) => {
 
       console.log(res['data'])
+      localStorage.setItem("pervdraw", JSON.stringify(res['data']));
 
       this.drawlist = res['data']
       // this.status = res['data']['status']

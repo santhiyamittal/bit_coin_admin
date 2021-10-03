@@ -193,6 +193,8 @@ this.getnxtdraw()
       console.log(res['data'])
 
       this.data = res['data']
+      localStorage.setItem("upcomdraw", JSON.stringify(res['data']));
+
       // this.name = res['data']['draw_id']['name']
       this.id = res['data']['_id']
       console.log(this.id)

@@ -57,10 +57,11 @@ import { ArchwizardModule } from 'angular-archwizard';
 import { SmspageComponent } from './smspage/smspage.component';
 import { RemovegoogleauthComponent } from './removegoogleauth/removegoogleauth.component';
 import { AngularOtpLibModule } from 'angular-otp-box';
+import { PervdrawPdfComponent } from './pervdraw-pdf/pervdraw-pdf.component';
 
 
 @NgModule({
-  declarations: [ProfileComponent, InvoiceComponent, PricingComponent, GalleryComponent, FaqsComponent, SuccessmessageComponent, DangermessageComponent, WarningmessageComponent, EmptypageComponent, ConstantpageComponent, ExtrapageComponent, SettingpageComponent, SystemsettingpageComponent, ChangepasspageComponent, EmailpageComponent, BackendpageComponent, CreditpageComponent, DocspageComponent, WithdrawpageComponent, QualificationpageComponent, DocumentpageComponent, GetlogComponent, DeletelogComponent, CreatewithdrawComponent, ViewwithdrawComponent, EditwithdrawComponent, AddcreditComponent, EditcreditComponent, EditbackendComponent, AddbackendComponent, ViewbackendComponent, ViewcreditComponent, SecuritypageComponent, GoogleAuthenticatorComponent, SmspageComponent, RemovegoogleauthComponent],
+  declarations: [ProfileComponent, InvoiceComponent, PricingComponent, GalleryComponent, FaqsComponent, SuccessmessageComponent, DangermessageComponent, WarningmessageComponent, EmptypageComponent, ConstantpageComponent, ExtrapageComponent, SettingpageComponent, SystemsettingpageComponent, ChangepasspageComponent, EmailpageComponent, BackendpageComponent, CreditpageComponent, DocspageComponent, WithdrawpageComponent, QualificationpageComponent, DocumentpageComponent, GetlogComponent, DeletelogComponent, CreatewithdrawComponent, ViewwithdrawComponent, EditwithdrawComponent, AddcreditComponent, EditcreditComponent, EditbackendComponent, AddbackendComponent, ViewbackendComponent, ViewcreditComponent, SecuritypageComponent, GoogleAuthenticatorComponent, SmspageComponent, RemovegoogleauthComponent, PervdrawPdfComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,
