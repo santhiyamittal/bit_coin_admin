@@ -2,19 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import {  ViewChild, ElementRef } from '@angular/core';
-
 @Component({
-  selector: 'app-invoice',
-  templateUrl: './invoice.component.html',
-  styleUrls: ['./invoice.component.scss']
+  selector: 'app-transcation-pdf',
+  templateUrl: './transcation-pdf.component.html',
+  styleUrls: ['./transcation-pdf.component.scss']
 })
-export class InvoiceComponent implements OnInit {
-  upcomdata: any=[];
+export class TranscationPdfComponent implements OnInit {
+  transdata: any=[];
   @ViewChild('htmlData') htmlData:ElementRef;
 
   constructor() {
-    this.upcomdata = JSON.parse(localStorage.getItem("upcomdraw"))
-console.log(this.upcomdata)
+    this.transdata = JSON.parse(localStorage.getItem("trans"))
+console.log(this.transdata)
    }
 
   ngOnInit(): void {
@@ -28,14 +27,14 @@ console.log(this.upcomdata)
         let fileWidth = 208;
         let fileHeight = canvas.height * fileWidth / canvas.width;
         
-        const FILEURI = canvas.toDataURL('image/txt')
+        const FILEURI = canvas.toDataURL('image/png')
         let PDF = new jsPDF('p', 'mm', 'a4');
         let position = 0;
-        PDF.addImage(FILEURI, 'txt', 0, position, fileWidth, fileHeight)
+        PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight)
         
-        PDF.save('Upcoming_draw_list.pdf');
+        PDF.save('transcation_list.pdf');
     });     
-    }
- 
+
+}
 
 }

@@ -132,6 +132,8 @@ let jsonData={
       console.log(res['data'])
 
       this.data = res['data']
+      localStorage.setItem("transpen", JSON.stringify(res['data']));
+
       this.status = res['data']['status']
       this.id = res['data']['_id']
       console.log(this.id)

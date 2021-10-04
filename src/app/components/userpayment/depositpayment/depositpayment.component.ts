@@ -134,6 +134,8 @@ gotoinactive(){
       
       if(res['data']['paymentstatus'] == 1){
         this.data = res['data']
+        localStorage.setItem("depositsucess", JSON.stringify(res['data']));
+
       this.status = res['data']['status']
       this.id = res['data']['_id']
       console.log(this.id)

@@ -132,6 +132,7 @@ let jsonData={
     this.httpService.getdepstatus(jsonData).subscribe((res: any) => {
 
       console.log(res['data'])
+      localStorage.setItem("depositpen", JSON.stringify(res['data']));
 
       this.data = res['data']
       this.status = res['data']['status']

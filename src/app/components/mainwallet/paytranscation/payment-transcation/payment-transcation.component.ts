@@ -133,6 +133,8 @@ gotoinactive(){
       console.log(res['data'])
         if(res['data']['paymentstatus'] == 1){
       this.data = res['data']
+      localStorage.setItem("trans", JSON.stringify(res['data']));
+
       this.id = res['data']['_id']
       console.log(this.id)
       this.totalLength = this.data.length;

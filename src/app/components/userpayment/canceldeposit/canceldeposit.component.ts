@@ -135,6 +135,8 @@ let jsonData={
       if(res['data']['paymentstatus'] == 2){
 
       this.data = res['data']
+      localStorage.setItem("depositcan", JSON.stringify(res['data']));
+
       this.status = res['data']['status']
       this.id = res['data']['_id']
       console.log(this.id)

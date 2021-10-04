@@ -15,63 +15,64 @@
             Pay Transcation
         </button>&nbsp;
           <button type="button" class="btn btn-primary my-2 btn-icon-text"routerLink="/wallet/cancelpayment">
-             Cancel Transcation           </button> 
+             Cancel Transcation           </button>  &nbsp;
+             <button type="button" class="btn btn-primary my-2 btn-icon-text"routerLink="/pages/transpenpdf">
+                Download Report     <i class="fe fe-download ml-2"></i>      </button> 
        </div>
    </div>
 </div>
 
 <div class="row row-sm  mt-lg-4">
-   <div class="col-sm-12 col-lg-12 col-xl-12">
-       <div class="card bg-primary custom-card card-box">
-           <div class="card-body p-4">
-               <!-- <label>User Name</label>
-               <input type="text"  [(ngModel)]="username" (ngModelChange)="searchpayment()"class="form-control" placeholder="Enter the User Name" /> -->
-               <div class="row align-items-center">
-                <form [formGroup]="loginForm" (ngSubmit)="search()" novalidate>
-
-                    <div class="row">
-                        <div class="col-lg-4 col-md-4 col-sm-4">
-                          
-                            <div class="form-group text-left">
-                                <label>Draw Name</label>
-                                <input type="text" formControlName="drawname" class="form-control" [ngClass]="{ 'valid': submitted  }" />
-                             
-                        </div>
-                      </div>
-                      <div class="col-lg-4 col-md-4 col-sm-4">
-                          
-                        <div class="form-group text-left">
-                            <label>Coin Name</label>
-                            <!-- <input type="text" formControlName="coinname" class="form-control" [ngClass]="{ 'valid': submitted  }" /> -->
-                            <select class="select form-control" formControlName="coinname">
-                                <!-- placeholder="bitcoin" -->
-                            <option *ngFor="let bit of bitcoin">{{bit}}</option>
-                        </select>
-                    </div>
-                  </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4">
-                            <div class="form-group">
-                                <label>Symbol</label>
-                                <select class="select form-control" formControlName="symbol">
-                                    <!-- placeholder="symbol" -->
-                                <option *ngFor="let sym of Symbol">{{sym}}</option>
-                            </select>
-                                
-                            </div>
-                        </div>
-            
-                      
-                        <div class="col-lg-3 col-md-3 col-sm-3">
-                            <label>&nbsp;</label>
-                            <button type="submit"class="btn btn-sm btn-primary btn-block">Get</button>
-                        </div>
-                        </div>
-                    </form>
-            </div> 
-           </div>
-       </div>
-   </div>
-</div>
+    <div class="col-sm-12 col-lg-12 col-xl-12">
+        <div class="card bg-primary custom-card card-box">
+            <div class="card-body p-4">
+                <!-- <label>User Name</label>
+                <input type="text"  [(ngModel)]="username" (ngModelChange)="searchpayment()"class="form-control" placeholder="Enter the User Name" /> -->
+                <!-- <div class="row align-items-center"> -->
+                 <form [formGroup]="loginForm" (ngSubmit)="search()" novalidate>
+ 
+                     <div class="row">
+                         <div class="col-lg-4 col-md-4 col-sm-4">
+                           
+                             <div class="form-group text-left">
+                                 <label>Draw Name</label>
+                                 <input type="text" formControlName="drawname" class="form-control" [ngClass]="{ 'valid': submitted  }" />
+                              
+                         </div>
+                       </div>
+                       <div class="col-lg-4 col-md-4 col-sm-4">
+                           
+                         <div class="form-group text-left">
+                             <label>Coin Name</label>
+                             <!-- <input type="text" formControlName="coinname" class="form-control" [ngClass]="{ 'valid': submitted  }" /> -->
+                             <select class="select form-control" formControlName="coinname">
+                                 <!-- placeholder="bitcoin" -->
+                             <option *ngFor="let bit of bitcoin">{{bit}}</option>
+                         </select>
+                     </div>
+                   </div>
+                         <div class="col-lg-4 col-md-4 col-sm-4">
+                             <div class="form-group">
+                                 <label>Symbol</label>
+                                 <select class="select form-control" formControlName="symbol">
+                                 <option *ngFor="let sym of Symbol">{{sym}}</option>
+                             </select>
+                                 
+                             </div>
+                         </div>
+                       
+                       
+                         </div>
+                     </form>
+                     <div class="col-sm-12 text-right m-t-20">
+                         <label>&nbsp;</label>
+                         <button type="submit"class="btn btn-primary" style="width: 8%;">Get</button>
+                     </div>
+             </div> 
+            <!-- </div> -->
+        </div>
+    </div>
+ </div>
 <div class="row row-sm">
    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 grid-margin">
        <div class="card custom-card">

@@ -58,10 +58,19 @@ import { SmspageComponent } from './smspage/smspage.component';
 import { RemovegoogleauthComponent } from './removegoogleauth/removegoogleauth.component';
 import { AngularOtpLibModule } from 'angular-otp-box';
 import { PervdrawPdfComponent } from './pervdraw-pdf/pervdraw-pdf.component';
+import { WithdrawsucessPdfComponent } from './withdrawsucess-pdf/withdrawsucess-pdf.component';
+import { WithdrawpendPdfComponent } from './withdrawpend-pdf/withdrawpend-pdf.component';
+import { WithdrawcanPdfComponent } from './withdrawcan-pdf/withdrawcan-pdf.component';
+import { DepositcanPdfComponent } from './depositcan-pdf/depositcan-pdf.component';
+import { DepositpenPdfComponent } from './depositpen-pdf/depositpen-pdf.component';
+import { DepositsucessPdfComponent } from './depositsucess-pdf/depositsucess-pdf.component';
+import { TranscationPdfComponent } from './transcation-pdf/transcation-pdf.component';
+import { TranscationpenPdfComponent } from './transcationpen-pdf/transcationpen-pdf.component';
+import { TranscationcanPdfComponent } from './transcationcan-pdf/transcationcan-pdf.component';
 
 
 @NgModule({
-  declarations: [ProfileComponent, InvoiceComponent, PricingComponent, GalleryComponent, FaqsComponent, SuccessmessageComponent, DangermessageComponent, WarningmessageComponent, EmptypageComponent, ConstantpageComponent, ExtrapageComponent, SettingpageComponent, SystemsettingpageComponent, ChangepasspageComponent, EmailpageComponent, BackendpageComponent, CreditpageComponent, DocspageComponent, WithdrawpageComponent, QualificationpageComponent, DocumentpageComponent, GetlogComponent, DeletelogComponent, CreatewithdrawComponent, ViewwithdrawComponent, EditwithdrawComponent, AddcreditComponent, EditcreditComponent, EditbackendComponent, AddbackendComponent, ViewbackendComponent, ViewcreditComponent, SecuritypageComponent, GoogleAuthenticatorComponent, SmspageComponent, RemovegoogleauthComponent, PervdrawPdfComponent],
+  declarations: [ProfileComponent, InvoiceComponent, PricingComponent, GalleryComponent, FaqsComponent, SuccessmessageComponent, DangermessageComponent, WarningmessageComponent, EmptypageComponent, ConstantpageComponent, ExtrapageComponent, SettingpageComponent, SystemsettingpageComponent, ChangepasspageComponent, EmailpageComponent, BackendpageComponent, CreditpageComponent, DocspageComponent, WithdrawpageComponent, QualificationpageComponent, DocumentpageComponent, GetlogComponent, DeletelogComponent, CreatewithdrawComponent, ViewwithdrawComponent, EditwithdrawComponent, AddcreditComponent, EditcreditComponent, EditbackendComponent, AddbackendComponent, ViewbackendComponent, ViewcreditComponent, SecuritypageComponent, GoogleAuthenticatorComponent, SmspageComponent, RemovegoogleauthComponent, PervdrawPdfComponent, WithdrawsucessPdfComponent, WithdrawpendPdfComponent, WithdrawcanPdfComponent, DepositcanPdfComponent, DepositpenPdfComponent, DepositsucessPdfComponent, TranscationPdfComponent, TranscationpenPdfComponent, TranscationcanPdfComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,

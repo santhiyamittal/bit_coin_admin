@@ -132,6 +132,7 @@ let jsonData={
     this.httpService.getWithdrawstatus(jsonData).subscribe((res: any) => {
 
       console.log(res['data'])
+      localStorage.setItem("withdrawcan", JSON.stringify(res['data']));
 
       this.data = res['data']
       this.status = res['data']['status']

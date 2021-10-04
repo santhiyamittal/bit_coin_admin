@@ -10,6 +10,9 @@ import { CreatewithdrawComponent } from './createwithdraw/createwithdraw.compone
 import { CreditpageComponent } from './creditpage/creditpage.component';
 import { DangermessageComponent } from './dangermessage/dangermessage.component';
 import { DeletelogComponent } from './deletelog/deletelog.component';
+import { DepositcanPdfComponent } from './depositcan-pdf/depositcan-pdf.component';
+import { DepositpenPdfComponent } from './depositpen-pdf/depositpen-pdf.component';
+import { DepositsucessPdfComponent } from './depositsucess-pdf/depositsucess-pdf.component';
 import { DocumentpageComponent } from './documentpage/documentpage.component';
 import { EditwithdrawComponent } from './editwithdraw/editwithdraw.component';
 import { EmailpageComponent } from './emailpage/emailpage.component';
@@ -30,11 +33,17 @@ import { SettingpageComponent } from './settingpage/settingpage.component';
 import { SmspageComponent } from './smspage/smspage.component';
 import { SuccessmessageComponent } from './successmessage/successmessage.component';
 import { SystemsettingpageComponent } from './systemsettingpage/systemsettingpage.component';
+import { TranscationPdfComponent } from './transcation-pdf/transcation-pdf.component';
+import { TranscationcanPdfComponent } from './transcationcan-pdf/transcationcan-pdf.component';
+import { TranscationpenPdfComponent } from './transcationpen-pdf/transcationpen-pdf.component';
 import { ViewbackendComponent } from './viewbackend/viewbackend.component';
 import { ViewcreditComponent } from './viewcredit/viewcredit.component';
 import { ViewwithdrawComponent } from './viewwithdraw/viewwithdraw.component';
 import { WarningmessageComponent } from './warningmessage/warningmessage.component';
+import { WithdrawcanPdfComponent } from './withdrawcan-pdf/withdrawcan-pdf.component';
 import { WithdrawpageComponent } from './withdrawpage/withdrawpage.component';
+import { WithdrawpendPdfComponent } from './withdrawpend-pdf/withdrawpend-pdf.component';
+import { WithdrawsucessPdfComponent } from './withdrawsucess-pdf/withdrawsucess-pdf.component';
 
 
 const routes: Routes = [
@@ -62,6 +71,40 @@ const routes: Routes = [
       {
         path: 'pervpdf',
         component: PervdrawPdfComponent
+      },
+      {
+        path: 'withdrawsucpdf',
+        component: WithdrawsucessPdfComponent
+      },
+      {
+        path: 'withdrawcanpdf',
+        component: WithdrawcanPdfComponent
+      },
+      {
+        path: 'withdrawpendpdf',
+        component: WithdrawpendPdfComponent
+      },
+      {
+        path: 'depositsucesspdf',
+        component: DepositsucessPdfComponent
+      },
+      {
+        path: 'depositpenpdf',
+        component: DepositpenPdfComponent
+      },
+      {
+        path: 'depositcanpdf',
+        component: DepositcanPdfComponent
+      },
+      {
+        path: 'transcanpdf',
+        component:TranscationcanPdfComponent
+      }, {
+        path: 'transpdf',
+        component: TranscationPdfComponent
+      }, {
+        path: 'transpenpdf',
+        component: TranscationpenPdfComponent
       },
       {
         path: 'pricing',
