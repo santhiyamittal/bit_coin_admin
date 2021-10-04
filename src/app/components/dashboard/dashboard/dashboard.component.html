@@ -136,7 +136,7 @@
                             </div>
                             <div class="card-item-title  mb-2">
                                 <label class="main-content-label tx-13 font-weight-bold mb-1">Total Balance</label>
-                                <span class="d-block tx-12 mb-0 text-muted">Previous month vs this months</span>
+                                <span class="d-block tx-12 mb-0 text-muted">This month</span>
                             </div>
                             <div class="card-item-body">
                                 <div class="card-item-stat">
@@ -472,7 +472,6 @@
     <div class="col-sm-12 col-lg-12 col-xl-4 mt-xl-4">
         <div class="card custom-card card-dashboard-calendar pb-0">
             <label class="main-content-label mb-2 pt-1">Recent transcations</label>
-            <span class="d-block tx-12 mb-2 text-muted">Projects where development work is on completion</span>
             <table class="table table-hover m-b-0 transcations mt-2">
                 <tbody>
                     <tr *ngFor="let item of data">
@@ -510,7 +509,6 @@
                     <div class="col-6">
                         <div class="card-item-title">
                             <label class="main-content-label tx-13 font-weight-bold mb-2">Next Draw Launch</label>
-                            <span class="d-block tx-12 mb-0 text-muted">the project is going to launch</span>
                         </div>
                         <br>
                         <!-- <p class="mb-0 tx-24 mt-2"><b class="text-primary">145 days</b></p>
@@ -519,10 +517,10 @@
                             <table>
                                 <tr>
                                     <thead>
-                                        <th ><span> Days</span></th>&nbsp;
-                                        <th ><span> Hours</span></th>&nbsp;
-                                        <th ><span> minutes</span></th>&nbsp;
-                                        <th ><span> Seconds</span></th>&nbsp;
+                                        <th style="padding-left: 14px;" ><span> Days</span></th>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <th style="padding-left: 14px;"><span> Hours</span></th>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <th style="padding-left: 14px;"><span> Minutes</span></th>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <th style="padding-left: 7px;"><span> Seconds</span></th>&nbsp;&nbsp;&nbsp;&nbsp;
             
                                     </thead>
 <br>
@@ -530,16 +528,15 @@
                                             <tr>
                                                 <td class="car">
                                                     {{days}}
-                                                </td>&nbsp; 
+                                                </td>&nbsp;&nbsp;&nbsp;&nbsp;
                                                 <td class="car">
-
-                                                    {{hours}}
-                                                </td>&nbsp;
+                                                    {{hours}} 
+                                                </td>&nbsp;&nbsp;&nbsp;&nbsp;
                                                 <td class="car">
 
                                                     {{minutes}}
                                                 </td>
-                                                &nbsp;
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
                                                 <td class="car">
 
                                                     {{seconds}}

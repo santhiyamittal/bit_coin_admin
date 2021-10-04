@@ -54,15 +54,26 @@
                         <div class="form-group text-left pd-t-30">
                             <label>Mobile Otp
                             </label>
-                            <input class="form-control"
-                                type="number" placeholder="Sms otp"  formControlName="AuthenticatorCode">
+                            <div class="input-group">
+                                <div class="input-group-prepend"><span>
+                                    <button class="btn btn-primary " type="button"
+                         >Send otp</button>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" formControlName="AuthenticatorCode"
+              />
+        
+        </div>
+                            <!-- <input class="form-control"
+                            
+                                type="number" placeholder="Sms otp"  formControlName="AuthenticatorCode"> -->
                                
                             <!-- <ng-container class="invalid"
                                 *ngIf="firstFormGroup.get('password').hasError('required') && firstFormGroup.get('password').touched">
                                 <small class="tx-danger">Password is required</small>
                             </ng-container> -->
                         </div>
-                        <h5 class="text-center pd-t-30">Security Verification</h5>
+                        <!-- <h5 class="text-center pd-t-30">Security Verification</h5>
 
                         <div class="form-group text-left pd-t-30">
                             <label>E-mail verification code
@@ -72,14 +83,7 @@
                                 >
                                 <span >Enter the 6 digit code received by admin@b*****nio.com.
                                 </span>
-                            <!-- <ng-container class="invalid"
-                                *ngIf="firstFormGroup.get('email').hasError('required') && firstFormGroup.get('email').touched">
-                                <small class="tx-danger">Email is required</small>
-                            </ng-container> -->
-                            <!-- <ng-container class="invalid"
-                                *ngIf="firstFormGroup.get('email').hasError('email') && firstFormGroup.get('email').touched">
-                                <small class="tx-danger">Email is not valid</small>
-                            </ng-container> -->
+                         
                     
                         </div>
                         <div class="form-group text-left pd-t-30">
@@ -88,11 +92,8 @@
                             <input class="form-control"
                                 type="number" placeholder="AuthenticatorCode"  formControlName="oldAuthenticatorCode">
                                
-                            <!-- <ng-container class="invalid"
-                                *ngIf="firstFormGroup.get('password').hasError('required') && firstFormGroup.get('password').touched">
-                                <small class="tx-danger">Password is required</small>
-                            </ng-container> -->
-                        </div>
+                            
+                        </div> -->
                         <br>
                         <button class="btn btn-primary pull-right" type="button"
                         [disabled]="!firstFormGroup.valid" (click)="gotosec()" >Save</button>
