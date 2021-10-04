@@ -78,7 +78,7 @@ $angular-default-theme: mat-light-theme(
   align-items: center;
   white-space: nowrap;
   position: relative;
-  background-color: #6259CA;
+  // background-color: #6259CA;
   color: white;
 }
 .row1 {
@@ -112,6 +112,16 @@ $angular-default-theme: mat-light-theme(
 .toColorChange{
   fill: red;
 
+}
+.new_css .mat-tab-label-active {
+  background: #dee4ef !important;
+  color: #000000 !important;
+  opacity: 1 !important;
+  border-top: 1px solid #ebedf1 !important;
+}
+ .tab .mat-tab-body-content {
+  height: 100% !important;
+  /* overflow: auto; */
 }
 // .mat-dialog-container {
 //   background-color:#0E0E23;
