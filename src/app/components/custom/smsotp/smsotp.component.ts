@@ -56,7 +56,7 @@ export class SmsotpComponent implements OnInit {
     return this.otpForm.controls;
   }
   getdashboard() {
-    this.router.navigateByUrl('dashboard/dashboard');
+    this.router.navigateByUrl('/dashboard/dashboard');
     // this.routeTo.navigateByUrl('custom/reset-password');
     // localStorage.setItem("loginState", JSON.stringify(true));
 

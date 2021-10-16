@@ -33,7 +33,11 @@
               "@tweenjs/tween.js",
               "angular-calendar/date-adapters/date-fns",
               "calendar-utils/date-adapters/date-fns",
-              "highlight.js"
+              "highlight.js",
+              "lodash",
+              "raf",
+              "core-js",
+              "rxjs"
             ],
             "outputPath": "dist/spruha",
             "index": "src/index.html",

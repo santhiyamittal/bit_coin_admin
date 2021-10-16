@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
 
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { HttpService } from 'src/app/shared/services/http.service';
+import { split } from 'ts-node';
 @Component({
   selector: 'app-getlog',
   templateUrl: './getlog.component.html',
@@ -18,7 +19,8 @@ export class GetlogComponent implements OnInit {
   dataa={ log: []};
 log:any;
   getKeysArray: string[];
-  getValueArray: unknown[];
+  getValueArray: string[];
+  getlogdata: any=[];
   constructor(
 public toastr: ToastrService,
 
@@ -59,7 +61,11 @@ public toastr: ToastrService,
     //   this. getValueArray = Object.values( this.data);
      var getKeysArray = Object.keys( this.data);
 var getValueArray = Object.values( this.data);
-this.log= getKeysArray as unknown as string +  getValueArray as string ;
+for(let idex of getKeysArray){
+  this.log += idex+ this.data[idex]+'/n';
+}
+this.getlogdata= this.log.split('/n');
+// this.log= getKeysArray as unknown as string +  getValueArray as string ;
 // this.log= this.getKeysArray +  this.getValueArray ;
 
             console.log(this.log);

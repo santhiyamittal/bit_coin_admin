@@ -42,8 +42,8 @@
                     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 grid-margin">
                         <div class="card custom-card" >
                            
-                            <div class="card-body">
-                                {{log}}  
+                            <div class="card-body"  *ngFor="let logdata of getlogdata ">
+                                {{logdata}}  
                                 <!-- <div class="center" *ngIf="!showDatafound">
                                     <span>NO DATA FOUND </span>
                                 </div>

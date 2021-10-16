@@ -60,6 +60,10 @@ export class DashboardComponent implements OnInit {
 
       if(distance < 0){
         clearInterval(time);
+        this.days= 0 
+      this.hours= 0
+      this.minutes= 0
+      this.seconds= 0
       }
     }, 1000)
     this.graph.graphlist()
