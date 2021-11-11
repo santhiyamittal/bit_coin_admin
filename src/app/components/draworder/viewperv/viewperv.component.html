@@ -5,6 +5,11 @@
        <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="javascript:;"(click)="gotoview()">Pervious Draw</a></li>
            <li class="breadcrumb-item active main-content-title tx-24 mg-b-5" aria-current="page">{{name}} Draw</li> 
+           <ul class="lottery-single__selected-number justify-content-center"*ngFor="let item of seqnumber">
+                      
+            <li class="active" style="background: #6259CA;">{{item}}</li>
+            
+          </ul>
        </ol>
    </div>
   <!-- <div class="d-flex">

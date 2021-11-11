@@ -38,7 +38,8 @@ submitted:boolean=false;
   drawlist: any[];
   // username: any;
   // email: any;
-  
+  seqnumber=['33','23','12','44','36','19']  // username: any;
+
   constructor(
     public dialog: MatDialog,
     public toastr: ToastrService,

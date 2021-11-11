@@ -44,7 +44,8 @@ export class ViewpervComponent implements OnInit {
   thridamount: any;
   fourthamount: any;
   sell: any;
-  // username: any;
+  seqnumber=['33','23','12','44','36','19']  // username: any;
+  // Sequencenumber: any;
   // email: any;
   
   constructor(
@@ -235,7 +236,9 @@ export class ViewpervComponent implements OnInit {
           this.secondamount=res['percentages']['percentage_2']
           this.thridamount=res['percentages']['percentage_3']
           this.fourthamount=res['percentages']['percentage_4']
-          console.log(this.count)
+          // this.Sequencenumber=res['data']['Sequence_number']
+
+          // console.log(this.Sequencenumber)
   
   
           console.log(this.totprice)
