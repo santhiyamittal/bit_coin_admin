@@ -128,7 +128,7 @@
                         <thead>
                             <tr>
                                 <th class="wd-lg-8p"><span>User</span></th>
-                                <!-- <th class="wd-lg-20p"><span></span></th> -->
+                                <th class="wd-lg-20p"><span>Mobile</span></th>
                                 <th class="wd-lg-20p"><span>Email</span></th>
                                 <th class="wd-lg-20p"><span>Status</span></th>
                                 <th class="wd-lg-20p"><span>Device</span></th>
@@ -146,9 +146,12 @@
                                     <img alt="avatar" class="rounded-circle avatar-md mr-2"
                                         src="../../assets/img/users/1.jpg">
                                 </td> -->
-                                <td>{{item['username'] == "" ? 'NA': item['username']}} </td>
+                                <td>{{item['username'] == null ? 'NA': item['username']}} </td>
                                 <td>
-                                   {{item['email']}}
+                                    {{item['mobile'] == null ? 'NA': item['mobile'] }}
+                                </td>
+                                <td>
+                                   {{item['email'] == null ? 'NA': item['email']}}  
                                 </td>
                                 <!-- <td class="label text-success d-flex">
                                              

@@ -66,19 +66,20 @@
                                            
                             
                                                
-                                                <div class="form-group text-left">
+                                                <div class="form-group text-left" >
                                                 <label>Mobile
                                                 </label>
-                                                                     <div class="input-group">
-                                                                        <div class="input-group-prepend"><span>
-                                                                            <select class="select" formControlName="code"
-                                                                            [ngClass]="{ 'is-invalid': submitted && mobileFormControl.code.errors }">
-                                                                            <option>Code</option>
-                                                                            <option *ngFor="let con of Country">{{con['dial_code']}}({{con['code']}})</option>
-                                                                        </select></span>
+                                                                     <div class="input-group"style="width: 20rem;">
+                                                                        <div class="input-group-prepend"> <ngx-intl-tel-input  [preferredCountries]="preferredCountries"
+                                                                            [enableAutoCountrySelect]="true"[searchCountryFlag]="true"
+                                                                            [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]" [selectFirstCountry]="false"
+                                                                            [selectedCountryISO]="CountryISO.UnitedArabEmirates" [maxLength]="15"
+                                                                            [phoneValidation]="true" [separateDialCode]="separateDialCode"
+                                                                            [numberFormat]="PhoneNumberFormat.National" name="phone" formControlName="mobile">
+                                                                          </ngx-intl-tel-input>
                                                                         </div>
-                                                    <input type="text" class="form-control" formControlName="mobile"
-                                                        [ngClass]="{ 'is-invalid': submitted && mobileFormControl.mobile.errors }" />
+                                                    <!-- <input type="text" class="form-control" formControlName="mobile"
+                                                        [ngClass]="{ 'is-invalid': submitted && mobileFormControl.mobile.errors }" /> -->
                                                     <div *ngIf="submitted && mobileFormControl.mobile.errors" class="invalid-feedback">
                                                         <div *ngIf="mobileFormControl.mobile.errors.required">mobile is required</div>
                                                         <div *ngIf="mobileFormControl.mobile.errors.mobile">mobile must be a valid number

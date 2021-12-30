@@ -1236,6 +1236,15 @@ export class AuthenticationComponent implements OnInit {
       "code": "ZW"
       }
       ]
+      separateDialCode = false;
+      SearchCountryField = SearchCountryField;
+      CountryISO = CountryISO;
+      PhoneNumberFormat = PhoneNumberFormat;
+      preferredCountries: CountryISO[] = [CountryISO.UnitedArabEmirates, CountryISO.India];
+      
+      changePreferredCountries() {
+        this.preferredCountries = [CountryISO.India, CountryISO.Canada];
+      }
   constructor(
     public toastr: ToastrService,
 
@@ -1264,15 +1273,7 @@ export class AuthenticationComponent implements OnInit {
     // document.getElementById('emailid').focus();
 this.mobileForm();
   }
-  separateDialCode = false;
-	SearchCountryField = SearchCountryField;
-	CountryISO = CountryISO;
-	PhoneNumberFormat = PhoneNumberFormat;
-	preferredCountries: CountryISO[] = [CountryISO.UnitedStates, CountryISO.UnitedKingdom];
-	
-	changePreferredCountries() {
-		this.preferredCountries = [CountryISO.India, CountryISO.Canada];
-	}
+ 
   get loginFormControl(){
     return this.loginForm.controls;
   }

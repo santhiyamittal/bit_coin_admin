@@ -26,6 +26,7 @@ export class HeaderComponent implements OnInit , AfterViewInit {
   role: any;
   username: any;
   userUnathorized: boolean;
+  public dark: boolean = this.layoutService.config.settings.layout_version == 'dark-only' ? true : false;
 
   constructor(
     private layoutService: LayoutService,
@@ -35,7 +36,7 @@ export class HeaderComponent implements OnInit , AfterViewInit {
     private router: Router,
     private routeTo: Router,
     public toastr: ToastrService,
-
+// public layout: LayoutService,
     public httpService: HttpService,
   ) {
     this.layoutSubscription = layoutService.changeEmitted.subscribe(
@@ -62,7 +63,10 @@ export class HeaderComponent implements OnInit , AfterViewInit {
   toggleSidebarNotification() {
     this.layoutService.emitSidebarNotifyChange(true);
   }
-
+  layoutToggle() {
+    this.dark = !this.dark;
+    this.layoutService.config.settings.layout_version = this.dark ? 'dark-only' : 'light';
+  }
   toggleSidebar(){
     if ((this.navServices.collapseSidebar = !this.navServices.collapseSidebar)) {
       document.querySelector('.main-body').classList.add('main-sidebar-hide');
@@ -103,7 +107,7 @@ export class HeaderComponent implements OnInit , AfterViewInit {
     // this.logoutUser();
   }
   logoutUser() {
-    // ////debugger
+    debugger
     if (
       localStorage.getItem("userid") != null ||
       localStorage.getItem("userid") != undefined

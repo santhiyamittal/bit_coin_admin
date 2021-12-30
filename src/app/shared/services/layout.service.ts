@@ -5,9 +5,27 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class LayoutService {
+  public config = {
+    settings: {
+      layout: 'Dubai',
+      layout_type: 'ltr',
+      layout_version: 'light-only',
+      sidebar_type: 'default-sidebar'
+    },
+    color: {
+      primary_color: '#7366ff', 
+      secondary_color: '#f73164'
+    }
+  }
+  constructor() {
+    if(this.config.settings.layout_type == 'rtl')
+  document.getElementsByTagName('html')[0].setAttribute('dir', this.config.settings.layout_type);
 
-  constructor() { }
+document.documentElement.style.setProperty('--theme-deafult', this.config.color.primary_color);
+document.documentElement.style.setProperty('--theme-secondary', this.config.color.secondary_color);
 
+   }
+  
   private emitChangeSource = new Subject<any>();
   changeEmitted = this.emitChangeSource.asObservable();
   emitChange(change: any){
