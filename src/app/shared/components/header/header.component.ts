@@ -148,6 +148,10 @@ this.router.navigateByUrl("pages/profile");
       this.router.navigateByUrl("pages/security");
 
     }
+    gotohome(){
+      this.router.navigateByUrl("/pages/notification");
+
+    }
   }
 
 

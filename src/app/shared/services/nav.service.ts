@@ -151,7 +151,11 @@ export class NavService implements OnDestroy{
         {
           path: 'pages/getlog', title: 'Log ', type: 'link', icon: 'fas fa-toolbox', 
         },
-        
+        {
+          path: 'pages/notification', title: 'Notification ', type: 'link', icon: 'fas fa-toolbox', 
+        }, {
+          path: 'pages/announcements', title: 'Announcements ', type: 'link', icon: 'fas fa-toolbox', 
+        },
       ]
     },
   

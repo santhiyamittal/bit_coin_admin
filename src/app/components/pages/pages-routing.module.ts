@@ -3,6 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthencationGuard } from 'src/app/shared/services/authencation.guard';
 import { AddbackendComponent } from './addbackend/addbackend.component';
 import { AddcreditComponent } from './addcredit/addcredit.component';
+import { AnnouncementsComponent } from './announcements/announcements.component';
+import { AnnouncementseditComponent } from './announcementsedit/announcementsedit.component';
+import { AnnouncementsviewComponent } from './announcementsview/announcementsview.component';
 import { BackendpageComponent } from './backendpage/backendpage.component';
 import { ChangepasspageComponent } from './changepasspage/changepasspage.component';
 import { ConstantpageComponent } from './constantpage/constantpage.component';
@@ -23,6 +26,7 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { GetlogComponent } from './getlog/getlog.component';
 import { GoogleAuthenticatorComponent } from './google-authenticator/google-authenticator.component';
 import { InvoiceComponent } from './invoice/invoice.component';
+import { NotificationComponent } from './notification/notification.component';
 import { PervdrawPdfComponent } from './pervdraw-pdf/pervdraw-pdf.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -208,6 +212,21 @@ const routes: Routes = [
       {
         path: 'removegoogleauth',
         component:RemovegoogleauthComponent
+      },
+      {
+        path: 'announcements',
+        component:AnnouncementsComponent
+      },
+      {
+        path: 'announcementsedit',
+        component:AnnouncementseditComponent
+      },{
+        path: 'announcementsview',
+        component:AnnouncementsviewComponent
+      },
+      {
+        path: 'notification',
+        component:NotificationComponent
       },
     ]
   }

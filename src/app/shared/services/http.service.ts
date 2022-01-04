@@ -12,7 +12,10 @@ import * as pako from "pako";
 export class HttpService {
 
   //LIVE
-  baseURL: string = "https://www.bitconia.com/api/v1/";
+  baseURL: string = "https://www.admin.bitconia.com/api/v1/";
+
+
+  // baseURL: string = "https://www.bitconia.com/api/v1/";
   headers: any = new HttpHeaders({ "Content-Type": "application/json" });
   // formheaders: any = new HttpHeaders({ "Content-Type": "multipart/form-data" });
  

@@ -68,9 +68,11 @@ import { TranscationPdfComponent } from './transcation-pdf/transcation-pdf.compo
 import { TranscationpenPdfComponent } from './transcationpen-pdf/transcationpen-pdf.component';
 import { TranscationcanPdfComponent } from './transcationcan-pdf/transcationcan-pdf.component';
 
+import { ClaimComponent } from './claim/claim.component';
+
 
 @NgModule({
-  declarations: [ProfileComponent, InvoiceComponent, PricingComponent, GalleryComponent, FaqsComponent, SuccessmessageComponent, DangermessageComponent, WarningmessageComponent, EmptypageComponent, ConstantpageComponent, ExtrapageComponent, SettingpageComponent, SystemsettingpageComponent, ChangepasspageComponent, EmailpageComponent, BackendpageComponent, CreditpageComponent, DocspageComponent, WithdrawpageComponent, QualificationpageComponent, DocumentpageComponent, GetlogComponent, DeletelogComponent, CreatewithdrawComponent, ViewwithdrawComponent, EditwithdrawComponent, AddcreditComponent, EditcreditComponent, EditbackendComponent, AddbackendComponent, ViewbackendComponent, ViewcreditComponent, SecuritypageComponent, GoogleAuthenticatorComponent, SmspageComponent, RemovegoogleauthComponent, PervdrawPdfComponent, WithdrawsucessPdfComponent, WithdrawpendPdfComponent, WithdrawcanPdfComponent, DepositcanPdfComponent, DepositpenPdfComponent, DepositsucessPdfComponent, TranscationPdfComponent, TranscationpenPdfComponent, TranscationcanPdfComponent],
+  declarations: [ProfileComponent, InvoiceComponent, PricingComponent, GalleryComponent, FaqsComponent, SuccessmessageComponent, DangermessageComponent, WarningmessageComponent, EmptypageComponent, ConstantpageComponent, ExtrapageComponent, SettingpageComponent, SystemsettingpageComponent, ChangepasspageComponent, EmailpageComponent, BackendpageComponent, CreditpageComponent, DocspageComponent, WithdrawpageComponent, QualificationpageComponent, DocumentpageComponent, GetlogComponent, DeletelogComponent, CreatewithdrawComponent, ViewwithdrawComponent, EditwithdrawComponent, AddcreditComponent, EditcreditComponent, EditbackendComponent, AddbackendComponent, ViewbackendComponent, ViewcreditComponent, SecuritypageComponent, GoogleAuthenticatorComponent, SmspageComponent, RemovegoogleauthComponent, PervdrawPdfComponent, WithdrawsucessPdfComponent, WithdrawpendPdfComponent, WithdrawcanPdfComponent, DepositcanPdfComponent, DepositpenPdfComponent, DepositsucessPdfComponent, TranscationPdfComponent, TranscationpenPdfComponent, TranscationcanPdfComponent, ClaimComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,
