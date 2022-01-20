@@ -31,7 +31,7 @@
 
                 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
                     <div class="row">
-                        <div class="col-md-6 col-sm-12">
+                        <!-- <div class="col-md-6 col-sm-12">
                             <label>First Name
                                 <span class="tx-danger">*</span>
                             </label>
@@ -43,8 +43,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-6 col-sm-12">
+                        </div> -->
+                        <!-- <div class="col-md-6 col-sm-12">
                             <label>Last Name
                                 <span class="tx-danger">*</span>
                             </label>
@@ -55,7 +55,7 @@
                                     <div *ngIf="loginFormControl.last_name.errors.required">First Name is required</div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-md-6 col-sm-12">
                             <label>User Name
                                 <span class="tx-danger">*</span>
@@ -98,25 +98,29 @@
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-12">
+                            <label> ConfirmPassword
+                                <span class="tx-danger">*</span>
+
+                            </label>
+                            <input type="password" formControlName="ConfirmPassword" placeholder="Enter the ConfirmPassword"
+                                class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && loginFormControl.ConfirmPassword.errors }" />
+                            <div *ngIf="submitted && loginFormControl.ConfirmPassword.errors" class="invalid-feedback">
+                                <div *ngIf="loginFormControl.ConfirmPassword.errors.required">ConfirmPassword is required</div>
+                                <div *ngIf="loginFormControl.ConfirmPassword.errors.minlength">ConfirmPassword must be at least 6
+                                    characters</div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-12">
+
                             <label>Mobile
                                 <span class="tx-danger">*</span>
 
                             </label>
                            
-                            <!-- <input type="text" formControlName="mobile"class="form-control" [ngClass]="{ 'is-invalid': submitted && loginFormControl.email.errors }" /> -->
-                            <div class="form-group">
-                                <!-- <ngx-intl-tel-input
-                                                [preferredCountries]="preferredCountries"
-                                                [enableAutoCountrySelect]="true"
-                                                [enablePlaceholder]="true"
-                                                [searchCountryFlag]="true"
-                                                [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
-                                                [selectFirstCountry]="false"
-                                                [selectedCountryISO]="CountryISO.UnitedArabEmirates"
-                                                [maxLength]="15"
-                                                [phoneValidation]="true" 
-                                                formControlName="mobile"
-                                                 > -->
+                            <!-- <div class="form-group">
+                                
                                                  <div class="input-group">
                                                     <div class="input-group-prepend"><span>
                                                         <select class="select" formControlName="code"
@@ -127,14 +131,24 @@
                                                     </div>
                                 <input type="text" class="form-control" formControlName="mobile"
                                     [ngClass]="{ 'is-invalid': submitted && loginFormControl.mobile.errors }" />
-                                <!-- </ngx-intl-tel-input> -->
                                 <div *ngIf="submitted && loginFormControl.mobile.errors" class="invalid-feedback">
                                     <div *ngIf="loginFormControl.mobile.errors.required">mobile is required</div>
                                     <div *ngIf="loginFormControl.mobile.errors.mobile">mobile must be a valid number
                                     </div>
                                 </div>
                             </div>
-                            </div>
+                            </div> -->
+
+                            <br>
+                                <ngx-intl-tel-input
+                                  [preferredCountries]="[CountryISO.UnitedArabEmirates, CountryISO.India]"
+                                  [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
+                                  [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+                                  [selectedCountryISO]="CountryISO.UnitedArabEmirates" [phoneValidation]="true" name="phone"
+                                  formControlName="mobile">
+                                </ngx-intl-tel-input>
+                              
+                            
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <label>Country
@@ -169,7 +183,6 @@
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <label>Zip code
-                                <span class="tx-danger">*</span>
                             </label>
                             <div class="form-group">
                                 <input type="text" formControlName="zip_code" class="form-control"
@@ -181,16 +194,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-sm-12">
+                        <!-- <div class="col-md-6 col-sm-12">
                             <label>Gender
-                                <!-- <span class="tx-danger">*</span> -->
                             </label>
                             <div class="form-group ">
-                                <!-- <input type="password" formControlName="gender" class="form-control" [ngClass]="{ 'is-invalid': submitted && loginFormControl.gender.errors }" />
-                            <div *ngIf="submitted && loginFormControl.gender.errors" class="invalid-feedback">
-                                <div *ngIf="loginFormControl.gender.errors.required">Zip code is required</div>
-                                <div *ngIf="loginFormControl.gender.errors.minlength">Zip code must be at least 6 characters</div>
-                            </div> -->
+                               
                                 <select class="select" formControlName="gender"
                                     [ngClass]="{ 'is-invalid': submitted && loginFormControl.gender.errors }">
                                     <option>Gender</option>
@@ -201,7 +209,7 @@
                                     <div *ngIf="loginFormControl.gender.errors.minlength">gender must be at fill</div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-md-6 col-sm-12">
                             <label>Address
                                 <span class="tx-danger">*</span>
@@ -215,19 +223,15 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-sm-12">
+                        <!-- <div class="col-md-6 col-sm-12">
                             <label>Address1
                             </label>
                             <div class="form-group">
                                 <input type="text" formControlName="address1" class="form-control"
                                     [ngClass]="{ 'is-invalid': submitted && loginFormControl.address1.errors }" />
-                                <!-- <div *ngIf="submitted && loginFormControl.address1.errors" class="invalid-feedback">
-                                    <div *ngIf="loginFormControl.address1.errors.required">address1 is required</div>
-                                    <div *ngIf="loginFormControl.address1.errors.minlength">address1 must be Entered
-                                    </div> -->
-                                <!-- </div> -->
+                               
                             </div>
-                        </div>
+                        </div> -->
 
                     </div>
 

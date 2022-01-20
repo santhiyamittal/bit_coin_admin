@@ -1238,6 +1238,8 @@ submitted = false;
     "code": "ZW"
     }
     ]
+  code: any;
+  phoneNumber: any;
 constructor(
   public toastr: ToastrService,
 
@@ -1277,9 +1279,10 @@ createForm() {
     'first_name':['', Validators.required],
     'last_name':['', Validators.required],
     'username':['', Validators.required],
-     'mobile':[" "],
+     'mobile':[" ", Validators.required],
     'email': ['', [Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
     'password': ['', [Validators.required, Validators.minLength(6)]],
+    'ConfirmPassword':['', [Validators.required, Validators.minLength(6)]],
     'dob': ['', [Validators.required, Validators.pattern(/^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/)]],
     'zip_code':['', [Validators.required, Validators.minLength(6)]],
     'code':['', Validators.required],
@@ -1303,16 +1306,26 @@ console.log(this.mobile);
 //   this.country =  idex['countryCode'];
 //   this.countrycode =  idex['dialCode'];
 // }
-console.log(this.country);
-console.log(this.countrycode);
+console.log(this.mobile);
+this.code = this.mobile;
+console.log( this.code['phone']);
+// this.phoneNumber=this.code['phone']
+
+    this.phoneNumber =  this.code['phone']['number'];
+    // this.country =  idex['countryCode'];
+    this.countrycode =  this.code['phone']['dialCode'];
+    
+
+    console.log( this.countrycode);
+    console.log( this.mobile);
   // 
   let jsonData = {
     first_name:this.loginForm.value.first_name,
     last_name:this.loginForm.value.last_name,
     username:this.loginForm.value.username,
-    mobile: this.mobile,
+    mobile: this.phoneNumber,
     dob:this.loginForm.value.dob,
-    country_code:this.loginForm.value.code,
+    country_code:this.countrycode,
     country:this.loginForm.value.country,
     zip_code:this.loginForm.value.zip_code,
     gender:this.loginForm.value.gender,

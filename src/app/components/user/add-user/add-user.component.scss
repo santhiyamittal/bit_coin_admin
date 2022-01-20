@@ -106,7 +106,7 @@
         z-index: 1;
     }
     .custom.ng-pristine.ng-valid.ng-touched{
-        padding-top: 0;
+        padding-top:0px;
     }
     .cus{
         cursor: pointer !important;
@@ -123,4 +123,8 @@
     width: 100%;
     height: 40px;
     border-radius: 8px;
+}
+.cust{
+width: 19rem;
+    height: 38px;
 }

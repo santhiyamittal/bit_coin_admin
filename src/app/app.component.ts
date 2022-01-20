@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserIdleService } from 'angular-user-idle';
 import { Title, Meta } from '@angular/platform-browser';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

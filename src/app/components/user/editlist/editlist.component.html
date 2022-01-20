@@ -80,7 +80,7 @@
 
             <div class="card-body">
                 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
-                        <label>First Name
+                        <!-- <label>First Name
                             <span class="tx-danger">*</span>
                         </label>
                         <div class="form-group text-left">
@@ -88,8 +88,8 @@
                     <div *ngIf="submitted && loginFormControl.firstname.errors" class="invalid-feedback">
                         <div *ngIf="loginFormControl.firstname.errors.required">First Name is required</div>
                     </div>
-                    </div>                 
-                    <label>Last Name
+                    </div>                  -->
+                    <!-- <label>Last Name
                         <span class="tx-danger">*</span>
                     </label>
                     <div class="form-group">
@@ -97,7 +97,7 @@
                 <div *ngIf="submitted && loginFormControl.lastname.errors" class="invalid-feedback">
                     <div *ngIf="loginFormControl.lastname.errors.required">First Name is required</div>
                 </div>
-                </div>
+                </div> -->
                 <label>User Name
                     <span class="tx-danger">*</span>
                 </label>
@@ -112,7 +112,7 @@
 
             </label>
             <div class="form-group">
-                            <input type="text" formControlName="Email"class="form-control" value={{Email}} [(ngModel)]="Email" [ngClass]="{ 'is-invalid': submitted && loginFormControl.Email.errors }" />
+                            <input type="text" formControlName="Email"class="form-control" value={{Email}} [(ngModel)]="Email"readonly [ngClass]="{ 'is-invalid': submitted && loginFormControl.Email.errors }" />
                             <div *ngIf="submitted && loginFormControl.Email.errors" class="invalid-feedback">
                                 <div *ngIf="loginFormControl.Email.errors.required">Email is required</div>
                                 <div *ngIf="loginFormControl.Email.errors.email">Email must be a valid email address</div>
@@ -128,25 +128,10 @@
                                 <div *ngIf="loginFormControl.password.errors.minlength">Password must be at least 6 characters</div>
                             </div> -->
 
-                                <label>Mobile
-                                    <span class="tx-danger">*</span>
-    
-                                </label>
+                              
                                
-                                <!-- <input type="text" formControlName="mobile"class="form-control" [ngClass]="{ 'is-invalid': submitted && loginFormControl.email.errors }" /> -->
-                                <div class="form-group">
-                                    <!-- <ngx-intl-tel-input
-                                                    [preferredCountries]="preferredCountries"
-                                                    [enableAutoCountrySelect]="true"
-                                                    [enablePlaceholder]="true"
-                                                    [searchCountryFlag]="true"
-                                                    [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
-                                                    [selectFirstCountry]="false"
-                                                    [selectedCountryISO]="CountryISO.UnitedArabEmirates"
-                                                    [maxLength]="15"
-                                                    [phoneValidation]="true" 
-                                                    formControlName="mobile"
-                                                     > -->
+                                <!-- <div class="form-group">
+                                    
                                                      <div class="input-group">
                                                         <div class="input-group-prepend"><span>
                                                             <select class="select" formControlName="code"
@@ -157,7 +142,6 @@
                                                         </div>
                                     <input type="text" class="form-control" formControlName="mobile"[(ngModel)]="mobile"
                                         [ngClass]="{ 'is-invalid': submitted && loginFormControl.mobile.errors }" />
-                                    <!-- </ngx-intl-tel-input> -->
                                     <div *ngIf="submitted && loginFormControl.mobile.errors" class="invalid-feedback">
                                         <div *ngIf="loginFormControl.mobile.errors.required">mobile is required</div>
                                         <div *ngIf="loginFormControl.mobile.errors.mobile">mobile must be a valid number
@@ -165,7 +149,17 @@
                                     </div>
                                 </div>
                                 
-                            </div>
+                            </div> -->
+                            <label>Mobile
+                                <span class="tx-danger">*</span>
+
+                            </label>
+<div class="form-group">
+
+    <input type="text" formControlName="mobile"class="form-control" value={{mobile}} [(ngModel)]="mobile" readonly [ngClass]="{ 'is-invalid': submitted && loginFormControl.mobile.errors }" />
+  
+    </div>
+                            
                                     <label>Date of Birth
                                         <!-- <span class="tx-danger">*</span> -->
                                     </label>
@@ -179,8 +173,8 @@
                                 <label>country
                                 </label>
                                 <div class="form-group ">
-                                <select  class="select sel "  [(ngModel)]="country"formControlName="country"  [ngClass]="{ 'is-invalid': submitted && loginFormControl.gender.errors }">
-                                    <!-- <option [ngValue]="country">  </option> -->
+                                <select  class="select sel "  [(ngModel)]="country" formControlName="country"  [ngClass]="{ 'is-invalid': submitted && loginFormControl.gender.errors }">
+                                    <option [(ngModel)]="country"> </option>
                                     <option *ngFor="let con of Country " [ngValue]="con['name']">{{con['name']}}</option>
                                   </select>
                                   <div *ngIf="submitted && loginFormControl.country.errors" class="invalid-feedback">
@@ -189,7 +183,6 @@
                                 </div>
                                 </div>
                                 <label>Zip code
-                                    <span class="tx-danger">*</span>
                                 </label>
                                 <div class="form-group">
                                 <input type="text" formControlName="zipcode" class="form-control"value={{zipcode}} [(ngModel)]="zipcode"  [ngClass]="{ 'is-invalid': submitted && loginFormControl.zipcode.errors }" />
@@ -198,15 +191,10 @@
                                     <div *ngIf="loginFormControl.zipcode.errors.minlength">Zip code must be at least 6 characters</div>
                                 </div>
                                 </div>
-                               <label>gender
-                                <!-- <span class="tx-danger">*</span> -->
+                               <!-- <label>gender
                             </label>
                             <div class="form-group ">
-                            <!-- <input type="password" formControlName="gender" class="form-control" [ngClass]="{ 'is-invalid': submitted && loginFormControl.gender.errors }" />
-                            <div *ngIf="submitted && loginFormControl.gender.errors" class="invalid-feedback">
-                                <div *ngIf="loginFormControl.gender.errors.required">Zip code is required</div>
-                                <div *ngIf="loginFormControl.gender.errors.minlength">Zip code must be at least 6 characters</div>
-                            </div> -->
+                            
                             <select  class="select sel " [(ngModel)]="gender"formControlName="gender"  [ngClass]="{ 'is-invalid': submitted && loginFormControl.gender.errors }">
                                 <option *ngFor="let gen of Gender"[ngValue]="gen['name']">{{gen['name']}}</option>
                               </select>
@@ -214,7 +202,7 @@
                                 <div *ngIf="loginFormControl.gender.errors.required">gender is required</div>
                                 <div *ngIf="loginFormControl.gender.errors.minlength">gender must be at fill</div>
                             </div>
-                            </div>
+                            </div> -->
                                 <label>address
                                     <!-- <span class="tx-danger">*</span> -->
                                 </label>
@@ -225,16 +213,12 @@
                                     <div *ngIf="loginFormControl.address.errors.minlength">address must be at fill</div>
                                 </div>
                                 </div>
-                                <label>address1
-                                    <!-- <span class="tx-danger">*</span> -->
+                                <!-- <label>address1
                                 </label>
                                 <div class="form-group">
                                 <input type="text" formControlName="address1" class="form-control" value={{address1}} [(ngModel)]="address1" />
-                                <!-- <div *ngIf="submitted && loginFormControl.address1.errors" class="invalid-feedback">
-                                    <div *ngIf="loginFormControl.address1.errors.required">address is required</div>
-                                    <div *ngIf="loginFormControl.address1.errors.minlength">address must be at fill</div>
+                               
                                 </div> -->
-                                </div>
                             <div class="modal-footer">
                                 <button class="btn ripple btn-primary" type="button" (click)="successAlert()">Save changes</button>
                                 <button type="button" class="btn ripple btn-secondary" (click)="closeModelBox()">Close</button>

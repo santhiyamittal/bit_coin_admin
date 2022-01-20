@@ -39,6 +39,7 @@ submitted:boolean=false;
   item: any[];
   delete: any=[];
   del: any;
+  mobile: any;
   // username: any;
   // email: any;
 
@@ -221,10 +222,19 @@ submitted:boolean=false;
       this.data = this.data.filter(res =>{
         const name=res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase());
         const email=res.email.toLowerCase().includes(this.email.toLowerCase())
-        return (name+email);
+        const mobile=res.mobile.toLowerCase().includes(this.mobile.toLowerCase())
+
+        return (name+email+mobile);
+
+
       })
     }
   }
+  // searchuser(value: string){
+  //   this.data = this.data.filter((val) => val.name.toLowerCase().includes(value));
+
+  // }
+
   
   deleteuser(){
     // ////debugger
