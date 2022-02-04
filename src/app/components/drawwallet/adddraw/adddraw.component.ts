@@ -33,7 +33,7 @@ export class AdddrawComponent implements OnInit {
   fourthprice:any;
   thridprice:any;
 index:any;
-  drawid:number;
+  drawid:any;
   touched: boolean;
   draw: any;
 drawname:string;
@@ -46,6 +46,10 @@ endDate = new FormControl(new Date());
   percentage_3: any;
   percentage_4: any;
   cold_wallet_percentage: any;
+  errorMessage:any;
+  draw1: number;
+  drawnum: number;
+  res: any;
   constructor(
     public toastr: ToastrService,
 
@@ -120,10 +124,12 @@ this.getnxtdraw();
     this.loginForm = this.formBuilder.group({
 
       'draw':['', Validators.required],
+      'draw1':['', Validators.required],
       // 'username':['', Validators.required],
+      'drawtime': ['', [Validators.required,this.dateRangeValidator]],
       'StartTime': ['', [Validators.required,this.dateRangeValidator]],
       'EndTime':['', [Validators.required,this.dateRangeValidator]],
-      // 'winningprice': ['', Validators.required],
+      'winningprice': ['', Validators.required],
       'price':['', Validators.required],
       'coldprice':['', [Validators.required, Validators.maxLength(8)]],
       'firstprice':['', Validators.required],
@@ -160,17 +166,19 @@ this.getnxtdraw();
     this.submitted = true;
   
     let jsonData = {
-      // drawid:this.loginForm.value.draw,
       name:this.loginForm.value.draw,
-      // winning_price:this.loginForm.value.winningprice,
-      price:this.loginForm.value.price,
+      winning_price:this.loginForm.value.winningprice,
       start_time:this.loginForm.value.StartTime,
       end_time:this.loginForm.value.EndTime,
+      drawtime:this.loginForm.value.EndTime,
       percentage_1:this.loginForm.value.firstprice,
       percentage_2:this.loginForm.value.secondprice,
       percentage_3:this.loginForm.value.thridprice,
       percentage_4:this.loginForm.value.fourthprice,
       cold_wallet_percentage:this.loginForm.value.coldprice,
+      price:this.loginForm.value.price,
+      drawid:this.loginForm.value.draw1,
+     
     }
     this.StartTime =this.loginForm.value.StartTime
     this.EndTime =this.loginForm.value.EndTime
@@ -183,10 +191,8 @@ this.getnxtdraw();
     this.cold_wallet_percentage=this.loginForm.value.coldprice
     if (this.StartTime <= this.EndTime && this.price!=null && this.percentage_1!=null  && this.percentage_2!=null && this.percentage_3!=null && this.percentage_4!=null && this.cold_wallet_percentage!=null ) {
   
-    this.loader.start();
     this.httpService.getcreatedraw(jsonData).subscribe(res => {
 
-      this.loader.stop();
       // this.appComponent.startWatching();
       if (res['success'] == true) {
         this.router.navigateByUrl('drawwallet/Drawwallet')
@@ -198,28 +204,41 @@ this.getnxtdraw();
           positionClass: 'toast-bottom-right', closeButton: true, timeOut: 5000
         });
       }
-    },
-    (err) => {
-      // this.loader.stop();
-      this.toastr.error("Please fill the Details");
-      // this.httpService.errorCallBack(false);
     });
+//     (error) => {                              //Error callback
+         
+//           this.errorMessage = error.error.message;
+//       console.log(this.errorMessage)
+// this.httpService.toastr.error(this.errorMessage, '', {
+//         positionClass: 'toast-bottom-right', closeButton: true, timeOut:5000
+//       });
+//    });
+this.httpService.toastr.success('Draw Created', '', {
+  positionClass: 'toast-bottom-right', closeButton: true, timeOut: 2000
+});
+this.router.navigateByUrl('drawwallet/Drawwallet')
+
   }
   }
   getnxtdraw() {
-    //  //debugger
+    
     this.httpService.getnextdraw().subscribe((res: any) => {
       console.log(res['data'])
       var res= res['data']
+        this.drawnum=parseInt(res.split("#")[1]);
+        this.drawnum=this.drawnum+1;
+    this.draw1=this.drawnum
+            this.draw ='Draw#' +this.drawnum
+    
+        // this.drawname="Draw#"
+        // this.drawname=this.drawname+this.drawid
+                  console.log(this.draw)
       
-      this.drawid=parseInt(res.split("#")[1]);
-    this.drawid=this.drawid+1;
+                  console.log(this.draw1)
 
-        this.draw ='Draw#' +this.drawid
+      
 
-    // this.drawname="Draw#"
-    // this.drawname=this.drawname+this.drawid
-              console.log(this.draw)
+
       
   
 

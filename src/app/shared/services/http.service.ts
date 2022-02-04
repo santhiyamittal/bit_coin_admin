@@ -378,7 +378,7 @@ errorCount: number;
     });
   }
   getdrawupcomlist(){
-    return this.http.get(this.baseURL + this.getdrawupcom, {
+    return this.http.get(this.baseURL + this.viewlist, {
       headers: this.getAuthHeaders(),
     });
   }

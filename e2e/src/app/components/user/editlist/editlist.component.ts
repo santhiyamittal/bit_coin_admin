@@ -16,18 +16,15 @@ import { SearchCountryField, CountryISO } from 'ngx-intl-tel-input';
 export class EditlistComponent implements OnInit {
   Gender: any = [  {
     "name": "Male",
-    "dial_code": "+93",
-    "code": "AF"
+ 
     },
     {
     "name": "Female",
-    "dial_code": "+358",
-    "code": "AX"
+   
     },
     {
     "name": "Other",
-    "dial_code": "+355",
-    "code": "AL"
+   
     },
   ]
   public loginForm: FormGroup;

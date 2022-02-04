@@ -32,23 +32,37 @@
                    <div class="col-md-6 col-sm-12">
                 <label>Draw ID <span class="text-danger">*</span></label>
                 <div class="form-group ">
-                    <input type="text"formControlName="draw" [(ngModel)]="draw"
+                    <input type="text"formControlName="draw1" [(ngModel)]="draw1"
                    class="form-control"disabled >
                     </div>
                         </div> 
                     <div class="col-md-6 col-sm-12">
                  
-        <!-- <label>Name
+        <label>Name
             <span class="tx-danger">*</span>
-        </label> -->
-        <!-- <div class="form-group" >
-        <input type="text" formControlName="username" class="form-control" 
-            [ngClass]="{ 'is-invalid': submitted && loginFormControl.username.errors }" />
-        <div *ngIf="submitted && loginFormControl.username.errors" class="invalid-feedback">
-            <div *ngIf="loginFormControl.username.errors.required">username is required</div>
-            <div *ngIf="loginFormControl.username.errors.minlength">username must be Entered</div>
+        </label>
+         <div class="form-group" >
+        <input type="text" formControlName="draw" class="form-control" [(ngModel)]="draw"disabled
+            [ngClass]="{ 'is-invalid': submitted && loginFormControl.draw.errors }" />
+        <div *ngIf="submitted && loginFormControl.draw.errors" class="invalid-feedback">
+            <div *ngIf="loginFormControl.draw.errors.required">drawName is required</div>
+            <div *ngIf="loginFormControl.draw.errors.minlength">drawname must be Entered</div>
         </div>
-            </div> -->
+            </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+
+                <label> Winning Price
+                    <span class="tx-danger">*</span>
+                </label>
+                <div class="form-group">
+                    <input type="number" formControlName="winningprice" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && loginFormControl.winningprice.errors }" />
+                    <div *ngIf="submitted && loginFormControl.winningprice.errors" class="invalid-feedback">
+                        <div *ngIf="loginFormControl.winningprice.errors.required">winning price is required</div>
+                        <div *ngIf="loginFormControl.winningprice.errors.minlength">winning price must be Entered</div>
+                    </div>
+                </div>
             </div>
                     <div class="col-md-6 col-sm-12">
 
@@ -136,7 +150,20 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-6 col-sm-12">
 
+                        <label>Draw Time
+                            <span class="tx-danger">*</span>
+                        </label>
+                        <div class="form-group" >
+                            <input type="datetime-local" min="today"  formControlName="drawtime" class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && loginFormControl.drawtime.errors }" />
+                            <div *ngIf="submitted && loginFormControl.drawtime.errors" class="invalid-feedback">
+                                <div *ngIf="loginFormControl.drawtime.errors.required">Drawtime is required</div>
+                                <div  *ngIf="loginForm.invalid">Please add a valid from and to date</div >
+                                </div>
+                        </div>
+                    </div>
                     <div class="col-md-6 col-sm-12">
 
                         <label>Start Time
@@ -172,7 +199,7 @@
 
                 <div class="row1">
                     <div class="col-sm-12 text-right m-t-20">
-                        <button type="submit"(click)="addfunction()"class="btn btn-primary">Save</button>
+                        <button type="submit"class="btn btn-primary">Save</button>
                     </div>
                 </div>
             </form>
