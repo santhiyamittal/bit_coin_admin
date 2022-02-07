@@ -49,7 +49,7 @@ export class DashboardComponent implements OnInit {
   }
 
    ngOnInit(): void {
-    let countDown = new Date('Jan 30, 2022, 9:35:46').getTime();
+    let countDown = new Date('Feb 16, 2022, 9:35:46').getTime();
     let time = setInterval(()=>{
       let now = new Date().getTime();
       let distance = countDown - now;
