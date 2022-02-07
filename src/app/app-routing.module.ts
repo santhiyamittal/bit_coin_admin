@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthenticationComponent } from './authentication/authentication.component';
+import { ConnectwalletComponent } from './connectwallet/connectwallet.component';
 import { HoriFullLayoutComponent } from './shared/layouts-horizontal/hori-full-layout/hori-full-layout.component';
 import { ContentLayoutComponent } from './shared/layouts/content-layout/content-layout.component';
 import { ErrorLayoutComponent } from './shared/layouts/error-layout/error-layout.component';
@@ -13,6 +14,8 @@ const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   
   { path: 'login', component: AuthenticationComponent },
+  { path: 'connect', component: ConnectwalletComponent },
+
   { path: '', component: FullLayoutComponent, children: Full_Content_Routes },
   // { path: '', component: HoriFullLayoutComponent, children: Full_Content_Routes },
   { path: '', component: ContentLayoutComponent, children: Content_Routes },

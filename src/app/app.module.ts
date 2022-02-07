@@ -18,6 +18,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { UserIdleModule } from 'angular-user-idle';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatTabsModule } from '@angular/material/tabs';
+import { ConnectwalletComponent } from './connectwallet/connectwallet.component';
 
 // import { BnNgIdleService } from 'bn-ng-idle'; // import bn-ng-idle service
 
@@ -26,6 +27,7 @@ import { MatTabsModule } from '@angular/material/tabs';
   declarations: [
     AppComponent,
     AuthenticationComponent,
+    ConnectwalletComponent,
   ],
   imports: [
     BrowserModule,
