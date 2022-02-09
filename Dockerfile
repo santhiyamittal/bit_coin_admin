@@ -1,16 +1,15 @@
-FROM node:12.22.1 as build
+FROM node:12.22.1
 
 
-WORKDIR /usr/local/app
+WORKDIR /usr/src/app
 
-COPY ./ /usr/local/app/
+RUN npm ci
 
+RUN npm install -g @angular/cli:11.2.14
+
+COPY package.json .
 RUN npm install
-
-RUN npm run build
-
-FROM nginx:latest
-
-COPY --from=build /usr/local/app/dist/sample-angular-app /usr/share/nginx/html
+COPY . .
+CMD ["ng", "serve", "-o"]
 
 EXPOSE 80
