@@ -9,7 +9,7 @@ RUN npm install
 
 COPY . .
 
-CMD /usr/src/app/node-modules/.bin/ng serve --host 0.0.0.0 --disableHostCheck
+CMD ng serve --host 0.0.0.0
 
 EXPOSE 4200
 
