@@ -1,15 +1,13 @@
 FROM node:12.22.1
 
-
 WORKDIR /usr/src/app
 
-RUN npm ci
+COPY package*.json .
 
-RUN npm install -g @angular/cli -y
+RUN npm install 
 
-COPY package.json .
-RUN npm install
 COPY . .
-CMD ["ng", "serve", "-o"]
 
-EXPOSE 80
+CMD /usr/src/app/node-modules/.bin/ng serve --host 0.0.0.0 --disableHostCheck
+
+
