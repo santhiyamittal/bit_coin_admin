@@ -9,5 +9,5 @@ RUN npm install
 
 COPY . .
 
-CMD ["npm" start"]
+CMD ng serve --host 0.0.0.0
 
